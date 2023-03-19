@@ -1,10 +1,10 @@
 public enum Color {
-Green,
-Pink,
-Blue,
-LightBlue,
-White,
-Yellow,
-Grey, //Grey caselle corrispondenti a tessere prese
-Black; //Caselle Black irraggiungibili della plancia iniziale  
+GREEN,
+PINK,
+BLUE,
+LIGHTBLUE,
+WHITE,
+YELLOW,
+GREY, //Grey caselle corrispondenti a tessere prese
+BLACK; //Caselle Black irraggiungibili della plancia iniziale
 }
