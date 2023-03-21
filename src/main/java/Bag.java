@@ -5,23 +5,20 @@ public class Bag {
     //Costrutttore di Bag come array ordinato di Slot (l'estrazione randomica è lasciata al metodo Refill di Dashboard)
     public Bag () {
 
-        int i = 0;
-
         inBag = new Slot[132];
 
-        for (i = 0; i <132; i ++) {
-            inBag[i] = new  Slot();
-            inBag[i].setColore (i % 6);
-            inBag[i].setCatchable (true);
+        for (int i = 0; i < 132; i ++) {
+
+            switch (i % 6) {
+                case 0: inBag[i] = new Slot(Color.GREEN);
+                case 1: inBag[i] = new Slot(Color.PINK);
+                case 2: inBag[i] = new Slot(Color.BLUE);
+                case 3: inBag[i] = new Slot(Color.LIGHTBLUE);
+                case 4: inBag[i] = new Slot(Color.WHITE);
+                case 5: inBag[i] = new Slot(Color.YELLOW);
+            }
+
+            inBag[i].setCatchable (false);
         }
-    }
-
-    //Get e Set degli attributi privati
-    public Slot[] getInBag() {
-        return inBag;
-    }
-
-    public void setInBag(Slot[] inBag) {
-        this.inBag = inBag;
     }
 }
