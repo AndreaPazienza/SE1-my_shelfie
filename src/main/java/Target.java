@@ -26,4 +26,10 @@ public class Target {
     public void setTile(Color color) {
         this.tile = color;
     }
+
+    public Target (Color c, int x, int y){
+        this.PosX = x;
+        this.PosY = y;
+        this.tile = c;
+    }
 }
