@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="813fcbd6-ede9-43b7-9c1a-4ab24a26f419" name="Changes" comment="Classe slot">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Color (aggiunta randomizer)&#10;Update PersonalGoal e Target (aggiunta costruttore)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,7 @@
     </option>
   </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
