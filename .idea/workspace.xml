@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="813fcbd6-ede9-43b7-9c1a-4ab24a26f419" name="Changes" comment="Classe slot">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
+    <list default="true" id="813fcbd6-ede9-43b7-9c1a-4ab24a26f419" name="Changes" comment="Classe Dashboard">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +35,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -58,7 +62,8 @@
       <workItem from="1679345209912" duration="51000" />
       <workItem from="1679345282573" duration="5000" />
       <workItem from="1679345325809" duration="726000" />
-      <workItem from="1679348014458" duration="1403000" />
+      <workItem from="1679348014458" duration="2666000" />
+      <workItem from="1679406462705" duration="275000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -67,7 +72,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679345408010</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Classe Dashboard">
+      <created>1679403630856</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679403630856</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Classe Dashboard">
+      <created>1679403654845</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679403654845</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -86,6 +105,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Classe slot" />
-    <option name="LAST_COMMIT_MESSAGE" value="Classe slot" />
+    <MESSAGE value="Classe Dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Classe Dashboard" />
   </component>
 </project>
