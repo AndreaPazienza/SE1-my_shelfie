@@ -7,7 +7,7 @@ public class Bag {
 
         inBag = new Slot[132];
 
-        for (int i = 0; i < 132; i ++) {
+        for (int i = 0; i < inBag.length; i ++) {
 
             switch (i % 6) {
                 case 0: inBag[i] = new Slot(Color.GREEN);
@@ -16,6 +16,15 @@ public class Bag {
                 case 3: inBag[i] = new Slot(Color.LIGHTBLUE);
                 case 4: inBag[i] = new Slot(Color.WHITE);
                 case 5: inBag[i] = new Slot(Color.YELLOW);
+            }
+
+            switch (i / 6) {
+                case 0: inBag[i].setType(Type.TYPE1);
+                case 1: inBag[i].setType(Type.TYPE2);
+                case 2: inBag[i].setType(Type.TYPE3);
+                case 3: inBag[i].setType(Type.TYPE4);
+                case 4: inBag[i].setType(Type.TYPE5);
+                case 5: inBag[i].setType(Type.TYPE6);
             }
 
             inBag[i].setCatchable (false);
