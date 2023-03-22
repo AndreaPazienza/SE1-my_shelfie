@@ -1,5 +1,6 @@
 public class Slot {
     private Color color;
+    private Type type;
     private boolean catchable;
 
     public Slot(Color color){
@@ -8,6 +9,10 @@ public class Slot {
 
     public boolean isCatchable() {
         return catchable;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
     }
 
     public void setCatchable(boolean catchable) {
@@ -21,5 +26,6 @@ public class Slot {
     public Color getColor() {
         return color;
     }
+
 }
 
