@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Player {
     public String nickname;
     private int orderInTurn;
-    private int score;
+    private static int score;
     private PersonalShelf shelf;
     private boolean chair;
 
@@ -13,7 +13,7 @@ public class Player {
         return orderInTurn;
     }
 
-    public int getScore() {
+    public static int getScore() {
         return score;
     }
 
@@ -52,8 +52,8 @@ public class Player {
         this.shelf = shelf;
     }
 
-    public slot[] selectCard (Dashboard dashboard) {
-        slot[] selectedCards = new slot[3];
+    public Slot[] selectCard (Dashboard dashboard) {
+        Slot[] selectedCards = new Slot[3];
         int i = 0;
         int x = 0;
         int y = 0;
@@ -64,19 +64,19 @@ public class Player {
                 System.out.println("Scegli la tessera da prendere (inserire le coordinate): x = ");
                 Scanner scanner = new Scanner(System.in);
                 x = scanner.nextInt();
-                if (x > 6 || x < 0) {
+                if (x > this.shelf.N_ROWS || x < 0) {
                     System.out.println("La posizione scelta non esiste!");
                 }
-            } while (x > 6 || x < 0);
+            } while (x > this.shelf.N_ROWS|| x < 0);
             do {
                 System.out.println("y = ");
                 Scanner scanner = new Scanner(System.in);
                 y = scanner.nextInt();
-                if (y < 0 || y > 5) {
+                if (y < 0 || y > this.shelf.N_COLUMN) {
                     System.out.println("La posizione scelta non esiste!");
                 }
-            } while (y < 0 || y > 5);
-            if (dashboard[x][y].catchable) {  //selezione vera e propria
+            } while (y < 0 || y > this.shelf.N_COLUMN);
+            if (dashboard[x][y].isCatchable) {  //selezione vera e propria
                 selectedCards[i] = dashboard[x][y];
                 System.out.println("Vuoi scegliere altre tessere? si o no?");
                 Scanner scanner = new Scanner(System.in);
@@ -100,7 +100,7 @@ public class Player {
         int j = 0;
         int realLength = 0;
         for(int k = 0;k < (selectedCards.length-1);k++){
-            if(selectedCards[i].getColor().notEquals(GREY)){
+            if(selectedCards[i].getColor().notEquals(Color.GREY)){
                 realLength++;        //lunghezzaReale serve perchè in ingressi sarà dato un array di 3 slot
             }                            //che non sempre sarà pieno;
         }
@@ -126,6 +126,11 @@ public class Player {
         }
     }
 
+    public int sumPoints(int p){
+        int points = Player.getScore()+p;
+        return points;
+    }
+
     public int checkScore(){
         int points = 0;
         int pgoalPoints = pgoal.AssignPoint(shelf);
@@ -135,5 +140,12 @@ public class Player {
 
         points = pgoalPoints+sgoal1Points+sgoal2Points+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
         return points;
+    }
+
+    public Player(String nick){
+        this.nickname = nick;
+        this.score = 0;
+        this.shelf = new PersonalShelf();
+        this.pgoal = new PersonalGoal();
     }
 }
