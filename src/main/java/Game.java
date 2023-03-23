@@ -1,21 +1,22 @@
+import COMMONGOAL.CommonGoal;
+
 public class Game {
 
-    private int Nplayers;
+    protected static int Nplayers;
     private boolean gameOn;
     private Player[] player;
-    private Dashboard table;                            //Manca dashboard tra le classi
+    private Dashboard table;
     private Bag bag;
     private CommonGoal commonGoal;
 
-    //Costruttore della partita che a sua volta costruisce la Dashboard passando
-    public Game () {
+    //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
+    public Game (int n) {
 
-        Nplayers = 0;
+        Nplayers = 1;
         gameOn = true;
         player = new Player[4];
-        table = new Dashboard();                        //Problema relativo al costruttore di Dashboard (numero dei giocatori)
+        table = new Dashboard(n);
         bag = new Bag();
-        commonGoal = new CommonGoal();
     }
 
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
@@ -24,67 +25,19 @@ public class Game {
         this.Nplayers ++;
     }
 
-    //
+    //Selezione, ordinamento ed inserimento delle Slot
     public void PlayerOnStage() {
         //Da definire
     }
 
-    //
+    //Set di grigio sulle tessere prese e controlla se ci sono altre mosse, passaggio di turno al giocatore successivo
     public void updateTurn() {
         //Da definire
     }
 
-    //
+    //Viene decretato il vincitore (cerca massimo)
     public void FinalScore() {
         //Da definire
     }
 
-    //Get e Set degli attributi privati
-    public int getNplayers() {
-        return Nplayers;
-    }
-
-    public boolean isGameOn() {
-        return gameOn;
-    }
-
-    public Player[] getPlayer() {
-        return player;
-    }
-
-    public Dashboard getTable() {
-        return table;
-    }
-
-    public Bag getBag() {
-        return bag;
-    }
-
-    public CommonGoal getCommonGoal() {
-        return commonGoal;
-    }
-
-    public void setNplayers(int nplayers) {
-        Nplayers = nplayers;
-    }
-
-    public void setGameOn(boolean gameOn) {
-        this.gameOn = gameOn;
-    }
-
-    public void setPlayer(Player[] player) {
-        this.player = player;
-    }
-
-    public void setTable(Dashboard table) {
-        this.table = table;
-    }
-
-    public void setBag(Bag bag) {
-        this.bag = bag;
-    }
-
-    public void setCommonGoal(CommonGoal commonGoal) {
-        this.commonGoal = commonGoal;
-    }
 }
