@@ -2,11 +2,12 @@ import java.util.Random;
 
 public class PersonalGoal {
     private Target[] goal;
+    private static final int N_GOALS = 6;
 
     public int AssignPoint(PersonalShelf shelf) { //dubbio: devo passare shelf??
         int counter = 0;
         int points = 0;
-        for (int i = 0; i < 6; i++) {            //nel for faccio i confronti; counter mi tiene traccia del numero
+        for (int i = 0; i < N_GOALS; i++) {            //nel for faccio i confronti; counter mi tiene traccia del numero
             int x = goal[i].getPosX();           //di confronti passati
             int y = goal[i].getPosY();
             Color col = goal[i].getTile();
@@ -33,13 +34,13 @@ public class PersonalGoal {
         return points;
     }
 
-    public PersonalGoal(Target[] obj) {
-        Target[] pgoal = new Target[6];
+    public PersonalGoal() {
+        Target[] pgoal = new Target[N_GOALS];
         Random random = new Random();
-        for(int i = 0; i < 6; i++){
+        for(int i = 0; i < N_GOALS; i++){
             int x = random.nextInt(6);      //genero randomicamente ogni coordinata e colore dell'obbiettivo
             int y = random.nextInt(5);
-            Color c = Color.randomColor();
+            Color c = Color.generateRandomColor();
             pgoal[i] = new Target(c, x, y);
         }
     }
