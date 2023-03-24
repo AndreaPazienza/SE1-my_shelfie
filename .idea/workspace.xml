@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java (aggiunta metodo get della singola slot)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Color.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
@@ -68,7 +69,7 @@
       <workItem from="1679407946293" duration="5053000" />
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
-      <workItem from="1679665819121" duration="5513000" />
+      <workItem from="1679665819121" duration="10221000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -98,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679672175409</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update PersonalShelf.java (aggiunta metodo get della singola slot)">
+      <created>1679673521553</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679673521553</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +128,7 @@
     <MESSAGE value="Update Player.java" />
     <MESSAGE value="Update Player.java, PersonalGoal.java, PersonalShelf.java&#10;(eliminazione costanti, creazione costruttori, eliminazione errori)" />
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
+    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
   </component>
 </project>
