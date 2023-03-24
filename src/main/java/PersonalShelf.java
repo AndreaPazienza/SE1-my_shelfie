@@ -35,6 +35,11 @@ public class PersonalShelf {
         }
         return tPoints;
     }
+
+    public Slot getSingleSlot(int x, int y){
+        return shelf[x][y];
+    }
+
     public int checkAdjacentSlot(boolean[][] visited, int x, int y){
         visited[x][y] = true; //marko la tessera che ho visitato
         int count = 1;
