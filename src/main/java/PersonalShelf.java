@@ -18,6 +18,56 @@ public class PersonalShelf {
         return itsFull;
     }
 
+    public int calculatePoints(){
+        int tPoints = 0;
+        int adiacentSlot = 0;
+        boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
+        for(int i = 0; i < N_ROWS; i++){
+            for(int j = 0; i < N_COLUMN; i++){
+                if(this.shelf[i][j] != null && !visited[i][j]){
+                    adiacentSlot = checkAdjacentSlot(visited, i, j);
+                    if(adiacentSlot >= 3) {
+                        int points = calculatePointsForAdiacentSlot(adiacentSlot);
+                        tPoints += points;
+                    }
+                }
+            }
+        }
+        return tPoints;
+    }
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){
+        visited[x][y] = true; //marko la tessera che ho visitato
+        int count = 1;
+        Color color = this.shelf[x][y].getColor(); //mi salvo il colore della tessera che devo controllare
+        //controllo le tessere adiacenti: se hanno lo stesso colore e non sono markate, incremento count
+        if(x > 0 && this.shelf[x-1][y] != null && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
+            count += checkAdjacentSlot(visited, x-1, y);
+        }
+        if(x < N_ROWS-1 && this.shelf[x+1][y] != null && color == this.shelf[x+1][y].getColor()&&!visited[x+1][y]){
+            count += checkAdjacentSlot(visited, x+1, y);
+        }
+        if(y > 0 && this.shelf[x][y-1] != null && color == this.shelf[x][y-1].getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
+            count += checkAdjacentSlot(visited, x, y-1);
+        }
+        if(y < N_COLUMN && this.shelf[x][y+1] != null && color == this.shelf[x][y+1].getColor()&&!visited[x][y+1]){
+            count += checkAdjacentSlot(visited, x, y+1);
+        }
+        return count;
+    }
+
+    private int calculatePointsForAdiacentSlot(int adiacentSlot ){
+        switch(adiacentSlot){
+            case 3:
+                return 2;
+            case 4:
+                return 3;
+            case 5:
+                return 5;
+            default:
+                return 8;
+        }
+    }
+
     private void insert(Slot[] slots){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
         boolean flag = false;
         int colonna = 0;
@@ -65,11 +115,12 @@ public class PersonalShelf {
         return;
     }
     public PersonalShelf(){
-        Slot[][] shelf = new Slot[N_ROWS][N_COLUMN];
+        this.shelf = new Slot[N_ROWS][N_COLUMN];
         for(int i = 0; i < N_ROWS; i++){
             for(int j = 0; j < N_COLUMN; j++){
-              shelf[i][j]  = new Slot(Color.GREY);
+             this.shelf[i][j]  = new Slot(Color.GREY);
             }
         }
+        this.itsFull = false;
     }
 }
