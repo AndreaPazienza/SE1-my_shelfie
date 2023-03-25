@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java (aggiunta metodo get della singola slot)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CommonGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/EightTilesSameType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FiveTilesDiagonal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FourCorners.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +64,11 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -129,6 +144,7 @@
     <MESSAGE value="Update Player.java, PersonalGoal.java, PersonalShelf.java&#10;(eliminazione costanti, creazione costruttori, eliminazione errori)" />
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
+    <MESSAGE value="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio" />
   </component>
 </project>
