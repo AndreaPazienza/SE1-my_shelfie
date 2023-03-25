@@ -8,65 +8,67 @@ public class Dashboard {
 
         inDashboard = new Slot[side][side];
 
-        //Inizializzazione prima e nona riga
+        boolean[][] notPlayable = new boolean[side][side];
+
+        //Inizializzazione prima e nona riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4) {
-                inDashboard[0][i] = new Slot(Color.BLACK);
-                inDashboard[8][8-i] = new Slot(Color.BLACK);
+                notPlayable[0][i] = true;
+                notPlayable[8][8-i] = true;
             }
         }
 
-        //Inizializzazione seconda ottava riga
+        //Inizializzazione seconda ottava riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4 && i != 5) {
-                inDashboard[1][i] = new Slot(Color.BLACK);
-                inDashboard[7][7-i] = new Slot(Color.BLACK);
+                notPlayable[1][i] = true;
+                notPlayable[7][7-i] = true;
             }
         }
 
-        //Inizializzazione terza e settima riga
+        //Inizializzazione terza e settima riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 2 && i != 3 && i != 4 && i != 5) {
-                inDashboard[2][i] = new Slot(Color.BLACK);
-                inDashboard[6][6-i] = new Slot(Color.BLACK);
+                notPlayable[2][i] = true;
+                notPlayable[6][6-i] = true;
             }
         }
 
-        //Inizializzazione quarta e sesta riga
-        inDashboard[3][0] = new Slot(Color.BLACK);
-        inDashboard[5][8] = new Slot(Color.BLACK);
+        //Inizializzazione quarta e sesta riga della maschera
+        notPlayable[3][0] = true;
+        notPlayable[5][8] = true;
 
-        //Set a nero caselle con 4 (per n minore di 4)
+        //Inizializzazione delle caselle con 4 pallini (se necessario)
         if (n < 4) {
-            inDashboard[0][4] = new Slot(Color.BLACK);
-            inDashboard[1][5] = new Slot(Color.BLACK);
-            inDashboard[3][1] = new Slot(Color.BLACK);
-            inDashboard[4][0] = new Slot(Color.BLACK);
-            inDashboard[4][8] = new Slot(Color.BLACK);
-            inDashboard[5][7] = new Slot(Color.BLACK);
-            inDashboard[7][3] = new Slot(Color.BLACK);
-            inDashboard[8][4] = new Slot(Color.BLACK);
+            notPlayable[0][4] = true;
+            notPlayable[1][5] = true;
+            notPlayable[3][1] = true;
+            notPlayable[4][0] = true;
+            notPlayable[4][8] = true;
+            notPlayable[5][7] = true;
+            notPlayable[7][3] = true;
+            notPlayable[8][4] = true;
         }
 
-        //Set a nero caselle con 3 (per n minore di 3)
+        //Inizializzazione delle caselle con 3 pallini (se necessario)
         if (n < 3) {
-            inDashboard[0][3] = new Slot(Color.BLACK);
-            inDashboard[2][2] = new Slot(Color.BLACK);
-            inDashboard[2][6] = new Slot(Color.BLACK);
-            inDashboard[3][7] = new Slot(Color.BLACK);
-            inDashboard[5][0] = new Slot(Color.BLACK);
-            inDashboard[6][2] = new Slot(Color.BLACK);
-            inDashboard[6][6] = new Slot(Color.BLACK);
-            inDashboard[8][5] = new Slot(Color.BLACK);
+            notPlayable[0][3] = true;
+            notPlayable[2][2] = true;
+            notPlayable[2][6] = true;
+            notPlayable[3][7] = true;
+            notPlayable[5][0] = true;
+            notPlayable[6][2] = true;
+            notPlayable[6][6] = true;
+            notPlayable[8][5] = true;
         }
 
-        //Set a grigio ditutte le caselle che non sono settate a nero e Set di catchable a false di tutte le caselle (per il popolamento si chiamerà Refill ad inizio game)
-        for (Slot[] row : inDashboard) {
-            for(Slot slot : row) {
-                if (slot.getColor() != Color.BLACK) {
-                    slot = new Slot(Color.GREY);
-                }
-                slot.setCatchable(false);
+        //Set a nero delle caselle corrispondenti a true (non giocabili), set a grigio delle caselle corrispondenti a false (giocabili)
+        for (int i = 0; i < side; i ++) {
+            for(int j = 0; j < side; j ++) {
+                if (notPlayable[i][j] == true) inDashboard[i][j] = new Slot (Color.BLACK);
+                    else inDashboard[i][j] = new Slot (Color.GREY);
+
+                inDashboard[i][j].setCatchable(false);
             }
         }
     }
