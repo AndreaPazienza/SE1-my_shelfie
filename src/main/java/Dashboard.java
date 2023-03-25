@@ -52,12 +52,12 @@ public class Dashboard {
         if (n < 3) {
             inDashboard[0][3] = new Slot(Color.BLACK);
             inDashboard[2][2] = new Slot(Color.BLACK);
-            inDashboard[2][7] = new Slot(Color.BLACK);
-            inDashboard[5][0] = new Slot(Color.BLACK);
+            inDashboard[2][6] = new Slot(Color.BLACK);
+            inDashboard[3][7] = new Slot(Color.BLACK);
             inDashboard[5][0] = new Slot(Color.BLACK);
             inDashboard[6][2] = new Slot(Color.BLACK);
             inDashboard[6][6] = new Slot(Color.BLACK);
-            inDashboard[8][4] = new Slot(Color.BLACK);
+            inDashboard[8][5] = new Slot(Color.BLACK);
         }
 
         //Set a grigio ditutte le caselle che non sono settate a nero e Set di catchable a false di tutte le caselle (per il popolamento si chiamerà Refill ad inizio game)
@@ -72,13 +72,23 @@ public class Dashboard {
     }
 
     //Ripopolamento della Dashboard
-    public void Refill(Bag bag) {
+    public void refill(Bag bag) {
         //Da definire
     }
 
     //Controllo della Dashboard per vedere se il Refill è necessario
-    public void CheckRefill() {
+    public boolean checkRefill() {
 
+        //Se su Dashboard c'è uno slot (effettivo, quindi non settato black) non prendibile allora il Refill non è necessario
+        for (Slot[] row : this.inDashboard) {
+            for(Slot slot : row) {
+                if (slot.getColor() != Color.BLACK && slot.isCatchable() == false) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
     }
 
 }
