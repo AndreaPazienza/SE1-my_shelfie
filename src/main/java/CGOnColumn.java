@@ -4,27 +4,27 @@ public abstract class CGOnColumn extends CommonGoalAbs{
     public void control(PersonalShelf shelf) {
 
 
-        Color[] column = new Color[PersonalShelf.N_ROWS - 1];
-        int columnCounter=0;
+        Color[] column = new Color[PersonalShelf.N_ROWS];
+        int columnLines=0;
 
-            //Ciclo per controllare tutte le
-        for (int i = 0; i < PersonalShelf.N_COLUMN - 1; i++) {
-
+        //Ciclo per controllare tutte le
+        for (int j = 0; j < PersonalShelf.N_COLUMN ; j++) {
             //Acquisizione dell'array della colonna
-            for (int j=0; j < PersonalShelf.N_ROWS -1; j++){
-
-                column[j] = shelf.getSingleSlot(j, i).getColor();
+            for (int i=0; i < PersonalShelf.N_ROWS ; i++){
+                Color colorOfSlot = shelf.getSingleSlot(i, j).getColor();
+                if( colorOfSlot.equals(Color.GREY)){
+                    return;
+                }
+                column[i] = colorOfSlot;
 
             }
-
-            if(controlColumn(column)) {columnCounter++;}
+            if(controlColumn(column)) {columnLines++;}
 
         }
 
-        if(columnCounter>2) {givePoints(playerPlying);}
+        if(columnLines>2) {givePoints(playerPlying);}
 
     }
 
     protected abstract boolean controlColumn(Color[] column);
-
 }

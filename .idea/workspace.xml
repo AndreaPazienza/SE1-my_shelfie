@@ -5,21 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CommonGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGSubmatrix.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CGFiveTilesDiagonal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/DecreaseTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonGoal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/EightTilesSameType.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FiveTilesDiagonal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FourCorners.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/ThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/TwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/TwoLinesFiveTiles.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +67,7 @@
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+      <recent name="org.example" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -121,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679673521553</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio">
+      <created>1679756042512</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679756042512</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
