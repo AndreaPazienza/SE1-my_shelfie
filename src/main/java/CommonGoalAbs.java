@@ -13,30 +13,35 @@ public abstract class CommonGoalAbs {
         this.maxPoint = maxPoint;
     }
     public void setPlaying(int playing){this.playing=playing;}
+
+    public int getPlaying() {return playing;}
+
     private void maxDecrease() {
-        setMaxPoint(maxPoint - maxPoint % Game.Nplayers);
+        setMaxPoint(maxPoint - 8 / Game.Nplayers);
     }
 
 
     /*Metodo per sommare i punti al player, restituito come void che opera direttamente sui punteggi
      * per gestire il fatto che ogni che un primo player ha ottenuto il punteggio questo viene salvato*/
-    protected void givePoints(Player player) {
 
-        if (!playerAchived[ playing % 4 ]) {
+    public boolean commonGoalAchived(){
+        return playerAchived[getPlaying()];
+    }
+
+    protected void givePoints(Player player) {
             player.sumPoints(maxPoint);
-            this.playerAchived[ playing % 4 ] = true;
+            this.playerAchived[ getPlaying() / Game.Nplayers] = true;
             this.maxDecrease();
-        }
     }
 
 
     //Funzione da chiamare in un NextTurn per portare di pari passo il valore giocatore del commonGoal
     public void incrementCG() {
-            if (playing == 3)
+            if (getPlaying() == Game.Nplayers-1)
             { setPlaying(0);
             playerPlying=Game.playerOnStage();  }
             else
-            {   setPlaying(playing+1);
+            {   setPlaying(getPlaying()+1);
             playerPlying=Game.playerOnStage();}
         }
 

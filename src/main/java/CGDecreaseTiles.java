@@ -1,4 +1,4 @@
-public class DecreaseTiles extends CommonGoalAbs {
+public class CGDecreaseTiles extends CommonGoalAbs {
 
 
     public void control(PersonalShelf shelf) {
