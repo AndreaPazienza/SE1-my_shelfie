@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Dashboard {
 
     private Slot[][] inDashboard;
@@ -75,7 +77,22 @@ public class Dashboard {
 
     //Ripopolamento della Dashboard
     public void refill(Bag bag) {
-        //Da definire
+
+        int selected = 0;
+
+        for (Slot[] row : this.inDashboard) {
+            for(Slot slot : row) {
+                if (slot.getColor() == Color.GREY) {
+                    do {
+                        selected = new Random().nextInt(132);
+
+                        slot.setColor(bag.getInBag(selected).getColor());
+                        bag.getInBag(selected).setGrey();
+
+                    } while (bag.getInBag(selected).getColor() == Color.GREY);
+                }
+            }
+        }
     }
 
     //Controllo della Dashboard per vedere se il Refill è necessario
