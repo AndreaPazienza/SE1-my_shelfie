@@ -21,12 +21,12 @@ public class Game {
 
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
     public void signPlayer(Player player) {
-        this.player[this.Nplayers] = player;
-        this.Nplayers ++;
+        this.player[Nplayers] = player;
+        Nplayers ++;
     }
 
     //Selezione, ordinamento ed inserimento delle Slot
-    public void PlayerOnStage() {
+    public void playerOnStage() {
         //Da definire
     }
 
@@ -36,8 +36,18 @@ public class Game {
     }
 
     //Viene decretato il vincitore (cerca massimo)
-    public void FinalScore() {
-        //Da definire
+    public void finalScore() {
+
+        String winnerNickname;
+        int winnerScore = 0;
+
+        //Non è preso in considerazione il parimerito (da rivedere)
+        for (Player p : this.player) {
+            if (p.getScore() > winnerScore) {
+                winnerScore = p.getScore();
+                winnerNickname = p.getNickname();
+            }
+        }
     }
 
 }
