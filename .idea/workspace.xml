@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -150,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679673521553</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)">
+      <created>1679922688846</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679922688846</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +173,7 @@
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
   </component>
 </project>
