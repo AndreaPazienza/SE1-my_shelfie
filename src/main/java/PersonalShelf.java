@@ -80,7 +80,7 @@ public class PersonalShelf {
                 lunghezzaReale++;        //lunghezzaReale serve perchè in ingressi sarà dato un array di 3 slot
             }                            //che non sempre sarà pieno;
         }
-        int i = 5;
+        int i = N_ROWS-1;
         while (shelf[i][column].getColor().notEquals(Color.GREY)) {   //trovo la prima posizione vuota della colonna scelta dall'utente
                 i--;
                 }
