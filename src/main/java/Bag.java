@@ -30,4 +30,8 @@ public class Bag {
             inBag[i].setCatchable (false);
         }
     }
+
+    public Slot getInBag(int selected) {
+        return inBag[selected];
+    }
 }
