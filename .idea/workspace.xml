@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Definizione della classe CommonGoal, dei suoi raggruppamenti (CommonGoal definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio)&#10;&#10;- Presenza di possibili bug ancora da risolvere, come assegnazione punti in CGOnLines (quindi in Column)&#10;&#10;- Mancano ancora metodi per il controllo delle diagonali, adiacenze e sottomatrici">
       <change afterPath="$PROJECT_DIR$/src/main/java/CGSubmatrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CGFiveTilesDiagonal.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/DecreaseTiles.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGFourCornersTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/ThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/TwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/TwoLinesFiveTiles.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFiveTilesX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/SameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGSameTypeSquare.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -52,22 +47,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
       <recent name="org.example" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -86,6 +89,7 @@
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
+      <workItem from="1679834999022" duration="5624000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -129,7 +133,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679756042512</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Definizione della classe CommonGoal, dei suoi raggruppamenti (CommonGoal definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio)&#10;&#10;- Presenza di possibili bug ancora da risolvere, come assegnazione punti in CGOnLines (quindi in Column)&#10;&#10;- Mancano ancora metodi per il controllo delle diagonali, adiacenze e sottomatrici">
+      <created>1679829327740</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679829327740</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,6 +164,7 @@
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Definizione della classe CommonGoal &amp; dei suoi raggruppamenti, CG definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio" />
+    <MESSAGE value="Definizione della classe CommonGoal, dei suoi raggruppamenti (CommonGoal definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio)&#10;&#10;- Presenza di possibili bug ancora da risolvere, come assegnazione punti in CGOnLines (quindi in Column)&#10;&#10;- Mancano ancora metodi per il controllo delle diagonali, adiacenze e sottomatrici" />
+    <option name="LAST_COMMIT_MESSAGE" value="Definizione della classe CommonGoal, dei suoi raggruppamenti (CommonGoal definita come classe astratta in quanto ha dei metodi comuni per ogni suo figlio)&#10;&#10;- Presenza di possibili bug ancora da risolvere, come assegnazione punti in CGOnLines (quindi in Column)&#10;&#10;- Mancano ancora metodi per il controllo delle diagonali, adiacenze e sottomatrici" />
   </component>
 </project>
