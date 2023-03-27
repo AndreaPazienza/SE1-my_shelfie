@@ -11,7 +11,7 @@ public class PersonalGoal {
             int x = goal[i].getPosX();           //di confronti passati
             int y = goal[i].getPosY();
             Color col = goal[i].getTile();
-            if (col.equals(shelf[x][y].getColor())) {
+            if (col.Equals(shelf.getSingleSlot(x,y).getColor())) {
                 counter++;
             }
         }
@@ -40,7 +40,7 @@ public class PersonalGoal {
         for(int i = 0; i < N_GOALS; i++){
             int x = random.nextInt(6);      //genero randomicamente ogni coordinata e colore dell'obbiettivo
             int y = random.nextInt(5);
-            Color c = Color.generateRandomColor();
+            Color c = Color.RandomColor();
             pgoal[i] = new Target(c, x, y);
         }
     }
