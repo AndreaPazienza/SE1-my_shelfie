@@ -87,6 +87,8 @@ public class Dashboard {
                         selected = new Random().nextInt(132);
 
                         slot.setColor(bag.getInBag(selected).getColor());
+                        slot.setType(bag.getInBag(selected).getType());
+                        slot.setCatchable(false);
                         bag.getInBag(selected).setGrey();
 
                     } while (bag.getInBag(selected).getColor() == Color.GREY);
