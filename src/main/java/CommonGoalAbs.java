@@ -5,7 +5,7 @@ public abstract class CommonGoalAbs {
 
     protected Boolean[] playerAchived = new Boolean[Game.Nplayers];
     // Ragiona su utilizzo variabile in common con numero giocatore, devo salvarmi chi l'ha già raggiunto?
-    protected Player playerPlying; //= Game.playerOnStage();
+    protected Player playerPlying; = Game.playerOnStage();
 
     public abstract void control(PersonalShelf shelf);
 
@@ -33,11 +33,11 @@ public abstract class CommonGoalAbs {
     //Funzione da chiamare in un NextTurn per portare di pari passo il valore giocatore del commonGoal
     public void incrementCG() {
             if (playing == 3)
-            { setPlaying(0);}
-             //  playerPlying=Game.playerOnStage();  }
+            { setPlaying(0);
+            playerPlying=Game.playerOnStage();  }
             else
-            {   setPlaying(playing+1);}
-             //   playerPlying=Game.playerOnStage();}
+            {   setPlaying(playing+1);
+            playerPlying=Game.playerOnStage();}
         }
 
 
