@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -8,7 +7,7 @@ import static junit.framework.Assert.assertEquals;
 public class PersonalGoalTest{
    private PersonalGoal pgoal;
 
-    @BeforeTest
+    @BeforeEach
     void init(){
         pgoal = new PersonalGoal();
     }

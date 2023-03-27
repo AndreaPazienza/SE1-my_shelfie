@@ -11,7 +11,7 @@ public class CGFourCorners extends CommonGoalAbs {
         Color topRight = shelf.getSingleSlot(PersonalShelf.N_COLUMN - 1, 0).getColor();
         Color bottomRight = shelf.getSingleSlot(PersonalShelf.N_COLUMN - 1, PersonalShelf.N_ROWS - 1).getColor();
         if (topLeft.equals(bottomLeft) && topLeft.equals(bottomRight) && topLeft.equals(topRight)) {
-            givePoints(playerPlying);
+            givePoints(playerPlaying);
         }
 
     }

@@ -109,5 +109,7 @@ public class Dashboard {
 
         return true;
     }
-
+    public Slot getSingleSlot(int x, int y){
+        return inDashboard[x][y];
+    }
 }

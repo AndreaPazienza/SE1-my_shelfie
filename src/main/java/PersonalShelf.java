@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class PersonalShelf {
+
     private Slot[][] shelf;
     private boolean itsFull;
     public static final int N_ROWS = 6;
@@ -18,7 +19,7 @@ public class PersonalShelf {
         return itsFull;
     }
 
-    public int calculatePoints(){
+    public int calculatePoints(){ //metodo vero e proprio del calcolo dei punti: qui viene chiamato il metodo che conta le adiacenze e poi quello che assegna concretamente i punti
         int tPoints = 0;
         int adiacentSlot = 0;
         boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
@@ -73,7 +74,7 @@ public class PersonalShelf {
         }
     }
 
-    private void insert(Slot[] slots, int column){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
+    public void insert(Slot[] slots, int column){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
         int lunghezzaReale = 0;
         for(int i = 0;i < (slots.length-1);i++){
             if(slots[i].getColor().notEquals(Color.GREY)){

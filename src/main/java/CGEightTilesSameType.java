@@ -1,4 +1,4 @@
-import java.awt.Color;
+
 
 public class CGEightTilesSameType extends CommonGoalAbs {
 //Utilizzo map per renderlo  più leggibile
