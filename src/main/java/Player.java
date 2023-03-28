@@ -54,9 +54,9 @@ public class Player {
 
     public Slot selectCard (Dashboard dashboard, int x, int y) {
         Slot selectedCard = new Slot(Color.GREY);
-        if (dashboard[x][y].isCatchable()) {  //selezione vera e propria
-            selectedCard = dashboard[x][y];
-            dashboard[x][y].setGrey();
+        if (dashboard.getSingleSlot(x,y).isCatchable()) {  //selezione vera e propria
+            selectedCard = dashboard.getSingleSlot(x,y);
+            dashboard.getSingleSlot(x,y).setGrey();
             }
         return selectedCard;
     }

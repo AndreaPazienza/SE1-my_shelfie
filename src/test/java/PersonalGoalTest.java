@@ -1,6 +1,5 @@
 import junit.framework.TestCase;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
 import static junit.framework.Assert.assertEquals;
@@ -8,7 +7,7 @@ import static junit.framework.Assert.assertEquals;
 public class PersonalGoalTest{
    private PersonalGoal pgoal;
 
-    @BeforeTest
+    @BeforeEach
     void init(){
         pgoal = new PersonalGoal();
     }
@@ -16,12 +15,12 @@ public class PersonalGoalTest{
 
 
     @Test
-     void TestMethod0(){
+     void testMethod0(){
         PersonalShelf tShelf = new PersonalShelf();
         assertEquals(0, pgoal.AssignPoint(tShelf));
     }
     @Test
-    void TestMethod1(){
+    void testMethod1(){
         PersonalShelf tshelf = new PersonalShelf();
         Color c = pgoal.getSingleTarget(0).getTile();
         int x = pgoal.getSingleTarget(0).getPosX();
@@ -30,7 +29,7 @@ public class PersonalGoalTest{
         assertEquals(1, pgoal.AssignPoint(tshelf));
     }
     @Test
-    void TestMethod2(){
+    void testMethod2(){
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 2; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -41,7 +40,7 @@ public class PersonalGoalTest{
         assertEquals(2, pgoal.AssignPoint(tshelf));
     }
     @Test
-    void TestMethod3(){
+    void testMethod3(){
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 3; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -52,7 +51,7 @@ public class PersonalGoalTest{
         assertEquals(4, pgoal.AssignPoint(tshelf));
     }
     @Test
-    void TestMethod4(){
+    void testMethod4(){
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 4; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -63,7 +62,7 @@ public class PersonalGoalTest{
         assertEquals(6, pgoal.AssignPoint(tshelf));
     }
     @Test
-    void TestMethod5(){
+    void testMethod5(){
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 5; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -74,7 +73,7 @@ public class PersonalGoalTest{
         assertEquals(9, pgoal.AssignPoint(tshelf));
     }
     @Test
-    void TestMethod6(){
+    void testMethod6(){
         PersonalShelf tShelf = new PersonalShelf();
         for(int i = 0; i < 6; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();

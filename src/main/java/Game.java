@@ -18,7 +18,6 @@ public class Game {
         table = new Dashboard(n);
         bag = new Bag();
     }
-
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
     public void signPlayer(Player player) {
         this.player[Nplayers] = player;

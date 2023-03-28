@@ -4,23 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Aggiunta ulteriori controlli: DecreaseTiles, CGSubmatrix, CGSameTypeSquare, CGFiveTilesX. Alcuni da finire di sistemare.&#10;&#10;Aggiunta di CommonGoalAbs non è completo in quanto manca playerOnStage">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CGSameTypeSquare.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CGFourCornersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/DecreaseTiles.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/FourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/SameTypeSquare.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/SixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGSixGroupsTwoTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGDecreaseTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -53,22 +43,58 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+    <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.PersonalGoalTest">
+    <configuration name="PersonalGoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalTest.TestMethod0" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalTest" />
+      <option name="METHOD_NAME" value="TestMethod0" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.PersonalGoalTest" />
+        <item itemvalue="TestNG.PersonalGoalTest.TestMethod0" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -86,7 +112,6 @@
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
-      <workItem from="1679937084725" duration="7529000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -123,14 +148,21 @@
       <option name="project" value="LOCAL" />
       <updated>1679673521553</updated>
     </task>
-    <task id="LOCAL-00006" summary="Aggiunta ulteriori controlli: DecreaseTiles, CGSubmatrix, CGSameTypeSquare, CGFiveTilesX. Alcuni da finire di sistemare.&#10;&#10;Aggiunta di CommonGoalAbs non è completo in quanto manca playerOnStage">
-      <created>1679923938883</created>
+    <task id="LOCAL-00006" summary="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)">
+      <created>1679922688846</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1679923938883</updated>
+      <updated>1679922688846</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)">
+      <created>1679943799589</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679943799589</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +185,8 @@
     <MESSAGE value="Update Player.java, PersonalGoal.java, PersonalShelf.java&#10;(eliminazione costanti, creazione costruttori, eliminazione errori)" />
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
-    <MESSAGE value="Aggiunta ulteriori controlli: DecreaseTiles, CGSubmatrix, CGSameTypeSquare, CGFiveTilesX. Alcuni da finire di sistemare.&#10;&#10;Aggiunta di CommonGoalAbs non è completo in quanto manca playerOnStage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta ulteriori controlli: DecreaseTiles, CGSubmatrix, CGSameTypeSquare, CGFiveTilesX. Alcuni da finire di sistemare.&#10;&#10;Aggiunta di CommonGoalAbs non è completo in quanto manca playerOnStage" />
+    <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
   </component>
 </project>
