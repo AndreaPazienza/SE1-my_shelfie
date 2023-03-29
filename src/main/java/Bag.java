@@ -9,6 +9,7 @@ public class Bag {
 
         for (int i = 0; i < inBag.length; i ++) {
 
+            //Setting del colore
             switch (i % 6) {
                 case 0: inBag[i] = new Slot(Color.GREEN);
                 case 1: inBag[i] = new Slot(Color.PINK);
@@ -18,6 +19,7 @@ public class Bag {
                 case 5: inBag[i] = new Slot(Color.YELLOW);
             }
 
+            //Setting del tipo
             switch (i / 6) {
                 case 0: inBag[i].setType(Type.TYPE1);
                 case 1: inBag[i].setType(Type.TYPE2);
@@ -27,6 +29,7 @@ public class Bag {
                 case 5: inBag[i].setType(Type.TYPE6);
             }
 
+            //Setting di catchable
             inBag[i].setCatchable (false);
         }
     }
@@ -38,16 +41,11 @@ public class Bag {
     //Restituisce lo Slot dell'array indicato dall'indice, in caso di Slot grigio restituisce il primo slot non grigio andando verso destra
     public Slot validExtraction(int index) {
 
-        int i = 0;
-
-        //Se lo Slot estratto è grigio, passa al successivo
+        //Se lo Slot estratto è grigio, passa al successivo (in caso si superi la lunghezza dell'array, si torna all'inizio)
         while (inBag[index].getColor().equals(Color.GREY)) {
-                i ++;
-                index = (index + i) % inBag.length;
+                index = (index + 1) % inBag.length;
         }
 
         return inBag[index];
     }
-
-
 }
