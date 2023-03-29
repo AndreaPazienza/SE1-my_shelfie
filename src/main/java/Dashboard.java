@@ -6,7 +6,7 @@ public class Dashboard {
     private static final int side = 9;
 
     //Costruttore
-    public Dashboard (int numberOfPlayer) {
+    public Dashboard (int numberOfPlayers) {
 
         inDashboard = new Slot[side][side];
 
@@ -41,7 +41,7 @@ public class Dashboard {
         notPlayable[5][8] = true;
 
         //Inizializzazione delle caselle con 4 pallini (se necessario)
-        if (numberOfPlayer < 4) {
+        if (numberOfPlayers < 4) {
             notPlayable[0][4] = true;
             notPlayable[1][5] = true;
             notPlayable[3][1] = true;
@@ -53,7 +53,7 @@ public class Dashboard {
         }
 
         //Inizializzazione delle caselle con 3 pallini (se necessario)
-        if (numberOfPlayer < 3) {
+        if (numberOfPlayers < 3) {
             notPlayable[0][3] = true;
             notPlayable[2][2] = true;
             notPlayable[2][6] = true;
