@@ -6,7 +6,7 @@ public class Dashboard {
     private static final int side = 9;
 
     //Costruttore
-    public Dashboard (int n) {
+    public Dashboard (int numberOfPlayer) {
 
         inDashboard = new Slot[side][side];
 
@@ -41,7 +41,7 @@ public class Dashboard {
         notPlayable[5][8] = true;
 
         //Inizializzazione delle caselle con 4 pallini (se necessario)
-        if (n < 4) {
+        if (numberOfPlayer < 4) {
             notPlayable[0][4] = true;
             notPlayable[1][5] = true;
             notPlayable[3][1] = true;
@@ -53,7 +53,7 @@ public class Dashboard {
         }
 
         //Inizializzazione delle caselle con 3 pallini (se necessario)
-        if (n < 3) {
+        if (numberOfPlayer < 3) {
             notPlayable[0][3] = true;
             notPlayable[2][2] = true;
             notPlayable[2][6] = true;
@@ -67,7 +67,7 @@ public class Dashboard {
         //Set a nero delle caselle corrispondenti a true (non giocabili), set a grigio delle caselle corrispondenti a false (giocabili)
         for (int i = 0; i < side; i ++) {
             for(int j = 0; j < side; j ++) {
-                if (notPlayable[i][j] == true) inDashboard[i][j] = new Slot (Color.BLACK);
+                if (notPlayable[i][j]) inDashboard[i][j] = new Slot (Color.BLACK);
                     else inDashboard[i][j] = new Slot (Color.GREY);
 
                 inDashboard[i][j].setCatchable(false);
@@ -84,7 +84,7 @@ public class Dashboard {
         //Per tutti gli slot in Dashboard che hanno colore grigio
         for (Slot[] row : this.inDashboard) {
             for(Slot slot : row) {
-                if (slot.getColor() == Color.GREY) {
+                if (slot.getColor().equals(Color.GREY)) {
 
                     //Randomizzazione dell'indice ed estrazione della prima Slot valida (non grigia) a partire da quell'indice
                     extractedIndex = new Random().nextInt(bag.getInBag().length);
@@ -105,17 +105,43 @@ public class Dashboard {
     //Controllo della Dashboard per vedere se il Refill è necessario
     public boolean checkRefill() {
 
-        //Se su Dashboard c'è uno slot (effettivo, quindi non settato black) non prendibile allora il Refill non è necessario
-        for (Slot[] row : this.inDashboard) {
-            for(Slot slot : row) {
-                if (/*Modificare condizione*/) {
-                    return false;
+        boolean refill = true;
+
+        //Se su Dashboard c'è uno slot non singolo (quindi con uno slot adiacente non grigio o nero) allora non è necessario
+        for (int i = 0; i < side && refill; i ++) {
+            for(int j = 0; j < side && refill; j ++) {
+                //Controllo delle adiecenze su tutti gli Slot non grigi o neri (q
+                if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) == 0) {
+                    refill = false;
                 }
             }
         }
-        return true;
+        return refill;
     }
 
+
+    public int adjaciencies(int x, int y) {
+
+        int numberOfAdjacencies = 0;
+
+        //Controllo sullo Slot a sinistra (se esiste)
+        if (x != 0 && !inDashboard[x-1][y].getColor().equals(Color.GREY) && !inDashboard[x-1][y].getColor().equals(Color.BLACK))
+            numberOfAdjacencies ++;
+
+        //Controllo sullo Slot a destra (se esiste)
+        if (x != side-1 && !inDashboard[x+1][y].getColor().equals(Color.GREY) && !inDashboard[x+1][y].getColor().equals(Color.BLACK))
+            numberOfAdjacencies ++;
+
+        //Controllo sullo Slot superiore (se esiste)
+        if (y != 0 && !inDashboard[x][y-1].getColor().equals(Color.GREY) && !inDashboard[x][y-1].getColor().equals(Color.BLACK))
+            numberOfAdjacencies ++;
+
+        //Controllo sullo Slot inferiore (se esiste)
+        if (y != side-1 && !inDashboard[x][y+1].getColor().equals(Color.GREY) && !inDashboard[x][y+1].getColor().equals(Color.BLACK))
+            numberOfAdjacencies ++;
+
+        return numberOfAdjacencies;
+    }
 
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];
