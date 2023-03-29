@@ -31,7 +31,23 @@ public class Bag {
         }
     }
 
-    public Slot getInBag(int selected) {
-        return inBag[selected];
+    public Slot[] getInBag() {
+        return this.inBag;
     }
+
+    //Restituisce lo Slot dell'array indicato dall'indice, in caso di Slot grigio restituisce il primo slot non grigio andando verso destra
+    public Slot validExtraction(int index) {
+
+        int i = 0;
+
+        //Se lo Slot estratto è grigio, passa al successivo
+        while (inBag[index].getColor().equals(Color.GREY)) {
+                i ++;
+                index = (index + i) % inBag.length;
+        }
+
+        return inBag[index];
+    }
+
+
 }

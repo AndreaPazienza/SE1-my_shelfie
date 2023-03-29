@@ -78,20 +78,25 @@ public class Dashboard {
     //Ripopolamento della Dashboard
     public void refill(Bag bag) {
 
-        int selected = 0;
+        int extractedIndex;
+        Slot extractedSlot;
 
+        //Per tutti gli slot in Dashboard che hanno colore grigio
         for (Slot[] row : this.inDashboard) {
             for(Slot slot : row) {
                 if (slot.getColor() == Color.GREY) {
-                    do {
-                        selected = new Random().nextInt(132);
 
-                        slot.setColor(bag.getInBag(selected).getColor());
-                        slot.setType(bag.getInBag(selected).getType());
-                        slot.setCatchable(false);
-                        bag.getInBag(selected).setGrey();
+                    //Randomizzazione dell'indice ed estrazione della prima Slot valida (non grigia) a partire da quell'indice
+                    extractedIndex = new Random().nextInt(bag.getInBag().length);
+                    extractedSlot = bag.validExtraction(extractedIndex);
 
-                    } while (bag.getInBag(selected).getColor() == Color.GREY);
+                    //Modifica dello slot (di Dashboard) secondo colore e tipo di quello estratto e catchable settato falso (l'aggiornamento a true dove necessario è lasciato a updateTurn)
+                    slot.setColor(extractedSlot.getColor());
+                    slot.setType(extractedSlot.getType());
+                    slot.setCatchable(false);
+
+                    //Set a grigio dello slot estartto da Bag
+                    bag.getInBag()[extractedIndex].setGrey();
                 }
             }
         }
@@ -103,14 +108,15 @@ public class Dashboard {
         //Se su Dashboard c'è uno slot (effettivo, quindi non settato black) non prendibile allora il Refill non è necessario
         for (Slot[] row : this.inDashboard) {
             for(Slot slot : row) {
-                if (slot.getColor() != Color.BLACK && slot.isCatchable() == false) {
+                if (/*Modificare condizione*/) {
                     return false;
                 }
             }
         }
-
         return true;
     }
+
+
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];
     }
