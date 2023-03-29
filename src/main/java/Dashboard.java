@@ -146,4 +146,8 @@ public class Dashboard {
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];
     }
+
+    public static int getSide() {
+        return side;
+    }
 }
