@@ -1,37 +1,74 @@
-import COMMONGOAL.CommonGoal;
+//import COMMONGOAL.CommonGoal;
 
 public class Game {
 
     protected static int Nplayers;
+    private int playerInGame;
     private boolean gameOn;
     private Player[] player;
     private Dashboard table;
     private Bag bag;
-    private CommonGoal commonGoal;
+    private CommonGoal commonGoal1, commonGoal2;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
-    public Game (int n) {
+    public Game (int numberOfPlayers) {
 
-        Nplayers = 1;
+        Nplayers = numberOfPlayers;
+        playerInGame = 0;
         gameOn = true;
-        player = new Player[4];
-        table = new Dashboard(n);
+        player = new Player[numberOfPlayers];
+        table = new Dashboard(numberOfPlayers);
         bag = new Bag();
+        //commonGoal1 = ;
+        //commonGoal2 = ;
     }
+
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
     public void signPlayer(Player player) {
-        this.player[Nplayers] = player;
-        Nplayers ++;
+
+        this.player[playerInGame] = player;
+
+        playerInGame ++;
+        if (playerInGame == Nplayers) {
+            playerInGame = 0;
+        }
     }
 
-    //Selezione, ordinamento ed inserimento delle Slot
-    public void playerOnStage() {
-        //Da definire
+    //Selezione, ordinamento ed inserimento delle Slot (e setting di grigio per gli Slot presi dalla Dashboard)
+    public void playerMoves() {
+
     }
 
-    //Set di grigio sulle tessere prese e controlla se ci sono altre mosse, passaggio di turno al giocatore successivo
+    //Restituisce il giocatore di turno
+    public Player playerOnStage() {
+
+        return player[playerInGame];
+    }
+
+    //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() {
-        //Da definire
+
+        //Chiamata a refill (se necessario)
+        if (table.checkRefill()) {
+            table.refill(bag);
+        }
+
+        //Setting di catchable per gli Slot che si sono "sbloccati"
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for(int j = 0; j < Dashboard.getSide(); j ++) {
+
+                //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
+                if (!table.getSingleSlot(i,j).getColor().equals(Color.GREY) && !table.getSingleSlot(i,j).getColor().equals(Color.BLACK) && table.adjaciencies(i,j) < 4) {
+                    table.getSingleSlot(i,j).setCatchable(true);
+                }
+            }
+        }
+
+        //Passaggio del turno
+        playerInGame ++;
+        if (playerInGame == Nplayers) {
+            playerInGame = 0;
+        }
     }
 
     //Viene decretato il vincitore (cerca massimo)
@@ -39,14 +76,14 @@ public class Game {
 
         String winnerNickname;
         int winnerScore = 0;
+        int winnerOrderInTurn = 0;
 
-        //Non è preso in considerazione il parimerito (da rivedere)
         for (Player p : this.player) {
-            if (p.getScore() > winnerScore) {
+            if ((p.getScore() > winnerScore) || (p.getScore() == winnerScore && p.getOrderInTurn() > winnerOrderInTurn)) {
                 winnerScore = p.getScore();
+                winnerOrderInTurn = p.getOrderInTurn();
                 winnerNickname = p.getNickname();
             }
         }
     }
-
 }
