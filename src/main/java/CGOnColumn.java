@@ -1,7 +1,7 @@
 public abstract class CGOnColumn extends CommonGoalAbs{
 
     @Override
-    public void control(PersonalShelf shelf) {
+    public void control(Player player) {
         if (!commonGoalAchived()) {
 
             Color[] column = new Color[PersonalShelf.N_ROWS];
@@ -11,7 +11,7 @@ public abstract class CGOnColumn extends CommonGoalAbs{
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 //Acquisizione dell'array della colonna
                 for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
-                    Color colorOfSlot = shelf.getSingleSlot(i, j).getColor();
+                    Color colorOfSlot = player.getShelf().getSingleSlot(i, j).getColor();
                     if (colorOfSlot.equals(Color.GREY)) {
                         return;
                     }
@@ -25,7 +25,7 @@ public abstract class CGOnColumn extends CommonGoalAbs{
             }
 
             if (columnLines > 2) {
-                givePoints(playerPlying);
+                givePoints(player);
             }
 
         }

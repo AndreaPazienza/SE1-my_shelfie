@@ -5,9 +5,12 @@ public abstract class CommonGoalAbs {
 
     protected Boolean[] playerAchived = new Boolean[Game.Nplayers];
     // Ragiona su utilizzo variabile in common con numero giocatore, devo salvarmi chi l'ha già raggiunto?
-    protected Player playerPlying; = Game.playerOnStage();
 
-    public abstract void control(PersonalShelf shelf);
+    public abstract void control(Player player);
+
+   /*public CommonGoalAbs(){
+        this.playerPlying = Game.playerOnStage();
+    } */
 
     public void setMaxPoint(int maxPoint) {
         this.maxPoint = maxPoint;
@@ -17,7 +20,7 @@ public abstract class CommonGoalAbs {
     public int getPlaying() {return playing;}
 
     private void maxDecrease() {
-        setMaxPoint(maxPoint - 8 / Game.Nplayers);
+        setMaxPoint(maxPoint - (8 / Game.Nplayers));
     }
 
 
@@ -30,7 +33,7 @@ public abstract class CommonGoalAbs {
 
     protected void givePoints(Player player) {
             player.sumPoints(maxPoint);
-            this.playerAchived[ getPlaying() / Game.Nplayers] = true;
+            this.playerAchived[ getPlaying() % Game.Nplayers ] = true;
             this.maxDecrease();
     }
 
@@ -38,13 +41,8 @@ public abstract class CommonGoalAbs {
     //Funzione da chiamare in un NextTurn per portare di pari passo il valore giocatore del commonGoal
     public void incrementCG() {
             if (getPlaying() == Game.Nplayers-1)
-            { setPlaying(0);
-            playerPlying=Game.playerOnStage();  }
+                  { setPlaying(0); }
             else
-            {   setPlaying(getPlaying()+1);
-            playerPlying=Game.playerOnStage();}
-        }
-
-
-
-    }
+                 {   setPlaying(getPlaying()+1); }
+                }
+}
