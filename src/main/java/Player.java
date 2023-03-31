@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Player {
     public String nickname;
     private int orderInTurn;
-    private static int score;
+    private int score;
     private PersonalShelf shelf;
     private boolean chair;
 
@@ -13,7 +13,7 @@ public class Player {
         return orderInTurn;
     }
 
-    public static int getScore() {
+    public int getScore() {
         return score;
     }
 
@@ -44,8 +44,8 @@ public class Player {
         this.orderInTurn = order;
     }
 
-    public static void setScore(int points) {
-        score = points;
+    public void setScore(int points) {
+        this.score = points;
     }
 
     public void setShelf(PersonalShelf shelf) {
@@ -79,14 +79,14 @@ public class Player {
     }
 
     public void sumPoints(int p){
-        int points = Player.getScore()+p;
-        Player.setScore(points);
+        int points = this.getScore()+p;
+        this.setScore(points);
     }
 
     public int checkScore(){
         int points = 0;
         int pgoalPoints = pgoal.AssignPoint(shelf);
-        int sgoalsPoints = Player.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
+        int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
         int nearbyPoints = this.shelf.calculatePoints();
         points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
         return points;
