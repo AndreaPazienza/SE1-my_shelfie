@@ -5,33 +5,36 @@ public class CGDecreaseTiles extends CommonGoalAbs {
     }
 
     public void control(Player player) {
-        int i=1, j=0;
-        Color firstDiagonal=player.getShelf().getSingleSlot(i, j).getColor();
-        Color nextDiagonal;
-        boolean checker=true;
 
+        int i=1, j=0;
+        Color nextDiagonal=player.getShelf().getSingleSlot(i, j).getColor();;
+        boolean checker=true;
+        if(!nextDiagonal.equals(Color.GREY)){
         do{
             i++;
             j++;
             nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
-            if(!firstDiagonal.equals(nextDiagonal) || firstDiagonal.equals(Color.GREY)){
+            if(nextDiagonal.equals(Color.GREY)){
                 checker=false;
             }
 
-        }while(checker && i<6);
+        }while(checker && i<5);}
+        else checker=false;
 
         if(!checker){
             checker=true;
             i=5;
             j=0;
-            Color reverseFirstDiagonal =player.getShelf().getSingleSlot(i, j).getColor();
+            nextDiagonal =player.getShelf().getSingleSlot(i, j).getColor();
+            if(!nextDiagonal.equals(Color.GREY)){
             do{ i--;
                 j++;
                 nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
-                if(!firstDiagonal.equals(nextDiagonal) || firstDiagonal.equals(Color.GREY)){
+                if(nextDiagonal.equals(Color.GREY)){
                     checker=false;}
 
-            }while(checker && i<6);
+            }while(checker && i>1);}
+            else checker=false;
         }
 
         if(checker) givePoints(player);

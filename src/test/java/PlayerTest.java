@@ -54,7 +54,7 @@ class PlayerTest {
     void testOrder3(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 2, 3,1);
@@ -66,7 +66,7 @@ class PlayerTest {
     void testOrder3_1(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 3, 2,1);
@@ -79,7 +79,7 @@ class PlayerTest {
     void testOrder3_2(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 1, 2,3);
@@ -91,7 +91,7 @@ class PlayerTest {
     void testOrder3_3(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 1, 3,2);
@@ -104,7 +104,7 @@ class PlayerTest {
     void testOrder3_4(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 3, 1,2);
@@ -117,7 +117,7 @@ class PlayerTest {
     void testOrder3_5(){
         Slot[] selectedCards = new Slot[3];
         for(int i = 0; i < 3; i++){
-            selectedCards[i] = new Slot(Color.RandomColor());
+            selectedCards[i] = new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards, 2, 1,3);
@@ -129,7 +129,7 @@ class PlayerTest {
     void testOrder2(){
         Slot[] selectedCards = new Slot[2];
         for(int i = 0; i < 2; i++){
-            selectedCards[i]=new Slot(Color.RandomColor());
+            selectedCards[i]=new Slot(Color.randomColor());
             System.out.println("Color: "+selectedCards[i].getColor());
         }
         player.orderCards(selectedCards);

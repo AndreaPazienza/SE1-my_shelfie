@@ -18,7 +18,6 @@ class CGFourCornersTest {
 
     @Test
     void emptyShelf(){
-
         testingCommonGoal.control(current1);
         int points = current1.getScore();
         assertEquals(0, points);

@@ -10,7 +10,7 @@ public enum Color {
     GREY, //Grey caselle corrispondenti a tessere prese
     BLACK; //Caselle Black irraggiungibili della plancia iniziale
 
-    public static Color RandomColor() { //Generatore di colore casuale, esculdendo GREY e BLACK che non sono colori effettivi
+    public static Color randomColor() { //Generatore di colore casuale, esculdendo GREY e BLACK che non sono colori effettivi
         Color[] values = Color.values();
         int length = (values.length - 2);
         int randIndex = new Random().nextInt(length);

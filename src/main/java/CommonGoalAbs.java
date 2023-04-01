@@ -3,7 +3,7 @@ import java.util.Random;
 
 public abstract class CommonGoalAbs {
 
-    private int playing;
+    private int playing=0;
     private int maxPoint = 8;
     protected Boolean[] playerAchived;
 
@@ -48,7 +48,7 @@ public abstract class CommonGoalAbs {
     public int getPlaying() {return playing;}
 
     private void maxDecrease() {
-        setMaxPoint(maxPoint - (8 / 3));
+        setMaxPoint(maxPoint - (8 / playerAchived.length));
     }
 
 
@@ -56,7 +56,7 @@ public abstract class CommonGoalAbs {
      * per gestire il fatto che ogni che un primo player ha ottenuto il punteggio questo viene salvato*/
 
     public boolean commonGoalAchived(){
-        return playerAchived[getPlaying()];}
+        return playerAchived[playing];}
 
     private void goalAchived(){
         this.playerAchived[playing]=true;
