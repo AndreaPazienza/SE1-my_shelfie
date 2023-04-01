@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class PersonalShelf {
 
@@ -6,14 +6,6 @@ public class PersonalShelf {
     private boolean itsFull;
     public static final int N_ROWS = 6;
     public static final int N_COLUMN = 5;
-
-    public static int getnColumn() {
-        return N_COLUMN;
-    }
-
-    public static int getnRows(){
-        return N_ROWS;
-    }
 
     public boolean isItsFull() {
         return itsFull;
@@ -41,7 +33,7 @@ public class PersonalShelf {
         return shelf[x][y];
     }
 
-    public int checkAdjacentSlot(boolean[][] visited, int x, int y){
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //conta le adiacenze effettive
         visited[x][y] = true; //marko la tessera che ho visitato
         int count = 1;
         Color color = this.shelf[x][y].getColor(); //mi salvo il colore della tessera che devo controllare
@@ -89,7 +81,6 @@ public class PersonalShelf {
             this.shelf[i][column] = slots[j];
             i--;
         }
-        return;
     }
 
     public void checkLastLine(){
@@ -100,7 +91,6 @@ public class PersonalShelf {
             }
         }
         this.itsFull = true;
-        return;
     }
     public PersonalShelf(){
         this.shelf = new Slot[N_ROWS][N_COLUMN];

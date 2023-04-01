@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Player {
     public String nickname;
@@ -84,11 +84,10 @@ public class Player {
     }
 
     public int checkScore(){
-        int points = 0;
         int pgoalPoints = pgoal.AssignPoint(shelf);
         int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
         int nearbyPoints = this.shelf.calculatePoints();
-        points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
+        int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
         return points;
     }
 

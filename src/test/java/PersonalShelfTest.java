@@ -107,8 +107,8 @@ class PersonalShelfTest {
     }
     @Test
     void testAdjacent6(){ //controllo che in caso di 6+ tessere = adiacenti non dia più di 8
-        for(int i = 0; i < shelf.N_ROWS; i++){
-            for(int j = 0; j < shelf.N_COLUMN; j++){
+        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
+            for(int j = 0; j < PersonalShelf.N_COLUMN; j++){
                 shelf.getSingleSlot(i, j).setColor(Color.YELLOW);
             }
         }
