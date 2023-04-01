@@ -1,26 +1,26 @@
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
     @Override
-    public void control(PersonalShelf shelf) {
+    public void control(Player player) {
         if(!commonGoalAchived()) {
-            Color topLeftBeginDiagonal = shelf.getSingleSlot(0, 0).getColor();
-            if (checkIncreasignDiagonal(shelf, topLeftBeginDiagonal, 0, 0)) {
-                givePoints(playerPlying);
+            Color topLeftBeginDiagonal = player.getShelf().getSingleSlot(0, 0).getColor();
+            if (checkIncreasignDiagonal(player.getShelf(), topLeftBeginDiagonal, 0, 0)) {
+                givePoints(player);
                 return;
             }
 
-            Color secondTopLeftBeginDiagonal = shelf.getSingleSlot(1, 0).getColor();
-            if (checkIncreasignDiagonal(shelf, secondTopLeftBeginDiagonal, PersonalShelf.N_ROWS - 1, 0)) {
-                givePoints((playerPlying));
+            Color secondTopLeftBeginDiagonal = player.getShelf().getSingleSlot(1, 0).getColor();
+            if (checkIncreasignDiagonal(player.getShelf(), secondTopLeftBeginDiagonal, PersonalShelf.N_ROWS - 1, 0)) {
+                givePoints((player));
                 return;}
 
-            Color bottomLeftDiagonal = shelf.getSingleSlot(PersonalShelf.N_ROWS-1, 0).getColor();
-            if(checkDecresingDiagonal(shelf, bottomLeftDiagonal, PersonalShelf.N_ROWS-1, 0)){
-                givePoints(playerPlying);
+            Color bottomLeftDiagonal = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1, 0).getColor();
+            if(checkDecresingDiagonal(player.getShelf(), bottomLeftDiagonal, PersonalShelf.N_ROWS-1, 0)){
+                givePoints(player);
                 return;
             }
-            Color secondoBottomLeftDiagonal = shelf.getSingleSlot(PersonalShelf.N_ROWS-2, 0).getColor();
-            if(checkDecresingDiagonal(shelf, secondoBottomLeftDiagonal, PersonalShelf.N_ROWS-2, 0)){
-                givePoints(playerPlying);
+            Color secondoBottomLeftDiagonal = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS-2, 0).getColor();
+            if(checkDecresingDiagonal(player.getShelf(), secondoBottomLeftDiagonal, PersonalShelf.N_ROWS-2, 0)){
+                givePoints(player);
             }
         }
 

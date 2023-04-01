@@ -1,19 +1,45 @@
-public class CGFiveTilesX extends CGSubmatrix {
+public class CGFiveTilesX extends CommonGoalAbs {
 
     @Override
-    protected boolean controlSubmatrix(Color[][] matrix) {
-        //Essendo il controllo su una sottomatrice fissa 3x3 uso le posizioni fisse
-        Color beginMatrix= matrix[0][0];
-        Color centralMatrix = matrix[2][2];
-        Color topRightMatrix = matrix[0][3];
-        Color bottomLeftMatrix = matrix[3][0];
-        Color bottomRightMatrix = matrix[3][3];
+        public void control(Player player){
 
-        if(beginMatrix.equals(centralMatrix) && beginMatrix.equals(topRightMatrix) && beginMatrix.equals(bottomRightMatrix) &&
-        beginMatrix.equals(bottomLeftMatrix)){ return true;}
+            if(!commonGoalAchived()) {
 
-        else{return false;}
+               boolean valid, done = true;
+                int squareCounter = 0;
+                Color[][] submatrix = new Color[3][3];
 
+              for (int i=0; i < PersonalShelf.N_ROWS - 3 && done; i++) {
+                  for (int j=0; j < PersonalShelf.N_COLUMN - 3 && done; j++) {
 
+                        valid = true;
+
+                    for (int k = 0; k < 3 && valid; k++) {
+                        for (int w = 0; w < 3 && valid; w++) {
+                            if (player.getShelf().getSingleSlot(i + k, j + w).getColor().equals(Color.GREY)) {
+                                valid = false;
+                            } else {
+                                submatrix[k][w] = player.getShelf().getSingleSlot(i + k, j + w).getColor();
+                            }
+                        }
+                    }
+                    //Trova la X
+                    Color beginMatrix = submatrix[0][0];
+                    Color centralMatrix = submatrix[2][2];
+                    Color topRightMatrix = submatrix[0][3];
+                    Color bottomLeftMatrix = submatrix[3][0];
+                    Color bottomRightMatrix = submatrix[3][3];
+
+                    if (valid && beginMatrix.equals(centralMatrix) && beginMatrix.equals(topRightMatrix) && beginMatrix.equals(bottomRightMatrix) &&
+                            beginMatrix.equals(bottomLeftMatrix)) {
+                            givePoints(player);
+                            done = false;}
+                }
+            }
+        }
     }
 }
+
+
+
+

@@ -57,7 +57,7 @@ public class Dashboard {
             notPlayable[0][3] = true;
             notPlayable[2][2] = true;
             notPlayable[2][6] = true;
-            notPlayable[3][7] = true;
+            notPlayable[3][8] = true;
             notPlayable[5][0] = true;
             notPlayable[6][2] = true;
             notPlayable[6][6] = true;

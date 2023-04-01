@@ -1,4 +1,4 @@
-import java.util.Scanner;
+
 
 public class Player {
     public String nickname;
@@ -64,9 +64,9 @@ public class Player {
     public void orderCards(Slot[] selectedCards, int p, int s, int t) { //p è la posizione nell'array di partenza della prima tessera dell'array riordinato
                                                                         //s è la seconda, t la terza
         Slot[] tmp = new Slot[3];
-        tmp[0] = selectedCards[p];
-        tmp[1] = selectedCards[s];
-        tmp[2] = selectedCards[t];
+        tmp[0] = selectedCards[p-1];
+        tmp[1] = selectedCards[s-1];
+        tmp[2] = selectedCards[t-1];
         for(int i = 0; i < 3; i++){
             selectedCards[i] = tmp[i];
         }
@@ -84,11 +84,10 @@ public class Player {
     }
 
     public int checkScore(){
-        int points = 0;
         int pgoalPoints = pgoal.AssignPoint(shelf);
         int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
         int nearbyPoints = this.shelf.calculatePoints();
-        points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
+        int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
         return points;
     }
 

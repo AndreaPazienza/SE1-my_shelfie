@@ -1,23 +1,24 @@
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
 
     @Override
-    public void control(PersonalShelf shelf) {
-        boolean[][] visited = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
-        int countAdjacent=0, actualAdjacent=0;
+    public void control(Player player) {
+        if(!commonGoalAchived()) {
+            boolean[][] visited = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
+            int countAdjacent = 0, actualAdjacent = 0;
 
-        for (int i=0; i<PersonalShelf.N_ROWS; i++){
-            for(int j=0; j<PersonalShelf.N_COLUMN; j++){
-                countAdjacent=checkAdjacentSlot(shelf, visited, i, j);
-                if(countAdjacent>=4){
-                    actualAdjacent += countAdjacent / 4;
+            for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+                for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                    countAdjacent = checkAdjacentSlot(player.getShelf(), visited, i, j);
+                    if (countAdjacent >= 4) {
+                        actualAdjacent += countAdjacent / 4;
+                    }
+
                 }
-
+            }
+            if (actualAdjacent >= 4) {
+                givePoints(player);
             }
         }
-        if(actualAdjacent>=4){
-            givePoints(playerPlying);
-        }
-
     }
 
     private int checkAdjacentSlot(PersonalShelf shelf, boolean[][] visited, int x, int y){
