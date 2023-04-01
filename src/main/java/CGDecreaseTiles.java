@@ -1,16 +1,16 @@
 public class CGDecreaseTiles extends CommonGoalAbs {
 
 
-    public void control(PersonalShelf shelf) {
+    public void control(Player player) {
         int i=1, j=0;
-        Color firstDiagonal=shelf.getSingleSlot(i, j).getColor();
+        Color firstDiagonal=player.getShelf().getSingleSlot(i, j).getColor();
         Color nextDiagonal;
         boolean checker=true;
 
         do{
             i++;
             j++;
-            nextDiagonal = shelf.getSingleSlot(i, j).getColor();
+            nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
             if(!firstDiagonal.equals(nextDiagonal) || firstDiagonal.equals(Color.GREY)){
                 checker=false;
             }
@@ -21,17 +21,17 @@ public class CGDecreaseTiles extends CommonGoalAbs {
             checker=true;
             i=5;
             j=0;
-            Color reverseFirstDiagonal =shelf.getSingleSlot(i, j).getColor();
+            Color reverseFirstDiagonal =player.getShelf().getSingleSlot(i, j).getColor();
             do{ i--;
                 j++;
-                nextDiagonal = shelf.getSingleSlot(i, j).getColor();
+                nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
                 if(!firstDiagonal.equals(nextDiagonal) || firstDiagonal.equals(Color.GREY)){
                     checker=false;}
 
             }while(checker && i<6);
         }
 
-        if(checker) givePoints(playerPlying);
+        if(checker) givePoints(player);
     }
 
 }
