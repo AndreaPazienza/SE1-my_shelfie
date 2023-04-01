@@ -1,5 +1,8 @@
 public class CGThreeColumnsSixTiles extends CGOnColumn {
 
+    public CGThreeColumnsSixTiles(int players){
+        super(players);
+    }
     public boolean controlColumn(Color[] column) {
 
             boolean[] colorFound = new boolean[6];

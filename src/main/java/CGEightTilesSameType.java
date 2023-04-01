@@ -1,7 +1,10 @@
 public class CGEightTilesSameType extends CommonGoalAbs {
+    public CGEightTilesSameType(int players){
+        super(players);
+    }
     public void control(Player player) {
 
-    if(!commonGoalAchived()) {
+  // if(!commonGoalAchived()) {
         int GreenCounter = 0;
         int PinkCounter = 0;
         int BlueCounter = 0;
@@ -24,7 +27,7 @@ public class CGEightTilesSameType extends CommonGoalAbs {
 
         if (GreenCounter >= 8 || PinkCounter >= 8 || BlueCounter >= 8 || LBCounter >= 8 || WhiteCounter >= 8 || YellowCounter >= 8) {
             givePoints(player);
-        }
+       //}
     }
 
     }

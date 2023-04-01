@@ -1,5 +1,8 @@
 public class CGFourLinesFiveTiles extends CGOnLines {
 
+    public CGFourLinesFiveTiles(int players){
+        super(players);
+    }
     public boolean controlRows(Color[] rows) {
 
         boolean[] colorFound = new boolean[6];

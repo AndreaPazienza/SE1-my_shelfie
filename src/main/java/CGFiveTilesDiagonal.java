@@ -1,4 +1,7 @@
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
+    public CGFiveTilesDiagonal(int players){
+        super(players);
+    }
     @Override
     public void control(Player player) {
         if(!commonGoalAchived()) {

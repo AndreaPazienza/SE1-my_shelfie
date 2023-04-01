@@ -1,4 +1,7 @@
 public class CGTwoLinesFiveTiles extends CGOnLines {
+    public CGTwoLinesFiveTiles(int players){
+        super(players);
+    }
     public boolean controlRows(Color[] rows) {
 
         int i = 1;

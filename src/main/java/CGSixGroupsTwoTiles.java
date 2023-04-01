@@ -1,5 +1,8 @@
 public class CGSixGroupsTwoTiles extends CommonGoalAbs{
 
+    public CGSixGroupsTwoTiles(int players){
+        super(players);
+    }
     @Override
     public void control(Player player) {
 
