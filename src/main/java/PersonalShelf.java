@@ -17,7 +17,7 @@ public class PersonalShelf {
         boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
         for(int i = 0; i < N_ROWS; i++){
             for(int j = 0; i < N_COLUMN; i++){
-                if(this.shelf[i][j] != null && !visited[i][j]){
+                if(!this.shelf[i][j].getColor().equals(Color.GREY) && !visited[i][j]){
                     adiacentSlot = checkAdjacentSlot(visited, i, j);
                     if(adiacentSlot >= 3) {
                         int points = calculatePointsForAdiacentSlot(adiacentSlot);
@@ -38,16 +38,16 @@ public class PersonalShelf {
         int count = 1;
         Color color = this.shelf[x][y].getColor(); //mi salvo il colore della tessera che devo controllare
         //controllo le tessere adiacenti: se hanno lo stesso colore e non sono markate, incremento count
-        if(x > 0 && this.shelf[x-1][y] != null && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
+        if(x > 0 && this.shelf[x-1][y] != null && color != Color.GREY && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
             count += checkAdjacentSlot(visited, x-1, y);
         }
-        if(x < N_ROWS-1 && this.shelf[x+1][y] != null && color == this.shelf[x+1][y].getColor()&&!visited[x+1][y]){
+        if(x < N_ROWS-1 && this.shelf[x+1][y] != null && color != Color.GREY && color == this.shelf[x+1][y].getColor()&&!visited[x+1][y]){
             count += checkAdjacentSlot(visited, x+1, y);
         }
-        if(y > 0 && this.shelf[x][y-1] != null && color == this.shelf[x][y-1].getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
+        if(y > 0 && this.shelf[x][y-1] != null && color != Color.GREY && color == this.shelf[x][y-1].getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
             count += checkAdjacentSlot(visited, x, y-1);
         }
-        if(y < N_COLUMN && this.shelf[x][y+1] != null && color == this.shelf[x][y+1].getColor()&&!visited[x][y+1]){
+        if(y < N_COLUMN-1 && this.shelf[x][y+1] != null && color != Color.GREY && color == this.shelf[x][y+1].getColor()&&!visited[x][y+1]){
             count += checkAdjacentSlot(visited, x, y+1);
         }
         return count;

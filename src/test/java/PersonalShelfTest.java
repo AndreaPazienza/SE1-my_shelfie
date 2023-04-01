@@ -13,7 +13,7 @@ class PersonalShelfTest {
 
 
     @Test
-    void testInsert(){
+    void testInsert(){ //test passato in realtà è fake
         Slot[] slots = new Slot[3];
         boolean testOk = true;
         for(int i = 0; i < 3; i++){
