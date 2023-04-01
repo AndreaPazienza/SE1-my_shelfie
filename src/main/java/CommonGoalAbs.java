@@ -1,16 +1,44 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public abstract class CommonGoalAbs {
 
-    private int playing = 0;
+    private int playing;
     private int maxPoint = 8;
-
-    protected Boolean[] playerAchived = new Boolean[Game.Nplayers];
-    // Ragiona su utilizzo variabile in common con numero giocatore, devo salvarmi chi l'ha già raggiunto?
+    protected Boolean[] playerAchived;
 
     public abstract void control(Player player);
 
-   /*public CommonGoalAbs(){
-        this.playerPlying = Game.playerOnStage();
-    } */
+    public CommonGoalAbs(int totalPlayer){
+        playerAchived = new Boolean[totalPlayer];
+    }
+
+   public CommonGoalAbs getACommonGoal(int players){
+
+       ArrayList<CommonGoalAbs> deck = new ArrayList<>();
+        deck.add(new CGFourCorners(players));
+        deck.add(new CGDecreaseTiles(players));
+        deck.add(new CGEightTilesSameType(players));
+        deck.add(new CGFiveTilesDiagonal(players));
+        deck.add(new CGFiveTilesX(players));
+        deck.add(new CGSixGroupsTwoTiles(players));
+        deck.add(new CGDecreaseTiles(players));
+        deck.add(new CGSameTypeSquare(players));
+        //definizione colonne
+        deck.add(new CGThreeColumnsSixTiles(players));
+        deck.add(new CGTwoColumnsSixTiles(players));
+        //definizione righe
+        deck.add(new CGTwoLinesFiveTiles(players));
+        deck.add(new CGFourLinesFiveTiles(players));
+
+
+        return deck.get(shuffle());
+   }
+
+   public int shuffle(){
+       int randIndex = new Random().nextInt(13);
+       return  randIndex;
+   }
 
     public void setMaxPoint(int maxPoint) {
         this.maxPoint = maxPoint;
@@ -20,7 +48,7 @@ public abstract class CommonGoalAbs {
     public int getPlaying() {return playing;}
 
     private void maxDecrease() {
-        setMaxPoint(maxPoint - (8 / Game.Nplayers));
+        setMaxPoint(maxPoint - (8 / 3));
     }
 
 
@@ -28,12 +56,15 @@ public abstract class CommonGoalAbs {
      * per gestire il fatto che ogni che un primo player ha ottenuto il punteggio questo viene salvato*/
 
     public boolean commonGoalAchived(){
-        return playerAchived[getPlaying()];
+        return playerAchived[getPlaying()];}
+
+    private void goalAchived(){
+        this.playerAchived[playing]=true;
     }
 
     protected void givePoints(Player player) {
             player.sumPoints(maxPoint);
-            this.playerAchived[ getPlaying() % Game.Nplayers ] = true;
+            goalAchived();
             this.maxDecrease();
     }
 

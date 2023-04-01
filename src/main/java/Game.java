@@ -8,7 +8,7 @@ public class Game {
     private Player[] player;
     private Dashboard table;
     private Bag bag;
-    private CommonGoal commonGoal1, commonGoal2;
+    private CommonGoalAbs commonGoal1, commonGoal2;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
     public Game (int numberOfPlayers) {

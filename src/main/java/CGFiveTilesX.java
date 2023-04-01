@@ -1,5 +1,7 @@
 public class CGFiveTilesX extends CommonGoalAbs {
-
+    public CGFiveTilesX(int players){
+        super(players);
+    }
     @Override
         public void control(Player player){
 

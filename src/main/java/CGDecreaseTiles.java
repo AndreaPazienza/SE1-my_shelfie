@@ -1,5 +1,8 @@
 public class CGDecreaseTiles extends CommonGoalAbs {
 
+    public CGDecreaseTiles(int players){
+        super(players);
+    }
 
     public void control(Player player) {
         int i=1, j=0;

@@ -1,5 +1,7 @@
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
-
+    public CGFourGroupsFourTiles(int players){
+        super(players);
+    }
     @Override
     public void control(Player player) {
         if(!commonGoalAchived()) {

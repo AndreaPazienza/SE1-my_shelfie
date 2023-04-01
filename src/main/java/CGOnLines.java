@@ -1,6 +1,8 @@
 public abstract class CGOnLines extends CommonGoalAbs{
 
-
+    public CGOnLines(int players){
+        super(players);
+    }
     public void control(Player player) {
 
         if (!commonGoalAchived()) {

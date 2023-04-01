@@ -1,4 +1,7 @@
 public class CGEightTilesSameType extends CommonGoalAbs {
+    public CGEightTilesSameType(int players){
+        super(players);
+    }
     public void control(Player player) {
 
     if(!commonGoalAchived()) {

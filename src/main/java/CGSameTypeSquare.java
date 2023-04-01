@@ -1,5 +1,8 @@
-public abstract class CGSameTypeSquare extends CommonGoalAbs {
+public class CGSameTypeSquare extends CommonGoalAbs {
 
+    public CGSameTypeSquare(int players){
+        super(players);
+    }
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {

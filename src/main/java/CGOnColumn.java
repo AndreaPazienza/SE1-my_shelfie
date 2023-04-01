@@ -1,5 +1,8 @@
 public abstract class CGOnColumn extends CommonGoalAbs{
 
+    public CGOnColumn(int players){
+        super(players);
+    }
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {
