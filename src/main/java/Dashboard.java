@@ -16,7 +16,7 @@ public class Dashboard {
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4) {
                 notPlayable[0][i] = true;
-                notPlayable[8][8-i] = true;
+                notPlayable[8][side-1-i] = true;
             }
         }
 
@@ -24,7 +24,7 @@ public class Dashboard {
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4 && i != 5) {
                 notPlayable[1][i] = true;
-                notPlayable[7][7-i] = true;
+                notPlayable[7][side-1-i] = true;
             }
         }
 
@@ -32,7 +32,7 @@ public class Dashboard {
         for (int i  = 0; i < side; i ++) {
             if (i != 2 && i != 3 && i != 4 && i != 5) {
                 notPlayable[2][i] = true;
-                notPlayable[6][6-i] = true;
+                notPlayable[6][side-1-i] = true;
             }
         }
 
@@ -119,7 +119,6 @@ public class Dashboard {
         return refill;
     }
 
-
     public int adjaciencies(int x, int y) {
 
         int numberOfAdjacencies = 0;
@@ -141,6 +140,13 @@ public class Dashboard {
             numberOfAdjacencies ++;
 
         return numberOfAdjacencies;
+    }
+
+
+    public boolean catchableSetter (int x, int y) {
+
+       return !this.getSingleSlot(x,y).getColor().equals(Color.GREY) && !this.getSingleSlot(x,y).getColor().equals(Color.BLACK) && this.adjaciencies(x,y) < 4;
+
     }
 
     public Slot getSingleSlot(int x, int y){
