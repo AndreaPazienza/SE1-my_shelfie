@@ -17,19 +17,25 @@ public class PersonalGoal {
         }
         switch (counter) {           //lo switch mi serve ad assegnare i punteggi; essendo una void, aggiorno diretto
             case 0:                  //l'attributo Score del player;
-                points = 0;
+                return 0;
             case 1:
-                points = points++;
+                points += 1;
+                return points;
             case 2:
-                points = points + 2;
+                points += 2;
+                return points;
             case 3:
-                points = points + 4;
+                points += 4;
+                return points;
             case 4:
-                points = points + 6;
+                points += 6;
+                return points;
             case 5:
-                points = points + 9;
+                points += 9;
+                return points;
             case 6:
-                points = points + 12;
+                points += 12;
+                return points;
         }
         return points;
     }

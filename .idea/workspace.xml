@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +63,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.PersonalGoalTest.testMethod1">
+  <component name="RunManager" selected="TestNG.PersonalGoalTest">
     <configuration name="PersonalGoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
@@ -106,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.PersonalGoalTest.testMethod1" />
         <item itemvalue="TestNG.PersonalGoalTest" />
+        <item itemvalue="TestNG.PersonalGoalTest.testMethod1" />
         <item itemvalue="TestNG.PersonalGoalTest.TestMethod0" />
       </list>
     </recent_temporary>
@@ -178,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679943799589</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)">
+      <created>1680342542315</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1680342542315</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +205,7 @@
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
   </component>
 </project>
