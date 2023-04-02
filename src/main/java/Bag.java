@@ -50,6 +50,9 @@ public class Bag {
         }
     }
 
+    public ArrayList<Slot> getInBag() {
+        return inBag;
+    }
 
     public Slot getFromBag(int index) {
         return this.inBag.get(index);
@@ -62,14 +65,4 @@ public class Bag {
        return returningSlot;
     }
 
-    /*Restituisce lo Slot dell'array indicato dall'indice, in caso di Slot grigio restituisce il primo slot non grigio andando verso destra
-    public Slot validExtraction(int index) {
-
-        //Se lo Slot estratto è grigio, passa al successivo (in caso si superi la lunghezza dell'array, si torna all'inizio)
-        while (inBag[index].getColor().equals(Color.GREY)) {
-                index = (index + 1) % inBag.length;
-        }
-
-        return inBag[index];
-    }*/
 }
