@@ -15,19 +15,16 @@ class PersonalShelfTest {
     @Test
     void testInsert(){ //test passato in realtà è fake
         Slot[] slots = new Slot[3];
-        boolean testOk = true;
         for(int i = 0; i < 3; i++){
             slots[i] = new Slot(Color.PINK);
         }
         shelf.insert(slots, 2);
-        for(int i = 5; i > 2; i--){
-            if(!shelf.getSingleSlot(i, 2).getColor().Equals(Color.PINK)){
-                testOk = false;
-            }
+        for(int i = 5; i > 2; i--) {
+           System.out.println("Color: "+shelf.getSingleSlot(i,2).getColor());
         }
-        System.out.println("Test ok: "+testOk);
     }
 
+    @Test
     void testInsert2(){ //test passato in realtà è fake
         Slot[] slots = new Slot[3];
         boolean testOk = true;
@@ -39,6 +36,20 @@ class PersonalShelfTest {
             testOk=false;
         }
         if(!shelf.getSingleSlot(4,1).getColor().Equals(Color.LIGHTBLUE)){
+            testOk=false;
+        }
+        System.out.println("Test ok: "+testOk);
+    }
+
+    @Test
+    void testInsert3(){ //test passato in realtà è fake
+        Slot[] slots = new Slot[3];
+        boolean testOk = true;
+        slots[0] = new Slot(Color.WHITE);
+        slots[1] = new Slot(Color.GREY);
+        slots[2] = new Slot(Color.GREY);
+        shelf.insert(slots, 0);
+        if(!shelf.getSingleSlot(5,0).getColor().Equals(Color.WHITE)){
             testOk=false;
         }
         System.out.println("Test ok: "+testOk);
@@ -122,13 +133,43 @@ class PersonalShelfTest {
         assertEquals(18, test);
     }
     @Test
-    void testAdjacent6(){ //controllo che in caso di 6+ tessere = adiacenti non dia più di 8
-        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
-            for(int j = 0; j < PersonalShelf.N_COLUMN; j++){
+    void testAdjacent6() { //controllo che in caso di 6+ tessere = adiacenti non dia più di 8
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 shelf.getSingleSlot(i, j).setColor(Color.YELLOW);
             }
         }
         int test = shelf.calculatePoints();
         assertEquals(8, test);
     }
+
+   @Test
+    void testCheckLastLine(){
+       for(int i = 0; i < PersonalShelf.N_ROWS; i++){
+           for(int j = 0; j < PersonalShelf.N_COLUMN;j++){
+              shelf.getSingleSlot(i,j).setColor(Color.GREEN);
+           }
+       }
+       shelf.checkLastLine();
+       System.out.println("è piena: "+shelf.isItsFull());
+    }
+
+    @Test
+    void testCheckLastLine2(){
+        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
+            for(int j = 0; j < PersonalShelf.N_COLUMN;j++){
+                shelf.getSingleSlot(i,j).setColor(Color.GREEN);
+            }
+        }
+        shelf.getSingleSlot(0,0).setColor(Color.GREY);
+        shelf.checkLastLine();
+        System.out.println("è piena: "+shelf.isItsFull());
+    }
+
+    @Test
+    void testCheckLastLine3(){
+        shelf.checkLastLine();
+        System.out.println("è piena: "+shelf.isItsFull());
+    }
+
 }

@@ -68,7 +68,7 @@ public class PersonalShelf {
 
     public void insert(Slot[] slots, int column){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
         int lunghezzaReale = 0;
-        for(int i = 0;i < (slots.length-1);i++){
+        for(int i = 0;i < slots.length;i++){
             if(slots[i].getColor().notEquals(Color.GREY)){
                 lunghezzaReale++;        //lunghezzaReale serve perchè in ingressi sarà dato un array di 3 slot
             }                            //che non sempre sarà pieno;

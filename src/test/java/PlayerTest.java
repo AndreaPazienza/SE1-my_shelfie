@@ -14,12 +14,8 @@ class PlayerTest {
     void testSelection2P(){
         Dashboard dashboard = new Dashboard(2);
         Bag bag = new Bag();
-        for(int i = 0; i < 132; i++){
-            System.out.println("Color: "+bag.getFromBag(i).getColor());
-            System.out.println("Type: "+bag.getFromBag(i).getType());
-        }
         dashboard.refill(bag);
-        Slot selectedCard = player.selectCard(dashboard,3 ,3);
+        Slot selectedCard = player.selectCard(dashboard,1 ,3);
         System.out.println("Color: "+selectedCard.getColor());
     }
 
@@ -33,7 +29,7 @@ class PlayerTest {
             selectedCards[i] = new Slot(Color.GREY);
         }
         selectedCards[0] = player.selectCard(dashboard,2,6 );
-        selectedCards[1] = player.selectCard(dashboard, 5,2);
+        selectedCards[1] = player.selectCard(dashboard, 5,0);
         selectedCards[2] = player.selectCard(dashboard, 7,5);
         for(int i = 0; i < 3; i++){
             System.out.println("Color: "+selectedCards[i].getColor());
