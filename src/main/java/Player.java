@@ -84,7 +84,7 @@ public class Player {
     }
 
     public int checkScore(){
-        int pgoalPoints = pgoal.AssignPoint(shelf);
+        int pgoalPoints = pgoal.assignPoint(shelf);
         int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
         int nearbyPoints = this.shelf.calculatePoints();
         int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme

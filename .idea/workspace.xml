@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bag.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update generale">
       <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -149,7 +144,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="1249000" />
+      <workItem from="1680437874665" duration="1819000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -221,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680356789946</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update generale">
+      <created>1680439165270</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680439165270</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +251,8 @@
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
     <MESSAGE value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
     <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
+    <MESSAGE value="Update generale" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update generale" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
