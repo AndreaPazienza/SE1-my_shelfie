@@ -87,9 +87,9 @@ public class Dashboard {
     public void refill(Bag bag) {
 
         //Per tutti gli slot in Dashboard che hanno colore grigio
-        for (int i=0; i < ) {
-            for(Slot cell : row) {
-
+        for (int i=0; i < side; i++) {
+            for(int j=0; j < side; j++) {
+                Slot cell = inDashboard[i][j];
                 if (cell.getColor().equals(Color.GREY)) {
                     cell = bag.getSingleSlot();
                     cell.setCatchable(false);
@@ -100,6 +100,7 @@ public class Dashboard {
         catchAfterRefill();
 
     }
+
 
     public void catchAfterRefill(){
 
