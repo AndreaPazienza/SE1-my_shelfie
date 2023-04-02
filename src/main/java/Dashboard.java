@@ -26,7 +26,7 @@ public class Dashboard {
                 notPlayable[1][i] = true;
             }
         }
-        for (int j = 8; j > 0; j--) {
+        for (int j = 8; j >= 0; j--) {
             if (j != 3 && j != 4 && j != 5) {
                 notPlayable[7][j] = true;
                 }
@@ -38,7 +38,7 @@ public class Dashboard {
                 notPlayable[2][i] = true;
             }
         }
-        for(int j = 8; j > 0; j--){
+        for(int j = 8; j >= 0; j--){
             if(j != 2 && j != 3 && j != 4 && j != 5 && j != 6){
                     notPlayable[6][j] = true;
             }
@@ -93,7 +93,7 @@ public class Dashboard {
                 if (cell.getColor().equals(Color.GREY)) {
                     cell = bag.getSingleSlot();
                     cell.setCatchable(false);
-
+                    inDashboard[i][j] = cell;
                 }
             }
         }
@@ -158,6 +158,10 @@ public class Dashboard {
 
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];
+    }
+
+    public void setSingleSlot(Slot slot, int x, int y) {
+        this.inDashboard[x][y] = slot;
     }
 
     public static int getSide() {
