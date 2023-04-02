@@ -1,17 +1,28 @@
-import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
 public class BagTest {
 
-    private Bag bag;
-
+    //Test costruttore Bag passato
     @Test
     void testBag () {
 
-        bag = new Bag();
+        Bag b = new Bag();
 
-        for (int i = 0; i < bag.getInBag().length; i ++) {
-            System.out.print(bag.getInBag()[i].getColor() + "-" + bag.getInBag()[i].getType() + "\n");
+        for (int i = 0; i < b.getInBag().size() ; i ++) {
+
+            System.out.print(b.getFromBag(i).getColor() + " " + b.getFromBag(i).getType()+ "\n");
         }
+    }
+
+    //Test getSingleSlot passato
+    @Test
+    void testGetSingleSlot () {
+
+        Bag b = new Bag();
+
+        System.out.print(b.getInBag().size() + "\n");
+        System.out.print(b.getSingleSlot().getColor() + "\n");
+        System.out.print(b.getInBag().size() + "\n");
+
     }
 }
