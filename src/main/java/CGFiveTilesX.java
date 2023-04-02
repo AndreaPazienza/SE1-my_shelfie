@@ -11,8 +11,8 @@ public class CGFiveTilesX extends CommonGoalAbs {
             boolean done = true;
             Color[][] submatrix = new Color[3][3];
 
-            for (int i = 0; i < PersonalShelf.N_ROWS - 3 && done; i++) {
-                for (int j = 0; j < PersonalShelf.N_COLUMN - 3 && done; j++) {
+            for (int i = 0; i < PersonalShelf.N_ROWS - 2 && done; i++) {
+                for (int j = 0; j < PersonalShelf.N_COLUMN - 2 && done; j++) {
                     for (int k = 0; k < 3; k++) {
                         for (int w = 0; w < 3; w++) {
                             submatrix[k][w] = player.getShelf().getSingleSlot(i + k, j + w).getColor();

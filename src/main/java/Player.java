@@ -53,10 +53,12 @@ public class Player {
     }
 
     public Slot selectCard (Dashboard dashboard, int x, int y) {
-        Slot selectedCard = new Slot(Color.GREY);
-        if (dashboard.getSingleSlot(x,y).isCatchable()) {  //selezione vera e propria
-            selectedCard = dashboard.getSingleSlot(x,y);
-            dashboard.getSingleSlot(x,y).setGrey();
+        Slot selectedCard = new Slot(dashboard.getSingleSlot(x,y).getColor());
+        Slot slot = new Slot(Color.GREY);
+        if (!dashboard.getSingleSlot(x,y).isCatchable()) {  //selezione vera e propria
+           return slot;
+            } else{
+                dashboard.getSingleSlot(x,y).setGrey();
             }
         return selectedCard;
     }
@@ -95,7 +97,7 @@ public class Player {
         this.nickname = nick;
         this.score = 0;
         this.shelf = new PersonalShelf();
-        this.pgoal = new PersonalGoal();
+        this.pgoal = PersonalGoalDeck.extractionPGoal();
         this.orderInTurn = 0;
         this.chair = false;
     }

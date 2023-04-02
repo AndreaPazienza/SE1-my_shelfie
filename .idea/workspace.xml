@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update metodo assignPoints">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,7 +64,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonalShelfTest.testAdjacent3">
+  <component name="RunManager" selected="JUnit.PlayerTest.testSelection2P">
     <configuration name="PersonalShelfTest.testAdjacent3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
@@ -117,9 +117,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
         <item itemvalue="JUnit.PersonalShelfTest.testAdjacent3" />
         <item itemvalue="JUnit.PersonalShelfTest.testInsert" />
-        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
         <item itemvalue="JUnit.PlayerTest.testSelection3P" />
         <item itemvalue="JUnit.PersonalShelfTest.testAdjacent5" />
       </list>
@@ -142,7 +142,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="3160000" />
+      <workItem from="1680437874665" duration="11359000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -228,7 +228,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680439774676</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update">
+      <created>1680441318029</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680441318029</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <created>1680455056974</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680455056974</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -258,15 +272,17 @@
     <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
     <MESSAGE value="Update generale" />
     <MESSAGE value="Update metodo assignPoints" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update metodo assignPoints" />
+    <MESSAGE value="Update" />
+    <MESSAGE value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>101</line>
-          <properties class="PersonalShelfTest" method="testAdjacent5">
+          <line>112</line>
+          <properties class="PersonalShelfTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -274,12 +290,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>88</line>
-          <properties class="PersonalShelfTest" method="testAdjacent4">
+          <line>99</line>
+          <properties class="PersonalShelfTest">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>169</line>
+          <properties class="PersonalShelfTest" method="testCheckLastLine3">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
@@ -293,12 +318,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>102</line>
+          <line>113</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>52</line>
+          <line>63</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -22,12 +22,9 @@ public class Slot {
 
     public void fillType(int numberType){
         switch(numberType % 3) {
-            case 0:
-                setType(Type.TYPE1);
-            case 1:
-                setType(Type.TYPE2);
-            case 2:
-                setType(Type.TYPE3);
+            case 0-> setType(Type.TYPE1);
+            case 1-> setType(Type.TYPE2);
+            case 2-> setType(Type.TYPE3);
         }
 
     }
