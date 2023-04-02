@@ -3,17 +3,23 @@ import java.util.Random;
 
 public abstract class CommonGoalAbs {
 
-    private int playing=0;
+    protected int playing=0;
     private int maxPoint = 8;
     protected Boolean[] playerAchived;
+    CommonGoalAbs goal;
 
     public abstract void control(Player player);
 
     public CommonGoalAbs(int totalPlayer){
+
         playerAchived = new Boolean[totalPlayer];
+       for(int i=0; i<totalPlayer; i++){
+           playerAchived[i]=false;
+       }
+      // goal = getACommonGoal(totalPlayer);
     }
 
-   public CommonGoalAbs getACommonGoal(int players){
+  /* public CommonGoalAbs getACommonGoal(int players){
 
        ArrayList<CommonGoalAbs> deck = new ArrayList<>();
         deck.add(new CGFourCorners(players));
@@ -31,9 +37,11 @@ public abstract class CommonGoalAbs {
         deck.add(new CGTwoLinesFiveTiles(players));
         deck.add(new CGFourLinesFiveTiles(players));
 
-
         return deck.get(shuffle());
-   }
+    }*/
+    public CommonGoalAbs getGoal(){
+        return  goal;
+    }
 
    public int shuffle(){
        int randIndex = new Random().nextInt(13);
@@ -48,7 +56,7 @@ public abstract class CommonGoalAbs {
     public int getPlaying() {return playing;}
 
     private void maxDecrease() {
-        setMaxPoint(maxPoint - (8 / playerAchived.length));
+        setMaxPoint(maxPoint - ( 8 / playerAchived.length));
     }
 
 
@@ -71,7 +79,7 @@ public abstract class CommonGoalAbs {
 
     //Funzione da chiamare in un NextTurn per portare di pari passo il valore giocatore del commonGoal
     public void incrementCG() {
-            if (getPlaying() == Game.Nplayers-1)
+            if (getPlaying() == playerAchived.length-1)
                   { setPlaying(0); }
             else
                  {   setPlaying(getPlaying()+1); }
