@@ -4,7 +4,7 @@ public class PersonalGoal {
     private Target[] goal;
     private static final int N_GOALS = 6;
 
-    public int AssignPoint(PersonalShelf shelf) { //dubbio: devo passare shelf??
+    public int assignPoint(PersonalShelf shelf) { //dubbio: devo passare shelf??
         int counter = 0;
         int points = 0;
         for (int i = 0; i < N_GOALS; i++) {            //nel for faccio i confronti; counter mi tiene traccia del numero

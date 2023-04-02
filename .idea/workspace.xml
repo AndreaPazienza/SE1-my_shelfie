@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update metodo assignPoints">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,12 +64,12 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonalShelfTest.testInsert">
-    <configuration name="PersonalShelfTest.testAdjacent4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PersonalShelfTest.testAdjacent3">
+    <configuration name="PersonalShelfTest.testAdjacent3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent4" />
+      <option name="METHOD_NAME" value="testAdjacent3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -124,11 +117,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent3" />
         <item itemvalue="JUnit.PersonalShelfTest.testInsert" />
         <item itemvalue="JUnit.PlayerTest.testSelection2P" />
         <item itemvalue="JUnit.PlayerTest.testSelection3P" />
         <item itemvalue="JUnit.PersonalShelfTest.testAdjacent5" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent4" />
       </list>
     </recent_temporary>
   </component>
@@ -149,7 +142,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="1249000" />
+      <workItem from="1680437874665" duration="3160000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -221,7 +214,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680356789946</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Update generale">
+      <created>1680439165270</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1680439165270</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Update metodo assignPoints">
+      <created>1680439774676</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680439774676</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,7 +256,9 @@
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
     <MESSAGE value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
     <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
+    <MESSAGE value="Update generale" />
+    <MESSAGE value="Update metodo assignPoints" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update metodo assignPoints" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -104,8 +104,8 @@ public class Dashboard {
 
     public void catchAfterRefill(){
 
-        for (int i=0; i<9; i++) {
-            for(int j=0; j<9; j++) {
+        for (int i=0; i<side; i++) {
+            for(int j=0; j<side; j++) {
                 Slot cell = inDashboard[i][j];
 
                 if (!cell.getColor().equals(Color.GREY) && !cell.getColor().equals(Color.BLACK) && adjaciencies(i,j) < 4 ) {

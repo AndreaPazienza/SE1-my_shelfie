@@ -11,7 +11,7 @@ public class PersonalGoalTest{
      void testMethod0(){
         PersonalGoal pgoal = new PersonalGoal();
         PersonalShelf tShelf = new PersonalShelf();
-        assertEquals(0, pgoal.AssignPoint(tShelf));
+        assertEquals(0, pgoal.assignPoint(tShelf));
     }
     @Test
     void testMethod1(){
@@ -21,7 +21,7 @@ public class PersonalGoalTest{
         int x = pgoal.getSingleTarget(0).getPosX();
         int y = pgoal.getSingleTarget(0).getPosY();
         tshelf.getSingleSlot(x,y).setColor(c);
-        assertEquals(1, pgoal.AssignPoint(tshelf));
+        assertEquals(1, pgoal.assignPoint(tshelf));
     }
     @Test
     void testMethod2(){
@@ -33,7 +33,7 @@ public class PersonalGoalTest{
             int y = pgoal.getSingleTarget(i).getPosY();
             tshelf.getSingleSlot(x,y).setColor(c);
         }
-        assertEquals(2, pgoal.AssignPoint(tshelf));
+        assertEquals(2, pgoal.assignPoint(tshelf));
     }
     @Test
     void testMethod3(){
@@ -45,7 +45,7 @@ public class PersonalGoalTest{
             int y = pgoal.getSingleTarget(i).getPosY();
             tshelf.getSingleSlot(x,y).setColor(c);
         }
-        assertEquals(4, pgoal.AssignPoint(tshelf));
+        assertEquals(4, pgoal.assignPoint(tshelf));
     }
     @Test
     void testMethod4(){
@@ -57,7 +57,7 @@ public class PersonalGoalTest{
             int y = pgoal.getSingleTarget(i).getPosY();
             tshelf.getSingleSlot(x,y).setColor(c);
         }
-        assertEquals(6, pgoal.AssignPoint(tshelf));
+        assertEquals(6, pgoal.assignPoint(tshelf));
     }
     @Test
     void testMethod5(){
@@ -69,7 +69,7 @@ public class PersonalGoalTest{
             int y = pgoal.getSingleTarget(i).getPosY();
             tshelf.getSingleSlot(x,y).setColor(c);
         }
-        assertEquals(9, pgoal.AssignPoint(tshelf));
+        assertEquals(9, pgoal.assignPoint(tshelf));
     }
     @Test
     void testMethod6(){
@@ -81,6 +81,6 @@ public class PersonalGoalTest{
             int y = pgoal.getSingleTarget(i).getPosY();
             tShelf.getSingleSlot(x,y).setColor(c);
         }
-        assertEquals(12, pgoal.AssignPoint(tShelf));
+        assertEquals(12, pgoal.assignPoint(tShelf));
     }
 }
