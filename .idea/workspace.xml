@@ -4,15 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Correzione numero dei tipi">
-      <change afterPath="$PROJECT_DIR$/src/test/java/BagTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/GameTest.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Slot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Type.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
     </list>
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,19 +23,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/main" />
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -56,6 +52,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
@@ -63,7 +60,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -74,73 +71,64 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.DashboardTest">
-    <configuration name="BagTest.testBag" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PersonalShelfTest.testInsert">
+    <configuration name="PersonalShelfTest.testAdjacent4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="BagTest" />
-      <option name="METHOD_NAME" value="testBag" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
+      <option name="METHOD_NAME" value="testAdjacent4" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DashboardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalShelfTest.testAdjacent5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DashboardTest" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
+      <option name="METHOD_NAME" value="testAdjacent5" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DashboardTest.testDashboard2" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalShelfTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DashboardTest" />
-      <option name="METHOD_NAME" value="testDashboard2" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DashboardTest.testDashboard3" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest.testSelection2P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DashboardTest" />
-      <option name="METHOD_NAME" value="testDashboard3" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="testSelection2P" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DashboardTest.testDashboard4" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest.testSelection3P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="DashboardTest" />
-      <option name="METHOD_NAME" value="testDashboard4" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="testSelection3P" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.DashboardTest" />
-        <item itemvalue="TestNG.DashboardTest.testDashboard4" />
-        <item itemvalue="TestNG.DashboardTest.testDashboard3" />
-        <item itemvalue="TestNG.DashboardTest.testDashboard2" />
-        <item itemvalue="TestNG.BagTest.testBag" />
+        <item itemvalue="JUnit.PersonalShelfTest.testInsert" />
+        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
+        <item itemvalue="JUnit.PlayerTest.testSelection3P" />
+        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent5" />
+        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent4" />
       </list>
     </recent_temporary>
   </component>
@@ -160,8 +148,8 @@
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
-      <workItem from="1680010392542" duration="1941000" />
-      <workItem from="1680393006564" duration="7750000" />
+      <workItem from="1680368059056" duration="1374000" />
+      <workItem from="1680437874665" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -212,14 +200,28 @@
       <option name="project" value="LOCAL" />
       <updated>1679943799589</updated>
     </task>
-    <task id="LOCAL-00008" summary="Correzione numero dei tipi">
-      <created>1680393058871</created>
+    <task id="LOCAL-00008" summary="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)">
+      <created>1680342542315</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1680393058871</updated>
+      <updated>1680342542315</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)">
+      <created>1680343541604</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1680343541604</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
+      <created>1680356789946</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680356789946</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,21 +237,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="HEAD" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Classe slot" />
@@ -259,8 +246,58 @@
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
-    <MESSAGE value="Aggiornamento indici costruttore" />
-    <MESSAGE value="Correzione numero dei tipi" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione numero dei tipi" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
+    <MESSAGE value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
+    <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>101</line>
+          <properties class="PersonalShelfTest" method="testAdjacent5">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>88</line>
+          <properties class="PersonalShelfTest" method="testAdjacent4">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>102</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -16,23 +16,31 @@ public class Dashboard {
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4) {
                 notPlayable[0][i] = true;
-                notPlayable[8][side-1-i] = true;
+                notPlayable[8][8-i] = true;
             }
         }
 
-        //Inizializzazione seconda e  ottava riga della maschera
+        //Inizializzazione seconda ottava riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4 && i != 5) {
                 notPlayable[1][i] = true;
-                notPlayable[7][side-1-i] = true;
             }
         }
+        for (int j = 8; j > 0; j--) {
+            if (j != 3 && j != 4 && j != 5) {
+                notPlayable[7][j] = true;
+                }
+            }
 
         //Inizializzazione terza e settima riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 2 && i != 3 && i != 4 && i != 5 && i != 6) {
                 notPlayable[2][i] = true;
-                notPlayable[6][side-1-i] = true;
+            }
+        }
+        for(int j = 8; j > 0; j--){
+            if(j != 2 && j != 3 && j != 4 && j != 5 && j != 6){
+                    notPlayable[6][j] = true;
             }
         }
 
@@ -70,7 +78,6 @@ public class Dashboard {
                 if (notPlayable[i][j]) inDashboard[i][j] = new Slot (Color.BLACK);
                     else inDashboard[i][j] = new Slot (Color.GREY);
 
-                inDashboard[i][j].setType(null);
                 inDashboard[i][j].setCatchable(false);
             }
         }
@@ -79,31 +86,34 @@ public class Dashboard {
     //Ripopolamento della Dashboard
     public void refill(Bag bag) {
 
-        int extractedIndex;
-        Slot extractedSlot;
-
         //Per tutti gli slot in Dashboard che hanno colore grigio
-        for (Slot[] row : this.inDashboard) {
-            for(Slot slot : row) {
-                if (slot.getColor().equals(Color.GREY)) {
+        for (int i=0; i < ) {
+            for(Slot cell : row) {
 
-                    //Randomizzazione dell'indice ed estrazione della prima Slot valida (non grigia) a partire da quell'indice
-                    extractedIndex = new Random().nextInt(bag.getInBag().length);
-                    extractedSlot = bag.validExtraction(extractedIndex);
+                if (cell.getColor().equals(Color.GREY)) {
+                    cell = bag.getSingleSlot();
+                    cell.setCatchable(false);
 
-                    //Modifica dello slot (di Dashboard) secondo colore e tipo di quello estratto e catchable settato falso (l'aggiornamento a true dove necessario è lasciato a updateTurn)
-                    slot.setColor(extractedSlot.getColor());
-                    slot.setType(extractedSlot.getType());
-                    slot.setCatchable(false);
+                }
+            }
+        }
+        catchAfterRefill();
 
-                    //Set a grigio dello slot estartto da Bag
-                    bag.getInBag()[extractedIndex].setGrey();
-                    bag.getInBag()[extractedIndex].setType(null);
+    }
+
+    public void catchAfterRefill(){
+
+        for (int i=0; i<9; i++) {
+            for(int j=0; j<9; j++) {
+                Slot cell = inDashboard[i][j];
+
+                if (!cell.getColor().equals(Color.GREY) && !cell.getColor().equals(Color.BLACK) && adjaciencies(i,j) < 4 ) {
+                    cell.setCatchable(true);
+
                 }
             }
         }
     }
-
     //Controllo della Dashboard per vedere se il Refill è necessario
     public boolean checkRefill() {
 
@@ -120,6 +130,7 @@ public class Dashboard {
         }
         return refill;
     }
+
 
     public int adjaciencies(int x, int y) {
 
@@ -142,13 +153,6 @@ public class Dashboard {
             numberOfAdjacencies ++;
 
         return numberOfAdjacencies;
-    }
-
-
-    public boolean catchableSetter (int x, int y) {
-
-       return !this.getSingleSlot(x,y).getColor().equals(Color.GREY) && !this.getSingleSlot(x,y).getColor().equals(Color.BLACK) && this.adjaciencies(x,y) < 4;
-
     }
 
     public Slot getSingleSlot(int x, int y){

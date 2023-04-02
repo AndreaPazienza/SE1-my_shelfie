@@ -1,41 +1,67 @@
+import java.util.ArrayList;
+import java.util.Random;
+
 public class Bag {
 
-    private Slot[] inBag;
+    private ArrayList<Slot> inBag = new ArrayList<>();
 
     //Costrutttore di Bag come array ordinato di Slot (l'estrazione randomica è lasciata al metodo Refill di Dashboard)
-    public Bag () {
-
-        inBag = new Slot[132];
-
-        for (int i = 0; i < inBag.length; i ++) {
-
-            //Setting del colore
-            switch (i % 6) {
-                case 0 -> inBag[i] = new Slot(Color.GREEN);
-                case 1 -> inBag[i] = new Slot(Color.PINK);
-                case 2 -> inBag[i] = new Slot(Color.BLUE);
-                case 3 -> inBag[i] = new Slot(Color.LIGHTBLUE);
-                case 4 -> inBag[i] = new Slot(Color.WHITE);
-                case 5 -> inBag[i] = new Slot(Color.YELLOW);
+    public Bag() {
+        //Setting del colore
+        for (int i = 0; i < 132; i++) {
+            if(i < 22) {
+                Slot toAdd1 = new Slot(Color.GREEN);
+                toAdd1.fillType(i % 3);
+                toAdd1.setCatchable(false);
+                inBag.add(toAdd1);
+            }
+            if(i > 21 && i < 44){
+                Slot toAdd2 = new Slot(Color.PINK);
+                toAdd2.fillType(i%3);
+                toAdd2.setCatchable(false);
+                inBag.add(toAdd2);
+            }
+            if(i > 43 && i < 66){
+                Slot toAdd3 = new Slot(Color.BLUE);
+                toAdd3.fillType(i % 3);
+                toAdd3.setCatchable(false);
+                inBag.add(toAdd3);
+            }
+            if(i > 65 && i < 88){
+                Slot toAdd4 = new Slot(Color.LIGHTBLUE);
+                toAdd4.fillType(i % 3);
+                toAdd4.setCatchable(false);
+                inBag.add(toAdd4);
+            }
+            if(i > 87 && i < 110){
+                Slot toAdd5 = new Slot(Color.WHITE);
+                toAdd5.fillType(i%3);
+                toAdd5.setCatchable(false);
+                inBag.add(toAdd5);
+            }
+            if(i > 109 && i < 132){
+                Slot toAdd6 = new Slot(Color.BLUE);
+                toAdd6.fillType(i % 3);
+                toAdd6.setCatchable(false);
+                inBag.add(toAdd6);
             }
 
-            //Setting del tipo
-            switch (i / 44) {
-                case 0 -> inBag[i].setType(Type.TYPE1);
-                case 1 -> inBag[i].setType(Type.TYPE2);
-                case 2 -> inBag[i].setType(Type.TYPE3);
-            }
-
-            //Setting di catchable
-            inBag[i].setCatchable (false);
         }
     }
 
-    public Slot[] getInBag() {
-        return this.inBag;
+
+    public Slot getFromBag(int index) {
+        return this.inBag.get(index);
     }
 
-    //Restituisce lo Slot dell'array indicato dall'indice, in caso di Slot grigio restituisce il primo slot non grigio andando verso destra
+    public Slot getSingleSlot(){
+        int randomIndex = new Random().nextInt(inBag.size()+1);
+       Slot returningSlot = inBag.get(randomIndex);
+       inBag.remove(randomIndex);
+       return returningSlot;
+    }
+
+    /*Restituisce lo Slot dell'array indicato dall'indice, in caso di Slot grigio restituisce il primo slot non grigio andando verso destra
     public Slot validExtraction(int index) {
 
         //Se lo Slot estratto è grigio, passa al successivo (in caso si superi la lunghezza dell'array, si torna all'inizio)
@@ -44,5 +70,5 @@ public class Bag {
         }
 
         return inBag[index];
-    }
+    }*/
 }

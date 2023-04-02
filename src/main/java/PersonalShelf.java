@@ -16,7 +16,7 @@ public class PersonalShelf {
         int adiacentSlot = 0;
         boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
         for(int i = 0; i < N_ROWS; i++){
-            for(int j = 0; i < N_COLUMN; i++){
+            for(int j = 0; j < N_COLUMN; j++){
                 if(!this.shelf[i][j].getColor().equals(Color.GREY) && !visited[i][j]){
                     adiacentSlot = checkAdjacentSlot(visited, i, j);
                     if(adiacentSlot >= 3) {
@@ -78,7 +78,7 @@ public class PersonalShelf {
                 i--;
                 }
         for (int j = 0; j < lunghezzaReale; j++) {    //inserimento effettivo
-            this.shelf[i][column] = slots[j];
+            this.shelf[i][column].setColor(slots[j].getColor());
             i--;
         }
     }
