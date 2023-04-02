@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class PersonalShelfTest {
 
     private PersonalShelf shelf;
-    @BeforeEach
+   @BeforeEach
     public void init() {
         shelf = new PersonalShelf();
     }
@@ -21,9 +21,25 @@ class PersonalShelfTest {
         }
         shelf.insert(slots, 2);
         for(int i = 5; i > 2; i--){
-            if(shelf.getSingleSlot(i, 2).getColor().notEquals(Color.PINK)){
+            if(!shelf.getSingleSlot(i, 2).getColor().Equals(Color.PINK)){
                 testOk = false;
             }
+        }
+        System.out.println("Test ok: "+testOk);
+    }
+
+    void testInsert2(){ //test passato in realtà è fake
+        Slot[] slots = new Slot[3];
+        boolean testOk = true;
+        slots[0] = new Slot(Color.YELLOW);
+        slots[1] = new Slot(Color.LIGHTBLUE);
+        slots[2] = new Slot(Color.GREY);
+        shelf.insert(slots, 1);
+        if(!shelf.getSingleSlot(5,1).getColor().Equals(Color.YELLOW)){
+            testOk=false;
+        }
+        if(!shelf.getSingleSlot(4,1).getColor().Equals(Color.LIGHTBLUE)){
+            testOk=false;
         }
         System.out.println("Test ok: "+testOk);
     }

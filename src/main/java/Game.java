@@ -14,13 +14,16 @@ public class Game {
     public Game (int numberOfPlayers) {
 
         Nplayers = numberOfPlayers;
-        playerInGame = 0;
+        playerInGame = 0;                                   //Giocatore attualmente di turno
         gameOn = true;
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
         //commonGoal1 = ;
         //commonGoal2 = ;
+
+        //Primo popolamento della plancia
+        table.refill(bag);
     }
 
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
@@ -35,8 +38,20 @@ public class Game {
     }
 
     //Selezione, ordinamento ed inserimento delle Slot (e setting di grigio per gli Slot presi dalla Dashboard)
-    public void playerMoves() {
+    public void playerMoves(int nChoices) {
 
+        Slot[] choice = new Slot[nChoices];
+
+        /*
+        for (int i = 0; i < nChoices; i ++) {
+
+            choice[i] = player[playerInGame].selectCard(this.table, , );
+
+        }
+
+        if (nChoices == 3)
+            player[playerInGame].orderCards(choice, , , );
+        else if (nChoices == 2 && /*chiamata al controller per sapere se switchare) player[playerInGame].orderCards(choice); */
     }
 
     //Restituisce il giocatore di turno
@@ -48,6 +63,14 @@ public class Game {
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() {
 
+        //Controllo dei CommonGoal completati ed incremento
+        this.commonGoal1.control(player[playerInGame]);
+        this.commonGoal1.incrementCG();
+
+        this.commonGoal2.control(player[playerInGame]);
+        this.commonGoal2.incrementCG();
+
+
         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
@@ -58,7 +81,7 @@ public class Game {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
 
                 //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
-                if (!table.getSingleSlot(i,j).getColor().equals(Color.GREY) && !table.getSingleSlot(i,j).getColor().equals(Color.BLACK) && table.adjaciencies(i,j) < 4) {
+                if (table.catchableSetter (i,j)) {
                     table.getSingleSlot(i,j).setCatchable(true);
                 }
             }

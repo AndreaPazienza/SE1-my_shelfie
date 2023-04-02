@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Slot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PlayerTest.java" afterDir="false" />
     </list>
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,13 +52,15 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -64,27 +71,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PersonalShelfTest.testAdjacent5">
-    <configuration name="PersonalShelfTest.testAdjacent2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonalShelfTest.testAdjacent3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.PersonalShelfTest.testInsert">
     <configuration name="PersonalShelfTest.testAdjacent4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
@@ -105,11 +92,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalShelfTest.testAdjacent6" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalShelfTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent6" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest.testSelection2P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="testSelection2P" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest.testSelection3P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="testSelection3P" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -117,11 +124,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PersonalShelfTest.testInsert" />
+        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
+        <item itemvalue="JUnit.PlayerTest.testSelection3P" />
         <item itemvalue="JUnit.PersonalShelfTest.testAdjacent5" />
         <item itemvalue="JUnit.PersonalShelfTest.testAdjacent4" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent3" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent6" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent2" />
       </list>
     </recent_temporary>
   </component>
@@ -141,6 +148,8 @@
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
+      <workItem from="1680368059056" duration="1374000" />
+      <workItem from="1680437874665" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -205,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680343541604</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
+      <created>1680356789946</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1680356789946</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,24 +248,54 @@
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
     <MESSAGE value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
+    <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>85</line>
+          <line>101</line>
           <properties class="PersonalShelfTest" method="testAdjacent5">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>88</line>
+          <properties class="PersonalShelfTest" method="testAdjacent4">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>93</line>
-          <option name="timeStamp" value="4" />
+          <line>102</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

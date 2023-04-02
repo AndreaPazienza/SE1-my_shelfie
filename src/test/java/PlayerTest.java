@@ -14,6 +14,10 @@ class PlayerTest {
     void testSelection2P(){
         Dashboard dashboard = new Dashboard(2);
         Bag bag = new Bag();
+        for(int i = 0; i < 132; i++){
+            System.out.println("Color: "+bag.getFromBag(i).getColor());
+            System.out.println("Type: "+bag.getFromBag(i).getType());
+        }
         dashboard.refill(bag);
         Slot selectedCard = player.selectCard(dashboard,3 ,3);
         System.out.println("Color: "+selectedCard.getColor());
