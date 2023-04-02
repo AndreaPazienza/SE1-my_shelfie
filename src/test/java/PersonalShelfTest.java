@@ -171,5 +171,4 @@ class PersonalShelfTest {
         shelf.checkLastLine();
         System.out.println("è piena: "+shelf.isItsFull());
     }
-
 }

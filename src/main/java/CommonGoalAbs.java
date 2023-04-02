@@ -42,7 +42,7 @@ public abstract class CommonGoalAbs {
         return  goal;
     }
 
-   public int shuffle(){
+   public static int shuffle(){
        int randIndex = new Random().nextInt(13);
        return  randIndex;
    }
