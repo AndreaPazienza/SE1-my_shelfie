@@ -145,13 +145,58 @@ class CGDecreaseTilesTest {
         current4.getShelf().getSingleSlot(1,4).setColor(Color.YELLOW);
 
         testingCommonGoal.control(current1);
+        testingCommonGoal.incrementCG();
         assertEquals(8, current1.getScore());
         testingCommonGoal.control(current2);
+        testingCommonGoal.incrementCG();
         assertEquals(6, current2.getScore());
         testingCommonGoal.control(current3);
+        testingCommonGoal.incrementCG();
         assertEquals(4, current3.getScore());
         testingCommonGoal.control(current4);
+        testingCommonGoal.incrementCG();
         assertEquals(2, current4.getScore());
+
+    }
+    @Test
+    void checkCorrectAssignPointsNotAllFourPlayers(){
+        current1.getShelf().getSingleSlot(1,0).setColor(Color.GREEN);
+        current1.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.GREY);
+        current1.getShelf().getSingleSlot(4,3).setColor(Color.WHITE);
+        current1.getShelf().getSingleSlot(5,4).setColor(Color.YELLOW);
+        Player current3 = new Player("RubV18");
+        current3.getShelf().getSingleSlot(5,0).setColor(Color.GREEN);
+        current3.getShelf().getSingleSlot(4,1).setColor(Color.PINK);
+        current3.getShelf().getSingleSlot(3,2).setColor(Color.GREY);
+        current3.getShelf().getSingleSlot(2,3).setColor(Color.WHITE);
+        current3.getShelf().getSingleSlot(1,4).setColor(Color.YELLOW);
+        Player current2 = new Player("Obsolete");
+        current2.getShelf().getSingleSlot(1,0).setColor(Color.YELLOW);
+        current2.getShelf().getSingleSlot(2,1).setColor(Color.YELLOW);
+        current2.getShelf().getSingleSlot(3,2).setColor(Color.YELLOW);
+        current2.getShelf().getSingleSlot(4,3).setColor(Color.YELLOW);
+        current2.getShelf().getSingleSlot(5,4).setColor(Color.YELLOW);
+        Player current4 = new Player("GreenArrow");
+        current4.getShelf().getSingleSlot(5,0).setColor(Color.GREEN);
+        current4.getShelf().getSingleSlot(4,1).setColor(Color.PINK);
+        current4.getShelf().getSingleSlot(3,2).setColor(Color.GREEN);
+        current4.getShelf().getSingleSlot(2,3).setColor(Color.WHITE);
+        current4.getShelf().getSingleSlot(1,4).setColor(Color.YELLOW);
+
+        testingCommonGoal.control(current1);
+        testingCommonGoal.incrementCG();
+        assertEquals(0, current1.getScore());
+        testingCommonGoal.control(current2);
+        testingCommonGoal.incrementCG();
+        assertEquals(8, current2.getScore());
+        testingCommonGoal.control(current3);
+        testingCommonGoal.incrementCG();
+        assertEquals(0, current3.getScore());
+        testingCommonGoal.control(current4);
+        testingCommonGoal.incrementCG();
+        assertEquals(6, current4.getScore());
+        assertEquals(0, testingCommonGoal.playing);
 
     }
 

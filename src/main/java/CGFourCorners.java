@@ -5,7 +5,7 @@ public class CGFourCorners extends CommonGoalAbs {
     }
     public void control(Player player) {
 
-      //if(!commonGoalAchived()) {
+        if(!playerAchived[playing]) {
 
           Color topLeft = player.getShelf().getSingleSlot(0, 0).getColor();
 
@@ -15,6 +15,6 @@ public class CGFourCorners extends CommonGoalAbs {
           Color topRight = player.getShelf().getSingleSlot(0, PersonalShelf.N_COLUMN - 1).getColor();
           Color bottomRight = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS - 1, PersonalShelf.N_COLUMN - 1).getColor();
           if (topLeft.equals(bottomLeft) && topLeft.equals(bottomRight) && topLeft.equals(topRight)) { givePoints(player);}
-    //  }
+        }
     }
 }
