@@ -20,7 +20,7 @@ public class Dashboard {
             }
         }
 
-        //Inizializzazione seconda ottava riga della maschera
+        //Inizializzazione seconda e  ottava riga della maschera
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4 && i != 5) {
                 notPlayable[1][i] = true;
@@ -30,7 +30,7 @@ public class Dashboard {
 
         //Inizializzazione terza e settima riga della maschera
         for (int i  = 0; i < side; i ++) {
-            if (i != 2 && i != 3 && i != 4 && i != 5) {
+            if (i != 2 && i != 3 && i != 4 && i != 5 && i != 6) {
                 notPlayable[2][i] = true;
                 notPlayable[6][side-1-i] = true;
             }
@@ -70,6 +70,7 @@ public class Dashboard {
                 if (notPlayable[i][j]) inDashboard[i][j] = new Slot (Color.BLACK);
                     else inDashboard[i][j] = new Slot (Color.GREY);
 
+                inDashboard[i][j].setType(null);
                 inDashboard[i][j].setCatchable(false);
             }
         }
@@ -97,6 +98,7 @@ public class Dashboard {
 
                     //Set a grigio dello slot estartto da Bag
                     bag.getInBag()[extractedIndex].setGrey();
+                    bag.getInBag()[extractedIndex].setType(null);
                 }
             }
         }

@@ -11,22 +11,19 @@ public class Bag {
 
             //Setting del colore
             switch (i % 6) {
-                case 0: inBag[i] = new Slot(Color.GREEN);
-                case 1: inBag[i] = new Slot(Color.PINK);
-                case 2: inBag[i] = new Slot(Color.BLUE);
-                case 3: inBag[i] = new Slot(Color.LIGHTBLUE);
-                case 4: inBag[i] = new Slot(Color.WHITE);
-                case 5: inBag[i] = new Slot(Color.YELLOW);
+                case 0 -> inBag[i] = new Slot(Color.GREEN);
+                case 1 -> inBag[i] = new Slot(Color.PINK);
+                case 2 -> inBag[i] = new Slot(Color.BLUE);
+                case 3 -> inBag[i] = new Slot(Color.LIGHTBLUE);
+                case 4 -> inBag[i] = new Slot(Color.WHITE);
+                case 5 -> inBag[i] = new Slot(Color.YELLOW);
             }
 
             //Setting del tipo
-            switch (i / 6) {
-                case 0: inBag[i].setType(Type.TYPE1);
-                case 1: inBag[i].setType(Type.TYPE2);
-                case 2: inBag[i].setType(Type.TYPE3);
-                case 3: inBag[i].setType(Type.TYPE4);
-                case 4: inBag[i].setType(Type.TYPE5);
-                case 5: inBag[i].setType(Type.TYPE6);
+            switch (i / 44) {
+                case 0 -> inBag[i].setType(Type.TYPE1);
+                case 1 -> inBag[i].setType(Type.TYPE2);
+                case 2 -> inBag[i].setType(Type.TYPE3);
             }
 
             //Setting di catchable
