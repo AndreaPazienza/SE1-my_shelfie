@@ -16,10 +16,9 @@ public abstract class CommonGoalAbs {
        for(int i=0; i<totalPlayer; i++){
            playerAchived[i]=false;
        }
-      // goal = getACommonGoal(totalPlayer);
     }
 
-  /* public CommonGoalAbs getACommonGoal(int players){
+  public CommonGoalAbs getACommonGoal(int players){
 
        ArrayList<CommonGoalAbs> deck = new ArrayList<>();
         deck.add(new CGFourCorners(players));
@@ -38,7 +37,7 @@ public abstract class CommonGoalAbs {
         deck.add(new CGFourLinesFiveTiles(players));
 
         return deck.get(shuffle());
-    }*/
+    }
     public CommonGoalAbs getGoal(){
         return  goal;
     }

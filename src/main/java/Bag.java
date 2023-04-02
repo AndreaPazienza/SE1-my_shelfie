@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Bag {
@@ -55,7 +56,7 @@ public class Bag {
     }
 
     public Slot getSingleSlot(){
-        int randomIndex = new Random().nextInt(inBag.size()+1);
+        int randomIndex = new Random().nextInt(inBag.size());
        Slot returningSlot = inBag.get(randomIndex);
        inBag.remove(randomIndex);
        return returningSlot;

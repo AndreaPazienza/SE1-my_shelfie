@@ -91,8 +91,8 @@ public class Dashboard {
             for(int j=0; j < side; j++) {
                 Slot cell = inDashboard[i][j];
                 if (cell.getColor().equals(Color.GREY)) {
-                    cell = bag.getSingleSlot();
-                    cell.setCatchable(false);
+                    inDashboard[i][j] = bag.getSingleSlot();
+                    inDashboard[i][j].setCatchable(false);
 
                 }
             }
