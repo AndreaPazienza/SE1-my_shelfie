@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +142,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="11142000" />
+      <workItem from="1680437874665" duration="11359000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -238,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680441318029</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <created>1680455056974</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680455056974</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +273,8 @@
     <MESSAGE value="Update generale" />
     <MESSAGE value="Update metodo assignPoints" />
     <MESSAGE value="Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update" />
+    <MESSAGE value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
