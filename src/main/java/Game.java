@@ -77,15 +77,15 @@ public class Game {
         }
 
         //Setting di catchable per gli Slot che si sono "sbloccati"
-        for (int i = 0; i < Dashboard.getSide(); i ++) {
+   /*     for (int i = 0; i < Dashboard.getSide(); i ++) {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
 
                 //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
-                if (table.catchableSetter (i,j)) {
-                    table.getSingleSlot(i,j).setCatchable(true);
+               // if (table.catchableSetter (i,j)) {
+                 //   table.getSingleSlot(i,j).setCatchable(true);
                 }
             }
-        }
+        }*/
 
         //Passaggio del turno
         playerInGame ++;
