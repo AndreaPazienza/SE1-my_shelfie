@@ -45,13 +45,6 @@ public class PersonalGoal {
 
     public PersonalGoal() {
         this.goal = new Target[N_GOALS];
-        /*Random random = new Random();
-        for(int i = 0; i < N_GOALS; i++){
-            int x = random.nextInt(6);      //genero randomicamente ogni coordinata e colore dell'obbiettivo
-            int y = random.nextInt(5);
-            Color c = Color.randomColor();
-            this.goal[i] = new Target(c, x, y);
-        }*/
     }
 
     public void setPGoal1(){

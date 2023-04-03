@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -64,32 +67,42 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.testSelection2P">
-    <configuration name="PersonalShelfTest.testAdjacent3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong">
+    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent3" />
+      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
+      <option name="METHOD_NAME" value="cGoalAchieved" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalShelfTest.testAdjacent5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testAdjacent5" />
+      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
+      <option name="METHOD_NAME" value="cGoalAchieved8Tiles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PersonalShelfTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalShelfTest" />
-      <option name="METHOD_NAME" value="testInsert" />
+      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
+      <option name="METHOD_NAME" value="twoPlayerReachOneWrong" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGFourGroupsFourTilesTest.twoPlayersReachedGoal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
+      <option name="METHOD_NAME" value="twoPlayersReachedGoal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,23 +118,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.testSelection3P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testSelection3P" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" />
+        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayersReachedGoal" />
+        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" />
+        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved" />
         <item itemvalue="JUnit.PlayerTest.testSelection2P" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent3" />
-        <item itemvalue="JUnit.PersonalShelfTest.testInsert" />
-        <item itemvalue="JUnit.PlayerTest.testSelection3P" />
-        <item itemvalue="JUnit.PersonalShelfTest.testAdjacent5" />
       </list>
     </recent_temporary>
   </component>
@@ -142,7 +145,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="11359000" />
+      <workItem from="1680437874665" duration="17356000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -242,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680455056974</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
+      <created>1680455246942</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680455246942</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +292,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
           <line>112</line>
-          <properties class="PersonalShelfTest">
+          <properties class="PersonalShelfTest" method="testAdjacent5">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -291,7 +301,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
           <line>99</line>
-          <properties class="PersonalShelfTest">
+          <properties class="PersonalShelfTest" method="testAdjacent4">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -331,7 +341,33 @@
           <line>16</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
+          <line>94</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
 </project>
