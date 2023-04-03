@@ -2,7 +2,7 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 
-//Test costruttori passato per tutti e tre i parametri
+//Test dei costruttori per tutti e tre i parametri passato
 public class DashboardTest {
 
     private Dashboard dashboard;
@@ -57,7 +57,7 @@ public class DashboardTest {
     }
 
 
-    //Test del refill da Dashboard vuota passato per tutti e tre i costruttori
+    //Test di refill da Dashboard vuota passato per tutti e tre i costruttori
     @Test
     void testRefill2 () {
 
@@ -145,7 +145,7 @@ public class DashboardTest {
         }
     }
 
-    //Test per verificare la casualità dell'estrazione passato
+    //Test della casualità dell'estrazione passato
     @Test
     void testRefillColor () {
 
@@ -175,7 +175,7 @@ public class DashboardTest {
         }
     }
 
-    //Test per verificare il setting di catchable passato
+    //Test del setting di catchable passato
     @Test
     void testRefillCatchable () {
 
@@ -207,7 +207,7 @@ public class DashboardTest {
         }
     }
 
-    //Test per verificare il refill da una qualsiasi situazione di gioco (creazione dashboard randomica) passato
+    //Test di refill da una qualsiasi situazione di gioco (creazione dashboard randomica) passato
     @Test
     void testRefillCasualDashboard () {
 
@@ -248,7 +248,7 @@ public class DashboardTest {
         };
     }
 
-    //Test per verificare il setting di catchable da una qualsiasi situazione di gioco (creazione dashboard randomica) passato
+    //Test del setting di catchable da una qualsiasi situazione di gioco (creazione dashboard randomica) passato
     @Test
     void testRefillCasualDashboardCatchable () {
 
@@ -289,5 +289,103 @@ public class DashboardTest {
             }
             System.out.print("\n");
         };
+    }
+
+
+    //Test di checkRefill in una qualsiasi situazione di gioco (creazione dashboard randomica) passato
+    @Test
+    void testCheckRefillCasual () {
+
+        dashboard = new Dashboard(4);
+        bag = new Bag();
+
+        //Riempimento casuale della Dashboard per simulare un qualsiasi momento della partita
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                int riempi = new Random().nextInt(2);
+
+                if (riempi == 1 && dashboard.getSingleSlot(i,j).getColor().equals(Color.GREY)) {
+                    dashboard.setSingleSlot(bag.getSingleSlot(), i,j);
+                }
+            }
+        }
+
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                if (dashboard.getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                    System.out.print(". ");
+                else System.out.print(dashboard.getSingleSlot(i,j).getColor() + " , ");
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+
+        System.out.print(dashboard.checkRefill());
+    }
+
+    //Test di checkRefill nei casi particolari passato
+    @Test
+    void testCheckRefill () {
+
+        dashboard = new Dashboard(4);
+        bag = new Bag();
+
+        //Riempimento della Dashboard
+        dashboard.setSingleSlot(bag.getSingleSlot(),4 ,4);
+        dashboard.setSingleSlot(bag.getSingleSlot(), 5,5);
+        dashboard.setSingleSlot(bag.getSingleSlot(),3 ,5);
+        dashboard.setSingleSlot(bag.getSingleSlot(), 3,3);
+        dashboard.setSingleSlot(bag.getSingleSlot(), 5,3);
+        dashboard.setSingleSlot(bag.getSingleSlot(), 6,2);
+        dashboard.setSingleSlot(bag.getSingleSlot(), 8,4);
+
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                if (dashboard.getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                    System.out.print(". ");
+                else System.out.print(dashboard.getSingleSlot(i,j).getColor() + " , ");
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+
+        System.out.print(dashboard.checkRefill());
+    }
+
+
+    //Test di adjaciencies passato
+    @Test
+    void testAdjaciencies () {
+
+        dashboard = new Dashboard(4);
+        bag = new Bag();
+
+        //Riempimento casuale della Dashboard per simulare un qualsiasi momento della partita
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                int riempi = new Random().nextInt(2);
+
+                if (riempi == 1 && dashboard.getSingleSlot(i,j).getColor().equals(Color.GREY)) {
+                    dashboard.setSingleSlot(bag.getSingleSlot(), i,j);
+                }
+            }
+        }
+
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                if (dashboard.getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                    System.out.print(". ");
+                else System.out.print(dashboard.getSingleSlot(i,j).getColor() + " , ");
+            }
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+
+        int x = new Random().nextInt(9);
+        int y = new Random().nextInt(9);
+
+
+        System.out.print("Slot estratto: " + x +";"+ y + "\n");
+        System.out.print ("Il numero delle adiacenze è " + dashboard.adjaciencies(x,y));
     }
 }

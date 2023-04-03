@@ -98,7 +98,6 @@ public class Dashboard {
             }
         }
         catchAfterRefill();
-
     }
 
 
@@ -115,6 +114,8 @@ public class Dashboard {
             }
         }
     }
+
+
     //Controllo della Dashboard per vedere se il Refill è necessario
     public boolean checkRefill() {
 
@@ -124,7 +125,7 @@ public class Dashboard {
         for (int i = 0; i < side && refill; i ++) {
             for(int j = 0; j < side && refill; j ++) {
                 //Controllo delle adiecenze su tutti gli Slot non grigi o neri (q
-                if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) == 0) {
+                if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) != 0) {
                     refill = false;
                 }
             }
@@ -154,6 +155,10 @@ public class Dashboard {
             numberOfAdjacencies ++;
 
         return numberOfAdjacencies;
+    }
+
+    public Slot[][] getInDashboard() {
+        return inDashboard;
     }
 
     public Slot getSingleSlot(int x, int y){
