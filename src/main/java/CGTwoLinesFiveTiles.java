@@ -2,15 +2,23 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
     public CGTwoLinesFiveTiles(int players){
         super(players);
     }
-    public boolean controlRows(Color[] rows) {
 
-        int i = 1;
+    public boolean controlRows(Player current, Color[] rows, int found) {
 
-        for (Color color : rows) {
-            for (Color value : rows) {
-                if (color.equals(value)) {return false;}
+        if (found >= 2 ) {
+            givePoints(current);
+            return true;
+        }
+        else {
+            for(int i=0; i<rows.length; i++){
+                for(int j=i+1; j<rows.length; j++ ){
+                    if(rows[i].equals(rows[j]) || rows[0].equals(Color.GREY)){
+                        return false;
+                    }
+                }
             }
         }
         return true;}
+
 
 }

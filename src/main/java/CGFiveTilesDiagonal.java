@@ -13,17 +13,17 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
             }
 
             Color secondTopLeftBeginDiagonal = player.getShelf().getSingleSlot(1, 0).getColor();
-            if (checkIncreasignDiagonal(player.getShelf(), secondTopLeftBeginDiagonal, 1, 0) && !topLeftBeginDiagonal.equals(Color.GREY)) {
+            if (checkIncreasignDiagonal(player.getShelf(), secondTopLeftBeginDiagonal, 1, 0) && !secondTopLeftBeginDiagonal.equals(Color.GREY)) {
                 givePoints((player));
                 return;}
 
             Color bottomLeftDiagonal = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1, 0).getColor();
-            if(checkDecresingDiagonal(player.getShelf(), bottomLeftDiagonal, PersonalShelf.N_ROWS-1, 0) && !topLeftBeginDiagonal.equals(Color.GREY)){
+            if(checkDecresingDiagonal(player.getShelf(), bottomLeftDiagonal, PersonalShelf.N_ROWS-1, 0) && !bottomLeftDiagonal.equals(Color.GREY)){
                 givePoints(player);
                 return;
             }
             Color secondoBottomLeftDiagonal = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS-2, 0).getColor();
-            if(checkDecresingDiagonal(player.getShelf(), secondoBottomLeftDiagonal, PersonalShelf.N_ROWS-2, 0) && !topLeftBeginDiagonal.equals(Color.GREY)){
+            if(checkDecresingDiagonal(player.getShelf(), secondoBottomLeftDiagonal, PersonalShelf.N_ROWS-2, 0) && !secondoBottomLeftDiagonal.equals(Color.GREY)){
                 givePoints(player);
             }
         }
@@ -44,7 +44,7 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
     private boolean checkDecresingDiagonal(PersonalShelf shelf, Color reference, int row, int column){
 
         for(int i=1; i<PersonalShelf.N_COLUMN; i++){
-            Color nextDiagonal = shelf.getSingleSlot(row-i, column+1).getColor();
+            Color nextDiagonal = shelf.getSingleSlot(row-1, column+1).getColor();
             if (!reference.equals(nextDiagonal)){
                 return false;
             }

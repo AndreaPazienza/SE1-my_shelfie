@@ -6,34 +6,36 @@ public abstract class CGOnLines extends CommonGoalAbs{
     public void control(Player player) {
 
         if (!commonGoalAchived()) {
-            Color[] rows = new Color[PersonalShelf.N_COLUMN - 1];
-            int rowsLines = 0;
 
+            boolean validRows =true, lastRow=false;
+            Color[] rows = new Color[PersonalShelf.N_COLUMN ];
+            int rowsLines = 0;
 
             //Ciclo per controllare
             for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+                validRows = true;
+                rows[0] = Color.GREY;
+                if(i == PersonalShelf.N_ROWS-1) lastRow=true;
                 //Acquisizione dell'array della riga
-                for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                for (int j = 0; j < PersonalShelf.N_COLUMN && validRows; j++) {
                     Color colorOfSlot = player.getShelf().getSingleSlot(i, j).getColor();
                     if (colorOfSlot.equals(Color.GREY)) {
-                        return;
+                        validRows = false;
                     }
                     rows[j] = colorOfSlot;
 
                 }
-                if (controlRows(rows)) {
+                if (controlRows(player, rows,rowsLines)) {
                     rowsLines++;
                 }
 
             }
-            //potrebbe presenatare un bug, siccome devo avere 4 righe con al più tre tipi
-            if (rowsLines > 2) {
-                givePoints(player);
+            if(lastRow && !commonGoalAchived()){
+                controlRows(player, rows, rowsLines);
             }
-
         }
     }
 
-    protected abstract boolean controlRows(Color[] rows);
+    protected abstract boolean controlRows(Player player, Color[] rows, int alreadyFound);
 
 }

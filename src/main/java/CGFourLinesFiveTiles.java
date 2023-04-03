@@ -3,25 +3,32 @@ public class CGFourLinesFiveTiles extends CGOnLines {
     public CGFourLinesFiveTiles(int players){
         super(players);
     }
-    public boolean controlRows(Color[] rows) {
+    public boolean controlRows(Player current, Color[] rows, int found) {
 
-        boolean[] colorFound = new boolean[6];
-        int differentColors = 0, index = 0;
-        Color colorChecked;
+        //potrebbe presenatare un bug, siccome devo avere 4 righe con al più tre tipi
+        if (found >= 4) {
+            givePoints(current);
+            return true;
+        } else {
 
-        for (Color row : rows) {
-            colorChecked = row;
-            index = colorChecked.ordinal();
+            boolean[] colorFound = new boolean[6];
+            int differentColors = 0, index = 0;
+            Color colorChecked;
 
-            if (!colorFound[index]) {
-                colorFound[index] = true;
-                differentColors++;
+            for (Color row : rows) {
+                colorChecked = row;
+                index = colorChecked.ordinal();
+
+                if (!colorFound[index]) {
+                    colorFound[index] = true;
+                    differentColors++;
+                }
+                if (differentColors > 3) {
+                    return false;
+                }
+
             }
-            if (differentColors > 3) {
-                return false;
-            }
-
+            return true;
         }
-        return true;
     }
 }

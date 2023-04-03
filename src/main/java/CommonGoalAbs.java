@@ -18,34 +18,9 @@ public abstract class CommonGoalAbs {
        }
     }
 
-  public CommonGoalAbs getACommonGoal(int players){
-
-       ArrayList<CommonGoalAbs> deck = new ArrayList<>();
-        deck.add(new CGFourCorners(players));
-        deck.add(new CGDecreaseTiles(players));
-        deck.add(new CGEightTilesSameType(players));
-        deck.add(new CGFiveTilesDiagonal(players));
-        deck.add(new CGFiveTilesX(players));
-        deck.add(new CGSixGroupsTwoTiles(players));
-        deck.add(new CGDecreaseTiles(players));
-        deck.add(new CGSameTypeSquare(players));
-        //definizione colonne
-        deck.add(new CGThreeColumnsSixTiles(players));
-        deck.add(new CGTwoColumnsSixTiles(players));
-        //definizione righe
-        deck.add(new CGTwoLinesFiveTiles(players));
-        deck.add(new CGFourLinesFiveTiles(players));
-
-        return deck.get(shuffle());
-    }
     public CommonGoalAbs getGoal(){
         return  goal;
     }
-
-   public static int shuffle(){
-       int randIndex = new Random().nextInt(13);
-       return  randIndex;
-   }
 
     public void setMaxPoint(int maxPoint) {
         this.maxPoint = maxPoint;

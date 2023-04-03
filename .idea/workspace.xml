@@ -5,10 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGTwoLinesFiveTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BagTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,6 +39,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -67,52 +83,52 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong">
-    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
+  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight">
+    <configuration name="CGTwoColumnsSixTilesTest.checkFullShelfDifferentColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="cGoalAchieved" />
+      <option name="MAIN_CLASS_NAME" value="CGTwoColumnsSixTilesTest" />
+      <option name="METHOD_NAME" value="checkFullShelfDifferentColor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
+    <configuration name="CGTwoColumnsSixTilesTest.checkTwoColumnLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="cGoalAchieved8Tiles" />
+      <option name="MAIN_CLASS_NAME" value="CGTwoColumnsSixTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoColumnLeftRight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoColumnLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="twoPlayerReachOneWrong" />
+      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoColumnLeftRight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.twoPlayersReachedGoal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="twoPlayersReachedGoal" />
+      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.testSelection2P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
+    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testSelection2P" />
+      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="emptyOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +136,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayersReachedGoal" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved" />
-        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoColumnLeftRight" />
+        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.checkTwoColumnLeftRight" />
+        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.checkFullShelfDifferentColor" />
       </list>
     </recent_temporary>
   </component>
@@ -361,6 +377,36 @@
           <line>159</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="89" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="92" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGTwoLinesFiveTilesTest.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -369,5 +415,8 @@
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
