@@ -30,16 +30,16 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
 
         Color color = shelf.getSingleSlot(x,y).getColor(); //mi salvo il colore della tessera che devo controllare
         //controllo le tessere adiacenti: se hanno lo stesso colore e non sono markate, incremento count
-        if(x > 0 && shelf.getSingleSlot(x-1, y) != null && color == shelf.getSingleSlot(x-1,y).getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
+        if(x > 0 && shelf.getSingleSlot(x-1,y) != null && !shelf.getSingleSlot(x-1, y).getColor().Equals(Color.GREY) && color == shelf.getSingleSlot(x-1,y).getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
             count += checkAdjacentSlot(shelf, visited, x-1, y);
         }
-        if(x < PersonalShelf.N_ROWS-1 && shelf.getSingleSlot(x+1, y) != null && color == shelf.getSingleSlot(x+1, y).getColor()&&!visited[x+1][y]){
+        if(x < PersonalShelf.N_ROWS-1 && shelf.getSingleSlot(x+1,y) != null && !shelf.getSingleSlot(x+1, y).getColor().Equals(Color.GREY) && color == shelf.getSingleSlot(x+1, y).getColor()&&!visited[x+1][y]){
             count += checkAdjacentSlot(shelf, visited, x+1, y);
         }
-        if(y > 0 && shelf.getSingleSlot(x, y-1) != null && color == shelf.getSingleSlot(x, y-1).getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
+        if(y > 0 && shelf.getSingleSlot(x,y-1) != null && !shelf.getSingleSlot(x, y-1).getColor().Equals(Color.GREY) && color == shelf.getSingleSlot(x, y-1).getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
             count += checkAdjacentSlot(shelf, visited, x, y-1);
         }
-        if(y < PersonalShelf.N_COLUMN && shelf.getSingleSlot(x, y+1) != null && color == shelf.getSingleSlot(x, y+1).getColor()&&!visited[x][y+1]){
+        if(y < PersonalShelf.N_COLUMN-1 && shelf.getSingleSlot(x,y+1) != null && !shelf.getSingleSlot(x, y+1).getColor().Equals(Color.GREY) && color == shelf.getSingleSlot(x, y+1).getColor()&&!visited[x][y+1]){
             count += checkAdjacentSlot(shelf, visited, x, y+1);
         }
         return count;
