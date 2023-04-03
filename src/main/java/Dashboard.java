@@ -26,7 +26,7 @@ public class Dashboard {
                 notPlayable[1][i] = true;
             }
         }
-        for (int j = 8; j > 0; j--) {
+        for (int j = 8; j >= 0; j--) {
             if (j != 3 && j != 4 && j != 5) {
                 notPlayable[7][j] = true;
                 }
@@ -38,7 +38,7 @@ public class Dashboard {
                 notPlayable[2][i] = true;
             }
         }
-        for(int j = 8; j > 0; j--){
+        for(int j = 8; j >= 0; j--){
             if(j != 2 && j != 3 && j != 4 && j != 5 && j != 6){
                     notPlayable[6][j] = true;
             }
@@ -91,14 +91,13 @@ public class Dashboard {
             for(int j=0; j < side; j++) {
                 Slot cell = inDashboard[i][j];
                 if (cell.getColor().equals(Color.GREY)) {
-                    inDashboard[i][j] = bag.getSingleSlot();
-                    inDashboard[i][j].setCatchable(false);
-
+                    cell = bag.getSingleSlot();
+                    cell.setCatchable(false);
+                    inDashboard[i][j] = cell;
                 }
             }
         }
         catchAfterRefill();
-
     }
 
 
@@ -115,6 +114,8 @@ public class Dashboard {
             }
         }
     }
+
+
     //Controllo della Dashboard per vedere se il Refill è necessario
     public boolean checkRefill() {
 
@@ -124,7 +125,7 @@ public class Dashboard {
         for (int i = 0; i < side && refill; i ++) {
             for(int j = 0; j < side && refill; j ++) {
                 //Controllo delle adiecenze su tutti gli Slot non grigi o neri (q
-                if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) == 0) {
+                if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) != 0) {
                     refill = false;
                 }
             }
@@ -156,8 +157,16 @@ public class Dashboard {
         return numberOfAdjacencies;
     }
 
+    public Slot[][] getInDashboard() {
+        return inDashboard;
+    }
+
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];
+    }
+
+    public void setSingleSlot(Slot slot, int x, int y) {
+        this.inDashboard[x][y] = slot;
     }
 
     public static int getSide() {

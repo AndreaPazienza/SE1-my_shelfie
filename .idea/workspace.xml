@@ -4,26 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/CGTwoLinesFiveTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)">
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BagTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java" afterDir="false" />
     </list>
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
+    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,16 +19,36 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/Game.java">
+      <ranges>
+        <range start1="21" end1="23" start2="21" end2="23" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="27" end1="27" start2="27" end2="43" changelist="703af77c-a64e-4d06-891e-8f77a8e1bb68" />
+        <range start1="44" end1="45" start2="60" end2="61" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="58" end1="59" start2="74" end2="74" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="65" end1="65" start2="80" end2="81" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="70" end1="71" start2="86" end2="87" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="79" end1="88" start2="95" end2="96" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="99" end1="100" start2="107" end2="108" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="103" end1="108" start2="111" end2="116" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="110" end1="110" start2="118" end2="124" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="111" end1="111" start2="125" end2="126" changelist="703af77c-a64e-4d06-891e-8f77a8e1bb68" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -64,7 +71,6 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
@@ -72,7 +78,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -83,64 +89,73 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight">
-    <configuration name="CGTwoColumnsSixTilesTest.checkFullShelfDifferentColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+  <component name="RunManager" selected="TestNG.GameTest.testFinalScore">
+    <configuration name="GameTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGTwoColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="checkFullShelfDifferentColor" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoColumnsSixTilesTest.checkTwoColumnLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="GameTest.testFinalScore" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGTwoColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="checkTwoColumnLeftRight" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testFinalScore" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkTwoColumnLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="GameTest.testGame" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkTwoColumnLeftRight" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testGame" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="GameTest.testSignPlayer" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testSignPlayer" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="GameTest.testUpdateTurn" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="emptyOne" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testUpdateTurn" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoColumnLeftRight" />
-        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.checkTwoColumnLeftRight" />
-        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.checkFullShelfDifferentColor" />
+        <item itemvalue="TestNG.GameTest.testFinalScore" />
+        <item itemvalue="TestNG.GameTest.testUpdateTurn" />
+        <item itemvalue="TestNG.GameTest.testSignPlayer" />
+        <item itemvalue="TestNG.GameTest.testGame" />
+        <item itemvalue="TestNG.GameTest" />
       </list>
     </recent_temporary>
   </component>
@@ -160,8 +175,11 @@
       <workItem from="1679497024291" duration="2952000" />
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
-      <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="17356000" />
+      <workItem from="1680010392542" duration="1941000" />
+      <workItem from="1680393006564" duration="7902000" />
+      <workItem from="1680437966002" duration="16472000" />
+      <workItem from="1680523748295" duration="8011000" />
+      <workItem from="1680551088408" duration="1049000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -212,63 +230,42 @@
       <option name="project" value="LOCAL" />
       <updated>1679943799589</updated>
     </task>
-    <task id="LOCAL-00008" summary="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)">
-      <created>1680342542315</created>
+    <task id="LOCAL-00008" summary="Correzione numero dei tipi">
+      <created>1680393058871</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1680342542315</updated>
+      <updated>1680393058871</updated>
     </task>
-    <task id="LOCAL-00009" summary="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)">
-      <created>1680343541604</created>
+    <task id="LOCAL-00009" summary="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard">
+      <created>1680404330942</created>
       <option name="number" value="00009" />
       <option name="presentableId" value="LOCAL-00009" />
       <option name="project" value="LOCAL" />
-      <updated>1680343541604</updated>
+      <updated>1680404330942</updated>
     </task>
-    <task id="LOCAL-00010" summary="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)">
-      <created>1680356789946</created>
+    <task id="LOCAL-00010" summary="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot">
+      <created>1680443045267</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1680356789946</updated>
+      <updated>1680443045267</updated>
     </task>
-    <task id="LOCAL-00011" summary="Update generale">
-      <created>1680439165270</created>
+    <task id="LOCAL-00011" summary="Correzione refill in Dashboard e testing completo di Refill">
+      <created>1680459312093</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1680439165270</updated>
+      <updated>1680459312093</updated>
     </task>
-    <task id="LOCAL-00012" summary="Update metodo assignPoints">
-      <created>1680439774676</created>
+    <task id="LOCAL-00012" summary="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)">
+      <created>1680551955281</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1680439774676</updated>
+      <updated>1680551955281</updated>
     </task>
-    <task id="LOCAL-00013" summary="Update">
-      <created>1680441318029</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1680441318029</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
-      <created>1680455056974</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680455056974</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
-      <created>1680455246942</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680455246942</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,6 +281,21 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="HEAD" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Classe slot" />
@@ -293,130 +305,12 @@
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
-    <MESSAGE value="Update Dashboard.java, Player.java&#10;(sistemata score, correzione costruttore dashboard)" />
-    <MESSAGE value="Update PersonalGoal.java&#10;(aggiornamento a seguito dei test)" />
-    <MESSAGE value="Update PersonalShelf.java&#10;(aggiornamento a seguito dei test)" />
-    <MESSAGE value="Update generale" />
-    <MESSAGE value="Update metodo assignPoints" />
-    <MESSAGE value="Update" />
-    <MESSAGE value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>112</line>
-          <properties class="PersonalShelfTest" method="testAdjacent5">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>99</line>
-          <properties class="PersonalShelfTest" method="testAdjacent4">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>169</line>
-          <properties class="PersonalShelfTest" method="testCheckLastLine3">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/PersonalShelf.java</url>
-          <line>18</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/PersonalShelfTest.java</url>
-          <line>16</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
-          <line>25</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
-          <line>44</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
-          <line>94</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java</url>
-          <line>159</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="87" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="88" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="89" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="92" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGTwoLinesFiveTilesTest.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="96" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
-      </pinned-members>
-    </pin-to-top-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <MESSAGE value="Aggiornamento indici costruttore" />
+    <MESSAGE value="Correzione numero dei tipi" />
+    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
+    <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
+    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
+    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
   </component>
 </project>
