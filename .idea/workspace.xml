@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Correzione refill in Dashboard e testing completo di Refill">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Dashboard.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)">
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/GameTest.java" afterDir="false" />
     </list>
-    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="">
+    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab">
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
     </list>
@@ -39,13 +34,6 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/test/java/DashboardTest.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="3" changelist="703af77c-a64e-4d06-891e-8f77a8e1bb68" />
-        <range start1="292" end1="292" start2="293" end2="391" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="293" end1="294" start2="392" end2="392" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-      </ranges>
-    </file>
     <file path="$PROJECT_DIR$/src/main/java/Game.java">
       <ranges>
         <range start1="21" end1="23" start2="21" end2="23" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
@@ -191,6 +179,7 @@
       <workItem from="1680393006564" duration="7902000" />
       <workItem from="1680437966002" duration="16472000" />
       <workItem from="1680523748295" duration="8011000" />
+      <workItem from="1680551088408" duration="1049000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -269,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680459312093</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)">
+      <created>1680551955281</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1680551955281</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,6 +310,7 @@
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correzione refill in Dashboard e testing completo di Refill" />
+    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
   </component>
 </project>
