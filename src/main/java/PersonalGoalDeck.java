@@ -55,6 +55,6 @@ public class PersonalGoalDeck {
     }
 
     public PersonalGoal extractionPGoal(){
-        return personalGoalDeck.get(CommonGoalAbs.shuffle());
+        return personalGoalDeck.get(CommonGoal.shuffle());
     }
 }

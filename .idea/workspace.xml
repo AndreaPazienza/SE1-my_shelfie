@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Aggiunta Test di controllo degli algoritmi, fixati diversi bug sui codici">
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
     </list>
     <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -32,23 +31,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/Game.java">
-      <ranges>
-        <range start1="21" end1="23" start2="21" end2="23" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="27" end1="27" start2="27" end2="43" changelist="703af77c-a64e-4d06-891e-8f77a8e1bb68" />
-        <range start1="44" end1="45" start2="60" end2="61" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="58" end1="59" start2="74" end2="74" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="65" end1="65" start2="80" end2="81" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="70" end1="71" start2="86" end2="87" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="79" end1="88" start2="95" end2="96" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="99" end1="100" start2="107" end2="108" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="103" end1="108" start2="111" end2="116" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="110" end1="110" start2="118" end2="124" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="111" end1="111" start2="125" end2="126" changelist="703af77c-a64e-4d06-891e-8f77a8e1bb68" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -312,5 +294,16 @@
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <option name="LAST_COMMIT_MESSAGE" value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

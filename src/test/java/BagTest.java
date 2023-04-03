@@ -1,6 +1,6 @@
 import org.testng.annotations.Test;
 
-public class BagTest {
+/*public class BagTest {
 
     //Test costruttore Bag passato
     @Test
@@ -26,3 +26,4 @@ public class BagTest {
 
     }
 }
+*/

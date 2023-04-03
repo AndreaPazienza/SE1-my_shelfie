@@ -8,7 +8,7 @@ public class Game {
     private Player[] player;
     private Dashboard table;
     private Bag bag;
-    private CommonGoalAbs commonGoal1, commonGoal2;
+    private CommonGoal commonGoal1, commonGoal2;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
     public Game (int numberOfPlayers) {
@@ -19,8 +19,8 @@ public class Game {
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
-        commonGoal1 = commonGoal1.getACommonGoal(numberOfPlayers);
-        commonGoal2 = commonGoal2.getACommonGoal(numberOfPlayers);
+        commonGoal1 = new CommonGoal(numberOfPlayers);
+        commonGoal2 = new CommonGoal(numberOfPlayers);
 
         //Primo popolamento della plancia
         table.refill(bag);
@@ -42,7 +42,7 @@ public class Game {
 
         Slot[] choice = new Slot[nChoices];
 
-       /*
+        /*
         for (int i = 0; i < nChoices; i ++) {
 
             choice[i] = player[playerInGame].selectCard(this.table, , );
@@ -56,6 +56,7 @@ public class Game {
 
     //Restituisce il giocatore di turno
     public Player playerOnStage() {
+
         return player[playerInGame];
     }
 
@@ -63,11 +64,11 @@ public class Game {
     public void updateTurn() {
 
         //Controllo dei CommonGoal completati ed incremento
-        this.commonGoal1.control(player[playerInGame]);
-        this.commonGoal1.incrementCG();
+        this.commonGoal1.getGoal().control(player[playerInGame]);
+        this.commonGoal1.getGoal().incrementCG();
 
-        this.commonGoal2.control(player[playerInGame]);
-        this.commonGoal2.incrementCG();
+        this.commonGoal2.getGoal().control(player[playerInGame]);
+        this.commonGoal2.getGoal().incrementCG();
 
 
         //Chiamata a refill (se necessario)
@@ -76,7 +77,15 @@ public class Game {
         }
 
         //Setting di catchable per gli Slot che si sono "sbloccati"
-        table.catchAfterRefill();
+   /*     for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for(int j = 0; j < Dashboard.getSide(); j ++) {
+
+                //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
+               // if (table.catchableSetter (i,j)) {
+                 //   table.getSingleSlot(i,j).setCatchable(true);
+                }
+            }
+        }*/
 
         //Passaggio del turno
         playerInGame ++;
@@ -88,22 +97,16 @@ public class Game {
     //Viene decretato il vincitore (cerca massimo)
     public void finalScore() {
 
-        String winnerNickname = null;
+        String winnerNickname;
         int winnerScore = 0;
         int winnerOrderInTurn = 0;
 
-        for (int i = 0; i < Nplayers; i ++) {
-            if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
-                winnerScore = player[i].getScore();
-                winnerOrderInTurn = player[i].getOrderInTurn();
-                winnerNickname = player[i].getNickname();
+        for (Player p : this.player) {
+            if ((p.getScore() > winnerScore) || (p.getScore() == winnerScore && p.getOrderInTurn() > winnerOrderInTurn)) {
+                winnerScore = p.getScore();
+                winnerOrderInTurn = p.getOrderInTurn();
+                winnerNickname = p.getNickname();
             }
         }
-
-        /*
-        System.out.print("Punteggio vincitore: " + winnerScore + "\n");
-        System.out.print("Nickname vincitore: " + winnerNickname + "\n");
-
-         */
     }
 }
