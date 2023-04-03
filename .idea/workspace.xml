@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update CGFourGroupsFourTiles.java, Create CGFourGroupsFourTilesTest.java, Update Player.java&#10;(correzione errori, test, aggiornamento costruttore Player)">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGSameTypeSquareTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/CGSixGroupsTwoTilesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGSameTypeSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CGSixGroupsTwoTiles.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,52 +68,52 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong">
-    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CGSixGroupsTwoTilesTest.squaresOrRowsOrColumns">
+    <configuration name="CGSixGroupsTwoTilesTest.notSixCouples" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="cGoalAchieved" />
+      <option name="MAIN_CLASS_NAME" value="CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="notSixCouples" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGSixGroupsTwoTilesTest.reachedGoal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="cGoalAchieved8Tiles" />
+      <option name="MAIN_CLASS_NAME" value="CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="reachedGoal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGSixGroupsTwoTilesTest.squaresOrRowsOrColumns" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="twoPlayerReachOneWrong" />
+      <option name="MAIN_CLASS_NAME" value="CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="squaresOrRowsOrColumns" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourGroupsFourTilesTest.twoPlayersReachedGoal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGSixGroupsTwoTilesTest.twoPlayersReachGoal" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CGFourGroupsFourTilesTest" />
-      <option name="METHOD_NAME" value="twoPlayersReachedGoal" />
+      <option name="MAIN_CLASS_NAME" value="CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="twoPlayersReachGoal" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerTest.testSelection2P" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGSixGroupsTwoTilesTest.twoPlayersReachOneWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="METHOD_NAME" value="testSelection2P" />
+      <option name="MAIN_CLASS_NAME" value="CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="twoPlayersReachOneWrong" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -120,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayerReachOneWrong" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.twoPlayersReachedGoal" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved8Tiles" />
-        <item itemvalue="JUnit.CGFourGroupsFourTilesTest.cGoalAchieved" />
-        <item itemvalue="JUnit.PlayerTest.testSelection2P" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.squaresOrRowsOrColumns" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.twoPlayersReachOneWrong" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.notSixCouples" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.twoPlayersReachGoal" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.reachedGoal" />
       </list>
     </recent_temporary>
   </component>
@@ -145,7 +146,7 @@
       <workItem from="1679504546361" duration="3599000" />
       <workItem from="1679665819121" duration="10221000" />
       <workItem from="1680368059056" duration="1374000" />
-      <workItem from="1680437874665" duration="17356000" />
+      <workItem from="1680437874665" duration="22238000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -252,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680455246942</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update CGFourGroupsFourTiles.java, Create CGFourGroupsFourTilesTest.java, Update Player.java&#10;(correzione errori, test, aggiornamento costruttore Player)">
+      <created>1680527464617</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680527464617</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -284,7 +292,8 @@
     <MESSAGE value="Update metodo assignPoints" />
     <MESSAGE value="Update" />
     <MESSAGE value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update PersonalGoal.java, PersonalGoalDeck.java&#10;(istanziazione personal goal del gioco)" />
+    <MESSAGE value="Update CGFourGroupsFourTiles.java, Create CGFourGroupsFourTilesTest.java, Update Player.java&#10;(correzione errori, test, aggiornamento costruttore Player)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update CGFourGroupsFourTiles.java, Create CGFourGroupsFourTilesTest.java, Update Player.java&#10;(correzione errori, test, aggiornamento costruttore Player)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -361,11 +370,15 @@
           <line>159</line>
           <option name="timeStamp" value="17" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/CGSameTypeSquareTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>

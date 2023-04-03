@@ -14,13 +14,15 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
             for(int j=0; j<PersonalShelf.N_COLUMN; j++) {
                 if (!visited[i][j]) {
                     Color checkingColor = player.getShelf().getSingleSlot(i, j).getColor();
-                    if (player.getShelf().getSingleSlot(i + 1, j).getColor().equals(checkingColor) && i + 1 < PersonalShelf.N_ROWS) {
-                        count++;
-                        visited[i + 1][j] = true;
-                    }
-                    if (player.getShelf().getSingleSlot(i, j + 1).getColor().equals(checkingColor) && j + 1 < PersonalShelf.N_COLUMN) {
-                        count++;
-                        visited[i][j + 1] = true;
+                    if (!checkingColor.Equals(Color.GREY)) {
+                        if (i + 1 < PersonalShelf.N_ROWS && player.getShelf().getSingleSlot(i + 1, j).getColor().equals(checkingColor)) {
+                            count++;
+                            visited[i + 1][j] = true;
+                        }
+                        if (j + 1 < PersonalShelf.N_COLUMN && player.getShelf().getSingleSlot(i, j + 1).getColor().equals(checkingColor)) {
+                            count++;
+                            visited[i][j + 1] = true;
+                        }
                     }
                 }
                 visited[i][j]=true;
