@@ -24,6 +24,7 @@ public class Game {
 
         //Primo popolamento della plancia
         table.refill(bag);
+        table.catchAfterRefill();
     }
 
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
@@ -70,11 +71,11 @@ public class Game {
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
 
-
         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
+        table.catchAfterRefill();
 
         //Setting di catchable per gli Slot che si sono "sbloccati"
    /*     for (int i = 0; i < Dashboard.getSide(); i ++) {
