@@ -24,6 +24,7 @@ public class Game {
 
         //Primo popolamento della plancia
         table.refill(bag);
+        table.catchAfterRefill();
     }
 
 
@@ -72,11 +73,11 @@ public class Game {
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
 
-
         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
+        table.catchAfterRefill();
 
 
         /*
