@@ -26,9 +26,11 @@ public class Game {
         table.refill(bag);
     }
 
-    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
-    public void signPlayer(Player player) {
 
+    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
+    public void signPlayer(String nick) {
+
+        Player player = new Player(nick);
         this.player[playerInGame] = player;
 
         playerInGame ++;
@@ -76,13 +78,15 @@ public class Game {
             table.refill(bag);
         }
 
-        //Setting di catchable per gli Slot che si sono "sbloccati"
-   /*     for (int i = 0; i < Dashboard.getSide(); i ++) {
+
+        /*
+       //Setting di catchable per gli Slot che si sono "sbloccati"
+       for (int i = 0; i < Dashboard.getSide(); i ++) {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
 
                 //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
-               // if (table.catchableSetter (i,j)) {
-                 //   table.getSingleSlot(i,j).setCatchable(true);
+                if (table.catchableSetter(i,j)) {
+                    table.getSingleSlot(i,j).setCatchable(true);
                 }
             }
         }*/
@@ -109,4 +113,21 @@ public class Game {
             }
         }
     }
+
+    public Dashboard getTable() {
+        return table;
+    }
+
+    public Player[] getPlayer() {
+        return player;
+    }
+
+    public boolean isGameOn() {
+        return gameOn;
+    }
+
+    public int getPlayerInGame() {
+        return playerInGame;
+    }
+
 }

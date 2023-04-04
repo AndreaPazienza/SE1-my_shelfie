@@ -98,7 +98,7 @@ public class Player {
         this.nickname = nick;
         this.score = 0;
         this.shelf = new PersonalShelf();
-        this.pgoal = null;
+        this.pgoal = new PersonalGoal();
         this.orderInTurn = 0;
         this.chair = false;
     }
