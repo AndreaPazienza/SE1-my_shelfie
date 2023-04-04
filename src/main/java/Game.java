@@ -8,6 +8,7 @@ public class Game {
     private Player[] player;
     private Dashboard table;
     private Bag bag;
+    private PersonalGoalDeck deck;
     private CommonGoal commonGoal1, commonGoal2;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
@@ -19,6 +20,7 @@ public class Game {
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
+        deck = new PersonalGoalDeck();
         commonGoal1 = new CommonGoal(numberOfPlayers);
         commonGoal2 = new CommonGoal(numberOfPlayers);
 
