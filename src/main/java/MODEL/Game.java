@@ -1,5 +1,4 @@
-//import COMMONGOAL.CommonGoal;
-
+package MODEL;
 public class Game {
 
     protected static int Nplayers;

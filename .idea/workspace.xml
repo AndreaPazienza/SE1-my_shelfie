@@ -9,6 +9,7 @@
       <change afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalDeckTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BagTest.java" afterDir="false" />
@@ -74,15 +75,19 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="MODEL" />
+      <recent name="ù" />
+    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.PersonalGoalDeckTest.testExtraction2">
     <configuration name="PersonalGoalDeckTest.testExtraction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
       <option name="METHOD_NAME" value="testExtraction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -90,9 +95,9 @@
       </method>
     </configuration>
     <configuration name="PersonalGoalDeckTest.testExtraction2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
       <option name="METHOD_NAME" value="testExtraction2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -100,9 +105,9 @@
       </method>
     </configuration>
     <configuration name="PersonalGoalDeckTest.testPersonalGoalDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
       <option name="METHOD_NAME" value="testPersonalGoalDeck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">

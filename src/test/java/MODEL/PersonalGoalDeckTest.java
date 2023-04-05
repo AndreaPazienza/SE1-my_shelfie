@@ -1,3 +1,5 @@
+package MODEL;
+
 import org.junit.jupiter.api.Test;
 
 public class PersonalGoalDeckTest {

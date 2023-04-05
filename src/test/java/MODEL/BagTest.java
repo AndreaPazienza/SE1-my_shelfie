@@ -1,3 +1,4 @@
+package MODEL;
 import org.testng.annotations.Test;
 
 public class BagTest {
