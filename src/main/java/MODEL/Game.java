@@ -1,4 +1,4 @@
-package MODEL;//import COMMONGOAL.MODEL.CommonGoal;
+//import COMMONGOAL.CommonGoal;
 
 public class Game {
 
@@ -8,9 +8,10 @@ public class Game {
     private Player[] player;
     private Dashboard table;
     private Bag bag;
+    private PersonalGoalDeck deck;
     private CommonGoal commonGoal1, commonGoal2;
 
-    //Costruttore della partita che a sua volta costruisce la MODEL.Dashboard passando il numero di giocatori che si inseriranno (in seguito)
+    //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
     public Game (int numberOfPlayers) {
 
         Nplayers = numberOfPlayers;
@@ -19,40 +20,43 @@ public class Game {
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
+        deck = new PersonalGoalDeck();
         commonGoal1 = new CommonGoal(numberOfPlayers);
         commonGoal2 = new CommonGoal(numberOfPlayers);
 
         //Primo popolamento della plancia
-        table.refill(bag);
+        /* table.refill(bag);
+        table.catchAfterRefill();*/
     }
 
-    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
-    public void signPlayer(Player player) {
 
+    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
+    public void signPlayer(String nick) {
+
+        Player player = new Player(nick);
         this.player[playerInGame] = player;
 
+        this.player[playerInGame].setPgoal(deck.extractionPGoal());
         playerInGame ++;
+        this.player[playerInGame].setOrderInTurn(playerInGame);
+
         if (playerInGame == Nplayers) {
             playerInGame = 0;
         }
     }
 
-    //Selezione, ordinamento ed inserimento delle MODEL.Slot (e setting di grigio per gli MODEL.Slot presi dalla MODEL.Dashboard)
-    public void playerMoves(int nChoices) {
+    /*
+    //Selezione, ordinamento ed inserimento delle Slot (e setting di grigio per gli Slot presi dalla Dashboard)
+    public void playerMoves(Moves move) {
 
-        Slot[] choice = new Slot[nChoices];
+        Slot[] slots = new Slot[3];
 
-        /*
-        for (int i = 0; i < nChoices; i ++) {
-
-            choice[i] = player[playerInGame].selectCard(this.table, , );
-
+        switch (move) {
+            case SELECT ->
+            case ORDER ->
+            case INSERT ->
         }
-
-        if (nChoices == 3)
-            player[playerInGame].orderCards(choice, , , );
-        else if (nChoices == 2 && /*chiamata al controller per sapere se switchare) player[playerInGame].orderCards(choice); */
-    }
+    }*/
 
     //Restituisce il giocatore di turno
     public Player playerOnStage() {
@@ -63,26 +67,27 @@ public class Game {
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() {
 
-        //Controllo dei MODEL.CommonGoal completati ed incremento
+        //Controllo dei CommonGoal completati ed incremento
         this.commonGoal1.getGoal().control(player[playerInGame]);
         this.commonGoal1.getGoal().incrementCG();
 
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
 
-
         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
+        table.catchAfterRefill();
 
-        //Setting di catchable per gli MODEL.Slot che si sono "sbloccati"
-   /*     for (int i = 0; i < MODEL.Dashboard.getSide(); i ++) {
-            for(int j = 0; j < MODEL.Dashboard.getSide(); j ++) {
+        /*
+       //Setting di catchable per gli Slot che si sono "sbloccati"
+       for (int i = 0; i < Dashboard.getSide(); i ++) {
+            for(int j = 0; j < Dashboard.getSide(); j ++) {
 
-                //Catchable per tutti gli MODEL.Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
-               // if (table.catchableSetter (i,j)) {
-                 //   table.getSingleSlot(i,j).setCatchable(true);
+                //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
+                if (table.catchableSetter(i,j)) {
+                    table.getSingleSlot(i,j).setCatchable(true);
                 }
             }
         }*/
@@ -95,18 +100,47 @@ public class Game {
     }
 
     //Viene decretato il vincitore (cerca massimo)
-    public void finalScore() {
+    public Player finalScore() {
 
-        String winnerNickname;
+        Player winner;
+        String winnerNickname = null;
         int winnerScore = 0;
         int winnerOrderInTurn = 0;
 
-        for (Player p : this.player) {
-            if ((p.getScore() > winnerScore) || (p.getScore() == winnerScore && p.getOrderInTurn() > winnerOrderInTurn)) {
-                winnerScore = p.getScore();
-                winnerOrderInTurn = p.getOrderInTurn();
-                winnerNickname = p.getNickname();
+        for (int i = 0; i < player.length; i ++) {
+            if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
+                winnerScore = player[i].getScore();
+                winnerOrderInTurn = player[i].getOrderInTurn();
+                winnerNickname = player[i].getNickname();
             }
         }
+
+        //Creazione del player vincitore
+        winner = new Player(winnerNickname);
+        winner.setScore(winnerScore);
+        winner.setOrderInTurn(winnerOrderInTurn);
+
+        return winner;
+
+    }
+
+    public Dashboard getTable() {
+        return table;
+    }
+
+    public Player[] getPlayer() {
+        return player;
+    }
+
+    public boolean isGameOn() {
+        return gameOn;
+    }
+
+    public int getPlayerInGame() {
+        return playerInGame;
+    }
+
+    public PersonalGoalDeck getDeck() {
+        return deck;
     }
 }

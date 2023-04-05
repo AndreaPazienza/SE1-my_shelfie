@@ -1,6 +1,7 @@
 package MODEL;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class PersonalGoalDeck {
 
@@ -57,6 +58,15 @@ public class PersonalGoalDeck {
     }
 
     public PersonalGoal extractionPGoal(){
-        return personalGoalDeck.get(CommonGoal.shuffle());
+
+        int randomIndex = new Random().nextInt(personalGoalDeck.size());
+        PersonalGoal returningPersonal = personalGoalDeck.get(randomIndex);
+        personalGoalDeck.remove(randomIndex);
+
+        return returningPersonal;
+    }
+
+    public ArrayList<PersonalGoal> getPersonalGoalDeck() {
+        return personalGoalDeck;
     }
 }

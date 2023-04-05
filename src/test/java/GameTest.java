@@ -24,7 +24,6 @@ public class GameTest {
             System.out.print("\n");
         }
         System.out.print("\n");
-
     }
 
     @Test
@@ -74,19 +73,15 @@ public class GameTest {
     void testSignPlayer () {
 
         Game game = new Game(4);
-        Player player1 = new Player("nome1");
-        Player player2 = new Player("nome2");
-        Player player3 = new Player("nome3");
-        Player player4 = new Player("nome4");
 
         System.out.print("Giocatori iscritti: " + game.getPlayerInGame() + "\n");
-        game.signPlayer(player1);
+        game.signPlayer("nome1");
         System.out.print("Giocatori iscritti: " + game.getPlayerInGame() + "\n");
-        game.signPlayer(player2);
+        game.signPlayer("nome2");
         System.out.print("Giocatori iscritti: " + game.getPlayerInGame() + "\n");
-        game.signPlayer(player3);
+        game.signPlayer("nome3");
         System.out.print("Giocatori iscritti: " + game.getPlayerInGame() + "\n");
-        game.signPlayer(player4);
+        game.signPlayer("nome4");
         System.out.print("Giocatori iscritti: " + game.getPlayerInGame() + "\n");
     }
 
@@ -96,6 +91,13 @@ public class GameTest {
     void testUpdateTurn() {
 
         Game game = new Game(4);
+
+
+        game.signPlayer("nome1");
+        game.signPlayer("nome2");
+        game.signPlayer("nome3");
+        game.signPlayer("nome4");
+
 
         System.out.print("Giocatore di turno: " + game.getPlayerInGame() + "\n");
 
@@ -140,22 +142,18 @@ public class GameTest {
      void testFinalScore() {
 
          Game game = new Game(4);
-         Player player1 = new Player("nome1");
-         Player player2 = new Player("nome2");
-         Player player3 = new Player("nome3");
-         Player player4 = new Player("nome4");
-         game.signPlayer(player1);
-         game.signPlayer(player2);
-         game.signPlayer(player3);
-         game.signPlayer(player4);
-         player1.setScore(6);
-         player2.setScore(6);
-         player3.setScore(4);
-         player4.setScore(3);
-         player1.setOrderInTurn(0);
-         player2.setOrderInTurn(1);
-         player3.setOrderInTurn(2);
-         player4.setOrderInTurn(3);
+         game.signPlayer("nome1");
+         game.signPlayer("nome2");
+         game.signPlayer("nome3");
+         game.signPlayer("nome4");
+         game.getPlayer()[0].setScore(6);
+         game.getPlayer()[0].setScore(6);
+         game.getPlayer()[0].setScore(4);
+         game.getPlayer()[0].setScore(3);
+         game.getPlayer()[0].setOrderInTurn(0);
+         game.getPlayer()[0].setOrderInTurn(1);
+         game.getPlayer()[0].setOrderInTurn(2);
+         game.getPlayer()[0].setOrderInTurn(3);
 
          game.finalScore();
 

@@ -1,13 +1,12 @@
-package MODEL;
-
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Random;
 
 public class Bag {
 
     private ArrayList<Slot> inBag = new ArrayList<>();
 
-    //Costrutttore di MODEL.Bag come array ordinato di MODEL.Slot (l'estrazione randomica è lasciata al metodo Refill di MODEL.Dashboard)
+    //Costruttore di Bag come array ordinato di Slot (l'estrazione randomica è lasciata al metodo Refill di Dashboard)
     public Bag() {
         //Setting del colore
         for (int i = 0; i < 132; i++) {

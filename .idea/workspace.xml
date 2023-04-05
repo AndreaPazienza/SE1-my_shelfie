@@ -4,57 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Definizione della classe per chiamare i CommonGoal">
-      <change afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Moves.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/PersonalGoalDeckTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/BagTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGDecreaseTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGDecreaseTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGEightTilesSameTypeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGFiveTilesXTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGFourCornersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourCornersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGFourGroupsFourTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourGroupsFourTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGSameTypeSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGSixGroupsTwoTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGTwoColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ColorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/ColorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CommonGoalAbsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CommonGoalAbsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalGoalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PersonalGoalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PersonalShelfTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PersonalGoalDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/BagTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/BagTest.java" afterDir="false" />
     </list>
-    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab" />
+    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab">
+      <change beforePath="$PROJECT_DIR$/src/test/java/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DashboardTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,8 +24,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -112,105 +74,72 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/java/MODEL" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="MODEL" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="MODEL" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGFourLinesFiveTilesTest.checkFirstMiddleLastColumnTrue">
-    <configuration name="CGFourLinesFiveTilesTest.checkFirstMiddleLastColumnTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGFourLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkFirstMiddleLastColumnTrue" />
+  <component name="RunManager" selected="JUnit.PersonalGoalDeckTest.testExtraction2">
+    <configuration name="PersonalGoalDeckTest.testExtraction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourLinesFiveTilesTest.checkOneColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGFourLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkOneColumn" />
+    <configuration name="PersonalGoalDeckTest.testExtraction2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGFourLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGFourLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="emptyOne" />
+    <configuration name="PersonalGoalDeckTest.testPersonalGoalDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testPersonalGoalDeck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGThreeColumnsSixTilesTest.checkFirstLastColumnTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGThreeColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="checkFirstLastColumnTrue" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="GameTest.testGame2" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testGame2" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGThreeColumnsSixTilesTest.checkFirstMiddleLastColumnTrue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGThreeColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="checkFirstMiddleLastColumnTrue" />
-      <option name="TEST_OBJECT" value="method" />
+    <configuration name="GameTest.testUpdateTurn" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testUpdateTurn" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CGFourLinesFiveTilesTest.checkFirstMiddleLastColumnTrue" />
-        <item itemvalue="JUnit.CGFourLinesFiveTilesTest.checkOneColumn" />
-        <item itemvalue="JUnit.CGFourLinesFiveTilesTest.emptyOne" />
-        <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.checkFirstMiddleLastColumnTrue" />
-        <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.checkFirstLastColumnTrue" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testPersonalGoalDeck" />
+        <item itemvalue="TestNG.GameTest.testUpdateTurn" />
+        <item itemvalue="TestNG.GameTest.testGame2" />
       </list>
     </recent_temporary>
   </component>
@@ -235,9 +164,7 @@
       <workItem from="1680437966002" duration="16472000" />
       <workItem from="1680523748295" duration="8011000" />
       <workItem from="1680551088408" duration="1049000" />
-      <workItem from="1680556312965" duration="145000" />
-      <workItem from="1680609004062" duration="2733000" />
-      <workItem from="1680708033745" duration="1595000" />
+      <workItem from="1680702605273" duration="6527000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -323,14 +250,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680551955281</updated>
     </task>
-    <task id="LOCAL-00013" summary="Definizione della classe per chiamare i CommonGoal">
-      <created>1680556394896</created>
+    <task id="LOCAL-00013" summary="Modifica metodo signPlayer">
+      <created>1680613491720</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1680556394896</updated>
+      <updated>1680613491720</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)">
+      <created>1680619933182</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680619933182</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,17 +293,6 @@
             </list>
           </value>
         </entry>
-        <entry key="User">
-          <value>
-            <list>
-              <RecentGroup>
-                <option name="FILTER_VALUES">
-                  <option value="AndreaPazienza" />
-                </option>
-              </RecentGroup>
-            </list>
-          </value>
-        </entry>
       </map>
     </option>
   </component>
@@ -387,74 +310,11 @@
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
-    <MESSAGE value="Definizione della classe per chiamare i CommonGoal" />
-    <option name="LAST_COMMIT_MESSAGE" value="Definizione della classe per chiamare i CommonGoal" />
+    <MESSAGE value="Modifica metodo signPlayer" />
+    <MESSAGE value="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java</url>
-          <line>32</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java</url>
-          <line>23</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Player" memberName="shelf" />

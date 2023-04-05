@@ -1,6 +1,6 @@
 package MODEL;
 
-public abstract class CommonGoalAbs {
+public abstract class  CommonGoalAbs {
 
     protected int playing=0;
     private int maxPoint = 8;

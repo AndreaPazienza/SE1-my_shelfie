@@ -39,6 +39,10 @@ public class Slot {
         this.color=Color.GREY;
     }
 
+    public void setBlack() {
+        this.color = Color.BLACK;
+    }
+
     public Color getColor() {
         return color;
     }
