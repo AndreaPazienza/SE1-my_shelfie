@@ -25,8 +25,8 @@ public class Game {
         commonGoal2 = new CommonGoal(numberOfPlayers);
 
         //Primo popolamento della plancia
-        table.refill(bag);
-        table.catchAfterRefill();
+        /* table.refill(bag);
+        table.catchAfterRefill();*/
     }
 
 
@@ -36,28 +36,27 @@ public class Game {
         Player player = new Player(nick);
         this.player[playerInGame] = player;
 
+        this.player[playerInGame].setPgoal(deck.extractionPGoal());
         playerInGame ++;
+        this.player[playerInGame].setOrderInTurn(playerInGame);
+
         if (playerInGame == Nplayers) {
             playerInGame = 0;
         }
     }
 
+    /*
     //Selezione, ordinamento ed inserimento delle Slot (e setting di grigio per gli Slot presi dalla Dashboard)
-    public void playerMoves(int nChoices) {
+    public void playerMoves(Moves move) {
 
-        Slot[] choice = new Slot[nChoices];
+        Slot[] slots = new Slot[3];
 
-        /*
-        for (int i = 0; i < nChoices; i ++) {
-
-            choice[i] = player[playerInGame].selectCard(this.table, , );
-
+        switch (move) {
+            case SELECT ->
+            case ORDER ->
+            case INSERT ->
         }
-
-        if (nChoices == 3)
-            player[playerInGame].orderCards(choice, , , );
-        else if (nChoices == 2 && /*chiamata al controller per sapere se switchare) player[playerInGame].orderCards(choice); */
-    }
+    }*/
 
     //Restituisce il giocatore di turno
     public Player playerOnStage() {
@@ -81,7 +80,6 @@ public class Game {
         }
         table.catchAfterRefill();
 
-
         /*
        //Setting di catchable per gli Slot che si sono "sbloccati"
        for (int i = 0; i < Dashboard.getSide(); i ++) {
@@ -102,19 +100,28 @@ public class Game {
     }
 
     //Viene decretato il vincitore (cerca massimo)
-    public void finalScore() {
+    public Player finalScore() {
 
-        String winnerNickname;
+        Player winner;
+        String winnerNickname = null;
         int winnerScore = 0;
         int winnerOrderInTurn = 0;
 
-        for (Player p : this.player) {
-            if ((p.getScore() > winnerScore) || (p.getScore() == winnerScore && p.getOrderInTurn() > winnerOrderInTurn)) {
-                winnerScore = p.getScore();
-                winnerOrderInTurn = p.getOrderInTurn();
-                winnerNickname = p.getNickname();
+        for (int i = 0; i < player.length; i ++) {
+            if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
+                winnerScore = player[i].getScore();
+                winnerOrderInTurn = player[i].getOrderInTurn();
+                winnerNickname = player[i].getNickname();
             }
         }
+
+        //Creazione del player vincitore
+        winner = new Player(winnerNickname);
+        winner.setScore(winnerScore);
+        winner.setOrderInTurn(winnerOrderInTurn);
+
+        return winner;
+
     }
 
     public Dashboard getTable() {
@@ -133,4 +140,7 @@ public class Game {
         return playerInGame;
     }
 
+    public PersonalGoalDeck getDeck() {
+        return deck;
+    }
 }

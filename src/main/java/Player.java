@@ -48,6 +48,10 @@ public class Player {
         this.score = points;
     }
 
+    public void setPgoal(PersonalGoal pgoal) {
+        this.pgoal = pgoal;
+    }
+
     public void setShelf(PersonalShelf shelf) {
         this.shelf = shelf;
     }
