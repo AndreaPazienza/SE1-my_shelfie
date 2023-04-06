@@ -62,7 +62,6 @@ public class PersonalGoalDeck {
         int randomIndex = new Random().nextInt(personalGoalDeck.size());
         PersonalGoal returningPersonal = personalGoalDeck.get(randomIndex);
         personalGoalDeck.remove(randomIndex);
-
         return returningPersonal;
     }
 

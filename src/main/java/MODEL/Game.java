@@ -29,13 +29,19 @@ public class Game {
     }
 
 
+    public void assignPGoal(){
+        for(int i = 0; i < player.length; i++){
+            player[i].setPgoal(deck.extractionPGoal());
+        }
+    }
+
     //Inserimento del giocatore nell'array dei player e incremento di Nplayers
     public void signPlayer(String nick) {
 
         Player player = new Player(nick);
         this.player[playerInGame] = player;
 
-        this.player[playerInGame].setPgoal(deck.extractionPGoal());
+        //this.player[playerInGame].setPgoal(deck.extractionPGoal());
         playerInGame ++;
         this.player[playerInGame].setOrderInTurn(playerInGame);
 
