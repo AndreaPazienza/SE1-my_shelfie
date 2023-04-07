@@ -40,11 +40,8 @@ public class Game {
 
         Player player = new Player(nick);
         this.player[playerInGame] = player;
-
-        //this.player[playerInGame].setPgoal(deck.extractionPGoal());
+        this.player[playerInGame].setOrderInTurn(playerInGame+1);
         playerInGame ++;
-        this.player[playerInGame].setOrderInTurn(playerInGame);
-
         if (playerInGame == Nplayers) {
             playerInGame = 0;
         }

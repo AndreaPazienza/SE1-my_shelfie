@@ -97,6 +97,10 @@ public class Player {
         return points;
     }
 
+    public PersonalGoal getPgoal() {
+        return pgoal;
+    }
+
     public Player(String nick){
 
         this.nickname = nick;
@@ -106,4 +110,5 @@ public class Player {
         this.orderInTurn = 0;
         this.chair = false;
     }
+
 }

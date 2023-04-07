@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update CGSameTypeSquare.java, Create CGSameTypeSquareTest.java, Update CGSixGroupsTwoTiles.java, Create CGSixGroupsTwoTilesTest.java&#10;(correzione errori, creazione ed esecuzioni test)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,12 +75,18 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GameTest.testUpdateTurn">
-    <configuration name="GameTest.testFinalScore" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.GameTest.testAssignPGoal">
+    <configuration name="GameTest.testAssignPGoal" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
       <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testFinalScore" />
+      <option name="METHOD_NAME" value="testAssignPGoal" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -88,11 +94,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testGame" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GameTest.testFinalScore" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testGame" />
+      <option name="METHOD_NAME" value="testFinalScore" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -138,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.GameTest.testAssignPGoal" />
         <item itemvalue="TestNG.GameTest.testUpdateTurn" />
         <item itemvalue="TestNG.GameTest.testGame2" />
         <item itemvalue="TestNG.GameTest.testFinalScore" />
         <item itemvalue="TestNG.GameTest.testSignPlayer" />
-        <item itemvalue="TestNG.GameTest.testGame" />
       </list>
     </recent_temporary>
   </component>
@@ -252,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680551955281</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)">
+      <created>1680782883718</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680782883718</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,7 +311,8 @@
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+    <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
