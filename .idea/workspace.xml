@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Observer e Observable creati">
-      <change afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Observable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Observer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-    </list>
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Aggiunta enum GameState" />
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
     </list>
@@ -45,18 +31,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/MODEL/Game.java">
-      <ranges>
-        <range start1="1" end1="2" start2="1" end2="7" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="11" end1="11" start2="16" end2="17" changelist="2ac60f37-5662-4479-bc83-a41521f3fb04" />
-        <range start1="30" end1="30" start2="36" end2="39" changelist="2ac60f37-5662-4479-bc83-a41521f3fb04" />
-        <range start1="77" end1="77" start2="86" end2="90" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="84" end1="88" start2="97" end2="99" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="89" end1="95" start2="100" end2="100" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -290,7 +264,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680782883718</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Aggiunta del Controller, gestione Observer, e Observable">
+      <created>1680884187831</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680884187831</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Aggiunta enum GameState">
+      <created>1680884267457</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680884267457</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,7 +325,9 @@
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
+    <MESSAGE value="Aggiunta del Controller, gestione Observer, e Observable" />
+    <MESSAGE value="Aggiunta enum GameState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta enum GameState" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
