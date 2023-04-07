@@ -1,5 +1,7 @@
 package MODEL;
 
+import java.util.Observable;
+
 public class PersonalGoal {
     private Target[] goal;
     private static final int N_GOALS = 6;

@@ -1,5 +1,7 @@
 package MODEL;
 
+import java.util.Observable;
+
 public class Dashboard {
 
     private Slot[][] inDashboard;

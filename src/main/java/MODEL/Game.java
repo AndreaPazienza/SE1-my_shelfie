@@ -1,5 +1,10 @@
 package MODEL;
-public class Game {
+
+import CONTROLLER.GameController;
+
+import java.util.Observable;
+
+public class Game extends Observable {
 
     protected static int Nplayers;
     private int playerInGame;
@@ -76,23 +81,19 @@ public class Game {
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
 
+        notifyObservers(commonGoal1.getGoal().getMaxPoint());
+        notifyObservers(commonGoal2.getGoal().getMaxPoint());
+
+
         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
         table.catchAfterRefill();
 
-        /*
-       //Setting di catchable per gli Slot che si sono "sbloccati"
-       for (int i = 0; i < Dashboard.getSide(); i ++) {
-            for(int j = 0; j < Dashboard.getSide(); j ++) {
+        /* notify della dashboard aggiornata */
+        notifyObservers(table);
 
-                //Catchable per tutti gli Slot (con colore diverso da grigio e nero) con meno di quattro adiacenze (quindi con almeno un lato libero)
-                if (table.catchableSetter(i,j)) {
-                    table.getSingleSlot(i,j).setCatchable(true);
-                }
-            }
-        }*/
 
         //Passaggio del turno
         playerInGame ++;

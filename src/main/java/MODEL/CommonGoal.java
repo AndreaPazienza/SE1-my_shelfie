@@ -1,9 +1,10 @@
 package MODEL;
 
 import java.util.ArrayList;
+import java.util.Observable;
 import java.util.Random;
 
-public class CommonGoal {
+public class CommonGoal extends Observable {
 
     private CommonGoalAbs goal;
 

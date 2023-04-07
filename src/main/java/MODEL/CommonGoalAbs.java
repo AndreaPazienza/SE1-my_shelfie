@@ -17,6 +17,10 @@ public abstract class  CommonGoalAbs {
        }
     }
 
+    public int getMaxPoint() {
+        return maxPoint;
+    }
+
     public CommonGoalAbs getGoal(){
         return  goal;
     }

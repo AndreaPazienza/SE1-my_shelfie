@@ -1,6 +1,8 @@
 package MODEL;
 
-public class PersonalShelf {
+import java.util.Observable;
+
+public class PersonalShelf extends Observable {
 
     private Slot[][] shelf;
     private boolean itsFull;
@@ -82,6 +84,8 @@ public class PersonalShelf {
             this.shelf[i][column].setType(slots[j].getType());
             i--;
         }
+        /*notify*/
+        notifyObservers(this.shelf);
     }
 
     public void checkLastLine(){

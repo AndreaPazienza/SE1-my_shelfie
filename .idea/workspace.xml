@@ -4,11 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Observer e Observable creati">
+      <change afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/COMMONGOAL/CommonID.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Observable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Observer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
+    </list>
+    <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
     </list>
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +32,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -32,6 +45,18 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/main/java/MODEL/Game.java">
+      <ranges>
+        <range start1="1" end1="2" start2="1" end2="7" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="11" end1="11" start2="16" end2="17" changelist="2ac60f37-5662-4479-bc83-a41521f3fb04" />
+        <range start1="30" end1="30" start2="36" end2="39" changelist="2ac60f37-5662-4479-bc83-a41521f3fb04" />
+        <range start1="77" end1="77" start2="86" end2="90" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="84" end1="88" start2="97" end2="99" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="89" end1="95" start2="100" end2="100" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -317,8 +342,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

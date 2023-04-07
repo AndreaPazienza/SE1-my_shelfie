@@ -1,6 +1,9 @@
 package MODEL;
 
-public class Player {
+import java.util.Observable;
+import java.util.Observer;
+
+public class Player extends Observable {
     public String nickname;
     private int orderInTurn;
     private int score;
@@ -76,12 +79,15 @@ public class Player {
         for(int i = 0; i < 3; i++){
             selectedCards[i] = tmp[i];
         }
+        notifyObservers(selectedCards);
     }
 
     public void orderCards(Slot[] selectedCards){ //metodo che riordina nel caso in cui ho scelto solo due tessere
         Slot tmp = selectedCards[1];
         selectedCards[1] = selectedCards[0];
         selectedCards[0] = tmp;
+        notifyObservers(selectedCards);
+
     }
 
     public void sumPoints(int p){

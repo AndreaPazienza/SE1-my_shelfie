@@ -1,9 +1,10 @@
 package MODEL;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Observable;
 import java.util.Random;
 
-public class Bag {
+public class Bag{
 
     private ArrayList<Slot> inBag = new ArrayList<>();
 
