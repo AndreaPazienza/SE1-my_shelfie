@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Aggiunta enum GameState" />
-    <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Observer e Observable creati">
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODEL/Moves.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
     </list>
+    <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -264,21 +266,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680782883718</updated>
     </task>
-    <task id="LOCAL-00014" summary="Aggiunta del Controller, gestione Observer, e Observable">
-      <created>1680884187831</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1680884187831</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Aggiunta enum GameState">
-      <created>1680884267457</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1680884267457</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,15 +313,13 @@
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
-    <MESSAGE value="Aggiunta del Controller, gestione Observer, e Observable" />
-    <MESSAGE value="Aggiunta enum GameState" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta enum GameState" />
+    <option name="LAST_COMMIT_MESSAGE" value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
