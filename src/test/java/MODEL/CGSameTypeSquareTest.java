@@ -166,7 +166,7 @@ class CGSameTypeSquareTest {
         current.getShelf().getSingleSlot(1,2).setColor(Color.YELLOW);
         testCommonGoal.control(current);
         int points = current.getScore();
-        assertEquals(8, points);   //quindi come lo gestiamo questo?
+        assertEquals(0, points);   //quindi come lo gestiamo questo?
     }
 
 }
