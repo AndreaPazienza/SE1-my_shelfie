@@ -34,13 +34,13 @@ class PersonalShelfTest {
         Slot[] slots = new Slot[3];
         boolean testOk = true;
         slots[0] = new Slot(Color.YELLOW);
-        slots[1] = new Slot(Color.LIGHTBLUE);
+        slots[1] = new Slot(Color.LBLUE);
         slots[2] = new Slot(Color.GREY);
         shelf.insert(slots, 1);
         if(!shelf.getSingleSlot(5,1).getColor().Equals(Color.YELLOW)){
             testOk=false;
         }
-        if(!shelf.getSingleSlot(4,1).getColor().Equals(Color.LIGHTBLUE)){
+        if(!shelf.getSingleSlot(4,1).getColor().Equals(Color.LBLUE)){
             testOk=false;
         }
         System.out.println("Test ok: "+testOk);
@@ -66,7 +66,7 @@ class PersonalShelfTest {
         shelf.getSingleSlot(1,0).setColor(Color.GREEN);
         shelf.getSingleSlot(1,1).setColor(Color.GREEN);
         shelf.getSingleSlot(2,2).setColor(Color.GREEN); //controllo che non conti come adiacenti anche le diagonali
-        shelf.getSingleSlot(2,1).setColor(Color.LIGHTBLUE);
+        shelf.getSingleSlot(2,1).setColor(Color.LBLUE);
         int test = shelf.calculatePoints();
         assertEquals(2, test);
     }
@@ -92,11 +92,11 @@ class PersonalShelfTest {
         shelf.getSingleSlot(2,2).setColor(Color.PINK);
         shelf.getSingleSlot(2,1).setColor(Color.PINK);
         shelf.getSingleSlot(2,0).setColor(Color.PINK);
-        shelf.getSingleSlot(3,3).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(3,4).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(4,4).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(4,3).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
+        shelf.getSingleSlot(3,3).setColor(Color.LBLUE);
+        shelf.getSingleSlot(3,4).setColor(Color.LBLUE);
+        shelf.getSingleSlot(4,4).setColor(Color.LBLUE);
+        shelf.getSingleSlot(4,3).setColor(Color.LBLUE);
+        shelf.getSingleSlot(3,2).setColor(Color.LBLUE);
         int test = shelf.calculatePoints();
         assertEquals(10, test);
     }
@@ -123,11 +123,11 @@ class PersonalShelfTest {
         shelf.getSingleSlot(2,2).setColor(Color.PINK);
         shelf.getSingleSlot(2,1).setColor(Color.PINK);
         shelf.getSingleSlot(2,0).setColor(Color.PINK);
-        shelf.getSingleSlot(3,3).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(3,4).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(4,4).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(4,3).setColor(Color.LIGHTBLUE);
-        shelf.getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
+        shelf.getSingleSlot(3,3).setColor(Color.LBLUE);
+        shelf.getSingleSlot(3,4).setColor(Color.LBLUE);
+        shelf.getSingleSlot(4,4).setColor(Color.LBLUE);
+        shelf.getSingleSlot(4,3).setColor(Color.LBLUE);
+        shelf.getSingleSlot(3,2).setColor(Color.LBLUE);
         shelf.getSingleSlot(4,0).setColor(Color.WHITE);
         shelf.getSingleSlot(3,0).setColor(Color.WHITE);
         shelf.getSingleSlot(3,1).setColor(Color.WHITE);

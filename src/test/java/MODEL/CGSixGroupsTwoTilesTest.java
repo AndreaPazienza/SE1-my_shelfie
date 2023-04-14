@@ -30,8 +30,8 @@ class CGSixGroupsTwoTilesTest {
     void reachedGoal(){
         current.getShelf().getSingleSlot(0,0).setColor(Color.YELLOW);
         current.getShelf().getSingleSlot(0,1).setColor(Color.YELLOW);
-        current.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        current.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         current.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         current.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         current.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);
@@ -52,8 +52,8 @@ class CGSixGroupsTwoTilesTest {
 
         current.getShelf().getSingleSlot(0,0).setColor(Color.YELLOW);
         current.getShelf().getSingleSlot(0,1).setColor(Color.YELLOW);
-        current.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        current.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         current.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         current.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         current.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);
@@ -69,8 +69,8 @@ class CGSixGroupsTwoTilesTest {
         testCommonGoal.incrementCG();
         second.getShelf().getSingleSlot(0,0).setColor(Color.YELLOW);
         second.getShelf().getSingleSlot(0,1).setColor(Color.YELLOW);
-        second.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        second.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        second.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        second.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         second.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         second.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         second.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);
@@ -86,8 +86,8 @@ class CGSixGroupsTwoTilesTest {
 
     @Test
     void notSixCouples(){
-        current.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        current.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         current.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         current.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         current.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);
@@ -108,8 +108,8 @@ class CGSixGroupsTwoTilesTest {
 
         current.getShelf().getSingleSlot(0,0).setColor(Color.YELLOW);
         current.getShelf().getSingleSlot(0,1).setColor(Color.YELLOW);
-        current.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        current.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         current.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         current.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         current.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);
@@ -125,8 +125,8 @@ class CGSixGroupsTwoTilesTest {
         testCommonGoal.incrementCG();
         second.getShelf().getSingleSlot(0,0).setColor(Color.YELLOW);
         second.getShelf().getSingleSlot(0,1).setColor(Color.YELLOW);
-        second.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        second.getShelf().getSingleSlot(1,1).setColor(Color.LIGHTBLUE);
+        second.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        second.getShelf().getSingleSlot(1,1).setColor(Color.LBLUE);
         second.getShelf().getSingleSlot(2,0).setColor(Color.PINK);
         second.getShelf().getSingleSlot(2,1).setColor(Color.PINK);
         second.getShelf().getSingleSlot(3,0).setColor(Color.GREEN);

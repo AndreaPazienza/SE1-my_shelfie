@@ -42,11 +42,11 @@ class CGFourLinesFiveTilesTest {
         current1.getShelf().getSingleSlot(0,3).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(0,4).setColor(Color.GREEN);
 
-        current1.getShelf().getSingleSlot(1,4).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(1,4).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(1,3).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(1,2).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(1,1).setColor(Color.GREEN);
-        current1.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
 
         current1.getShelf().getSingleSlot(5,4).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(5,3).setColor(Color.WHITE);

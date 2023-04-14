@@ -49,12 +49,12 @@ class CGEightTilesSameTypeTest {
     }
     @Test
     void notReady(){
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         assertEquals(0,current1.getScore());
     }
@@ -75,15 +75,15 @@ class CGEightTilesSameTypeTest {
     }
     @Test
     void checkEightTilesSameColor(){
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         assertEquals(8,current1.getScore());
     }
@@ -92,15 +92,15 @@ class CGEightTilesSameTypeTest {
     }
     @Test
     void checkNotDoubleAssignOnePlayer(){
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         assertEquals(8,current1.getScore());
         testingCommonGoal.control((current1));
@@ -110,15 +110,15 @@ class CGEightTilesSameTypeTest {
     @Test
     void checkAssignThreePlayer(){
         testingCommonGoal = new CGEightTilesSameType(3);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         Player current2 = new Player("RubV18");
         current2.getShelf().getSingleSlot(0,4 ).setColor(Color.YELLOW);
         current2.getShelf().getSingleSlot(3,2).setColor(Color.YELLOW);
@@ -158,15 +158,15 @@ class CGEightTilesSameTypeTest {
     void checkNotAssignAllThreePlayer(){
         //definizione
         testingCommonGoal = new CGEightTilesSameType(3);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         Player current2 = new Player("RubV18");
         current2.getShelf().getSingleSlot(0,4 ).setColor(Color.YELLOW);
         current2.getShelf().getSingleSlot(3,2).setColor(Color.YELLOW);
@@ -203,15 +203,15 @@ class CGEightTilesSameTypeTest {
     @Test
     void checkNotAssignAllFourPlayer(){
         //definizione
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,2).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,2).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         Player current2 = new Player("RubV18");
         current2.getShelf().getSingleSlot(0,4 ).setColor(Color.YELLOW);
         current2.getShelf().getSingleSlot(3,2).setColor(Color.YELLOW);

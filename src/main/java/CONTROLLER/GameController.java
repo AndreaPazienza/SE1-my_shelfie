@@ -150,6 +150,8 @@ public class GameController {
         public void endGame(){
 
         }
+
+        /*
         // Stampa della dashboard, come si vuole fare?
         public void displayDashboard(){
         ArrayList<Slot> playable = new ArrayList<Slot>;
@@ -171,7 +173,7 @@ public class GameController {
 
 
         }
-
+*/
 
 
 }

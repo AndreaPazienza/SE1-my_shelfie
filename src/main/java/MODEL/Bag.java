@@ -31,7 +31,7 @@ public class Bag{
                 inBag.add(toAdd3);
             }
             if(i > 65 && i < 88){
-                Slot toAdd4 = new Slot(Color.LIGHTBLUE);
+                Slot toAdd4 = new Slot(Color.LBLUE);
                 toAdd4.fillType(i % 3);
                 toAdd4.setCatchable(false);
                 inBag.add(toAdd4);

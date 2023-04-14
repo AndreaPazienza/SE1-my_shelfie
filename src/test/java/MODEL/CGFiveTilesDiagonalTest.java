@@ -82,7 +82,7 @@ class CGFiveTilesDiagonalTest {
         current1.getShelf().getSingleSlot(4,1).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(3,2).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(2,3).setColor(Color.YELLOW);
-        current1.getShelf().getSingleSlot(1,4).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(1,4).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         assertEquals(0, current1.getScore());
     }
@@ -92,7 +92,7 @@ class CGFiveTilesDiagonalTest {
         current1.getShelf().getSingleSlot(4,1).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(3,2).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(2,3).setColor(Color.YELLOW);
-        current1.getShelf().getSingleSlot(1,4).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(1,4).setColor(Color.LBLUE);
 
         current1.getShelf().getSingleSlot(0,0).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(1,1).setColor(Color.GREEN);

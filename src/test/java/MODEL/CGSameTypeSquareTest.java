@@ -28,10 +28,10 @@ class CGSameTypeSquareTest {
 
     @Test
     void adiacentNotASquare(){
-        current.getShelf().getSingleSlot(0,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(1,0).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(0,1).setColor(Color.LIGHTBLUE);
-        current.getShelf().getSingleSlot(0,2).setColor(Color.LIGHTBLUE);
+        current.getShelf().getSingleSlot(0,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(1,0).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(0,1).setColor(Color.LBLUE);
+        current.getShelf().getSingleSlot(0,2).setColor(Color.LBLUE);
         testCommonGoal.control(current);
         int points = current.getScore();
         assertEquals(0, points);

@@ -29,11 +29,11 @@ class CGFiveTilesXTest {
     }
     @Test
     void checkRightRandomX(){
-        current1.getShelf().getSingleSlot(0,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1, 3).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1, 3).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,4 ).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         assertEquals(8, current1.getScore());
 
@@ -41,7 +41,7 @@ class CGFiveTilesXTest {
     @Test
     void checkWrongX(){
         current1.getShelf().getSingleSlot(0,2 ).setColor(Color.YELLOW);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(1, 3).setColor(Color.BLUE);
         current1.getShelf().getSingleSlot(2,2 ).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(2,4 ).setColor(Color.GREEN);
@@ -63,11 +63,11 @@ class CGFiveTilesXTest {
     @Test
     void checkMultiNotAllCGFourPlayersX(){
 
-        current1.getShelf().getSingleSlot(0,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(1, 3).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,2 ).setColor(Color.LIGHTBLUE);
-        current1.getShelf().getSingleSlot(2,4 ).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(1, 3).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,2 ).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(2,4 ).setColor(Color.LBLUE);
         testingCommonGoal.control(current1);
         testingCommonGoal.incrementCG();
         assertEquals(8, current1.getScore());

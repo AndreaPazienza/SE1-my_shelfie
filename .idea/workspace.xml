@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Observer e Observable creati">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update personalGoalDeck e creazione del test di PersonalGoalDeck, modifica Game metodo finalScore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/PersonalShelfTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PersonalShelfTest.java" afterDir="false" />
     </list>
-    <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
+    <list id="703af77c-a64e-4d06-891e-8f77a8e1bb68" name="Changes by alessiotagab" comment="Changes by alessiotagab" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,8 +33,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -70,15 +82,42 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="MODEL" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GameTest.testAssignPGoal">
-    <configuration name="GameTest.testAssignPGoal" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.DashboardTest.testRefillColor">
+    <configuration name="PersonalGoalDeckTest.testExtraction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalDeckTest.testExtraction2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalDeckTest.testPersonalGoalDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testPersonalGoalDeck" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DashboardTest.testDashboard4" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -87,8 +126,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testAssignPGoal" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.DashboardTest" />
+      <option name="METHOD_NAME" value="testDashboard4" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -96,47 +135,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testFinalScore" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="DashboardTest.testRefillColor" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testFinalScore" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testGame2" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testGame2" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testSignPlayer" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testSignPlayer" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testUpdateTurn" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testUpdateTurn" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.DashboardTest" />
+      <option name="METHOD_NAME" value="testRefillColor" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -146,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GameTest.testAssignPGoal" />
-        <item itemvalue="TestNG.GameTest.testUpdateTurn" />
-        <item itemvalue="TestNG.GameTest.testGame2" />
-        <item itemvalue="TestNG.GameTest.testFinalScore" />
-        <item itemvalue="TestNG.GameTest.testSignPlayer" />
+        <item itemvalue="TestNG.DashboardTest.testRefillColor" />
+        <item itemvalue="TestNG.DashboardTest.testDashboard4" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testPersonalGoalDeck" />
       </list>
     </recent_temporary>
   </component>
@@ -175,8 +184,11 @@
       <workItem from="1680437966002" duration="16472000" />
       <workItem from="1680523748295" duration="8011000" />
       <workItem from="1680551088408" duration="1049000" />
-      <workItem from="1681414163660" duration="718000" />
-      <workItem from="1681475934443" duration="9477000" />
+      <workItem from="1680702605273" duration="6820000" />
+      <workItem from="1680870945842" duration="4523000" />
+      <workItem from="1681265682465" duration="51000" />
+      <workItem from="1681463916636" duration="266000" />
+      <workItem from="1681479224579" duration="4093000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -262,14 +274,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680551955281</updated>
     </task>
-    <task id="LOCAL-00013" summary="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)">
-      <created>1680782883718</created>
+    <task id="LOCAL-00013" summary="Modifica metodo signPlayer">
+      <created>1680613491720</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1680782883718</updated>
+      <updated>1680613491720</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)">
+      <created>1680619933182</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680619933182</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Update personalGoalDeck e creazione del test di PersonalGoalDeck, modifica Game metodo finalScore">
+      <created>1680709709749</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680709709749</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -315,14 +341,16 @@
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
-    <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
+    <MESSAGE value="Modifica metodo signPlayer" />
+    <MESSAGE value="Aggiunta del PersonalDeck alla classe Game (e nel costruttore)" />
+    <MESSAGE value="Update personalGoalDeck e creazione del test di PersonalGoalDeck, modifica Game metodo finalScore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update personalGoalDeck e creazione del test di PersonalGoalDeck, modifica Game metodo finalScore" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

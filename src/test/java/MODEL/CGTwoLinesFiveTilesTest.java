@@ -30,13 +30,13 @@ class CGTwoLinesFiveTilesTest {
         current1.getShelf().getSingleSlot(0,0).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(0,1).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(0,2).setColor(Color.PINK);
-        current1.getShelf().getSingleSlot(0,3).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,3).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(0,4).setColor(Color.BLUE);
 
         current1.getShelf().getSingleSlot(5,3).setColor(Color.YELLOW);
         current1.getShelf().getSingleSlot(5,3).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(5,2).setColor(Color.BLUE);
-        current1.getShelf().getSingleSlot(5,1).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(5,1).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(5,0).setColor(Color.GREEN);
 
         testingCommonGoal.control(current1);
@@ -54,7 +54,7 @@ class CGTwoLinesFiveTilesTest {
         current1.getShelf().getSingleSlot(5,3).setColor(Color.YELLOW);
         current1.getShelf().getSingleSlot(5,3).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(5,2).setColor(Color.BLUE);
-        current1.getShelf().getSingleSlot(5,1).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(5,1).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(5,0).setColor(Color.GREEN);
 
         testingCommonGoal.control(current1);

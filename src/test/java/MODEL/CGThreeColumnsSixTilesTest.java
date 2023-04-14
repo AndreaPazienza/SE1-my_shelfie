@@ -43,12 +43,12 @@ class CGThreeColumnsSixTilesTest {
         current1.getShelf().getSingleSlot(4,0).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(5,0).setColor(Color.YELLOW);
 
-        current1.getShelf().getSingleSlot(0,4).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(0,4).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(1,4).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(2,4).setColor(Color.YELLOW);
         current1.getShelf().getSingleSlot(3,4).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(4,4).setColor(Color.GREEN);
-        current1.getShelf().getSingleSlot(5,4).setColor(Color.LIGHTBLUE);
+        current1.getShelf().getSingleSlot(5,4).setColor(Color.LBLUE);
 
         current1.getShelf().getSingleSlot(0,2).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(1,2).setColor(Color.WHITE);

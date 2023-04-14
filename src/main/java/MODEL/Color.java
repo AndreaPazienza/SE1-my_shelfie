@@ -6,7 +6,7 @@ public enum Color {
     GREEN,
     PINK,
     BLUE,
-    LIGHTBLUE,
+    LBLUE,
     WHITE,
     YELLOW,
     GREY, //Grey caselle corrispondenti a tessere prese

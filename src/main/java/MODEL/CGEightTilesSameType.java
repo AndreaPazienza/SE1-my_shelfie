@@ -20,7 +20,7 @@ public class CGEightTilesSameType extends CommonGoalAbs {
                 if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.GREEN)) GreenCounter = GreenCounter + adder;
                 if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.PINK)) PinkCounter = PinkCounter + adder;
                 if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.BLUE)) BlueCounter = BlueCounter + adder;
-                if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.LIGHTBLUE)) LBCounter = LBCounter + adder;
+                if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.LBLUE)) LBCounter = LBCounter + adder;
                 if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.WHITE)) WhiteCounter = WhiteCounter + adder;
                 if (player.getShelf().getSingleSlot(i, j).getColor().equals(Color.YELLOW)) YellowCounter = YellowCounter + adder;
 

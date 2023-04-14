@@ -172,9 +172,9 @@ public class DashboardTest {
         for (int i = 0; i < Dashboard.getSide(); i ++) {
             for (int j = 0; j < Dashboard.getSide(); j ++ ) {
                 if (dashboard.getSingleSlot(i,j).getColor().equals(Color.BLACK))
-                    System.out.print(". ");
+                    System.out.print("\t     \t");
                 else if (!dashboard.getSingleSlot(i,j).getColor().equals(Color.GREY))
-                    System.out.print(dashboard.getSingleSlot(i,j).getColor() + " , ");
+                    System.out.print("\t" + dashboard.getSingleSlot(i,j).getColor() + "\t");
             }
             System.out.print("\n");
         }
