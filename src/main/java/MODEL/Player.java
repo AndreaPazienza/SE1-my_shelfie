@@ -95,12 +95,12 @@ public class Player extends Observable {
         this.setScore(points);
     }
 
-    public int checkScore(){
+    public void checkScore(){
         int pgoalPoints = pgoal.assignPoint(shelf);
         int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
         int nearbyPoints = this.shelf.calculatePoints();
         int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
-        return points;
+        this.setScore(points);
     }
 
     public PersonalGoal getPgoal() {

@@ -20,7 +20,7 @@ public class Game extends Observable {
 
         Nplayers = numberOfPlayers;
         playerInGame = 0;                                   //Giocatore attualmente di turno
-        gameOn = true;
+        gameOn = false;
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
@@ -135,9 +135,19 @@ public class Game extends Observable {
         return player;
     }
 
+    public CommonGoal getCommonGoal1() {
+        return commonGoal1;
+    }
+
+    public CommonGoal getCommonGoal2() {
+        return commonGoal2;
+    }
+
     public boolean isGameOn() {
         return gameOn;
     }
+
+    public void setGameOn(boolean gameOn){this.gameOn=gameOn;}
 
     public int getPlayerInGame() {
         return playerInGame;
