@@ -127,6 +127,8 @@ public class Game extends Observable {
 
     }
 
+    public int getNplayers(){ return Nplayers;}
+
     public Dashboard getTable() {
         return table;
     }

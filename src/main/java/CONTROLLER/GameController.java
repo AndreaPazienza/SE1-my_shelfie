@@ -2,8 +2,7 @@ package CONTROLLER;
 
 import MODEL.*;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GameController {
@@ -56,24 +55,13 @@ public class GameController {
             Bag bag = new Bag();
             game.getTable().refill(bag);
             game.getTable().catchAfterRefill();
-            //estrazione degli obiettivi personali
-            game.assignPGoal();
-            //La partita può iniziare
-            game.setGameOn(true);
+
+            //estrazione degli obiettivi comuni e personali
+            game.assignPGoal(); //manca assegnazione degli shared goal
+
+            //
             }
         }
-
-    public void gameOnGoing() {
-
-        while (gameState.equals(GameState.NOTSTARTED) || gameState.equals(GameState.ONWAIT)) {
-            this.startGame();
-        }
-        beginGame();
-        while(game.isGameOn()){
-            turnManagement();
-        }
-        System.out.println("-- Congratulazioni, il gioco è finito --");
-    }
 
     //turn management inizialmente era implementato, nello schizzo, con il passaggio di una mossa come parametro.
     //Suggerisco invece questa implementazione, in cui le mosse vengono eseguite in sequenza. manca il controllo
@@ -84,52 +72,32 @@ public class GameController {
             for (int i = 0; i < 3; i++) {
                 slots[i] = new Slot(Color.GREY);
             }
-            int k = 0, x1=-1, x2=-1, y1=-1, y2 = -1;
+            int k = 0;
             String yes = "si";
             String no = "no";
             String string;
-            boolean r = false;
-            boolean c = false;
-        //selezione (manca controllo se tessere scelte sono adiacenti)
+        //selezione
             do {
                 System.out.println("Inserire le coordinate della tessera da prendere: ");
                 System.out.println("X: ");
                 int x = scanner.nextInt();
                 System.out.println("Y: ");
                 int y = scanner.nextInt();
-                if(k==0) {
-                    slots[k] = game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
-                }
-                do {
-                    if (k == 1 && checkSelection2(x, y, x1, y1, x2, y2)) {
-                        slots[k] = game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
-                    }
-                    ()
-                } while(!checkSelection2(x, y, x1, y1, x2, y2));
-                if(k==2 && checkSelection3(x, y, x1, y1, x2, y2))
-                {
-                    slots[k] = game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
-                }
-
-                do {
+                slots[k] = game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
                 System.out.println("Ne vuoi scegliere altre? si o no?");
                 string = scanner.nextLine();
-
-                    if (string.equals(yes) && k != 2) {
-                        x1 = x;
-                        y1 = y;
-                        k++;
-                    } else if (string.equals(yes) && k == 2) {
-                        System.out.println("Hai già selezionato 3 tessere!");
-                        k++;
-                    } else if (string.equals(no)) {
-                        k = 3;
-                    } else {
-                        System.out.println("Scusami non ho capito! Rispondi si o no per favore!");
-                    }
-                } while (!string.equals(yes) && !string.equals(no));
+                if (string.equals(yes) && k != 2) {
+                    k++;
+            }   else if (string.equals(yes) && k == 2) {
+                    System.out.println("Hai già selezionato 3 tessere!");
+                    k++;
+            }   else if (string.equals(no)) {
+                    k = 3;
+            }   else {
+                    System.out.println("Scusami non ho capito! Rispondi si o no per favore!");
+                }
             } while (k < 3);
-        //ordinamento //reloop
+        //ordinamento
             System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
             string = scanner.nextLine();
             if (string.equals(yes)) {
@@ -163,58 +131,47 @@ public class GameController {
             do {
                 System.out.println("In che colonna vuoi mettere le tessere?");
                 column = scanner.nextInt();
-                if (column < 0 || column >= game.getPlayer()[0].getShelf().N_COLUMN){
+                if (column < 0 && column >= game.getPlayer()[0].getShelf().N_COLUMN){
                     System.out.println("La colonna inserita non è valida!");
                 }
-            }   while (column < 0 || column >= game.getPlayer()[0].getShelf().N_COLUMN);
+            }   while (column < 0 && column >= game.getPlayer()[0].getShelf().N_COLUMN);
             game.getPlayer()[game.getPlayerInGame()].getShelf().insert(slots, column);
+        //Controllo dell'obiettivo comune
+
         //controllo se la shelf è piena: se la partita non è finita, passo il turno
             game.getPlayer()[game.getPlayerInGame()].getShelf().checkLastLine();
             if(game.getPlayer()[game.getPlayerInGame()].getShelf().isItsFull()){
-                game.getCommonGoal1().getGoal().control(game.getPlayer()[game.getPlayerInGame()]);
-                game.getCommonGoal2().getGoal().control(game.getPlayer()[game.getPlayerInGame()]);
                 endGame();
             }   else  {
                 game.updateTurn();
             }
         }
 
-        public boolean checkSelection2(int x, int y, int x1, int y1, int x2, int y2){
-            if((x==x1 && ((y==y1+1 || y==y1-1)) || ((x==x1+1 || x==x1-1) && y==y1))){
-                if(x==x1){
-                    y2 = y1;  //in y2 tengo salvata la prima tessera selezionata
-                }
-                else{
-                    x2 = x1;
-                }
-                return true;
-            } else {
-                return false;
+        public void endGame(){
+
+        }
+        // Stampa della dashboard, come si vuole fare?
+        public void displayDashboard(){
+        ArrayList<Slot> playable = new ArrayList<Slot>;
+        ArrayList<Slot> onTable = new ArrayList<Slot>;
+        Slot tmp;
+
+        for(int i=0; i < 9; i++){
+            for(int j=0; j < 9; j++){
+               tmp = game.getTable().getSingleSlot(i, j);
+                if(tmp.getColor().equals(Color.BLACK) && tmp.getColor().equals(Color.GREY) )
+                    if(tmp.isCatchable())
+
+                    else
+
+
             }
         }
 
-        public boolean checkSelection3(int x, int y, int x1, int y1, int x2, int y2) {
-            if (x == x2) {
-                if ((y == y1 + 1 || y == y1 - 1 && y != y2) || (y == y2 + 1 || y == y2 - 1 && y != y1)) {
-                    return true;
-                }
-            }
-                if (y == y2) {
-                    if ((x == x1 + 1 || x == x1 - 1) || (x == x2 + 1 || x == x2 - 1)) {
-                        return true;
-                    }
-                }
-                return false;
+
+
         }
-        public void endGame(){
-            Player winner;
-            for(int i = 0; i < game.getPlayer().length; i++){
-                game.getPlayer()[i].checkScore();
-            }
-            winner = game.finalScore();
-            System.out.println("Il vincitore è :"+winner.getNickname()+" Complimenti!");
-            game.setGameOn(false);
-        }
+
 
 
 }
