@@ -103,7 +103,7 @@ public class GameController {
                 if (k == 1 && checkSelection2(x, y, x1, y1, x2, y2)) {
                     slots[k] = game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
                 }
-                ()
+                //()
             } while(!checkSelection2(x, y, x1, y1, x2, y2));
             if(k==2 && checkSelection3(x, y, x1, y1, x2, y2))
             {
@@ -170,8 +170,8 @@ public class GameController {
         //controllo se la shelf è piena: se la partita non è finita, passo il turno
         game.getPlayer()[game.getPlayerInGame()].getShelf().checkLastLine();
         if(game.getPlayer()[game.getPlayerInGame()].getShelf().isItsFull()){
-            game.getCommonGoal1().getGoal().control(game.getPlayer()[game.getPlayerInGame()]);
-            game.getCommonGoal2().getGoal().control(game.getPlayer()[game.getPlayerInGame()]);
+            game.updateTurn();
+            completeRound();
             endGame();
         }   else  {
             game.updateTurn();
@@ -203,6 +203,13 @@ public class GameController {
             }
             return false;
         }
+
+        public void completeRound(){
+            //int countdown = game.getNplayers()-game.getPlayerInGame();
+            while(game.getPlayerInGame()!= 0){
+                turnManagement();
+            }
+        }
         public void endGame(){
             Player winner;
             for(int i = 0; i < game.getPlayer().length; i++){
@@ -213,32 +220,52 @@ public class GameController {
             game.setGameOn(false);
         }
 
-        /*
+
         // Stampa della dashboard, come si vuole fare?
         public void displayDashboard(){
-        ArrayList<Slot> playable = new ArrayList<Slot>;
-        ArrayList<Slot> onTable = new ArrayList<Slot>;
-        Slot tmp;
-
-        for(int i=0; i < 9; i++){
-            for(int j=0; j < 9; j++){
-               tmp = game.getTable().getSingleSlot(i, j);
-                if(tmp.getColor().equals(Color.BLACK) && tmp.getColor().equals(Color.GREY) )
-                    if(tmp.isCatchable())
-
-                    else
-
-
+            for(int k = 0; k < Dashboard.getSide(); k++){
+                System.out.print("\t  "+k+"  \t");
+            }
+            System.out.print("\n");
+            for (int i = 0; i < Dashboard.getSide(); i ++) {
+                System.out.println(""+i);
+                for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                    if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                        System.out.print("\t     \t");
+                    else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
+                        System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
+                }
+                System.out.print("\n");
             }
         }
 
+        public void displayPersonalShelf(){
+            for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
+                System.out.print("\t  "+k+"  \t");
+            }
+            System.out.print("\n");
+            for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
+                System.out.println(""+i);
+                for (int j = 0; j < PersonalShelf.N_COLUMN; j ++ ) {
+                    if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                        System.out.print("\t     \t");
+                    else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
+                        System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
+                }
+                System.out.print("\n");
+            }
+        }
 
+        public void displayCommonGoals(){
 
         }
-*/
-
 
 }
+
+
+
+
+
 
 
 

@@ -167,14 +167,24 @@ public class DashboardTest {
         }
         System.out.print("\n");
 
-        dashboard.refill(bag);
 
+
+
+        for(int k = 0; k < Dashboard.getSide(); k++){
+            System.out.print("\t  "+k+"  \t");
+        }
+        System.out.print("\n");
+        dashboard.refill(bag);
         for (int i = 0; i < Dashboard.getSide(); i ++) {
+            System.out.print(""+i);
             for (int j = 0; j < Dashboard.getSide(); j ++ ) {
                 if (dashboard.getSingleSlot(i,j).getColor().equals(Color.BLACK))
                     System.out.print("\t     \t");
                 else if (!dashboard.getSingleSlot(i,j).getColor().equals(Color.GREY))
                     System.out.print("\t" + dashboard.getSingleSlot(i,j).getColor() + "\t");
+                else {
+                    System.out.print("\t     \t");
+                }
             }
             System.out.print("\n");
         }
