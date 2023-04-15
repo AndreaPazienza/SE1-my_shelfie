@@ -169,10 +169,21 @@ public class GameController {
         game.getPlayer()[game.getPlayerInGame()].getShelf().insert(slots, column);
         //controllo se la shelf è piena: se la partita non è finita, passo il turno
         game.getPlayer()[game.getPlayerInGame()].getShelf().checkLastLine();
+        //prendo la posizione del primo, e incremento
         if(game.getPlayer()[game.getPlayerInGame()].getShelf().isItsFull()){
-            game.updateTurn();
-            completeRound();
-            endGame();
+            if(game.getFirstPlayerFinished() == -1){
+             game.setFirstPlayerFinished(game.getPlayerInGame());
+             int newPoints = game.getPlayer()[game.getPlayerInGame()].getScore()+1;
+             game.getPlayer()[game.getPlayerInGame()].setScore(newPoints);
+            }
+            if(game.getPlayerInGame() != game.getNplayers()){
+                game.updateTurn();
+                completeRound();
+                endGame();
+            } else {
+                endGame();
+            }
+
         }   else  {
             game.updateTurn();
         }

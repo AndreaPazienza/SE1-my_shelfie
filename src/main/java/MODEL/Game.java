@@ -8,6 +8,8 @@ public class Game extends Observable {
 
     protected static int Nplayers;
     private int playerInGame;
+
+    private int firstPlayerFinished = -1;
     private boolean gameOn;
     private Player[] player;
     private Dashboard table;
@@ -33,6 +35,14 @@ public class Game extends Observable {
         table.catchAfterRefill();*/
     }
 
+
+    public void setFirstPlayerFinished(int firstPlayerFinished) {
+        this.firstPlayerFinished = firstPlayerFinished;
+    }
+
+    public int getFirstPlayerFinished() {
+        return firstPlayerFinished;
+    }
 
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
