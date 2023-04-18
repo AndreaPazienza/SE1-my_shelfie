@@ -3,9 +3,11 @@ package CONTROLLER;
 import MODEL.*;
 
 import java.util.ArrayList;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Scanner;
 
-public class GameController {
+public class GameController implements Observer {
     private Game game;
 
     private GameState gameState = GameState.NOTSTARTED;
@@ -74,8 +76,8 @@ public class GameController {
     }
 
 
-    //turn management inizialmente era implementato, nello schizzo, con il passaggio di una mossa come parametro.
-    //Suggerisco invece questa implementazione, in cui le mosse vengono eseguite in sequenza. manca il controllo
+    //Turn management inizialmente era implementato, nello schizzo, con il passaggio di una mossa come parametro.
+    //Suggerisco invece questa implementazione, in cui le mosse vengono eseguite in sequenza. Manca il controllo
     //dello shared goal, su cui ho qualche dubbio
     public void turnManagement() {
 
@@ -291,6 +293,10 @@ public class GameController {
 
     }
 
+    @Override
+    public void update(Observable o, Object arg) {
+
+    }
 }
 
 

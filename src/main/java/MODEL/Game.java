@@ -8,7 +8,6 @@ public class Game extends Observable {
 
     protected static int Nplayers;
     private int playerInGame;
-
     private int firstPlayerFinished = -1;
     private boolean gameOn;
     private Player[] player;

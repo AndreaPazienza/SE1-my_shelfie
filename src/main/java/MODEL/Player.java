@@ -64,7 +64,7 @@ public class Player extends Observable {
         Slot slot = new Slot(Color.GREY);
         if (!dashboard.getSingleSlot(x,y).isCatchable()) {  //selezione vera e propria
            return slot;
-            } else{
+            } else {
                 dashboard.getSingleSlot(x,y).setGrey();
             }
         return selectedCard;
