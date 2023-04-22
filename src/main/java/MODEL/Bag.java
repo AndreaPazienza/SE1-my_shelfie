@@ -58,13 +58,13 @@ public class Bag{
 
     public Slot getFromBag(int index) {
         return this.inBag.get(index);
-    }
+    } //selezione generica
 
-    public Slot getSingleSlot(){
+    public Slot getSingleSlot(){ //selezione casuale
         int randomIndex = new Random().nextInt(inBag.size());
-       Slot returningSlot = inBag.get(randomIndex);
-       inBag.remove(randomIndex);
-       return returningSlot;
+        Slot returningSlot = inBag.get(randomIndex);
+        inBag.remove(randomIndex);
+        return returningSlot;
     }
 
 }

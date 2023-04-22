@@ -2,10 +2,8 @@ package CONTROLLER;
 
 import MODEL.*;
 
-import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.Scanner;
 
 public class GameController implements Observer {
     private Game game;
