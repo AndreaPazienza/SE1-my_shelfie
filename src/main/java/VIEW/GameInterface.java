@@ -48,7 +48,7 @@ public class GameInterface {
                     int x = keyboard.nextInt();
                     System.out.println("Y: ");
                     int y = keyboard.nextInt();
-                    //controller.selectInDashboard(x, y);
+                    controller.checkSelect(x, y);
             } catch (NotCatchableException e) {
                     System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
                     System.out.println("Inserire le coordinate della tessera da prendere:");
