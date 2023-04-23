@@ -167,4 +167,8 @@ public class Game extends Observable {
     public PersonalGoalDeck getDeck() {
         return deck;
     }
+
+    public Bag getBag() {
+        return this.bag;
+    }
 }

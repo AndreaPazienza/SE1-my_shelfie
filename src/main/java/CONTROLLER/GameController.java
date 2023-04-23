@@ -9,6 +9,10 @@ public class GameController implements Observer {
     private Game game;
 
     private GameState gameState = GameState.NOTSTARTED;
+
+    public GameState getGameState() {
+        return this.gameState;
+    }
     // riferimento alla view
 
 
@@ -37,23 +41,22 @@ public class GameController implements Observer {
                 }
             }
         }
-    }
+    }*/
 
     //controllo se il nickname è stato già preso
     public boolean checkNick(String name){
         for(int i = 0; i < game.getNplayers(); i++){
             if(game.getPlayer()[i].nickname.equals(name)){
-                return false;
+                return false; //genera un eccezione SAMENICK
             }
         }
         return true;
     }
 
-    public void beginGame(){
+    public void beginGame(){  //prima creazione della GameView
         if(gameState.equals(GameState.CANSTART)){
             //popolazione dashboard
-            Bag bag = new Bag();
-            game.getTable().refill(bag);
+            game.getTable().refill(game.getBag());
             game.getTable().catchAfterRefill();
             //estrazione degli obiettivi personali
             game.assignPGoal();
@@ -62,7 +65,7 @@ public class GameController implements Observer {
             }
         }
 
-    public void gameOnGoing() {
+  /*  public void gameOnGoing() { //spezzare in controlli separati delle mosse: checkCoordinates, CheckmoreSelections
         while (gameState.equals(GameState.NOTSTARTED) || gameState.equals(GameState.ONWAIT)) {
             this.startGame();
         }
@@ -71,7 +74,7 @@ public class GameController implements Observer {
             turnManagement();
         }
         System.out.println("-- Congratulazioni, il gioco è finito --");
-    }
+    }*/
 
 
     //Turn management inizialmente era implementato, nello schizzo, con il passaggio di una mossa come parametro.
@@ -207,7 +210,7 @@ public class GameController implements Observer {
         }   else game.updateTurn();
     }
 
-    public boolean checkSelection2(int x, int y, int x1, int y1, int x2, int y2){
+    public boolean checkSelection2(int x, int y, int x1, int y1, int x2, int y2){ //rivisitare
         if((x==x1 && ((y==y1+1 || y==y1-1)) || ((x==x1+1 || x==x1-1) && y==y1))){
             //andiamo a salvare la coordinata che non cambia
             if(x==x1){
@@ -221,7 +224,7 @@ public class GameController implements Observer {
         }
     }
 
-    public boolean checkSelection3(int x, int y, int x1, int y1, int x2, int y2) {
+    public boolean checkSelection3(int x, int y, int x1, int y1, int x2, int y2) { //rivisitare
         if (x == x2) {
             if ((y == y1 + 1 || y == y1 - 1 && y != y2) || (y == y2 + 1 || y == y2 - 1 && y != y1)) {
                 return true;
@@ -247,49 +250,13 @@ public class GameController implements Observer {
             game.getPlayer()[i].checkScore();
         }
         winner = game.finalScore();
-        System.out.println("Il vincitore è :"+winner.getNickname()+" Complimenti!");
+        //System.out.println("Il vincitore è :"+winner.getNickname()+" Complimenti!");
         game.setGameOn(false);
     }
 
 
     // Stampa della dashboard, come si vuole fare?
-    public void displayDashboard(){
-        for(int k = 0; k < Dashboard.getSide(); k++){
-            System.out.print("\t  "+k+"  \t");
-        }
-        System.out.print("\n");
-        for (int i = 0; i < Dashboard.getSide(); i ++) {
-            System.out.println(""+i);
-            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
-                if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
-                    System.out.print("\t     \t");
-                else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
-                    System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
-            }
-            System.out.print("\n");
-        }
-    }
 
-    public void displayPersonalShelf(){
-        for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
-            System.out.print("\t  "+k+"  \t");
-        }
-        System.out.print("\n");
-        for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            System.out.println(""+i);
-            for (int j = 0; j < PersonalShelf.N_COLUMN; j ++ ) {
-                if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
-                    System.out.print("\t     \t");
-                else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
-                    System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
-            }
-            System.out.print("\n");
-        }
-    }
-
-    public void displayCommonGoals(){
-
-    }
 
     @Override
     public void update(Observable o, Object arg) {

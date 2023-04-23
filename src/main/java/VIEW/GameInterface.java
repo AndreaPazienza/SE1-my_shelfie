@@ -1,8 +1,9 @@
 package VIEW;
 
 import CONTROLLER.GameController;
+import CONTROLLER.GameState;
 import Errors.NotCatchableException;
-import MODEL.Slot;
+import MODEL.*;
 
 import java.util.Scanner;
 
@@ -12,9 +13,16 @@ public class GameInterface {
     private final Scanner keyboard = new Scanner(System.in);
 
     public void startGame() {
+        GameState gameState = controller.getGameState();
+        switch (gameState){
+            case NOTSTARTED -> {
+                System.out.println("Inserisci il numero di giocatori: \n");
+                int nPlayers = keyboard.nextInt();
+                //rmi
 
-        System.out.println("Inserisci il numero di giocatori: \n");
-        int nPlayers = keyboard.nextInt();
+            }
+        }
+
 
 
         System.out.println("Inserisci il nickname: \n");
@@ -40,7 +48,7 @@ public class GameInterface {
                     int x = keyboard.nextInt();
                     System.out.println("Y: ");
                     int y = keyboard.nextInt();
-                    controller.selectInDashboard(x, y);
+                    //controller.selectInDashboard(x, y);
             } catch (NotCatchableException e) {
                     System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
                     System.out.println("Inserire le coordinate della tessera da prendere:");
@@ -120,4 +128,42 @@ public class GameInterface {
 public void reorderParameters(){
 
 }
+
+    public void displayDashboard(){
+        for(int k = 0; k < Dashboard.getSide(); k++){
+            System.out.print("\t  "+k+"  \t");
+        }
+        System.out.print("\n");
+        for (int i = 0; i < Dashboard.getSide(); i ++) {
+            System.out.println(""+i);
+            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
+                if (GameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                    System.out.print("\t     \t");
+                else if (!GameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
+                    System.out.print("\t" + GameView.getTable().getSingleSlot(i,j).getColor() + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public void displayPersonalShelf(){
+        for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
+            System.out.print("\t  "+k+"  \t");
+        }
+        System.out.print("\n");
+        for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
+            System.out.println(""+i);
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j ++ ) {
+                if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
+                    System.out.print("\t     \t");
+                else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
+                    System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public void displayCommonGoals(){
+
+    }
 }
