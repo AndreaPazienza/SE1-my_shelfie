@@ -190,6 +190,7 @@ public class DashboardTest {
         }
     }
 
+
     //Test del setting di catchable passato
     @Test
     void testRefillCatchable () {
@@ -404,3 +405,6 @@ public class DashboardTest {
         System.out.print ("Il numero delle adiacenze è " + dashboard.adjaciencies(x,y));
     }
 }
+
+// TEST
+

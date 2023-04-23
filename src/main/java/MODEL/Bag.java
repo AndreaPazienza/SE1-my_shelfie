@@ -67,4 +67,10 @@ public class Bag{
         return returningSlot;
     }
 
+    public int getBagSize(){
+        return this.inBag.size();
+    }
+
+
+
 }
