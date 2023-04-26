@@ -9,8 +9,56 @@ import java.util.Scanner;
 
 public class GameInterface {
     protected int selectedTails=0;
-    private GameController controller = new GameController();
+    //private GameController controller = new GameController();
     private final Scanner keyboard = new Scanner(System.in);
+
+    public void run() {
+
+    }
+    public void playerMoveSelection() {
+
+        String yes = "si";
+        String no = "no";
+        String string = "";
+        int nChoices = 0;
+        int maxChoices = 0;
+        //Viene stabilito il massimo numero di tessere prendibili in base agli spazi liberi nella shelf
+
+        do {
+
+            //Trovare modo per ciclare
+            try {
+                System.out.println("Inserire le coordinate della tessera da prendere: ");
+                System.out.println("X: ");
+                int x = keyboard.nextInt();
+                System.out.println("Y: ");
+                int y = keyboard.nextInt();
+                SlotChoice c = new SlotChoice(x, y);
+                //Update
+                nChoices++;
+
+            } catch (NotCatchableException e) {
+                System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
+                nChoices--;
+
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("La tessera selezionata non esiste nella plancia di gioco! Selezionane un'altra!");
+                nChoices--;
+
+            } finally {
+                while ((nChoices < maxChoices) && (!string.equals(yes) && !string.equals(no))) {
+                    System.out.println("Ne vuoi scegliere altre? si o no?");
+                    string = keyboard.nextLine();
+                    if (string.equals(no)) {
+                        nChoices = maxChoices;
+                    } else if (!string.equals(yes) && !string.equals(no))
+                        System.out.println("Scusami non ho capito! Rispondi si o no per favore!");
+                }
+            }
+        }while (nChoices < maxChoices);
+
+
+    }
 
     public void startGame() {
         GameState gameState = controller.getGameState();
@@ -30,6 +78,7 @@ public class GameInterface {
     }
 
 
+    /*
     public void playerMoveSelection() {
 
         int k = 0;
@@ -89,7 +138,7 @@ public class GameInterface {
             }
         } while (k < 3);
     }
-
+ */
     public void playerOrder() {  //Eccezioni da gestire: scelta di due numeri uguali, numero diverso da 1/2/3
             String string;
             String yes = "si";
