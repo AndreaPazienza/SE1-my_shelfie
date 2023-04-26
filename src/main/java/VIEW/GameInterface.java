@@ -7,7 +7,7 @@ import MODEL.*;
 
 import java.util.Scanner;
 
-public class GameInterface {
+public class GameInterface implements Runnable{
     protected int selectedTails=0;
     //private GameController controller = new GameController();
     private final Scanner keyboard = new Scanner(System.in);
