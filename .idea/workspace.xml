@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/SlotChoice.java" afterDir="false" />
-    </list>
-    <list id="fca25665-98ee-44d7-9230-a046dd0a9c12" name="Changes by alessiotagab" comment="">
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
@@ -38,17 +33,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java">
-      <ranges>
-        <range start1="9" end1="10" start2="9" end2="10" changelist="fca25665-98ee-44d7-9230-a046dd0a9c12" />
-        <range start1="11" end1="12" start2="11" end2="12" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="13" end1="13" start2="13" end2="58" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="32" end1="32" start2="77" end2="78" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="91" end1="92" start2="137" end2="138" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -206,7 +190,8 @@
       <workItem from="1682149639600" duration="273000" />
       <workItem from="1682150802094" duration="6249000" />
       <workItem from="1682412318806" duration="1264000" />
-      <workItem from="1682537413784" duration="5811000" />
+      <workItem from="1682537413784" duration="6167000" />
+      <workItem from="1682600617497" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -320,7 +305,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682150897418</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <created>1682543478605</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543478605</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Implementazione della View come runnable">
+      <created>1682543523301</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543523301</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -370,7 +369,9 @@
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
+    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
+    <MESSAGE value="Implementazione della View come runnable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementazione della View come runnable" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
