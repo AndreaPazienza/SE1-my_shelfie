@@ -63,7 +63,7 @@ public class GameController implements Observer {
             //La partita può iniziare
             game.setGameOn(true);
             }
-        }
+    }
 
   /*  public void gameOnGoing() { //spezzare in controlli separati delle mosse: checkCoordinates, CheckmoreSelections
         while (gameState.equals(GameState.NOTSTARTED) || gameState.equals(GameState.ONWAIT)) {

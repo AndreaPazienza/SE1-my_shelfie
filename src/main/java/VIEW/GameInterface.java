@@ -3,15 +3,163 @@ package VIEW;
 import CONTROLLER.GameController;
 import CONTROLLER.GameState;
 import Errors.NotCatchableException;
+import Errors.SameNicknameException;
 import MODEL.*;
 
 import java.util.Scanner;
 
-public class GameInterface {
-    protected int selectedTails=0;
-    private GameController controller = new GameController();
-    private final Scanner keyboard = new Scanner(System.in);
+public class GameInterface implements Runnable{
 
+    Scanner keyboard = new Scanner(System.in);
+
+    //inserimento nickname per la prima volta
+    public String firstRun() {
+
+        String nick = null;
+        boolean ok = false;
+
+        do {
+            try {
+                System.out.print("Inserire il nickname: ");
+                nick = keyboard.nextLine();
+                ok = true;
+
+            } catch (SameNicknameException) {
+                System.out.print("Il nickname inserito è già esistente");
+                ok = false;
+            }
+        } while (!ok);
+
+        return nick;
+    }
+
+    public void run() {
+
+        int nChoices = 0;
+
+        nChoices = playerMoveSelection();
+        if (nChoices != 1)
+            playerOrder(nChoices);
+
+    }
+
+
+    public int playerMoveSelection() {
+
+        int countChoices = 0;
+        int nChoices = 0;
+        int maxChoices = 0;
+        boolean ok = false;
+        //Viene stabilito il massimo numero di tessere prendibili in base agli spazi liberi nella shelf
+
+        //Inserimento del numero di tessere da selezionare e controllo
+        do {
+            System.out.println("Inserire il numero di tessere da selezionare: ");
+            nChoices = keyboard.nextInt();
+            if (nChoices > maxChoices) {
+                System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
+            }
+        } while (nChoices < 1 || nChoices > maxChoices);
+
+        //Selezione effettiva delle tessere e controllo di esse (singolarmente)
+        do {
+
+            System.out.print("");
+
+            //Inserimento e controllo tessera singola
+            do {
+                try {
+                    System.out.println("Inserire le coordinate della tessera da prendere: ");
+                    System.out.println("X: ");
+                    int x = keyboard.nextInt();
+                    System.out.println("Y: ");
+                    int y = keyboard.nextInt();
+                    SlotChoice c = new SlotChoice(x, y);
+                    setChanged();
+                    notifyObservers(c);
+                    countChoices++;
+                    ok = true;
+
+                } catch (NotCatchableException e) {
+                    System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
+                    countChoices--;
+                    ok = false;
+
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("La tessera selezionata non esiste nella plancia di gioco! Selezionane un'altra!");
+                    countChoices--;
+                    ok = false;
+                }
+            }while (!ok);
+
+        }while (countChoices < nChoices);
+
+        System.out.println("Le tessere sono state selezionate");
+
+        return nChoices;
+    }
+
+    public void playerOrder(int nChoices) {
+
+        boolean reorder = false;
+        String string;
+        String yes = "si";
+        String no = "no";
+        int pos1;
+        int pos2;
+        int pos3;
+
+        do {
+            System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
+            string = keyboard.nextLine();
+            if (string.equals(yes))
+                reorder = true;
+
+        } while (!string.equals(yes) && !string.equals(no));
+
+        if (string.equals(yes)) {
+
+            if (nChoices == 2) {
+                setChanged();
+                notifyObservers(reorder);
+            }
+
+            if (nChoices == 3) {
+
+                do {
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per prima?");
+                        pos1 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per seconda?");
+                        pos2 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per ultima?");
+                        pos3 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                }while (pos1==pos2 ||pos1==pos3 ||pos2==pos3);
+
+
+                OrderChoice c = new OrderChoice(pos1, pos2, pos3);
+                setChanged();
+                notifyObservers(c);
+                System.out.print("Hai ordinato correttamente le tessere!");
+            }
+
+            else if(nChoices==1){
+                System.out.println("Non c'è bisogno di riordinare! Hai selezionato solo una tessera!");
+            }
+
+
+        }
+    }
+
+/*
     public void startGame() {
         GameState gameState = controller.getGameState();
         switch (gameState){
@@ -23,73 +171,11 @@ public class GameInterface {
             }
         }
 
-
-
         System.out.println("Inserisci il nickname: \n");
         String nick = keyboard.nextLine();
     }
-
-
-    public void playerMoveSelection() {
-
-        int k = 0;
-        String yes = "si";
-        String no = "no";
-        String string;
-        int x1 = -1;
-        int y1 = -1;
-        Moves select = new Moves();
-
-        do {
-            //Da gestire all'interno di un blocco try/catch; errori possibili numero negativo o out of bound
-            try {
-                    System.out.println("Inserire le coordinate della tessera da prendere: ");
-                    System.out.println("X: ");
-                    int x = keyboard.nextInt();
-                    System.out.println("Y: ");
-                    int y = keyboard.nextInt();
-                    controller.checkSelect(x, y);
-            } catch (NotCatchableException e) {
-                    System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
-                    System.out.println("Inserire le coordinate della tessera da prendere:");
-                    System.out.println("X: ");
-                    int x = keyboard.nextInt();
-                    System.out.println("Y: ");
-                    int y = keyboard.nextInt();
-
-            } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("La tessera selezionata non esiste nella plancia di gioco! Selezionane un'altra!");
-                    System.out.println("Inserire le coordinate della tessera da prendere: ");
-                    System.out.println("X: ");
-                    int x = keyboard.nextInt();
-                    System.out.println("Y: ");
-                    int y = keyboard.nextInt();
-                    select.setX(x);
-                    select.setY(y);
-            } finally {
-                    do {
-                    System.out.println("Ne vuoi scegliere altre? si o no?");
-                    string = keyboard.nextLine();
-
-                    if (string.equals(yes) && k != 2) {
-                        k++;
-                        selectedTails++;
-                    } else if (string.equals(yes)) {
-                        System.out.println("Hai già selezionato 3 tessere!");
-                        k++;
-                        selectedTails++;
-                    } else if (string.equals(no)) {
-                        k = 3;
-                    } else {
-                        System.out.println("Scusami non ho capito! Rispondi si o no per favore!");
-                    }
-                } while (!string.equals(yes) && !string.equals(no));
-
-
-            }
-        } while (k < 3);
-    }
-
+*/
+ /*
     public void playerOrder() {  //Eccezioni da gestire: scelta di due numeri uguali, numero diverso da 1/2/3
             String string;
             String yes = "si";
@@ -123,7 +209,7 @@ public class GameInterface {
 
             System.out.println("Ordinamento concluso con successo");
         }
-
+ */
 
 public void reorderParameters(){
 
