@@ -6,6 +6,7 @@ public class PersonalShelf extends Observable {
 
     private Slot[][] shelf;
     private boolean itsFull;
+    private int maxChoices;
     public static final int N_ROWS = 6;
     public static final int N_COLUMN = 5;
 
@@ -105,5 +106,29 @@ public class PersonalShelf extends Observable {
             }
         }
         this.itsFull = false;
+    }
+
+    public void setMaxChoices(){
+        int max = 0;
+        for(int i = 0; i < N_COLUMN; i++) {
+            int count = 0;
+            boolean exit = false;
+
+            for(int j = 0;j < N_ROWS && exit==false; j++){
+                if (this.shelf[j][i].getColor().equals(Color.GREY)){
+                    count++;
+                }
+                else{
+                    exit = true;
+                }
+            }
+            if (count>maxChoices){
+                this.maxChoices=count;
+            }
+        }
+    }
+
+    public int getMaxChoices(){
+        return this.maxChoices;
     }
 }

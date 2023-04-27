@@ -12,6 +12,7 @@ public class GameInterface implements Runnable{
 
     Scanner keyboard = new Scanner(System.in);
 
+    //inserimento nickname per la prima volta
     public String firstRun() {
 
         String nick = null;
@@ -23,7 +24,7 @@ public class GameInterface implements Runnable{
                 nick = keyboard.nextLine();
                 ok = true;
 
-            } catch (SameNicknameException e) {
+            } catch (SameNicknameException) {
                 System.out.print("Il nickname inserito è già esistente");
                 ok = false;
             }
@@ -104,6 +105,9 @@ public class GameInterface implements Runnable{
         String string;
         String yes = "si";
         String no = "no";
+        int pos1;
+        int pos2;
+        int pos3;
 
         do {
             System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
@@ -122,21 +126,40 @@ public class GameInterface implements Runnable{
 
             if (nChoices == 3) {
 
-                System.out.println("Quale tessera vuoi inserire per prima?");
-                int pos1 = keyboard.nextInt();
-                System.out.println("Quale tessera vuoi inserire per seconda?");
-                int pos2 = keyboard.nextInt();
-                System.out.println("Quale tessera vuoi inserire per ultima?");
-                int pos3 = keyboard.nextInt();
+                do {
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per prima?");
+                        pos1 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per seconda?");
+                        pos2 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                    do {
+                        System.out.println("Quale tessera vuoi inserire per ultima?");
+                        pos3 = keyboard.nextInt();
+                    }while (pos1 < 1 || pos1>3);
+
+                }while (pos1==pos2 ||pos1==pos3 ||pos2==pos3);
+
 
                 OrderChoice c = new OrderChoice(pos1, pos2, pos3);
                 setChanged();
                 notifyObservers(c);
+                System.out.print("Hai ordinato correttamente le tessere!");
             }
+
+            else if(nChoices==1){
+                System.out.println("Non c'è bisogno di riordinare! Hai selezionato solo una tessera!");
+            }
+
+
         }
     }
 
-
+/*
     public void startGame() {
         GameState gameState = controller.getGameState();
         switch (gameState){
@@ -148,12 +171,10 @@ public class GameInterface implements Runnable{
             }
         }
 
-
-
         System.out.println("Inserisci il nickname: \n");
         String nick = keyboard.nextLine();
     }
-
+*/
  /*
     public void playerOrder() {  //Eccezioni da gestire: scelta di due numeri uguali, numero diverso da 1/2/3
             String string;
