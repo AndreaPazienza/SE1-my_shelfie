@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Inizio parte di rete">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update Controller &#10;metodi checkSelect, checkOrder, checkInsert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
     </list>
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
     <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="">
@@ -51,11 +52,8 @@
         <range start1="23" end1="25" start2="28" end2="29" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
         <range start1="30" end1="35" start2="34" end2="36" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
         <range start1="36" end1="37" start2="37" end2="38" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="78" end1="78" start2="79" end2="193" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="79" end1="131" start2="194" end2="194" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="132" end1="146" start2="195" end2="195" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="147" end1="239" start2="196" end2="196" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="256" end1="258" start2="213" end2="213" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="72" end1="72" start2="73" end2="75" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="78" end1="78" start2="81" end2="195" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
       </ranges>
     </file>
   </component>
@@ -218,6 +216,7 @@
       <workItem from="1681475934443" duration="9477000" />
       <workItem from="1682149639600" duration="273000" />
       <workItem from="1682150802094" duration="6249000" />
+      <workItem from="1682412298760" duration="8214000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -331,7 +330,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682150897418</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="update Controller &#10;metodi checkSelect, checkOrder, checkInsert">
+      <created>1682253718179</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682253718179</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +387,8 @@
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
+    <MESSAGE value="update Controller &#10;metodi checkSelect, checkOrder, checkInsert" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Controller &#10;metodi checkSelect, checkOrder, checkInsert" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
