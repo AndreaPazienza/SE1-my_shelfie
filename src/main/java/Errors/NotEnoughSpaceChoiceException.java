@@ -1,4 +1,7 @@
 package Errors;
 
-public class NotEnoughSpaceChoiceException {
+public class NotEnoughSpaceChoiceException extends Exception{
+    public NotEnoughSpaceChoiceException(String message){
+        super(message);
+    }
 }

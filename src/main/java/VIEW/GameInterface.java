@@ -3,6 +3,7 @@ package VIEW;
 import CONTROLLER.GameController;
 import CONTROLLER.GameState;
 import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import MODEL.*;
 
@@ -153,6 +154,9 @@ public class GameInterface implements Runnable{
                     do {
                         System.out.println("Quale tessera vuoi inserire per prima?");
                         pos1 = keyboard.nextInt();
+                        if(pos1 < 1 || pos1 > 3){
+                            System.out.println("Inserire posizione da 1 a 3");
+                        }
                     }while (pos1 < 1 || pos1>3);
 
                     do {
