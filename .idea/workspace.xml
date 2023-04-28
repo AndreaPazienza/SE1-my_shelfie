@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Inizio parte di rete">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update Controller &#10;metodi checkSelect, checkOrder, checkInsert">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
     </list>
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/Moves.java" afterDir="false" />
-    </list>
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="Changes by rubinronchieribyrd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,25 +33,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java">
-      <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="3" end1="3" start2="5" end2="7" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="9" end1="9" start2="13" end2="14" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="17" end1="17" start2="22" end2="24" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="18" end1="20" start2="25" end2="25" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="23" end1="25" start2="28" end2="29" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="30" end1="35" start2="34" end2="36" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="36" end1="37" start2="37" end2="38" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="78" end1="78" start2="79" end2="193" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="79" end1="131" start2="194" end2="194" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="132" end1="146" start2="195" end2="195" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="147" end1="239" start2="196" end2="196" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="256" end1="258" start2="213" end2="213" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
