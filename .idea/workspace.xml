@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Inizio parte di rete">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <change afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+    </list>
+    <list id="6eba75f2-e4ee-4abb-b265-29f6759fc968" name="Changes by alessiotagab" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Moves.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/Moves.java" afterDir="false" />
-    </list>
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,21 +42,38 @@
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java">
+    <file path="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java">
       <ranges>
-        <range start1="2" end1="2" start2="2" end2="4" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="3" end1="3" start2="5" end2="7" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="9" end1="9" start2="13" end2="14" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="17" end1="17" start2="22" end2="24" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="18" end1="20" start2="25" end2="25" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="23" end1="25" start2="28" end2="29" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="30" end1="35" start2="34" end2="36" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="36" end1="37" start2="37" end2="38" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="78" end1="78" start2="79" end2="193" changelist="007c9496-5db1-4768-8d68-925b4b78ac08" />
-        <range start1="79" end1="131" start2="194" end2="194" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="132" end1="146" start2="195" end2="195" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="147" end1="239" start2="196" end2="196" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="256" end1="258" start2="213" end2="213" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="5" end1="5" start2="5" end2="6" changelist="6eba75f2-e4ee-4abb-b265-29f6759fc968" />
+        <range start1="10" end1="11" start2="11" end2="15" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="12" end1="13" start2="16" end2="21" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="26" end1="27" start2="34" end2="35" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="39" end1="39" start2="47" end2="50" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="42" end1="42" start2="53" end2="55" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="46" end1="46" start2="59" end2="60" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="65" end1="65" start2="79" end2="82" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="71" end1="76" start2="88" end2="99" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="101" end1="101" start2="124" end2="125" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="132" end1="132" start2="156" end2="159" changelist="6eba75f2-e4ee-4abb-b265-29f6759fc968" />
+        <range start1="137" end1="138" start2="164" end2="168" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="142" end1="143" start2="172" end2="176" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="146" end1="147" start2="179" end2="179" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="152" end1="158" start2="184" end2="184" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="161" end1="161" start2="187" end2="216" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="177" end1="208" start2="232" end2="232" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="209" end1="212" start2="233" end2="233" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="213" end1="217" start2="234" end2="235" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="219" end1="220" start2="237" end2="238" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="222" end1="222" start2="240" end2="241" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="223" end1="224" start2="242" end2="243" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="225" end1="229" start2="244" end2="247" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="231" end1="231" start2="249" end2="250" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="234" end1="234" start2="253" end2="254" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="236" end1="237" start2="256" end2="257" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="238" end1="238" start2="258" end2="259" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="240" end1="246" start2="261" end2="266" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="247" end1="250" start2="267" end2="272" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
+        <range start1="252" end1="253" start2="274" end2="275" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
       </ranges>
     </file>
   </component>
@@ -106,23 +124,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.testOrder3">
-    <configuration name="PlayerTest.testOrder3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.PlayerTest" />
-      <option name="METHOD_NAME" value="testOrder3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.GameInterfaceTest.displayDashboardTest">
     <configuration name="DashboardTest.testRefillColor" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
@@ -134,6 +136,24 @@
       <option name="PACKAGE_NAME" value="MODEL" />
       <option name="MAIN_CLASS_NAME" value="MODEL.DashboardTest" />
       <option name="METHOD_NAME" value="testRefillColor" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameInterfaceTest.displayDashboardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="VIEW.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="VIEW" />
+      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
+      <option name="METHOD_NAME" value="displayDashboardTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -185,7 +205,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayerTest.testOrder3" />
+        <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
         <item itemvalue="TestNG.DashboardTest.testRefillColor" />
         <item itemvalue="TestNG.GameTest.testAssignPGoal" />
         <item itemvalue="TestNG.GameTest.testUpdateTurn" />
@@ -218,6 +238,9 @@
       <workItem from="1681475934443" duration="9477000" />
       <workItem from="1682149639600" duration="273000" />
       <workItem from="1682150802094" duration="6249000" />
+      <workItem from="1682412318806" duration="1264000" />
+      <workItem from="1682537413784" duration="6167000" />
+      <workItem from="1682600617497" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -331,7 +354,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682150897418</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <created>1682543478605</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543478605</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Implementazione della View come runnable">
+      <created>1682543523301</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543523301</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,13 +418,15 @@
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
+    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
+    <MESSAGE value="Implementazione della View come runnable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementazione della View come runnable" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
