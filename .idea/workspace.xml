@@ -4,12 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update Controller &#10;metodi checkSelect, checkOrder, checkInsert">
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameEventListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameState.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/RMI/ClientImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/RMI/ServerImplementation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Moves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
+    <list id="6eba75f2-e4ee-4abb-b265-29f6759fc968" name="Changes by alessiotagab" comment="" />
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="Changes by rubinronchieribyrd" />
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,8 +34,8 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,30 +88,14 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="Errors" />
       <recent name="MODEL" />
+      <recent name="Errors" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerTest.testOrder3">
-    <configuration name="PlayerTest.testOrder3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.PlayerTest" />
-      <option name="METHOD_NAME" value="testOrder3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="TestNG.GameInterfaceTest.displayDashboardTest">
     <configuration name="DashboardTest.testRefillColor" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
@@ -109,6 +107,24 @@
       <option name="PACKAGE_NAME" value="MODEL" />
       <option name="MAIN_CLASS_NAME" value="MODEL.DashboardTest" />
       <option name="METHOD_NAME" value="testRefillColor" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameInterfaceTest.displayDashboardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="VIEW.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="VIEW" />
+      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
+      <option name="METHOD_NAME" value="displayDashboardTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -160,7 +176,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PlayerTest.testOrder3" />
+        <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
         <item itemvalue="TestNG.DashboardTest.testRefillColor" />
         <item itemvalue="TestNG.GameTest.testAssignPGoal" />
         <item itemvalue="TestNG.GameTest.testUpdateTurn" />
@@ -193,6 +209,9 @@
       <workItem from="1681475934443" duration="9477000" />
       <workItem from="1682149639600" duration="273000" />
       <workItem from="1682150802094" duration="6249000" />
+      <workItem from="1682412318806" duration="1264000" />
+      <workItem from="1682537413784" duration="6167000" />
+      <workItem from="1682600617497" duration="7056000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -306,7 +325,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682150897418</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <created>1682543478605</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543478605</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Implementazione della View come runnable">
+      <created>1682543523301</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1682543523301</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,13 +389,15 @@
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
-    <option name="LAST_COMMIT_MESSAGE" value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
+    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
+    <MESSAGE value="Implementazione della View come runnable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implementazione della View come runnable" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

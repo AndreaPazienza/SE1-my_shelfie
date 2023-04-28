@@ -3,6 +3,7 @@ package VIEW;
 import CONTROLLER.GameController;
 import CONTROLLER.GameState;
 import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import MODEL.*;
 
@@ -10,7 +11,14 @@ import java.util.Scanner;
 
 public class GameInterface implements Runnable{
 
-    Scanner keyboard = new Scanner(System.in);
+    public Scanner keyboard = new Scanner(System.in);
+    //public Game  gameView; //solo per fare i test
+
+    public GameInterface (){
+        //gameView = new Game(4); sempre per test
+    }
+
+
 
     //inserimento nickname per la prima volta
     public String firstRun() {
@@ -24,7 +32,7 @@ public class GameInterface implements Runnable{
                 nick = keyboard.nextLine();
                 ok = true;
 
-            } catch (SameNicknameException) {
+            } catch (SameNicknameException e) {
                 System.out.print("Il nickname inserito è già esistente");
                 ok = false;
             }
@@ -37,13 +45,19 @@ public class GameInterface implements Runnable{
 
         int nChoices = 0;
 
+        displayDashboard();
+        displayPersonalShelf();
+        displayCommonGoals();
         nChoices = playerMoveSelection();
         if (nChoices != 1)
             playerOrder(nChoices);
+        playerInsert();
+
 
     }
 
 
+    //Selezione delle tessere dalla dashboard
     public int playerMoveSelection() {
 
         int countChoices = 0;
@@ -64,16 +78,25 @@ public class GameInterface implements Runnable{
         //Selezione effettiva delle tessere e controllo di esse (singolarmente)
         do {
 
+            int x = -1;
+            int y = -1;
+
             System.out.print("");
 
             //Inserimento e controllo tessera singola
             do {
                 try {
-                    System.out.println("Inserire le coordinate della tessera da prendere: ");
-                    System.out.println("X: ");
-                    int x = keyboard.nextInt();
-                    System.out.println("Y: ");
-                    int y = keyboard.nextInt();
+                    do {
+                        System.out.println("Inserire le coordinate della tessera da prendere: ");
+                        System.out.println("X: ");
+                        x = keyboard.nextInt();
+                        System.out.println("Y: ");
+                        y = keyboard.nextInt();
+                        if (x < 0 || x > 8 || y < 0 || y > 8) {
+                            System.out.print("Inserire parametri compresi tra 0 e 8");
+                        }
+                    } while(x < 0 || x > 8 || y < 0 || y > 8);
+
                     SlotChoice c = new SlotChoice(x, y);
                     setChanged();
                     notifyObservers(c);
@@ -99,6 +122,7 @@ public class GameInterface implements Runnable{
         return nChoices;
     }
 
+    //Ordinamento delle tessere prese prima dell'inserimento nella shelf
     public void playerOrder(int nChoices) {
 
         boolean reorder = false;
@@ -130,33 +154,63 @@ public class GameInterface implements Runnable{
                     do {
                         System.out.println("Quale tessera vuoi inserire per prima?");
                         pos1 = keyboard.nextInt();
+                        if(pos1 < 1 || pos1 > 3){
+                            System.out.println("Inserire posizione da 1 a 3");
+                        }
                     }while (pos1 < 1 || pos1>3);
 
                     do {
                         System.out.println("Quale tessera vuoi inserire per seconda?");
                         pos2 = keyboard.nextInt();
-                    }while (pos1 < 1 || pos1>3);
+                        if(pos2 < 1 || pos2 > 3){
+                            System.out.println("Inserire posizione da 1 a 3");
+                        }
+                    }while (pos2 < 1 || pos2>3);
 
                     do {
                         System.out.println("Quale tessera vuoi inserire per ultima?");
                         pos3 = keyboard.nextInt();
-                    }while (pos1 < 1 || pos1>3);
+                        if(pos3 < 1 || pos3 > 3){
+                            System.out.println("Inserire posizione da 1 a 3");
+                        }
+                    }while (pos3 < 1 || pos3>3);
 
                 }while (pos1==pos2 ||pos1==pos3 ||pos2==pos3);
-
 
                 OrderChoice c = new OrderChoice(pos1, pos2, pos3);
                 setChanged();
                 notifyObservers(c);
                 System.out.print("Hai ordinato correttamente le tessere!");
             }
-
-            else if(nChoices==1){
-                System.out.println("Non c'è bisogno di riordinare! Hai selezionato solo una tessera!");
-            }
-
-
         }
+    }
+
+    //Inserimento delle tessere prese nella shelf
+    public void playerInsert() {
+
+        int column = -1;
+        boolean ok = false;
+
+        System.out.println("Scrivere il numero della colonna in cui inserire le tessere: ");
+        do {
+            column = keyboard.nextInt();
+            if (column < 0 || column > 4) {
+                System.out.print("Inserire un numero compreso tra 0 e 4");
+            }
+        } while (column < 0 || column > 4);
+
+        do {
+            try {
+                setChanged();
+                notifyObservers(c);
+                ok = true;
+            } catch (NotEnoughSpaceChoiceException e) {
+                System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
+                ok = false;
+            }
+        } while (!ok);
+
+        System.out.print("Hai inserito correttamente le tessere!");
     }
 
 /*
@@ -175,81 +229,50 @@ public class GameInterface implements Runnable{
         String nick = keyboard.nextLine();
     }
 */
- /*
-    public void playerOrder() {  //Eccezioni da gestire: scelta di due numeri uguali, numero diverso da 1/2/3
-            String string;
-            String yes = "si";
-            String no = "no";
-            do { //blocco per avere solo vero o farlo
-                System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
-                string = keyboard.nextLine();
-                //Controllo che non andrebbe qua ma delegato al controller
-                if (string.equals(yes)) {
-                   if(selectedTails==3) {
-                       System.out.println("Quale tessera vuoi inserire per prima?");
-                       int pos1 = keyboard.nextInt();
-                       System.out.println("Quale tessera vuoi inserire per seconda?");
-                       int pos2 = keyboard.nextInt();
-                       System.out.println("Quale tessera vuoi inserire per ultima?");
-                       int pos3 = keyboard.nextInt();
-                       controller.reorderChoice(pos1, pos2, pos3); //questione RMI
-                   } else if(selectedTails == 1){
-                        System.out.println("Non c'è bisogno di riordinare! Hai selezionato solo una tessera!");
-                       }
-                   else{
-                       controller.reorderChoice(); //questione RMI
-                   }
 
-                } else if (string.equals(no)) {
-                    System.out.println("Ok! Procediamo con l'inserimento!");
-                } else {
-                    System.out.println("Scusami non ho capito! Rispondi si o no per favore!");
-                }
-            } while (!string.equals(yes) && !string.equals(no));
 
-            System.out.println("Ordinamento concluso con successo");
-        }
- */
-
-public void reorderParameters(){
-
-}
-
+    //Stampa della dashboard a schermo
     public void displayDashboard(){
+        System.out.print("\t");
         for(int k = 0; k < Dashboard.getSide(); k++){
-            System.out.print("\t  "+k+"  \t");
+            System.out.print("\t" + k + "\t");
         }
+        System.out.print("\n");
         System.out.print("\n");
         for (int i = 0; i < Dashboard.getSide(); i ++) {
-            System.out.println(""+i);
+            System.out.print("" + i +"\t");
             for (int j = 0; j < Dashboard.getSide(); j ++ ) {
-                if (GameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
-                    System.out.print("\t     \t");
-                else if (!GameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
-                    System.out.print("\t" + GameView.getTable().getSingleSlot(i,j).getColor() + "\t");
+                if ((!gameView.getTable().getSingleSlot(i,j).getColor().Equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(gameView.getTable().getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "  " + "\t");
             }
+            System.out.print("\n");
             System.out.print("\n");
         }
     }
 
+    //Stampa della personal shelf a schermo
     public void displayPersonalShelf(){
+        System.out.print("\t");
         for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
-            System.out.print("\t  "+k+"  \t");
+            System.out.print("\t" + k + "\t");
         }
         System.out.print("\n");
+        System.out.print("\n");
         for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            System.out.println(""+i);
-            for (int j = 0; j < PersonalShelf.N_COLUMN; j ++ ) {
-                if (game.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK))
-                    System.out.print("\t     \t");
-                else if (!game.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY))
-                    System.out.print("\t" + game.getTable().getSingleSlot(i,j).getColor() + "\t");
+            System.out.print("" + i +"\t");
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                if ((!gameView.getTable().getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(gameView.getTable().getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t " + "  " + " \t");
             }
-            System.out.print("\n");
         }
+        System.out.print("\n");
+        System.out.print("\n");
     }
 
-    public void displayCommonGoals(){
 
+    public void displayCommonGoals(){
+        //Vedere come stampare ogn singolo common goal
     }
 }
