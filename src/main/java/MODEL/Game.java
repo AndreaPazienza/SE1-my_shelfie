@@ -1,11 +1,12 @@
 package MODEL;
 
-import CONTROLLER.GameController;
 
-import java.util.Observable;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Game extends Observable {
 
+public class Game implements GameEventListener {
+    private final List<GameEventListener> listeners = new ArrayList<>();
     protected static int Nplayers;
     private int playerInGame;
     private int firstPlayerFinished = -1;
@@ -15,6 +16,7 @@ public class Game extends Observable {
     private Bag bag;
     private PersonalGoalDeck deck;
     private CommonGoal commonGoal1, commonGoal2;
+    private GameState state;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
     public Game (int numberOfPlayers) {
@@ -28,10 +30,8 @@ public class Game extends Observable {
         deck = new PersonalGoalDeck();
         commonGoal1 = new CommonGoal(numberOfPlayers);
         commonGoal2 = new CommonGoal(numberOfPlayers);
+        state = GameState.LOGIN;
 
-        //Primo popolamento della plancia
-        /* table.refill(bag);
-        table.catchAfterRefill();*/
     }
 
 
@@ -42,6 +42,8 @@ public class Game extends Observable {
     public int getFirstPlayerFinished() {
         return firstPlayerFinished;
     }
+
+
 
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
@@ -55,28 +57,16 @@ public class Game extends Observable {
         Player player = new Player(nick);
         this.player[playerInGame] = player;
         this.player[playerInGame].setOrderInTurn(playerInGame+1);
+        this.gameStateChanged();
         playerInGame ++;
         if (playerInGame == Nplayers) {
+            setGameOn(true);
             playerInGame = 0;
         }
     }
 
-    /*
-    //Selezione, ordinamento ed inserimento delle Slot (e setting di grigio per gli Slot presi dalla Dashboard)
-    public void playerMoves(Moves move) {
-
-        Slot[] slots = new Slot[3];
-
-        switch (move) {
-            case SELECT ->
-            case ORDER ->
-            case INSERT ->
-        }
-    }*/
-
     //Restituisce il giocatore di turno
     public Player playerOnStage() {
-
         return player[playerInGame];
     }
 
@@ -89,21 +79,14 @@ public class Game extends Observable {
 
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
-
-        notifyObservers(commonGoal1.getGoal().getMaxPoint());
-        notifyObservers(commonGoal2.getGoal().getMaxPoint());
-
-
-        //Chiamata a refill (se necessario)
+     //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
         table.catchAfterRefill();
 
         /* notify della dashboard aggiornata */
-        notifyObservers(table);
-
-
+        this.turnIsOver();
         //Passaggio del turno
         playerInGame ++;
         if (playerInGame == Nplayers) {
@@ -141,10 +124,9 @@ public class Game extends Observable {
     public Dashboard getTable() {
         return table;
     }
-
-    public Player[] getPlayer() {
-        return player;
-    }
+   // public boolean isStarted(){ return state == GameState.NOTSTARTED; }
+    public GameState getCurrentState(){return state;}
+    public Player[] getPlayer() {return player;}
 
     public CommonGoal getCommonGoal1() {
         return commonGoal1;
@@ -170,5 +152,26 @@ public class Game extends Observable {
 
     public Bag getBag() {
         return this.bag;
+    }
+
+
+    @Override
+    public void addGameEventListener(GameEventListener listener) {
+        listeners.add(listener);
+    }
+
+    @Override
+    public void gameStateChanged() {
+    for(GameEventListener listener: listeners){
+        listener.gameStateChanged();
+        }
+    }
+
+    @Override
+    public void turnIsOver() {
+        for(GameEventListener listener: listeners){
+            listener.notifyTurnIsOver(new GameView(this));
+            listener.turnIsOver();
+        }
     }
 }
