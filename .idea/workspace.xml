@@ -4,26 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameEventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update Controller">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameState.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/RMI/ClientImplementation.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/RMI/ServerImplementation.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Moves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
-    <list id="6eba75f2-e4ee-4abb-b265-29f6759fc968" name="Changes by alessiotagab" comment="" />
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="Changes by rubinronchieribyrd" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,6 +203,7 @@
       <workItem from="1682412318806" duration="1264000" />
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
+      <workItem from="1682716570904" duration="11022000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -396,8 +388,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
