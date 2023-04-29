@@ -4,17 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="update Controller">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
+      <change afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
     </list>
+    <list id="6eba75f2-e4ee-4abb-b265-29f6759fc968" name="Changes by alessiotagab" comment="" />
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
-    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="Changes by rubinronchieribyrd" />
+    <list id="007c9496-5db1-4768-8d68-925b4b78ac08" name="Changes by rubinronchieribyrd" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +45,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
@@ -79,14 +90,35 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="MODEL" />
       <recent name="Errors" />
+      <recent name="MODEL" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GameInterfaceTest.displayDashboardTest">
+  <component name="RunManager" selected="Application.AppClient">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppClient" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppServer" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DashboardTest.testRefillColor" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
@@ -123,55 +155,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testAssignPGoal" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testAssignPGoal" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testGame2" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testGame2" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameTest.testUpdateTurn" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testUpdateTurn" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppClient" />
+        <item itemvalue="Application.AppServer" />
+        <item itemvalue="Application.App" />
         <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
         <item itemvalue="TestNG.DashboardTest.testRefillColor" />
-        <item itemvalue="TestNG.GameTest.testAssignPGoal" />
-        <item itemvalue="TestNG.GameTest.testUpdateTurn" />
-        <item itemvalue="TestNG.GameTest.testGame2" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +193,6 @@
       <workItem from="1682412318806" duration="1264000" />
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
-      <workItem from="1682716570904" duration="11022000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -388,8 +377,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
