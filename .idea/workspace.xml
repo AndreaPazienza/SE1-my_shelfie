@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection">
-      <change afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
+    <list default="true" id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Metodi di GameInterface,test displayDashboard e correzione costruttore di Bag">
+      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/Choice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-    </list>
-    <list id="6eba75f2-e4ee-4abb-b265-29f6759fc968" name="Changes by alessiotagab" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Moves.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <list id="2ac60f37-5662-4479-bc83-a41521f3fb04" name="Changes by gabry" comment="" />
@@ -26,9 +22,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JUnit5 Test Class" />
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -40,42 +36,6 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java">
-      <ranges>
-        <range start1="5" end1="5" start2="5" end2="6" changelist="6eba75f2-e4ee-4abb-b265-29f6759fc968" />
-        <range start1="10" end1="11" start2="11" end2="15" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="12" end1="13" start2="16" end2="21" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="26" end1="27" start2="34" end2="35" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="39" end1="39" start2="47" end2="50" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="42" end1="42" start2="53" end2="55" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="46" end1="46" start2="59" end2="60" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="65" end1="65" start2="79" end2="82" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="71" end1="76" start2="88" end2="99" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="101" end1="101" start2="124" end2="125" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="132" end1="132" start2="156" end2="159" changelist="6eba75f2-e4ee-4abb-b265-29f6759fc968" />
-        <range start1="137" end1="138" start2="164" end2="168" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="142" end1="143" start2="172" end2="176" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="146" end1="147" start2="179" end2="179" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="152" end1="158" start2="184" end2="184" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="161" end1="161" start2="187" end2="216" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="177" end1="208" start2="232" end2="232" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="209" end1="212" start2="233" end2="233" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="213" end1="217" start2="234" end2="235" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="219" end1="220" start2="237" end2="238" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="222" end1="222" start2="240" end2="241" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="223" end1="224" start2="242" end2="243" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="225" end1="229" start2="244" end2="247" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="231" end1="231" start2="249" end2="250" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="234" end1="234" start2="253" end2="254" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="236" end1="237" start2="256" end2="257" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="238" end1="238" start2="258" end2="259" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="240" end1="246" start2="261" end2="266" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="247" end1="250" start2="267" end2="272" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-        <range start1="252" end1="253" start2="274" end2="275" changelist="388ac5d8-64fb-4269-a078-b91e6ec2bd14" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -117,6 +77,7 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="VIEW" />
       <recent name="Errors" />
       <recent name="MODEL" />
     </key>
@@ -241,6 +202,7 @@
       <workItem from="1682412318806" duration="1264000" />
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
+      <workItem from="1682696399790" duration="8102000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -368,7 +330,21 @@
       <option name="project" value="LOCAL" />
       <updated>1682543523301</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Metodi di GameInterface,test displayDashboard e correzione costruttore di Bag">
+      <created>1682677772089</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1682677772089</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Eccezione NotEnoughSpaceChoiceException">
+      <created>1682677846234</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1682677846234</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -420,7 +396,9 @@
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementazione della View come runnable" />
+    <MESSAGE value="Metodi di GameInterface,test displayDashboard e correzione costruttore di Bag" />
+    <MESSAGE value="Eccezione NotEnoughSpaceChoiceException" />
+    <option name="LAST_COMMIT_MESSAGE" value="Eccezione NotEnoughSpaceChoiceException" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

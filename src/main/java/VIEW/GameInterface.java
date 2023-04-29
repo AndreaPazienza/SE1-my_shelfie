@@ -2,6 +2,7 @@ package VIEW;
 
 import CONTROLLER.GameController;
 import CONTROLLER.GameState;
+import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
@@ -26,17 +27,9 @@ public class GameInterface implements Runnable{
         String nick = null;
         boolean ok = false;
 
-        do {
-            try {
-                System.out.print("Inserire il nickname: ");
-                nick = keyboard.nextLine();
-                ok = true;
+        System.out.print("Inserire il nickname: ");
+        nick = keyboard.nextLine();
 
-            } catch (SameNicknameException e) {
-                System.out.print("Il nickname inserito è già esistente");
-                ok = false;
-            }
-        } while (!ok);
 
         return nick;
     }
@@ -48,25 +41,21 @@ public class GameInterface implements Runnable{
         displayDashboard();
         displayPersonalShelf();
         displayCommonGoals();
-        nChoices = playerMoveSelection();
-        if (nChoices != 1)
-            playerOrder(nChoices);
+        playerMoveSelection();
         playerInsert();
-
-
     }
 
 
     //Selezione delle tessere dalla dashboard
-    public int playerMoveSelection() {
+    public void playerMoveSelection() {
 
         int countChoices = 0;
         int nChoices = 0;
-        int maxChoices = 0;
+        int maxChoices = 3;
         boolean ok = false;
         //Viene stabilito il massimo numero di tessere prendibili in base agli spazi liberi nella shelf
 
-        //Inserimento del numero di tessere da selezionare e controllo
+        //Inserimento del numero di tessere da selezionare, controllo e creazione dell'array
         do {
             System.out.println("Inserire il numero di tessere da selezionare: ");
             nChoices = keyboard.nextInt();
@@ -74,18 +63,17 @@ public class GameInterface implements Runnable{
                 System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
             }
         } while (nChoices < 1 || nChoices > maxChoices);
+        SlotChoice[] choices = new SlotChoice[nChoices];
 
-        //Selezione effettiva delle tessere e controllo di esse (singolarmente)
+        int x = -1;
+        int y = -1;
+
+        System.out.print("");
+
         do {
-
-            int x = -1;
-            int y = -1;
-
-            System.out.print("");
-
-            //Inserimento e controllo tessera singola
-            do {
-                try {
+            try {
+                do {
+                    //Inseriemento della tessera songola e inserimento nell'array di tessere
                     do {
                         System.out.println("Inserire le coordinate della tessera da prendere: ");
                         System.out.println("X: ");
@@ -95,43 +83,94 @@ public class GameInterface implements Runnable{
                         if (x < 0 || x > 8 || y < 0 || y > 8) {
                             System.out.print("Inserire parametri compresi tra 0 e 8");
                         }
-                    } while(x < 0 || x > 8 || y < 0 || y > 8);
-
-                    SlotChoice c = new SlotChoice(x, y);
-                    setChanged();
-                    notifyObservers(c);
+                    } while (x < 0 || x > 8 || y < 0 || y > 8);
+                    choices[countChoices] = new SlotChoice(x,y);
                     countChoices++;
-                    ok = true;
 
-                } catch (NotCatchableException e) {
-                    System.out.println("La tessera che hai selezionato non è prendibile! Scegline un'altra!");
-                    countChoices--;
-                    ok = false;
+                } while (countChoices < nChoices);
 
-                } catch (ArrayIndexOutOfBoundsException e) {
-                    System.out.println("La tessera selezionata non esiste nella plancia di gioco! Selezionane un'altra!");
-                    countChoices--;
-                    ok = false;
-                }
-            }while (!ok);
+                /*Creazione della classe con enum 1 2 o 3 pasandogli choices*/
+                setChanged();
+                notifyObservers();
+                ok = true;
 
-        }while (countChoices < nChoices);
+            } catch (NotCatchableException e) {
+                System.out.println("Una delle tessere selezionate non è giocabile, sceglierne delle altre");
+                ok = false;
+
+            } catch (NotAdjacentSlotsException e) {
+                System.out.println("Le tessere selezionate non sono adiacenti, scelierne delle altre");
+                ok = false;
+            }
+        }while (!ok);
 
         System.out.println("Le tessere sono state selezionate");
 
-        return nChoices;
+        if (nChoices != 1) {
+            if (playerOrder()) {
+                if (nChoices == 2) {
+
+                    /*Creazione della enum di tipo 4 (no parametri)*/
+                    setChanged();
+                    notifyObservers();
+                }
+
+                if (nChoices == 3) {
+
+                    int pos1;
+                    int pos2;
+                    int pos3;
+
+                    do {
+                        do {
+                            System.out.println("Quale tessera vuoi inserire per prima?");
+                            pos1 = keyboard.nextInt();
+                            if (pos1 < 1 || pos1 > 3) {
+                                System.out.println("Inserire posizione da 1 a 3");
+                            }
+                        } while (pos1 < 1 || pos1 > 3);
+
+                        do {
+                            System.out.println("Quale tessera vuoi inserire per seconda?");
+                            pos2 = keyboard.nextInt();
+                            if (pos2 < 1 || pos2 > 3) {
+                                System.out.println("Inserire posizione da 1 a 3");
+                            }
+                        } while (pos2 < 1 || pos2 > 3);
+
+                        do {
+                            System.out.println("Quale tessera vuoi inserire per ultima?");
+                            pos3 = keyboard.nextInt();
+                            if (pos3 < 1 || pos3 > 3) {
+                                System.out.println("Inserire posizione da 1 a 3");
+                            }
+                        } while (pos3 < 1 || pos3 > 3);
+
+                    } while (pos1 == pos2 || pos1 == pos3 || pos2 == pos3);
+
+
+                    OrderChoice order = new OrderChoice(pos1, pos2, pos3);
+
+                    /*Creazione della enum di tipo 5 passandogli order*/
+                    setChanged();
+                    notifyObservers();
+                    System.out.print("Hai ordinato correttamente le tessere!");
+                }
+            }
+        } else {
+            /*Creazione della enum di tipo 4 (no parametri)*/
+            setChanged();
+            notifyObservers();
+        }
     }
 
-    //Ordinamento delle tessere prese prima dell'inserimento nella shelf
-    public void playerOrder(int nChoices) {
+    //Richiesta di ordinamento
+    public boolean playerOrder() {
 
         boolean reorder = false;
         String string;
         String yes = "si";
         String no = "no";
-        int pos1;
-        int pos2;
-        int pos3;
 
         do {
             System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
@@ -141,55 +180,14 @@ public class GameInterface implements Runnable{
 
         } while (!string.equals(yes) && !string.equals(no));
 
-        if (string.equals(yes)) {
-
-            if (nChoices == 2) {
-                setChanged();
-                notifyObservers(reorder);
-            }
-
-            if (nChoices == 3) {
-
-                do {
-                    do {
-                        System.out.println("Quale tessera vuoi inserire per prima?");
-                        pos1 = keyboard.nextInt();
-                        if(pos1 < 1 || pos1 > 3){
-                            System.out.println("Inserire posizione da 1 a 3");
-                        }
-                    }while (pos1 < 1 || pos1>3);
-
-                    do {
-                        System.out.println("Quale tessera vuoi inserire per seconda?");
-                        pos2 = keyboard.nextInt();
-                        if(pos2 < 1 || pos2 > 3){
-                            System.out.println("Inserire posizione da 1 a 3");
-                        }
-                    }while (pos2 < 1 || pos2>3);
-
-                    do {
-                        System.out.println("Quale tessera vuoi inserire per ultima?");
-                        pos3 = keyboard.nextInt();
-                        if(pos3 < 1 || pos3 > 3){
-                            System.out.println("Inserire posizione da 1 a 3");
-                        }
-                    }while (pos3 < 1 || pos3>3);
-
-                }while (pos1==pos2 ||pos1==pos3 ||pos2==pos3);
-
-                OrderChoice c = new OrderChoice(pos1, pos2, pos3);
-                setChanged();
-                notifyObservers(c);
-                System.out.print("Hai ordinato correttamente le tessere!");
-            }
-        }
+        return reorder;
     }
 
     //Inserimento delle tessere prese nella shelf
     public void playerInsert() {
 
-        int column = -1;
-        boolean ok = false;
+        int column;
+        boolean ok;
 
         System.out.println("Scrivere il numero della colonna in cui inserire le tessere: ");
         do {
