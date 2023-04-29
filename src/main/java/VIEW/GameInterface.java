@@ -1,4 +1,5 @@
 package VIEW;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
@@ -118,7 +119,7 @@ public class GameInterface implements Runnable, viewListeners {
                     //Creazione di una OrderChoice con parametri convenzionalmente scelti
                     OrderChoice order = new OrderChoice(1,1,1);
 
-                    //---------------------Notifica con OrderChoice
+                    notifyOrder(order);
                 }
 
                 if (nChoices == 3) {
@@ -157,7 +158,7 @@ public class GameInterface implements Runnable, viewListeners {
 
                     OrderChoice order = new OrderChoice(pos1, pos2, pos3);
 
-                    //--------------------------Notifica con OrderChoice
+                    notifyOrder(order);
 
                     System.out.print("Hai ordinato correttamente le tessere!");
                 }
@@ -259,14 +260,23 @@ public class GameInterface implements Runnable, viewListeners {
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) {
         for(viewListeners listener: listeners){
-            listener.notifySelectedCoordinates(SC);
-            listener.selecteCoordinates();
+            try{listener.notifySelectedCoordinates(SC);}
+            catch(RemoteException e){
+                System.out.println("ciao");
+            }
         }
 
     }
 
     @Override
-    public void selecteCoordinates() {
+    public void notifyOrder(OrderChoice o) {
+        for(viewListeners listener: listeners){
+            try{listener.notifyOrder(o);}
+            catch(RemoteException e){
+                System.out.println("ciao");
+            }
+        }
+        }
     }
 
-}
+

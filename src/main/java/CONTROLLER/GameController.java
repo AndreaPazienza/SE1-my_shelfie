@@ -8,8 +8,7 @@ import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
+
 
 public class GameController{
     private final Game game;
@@ -23,15 +22,13 @@ public class GameController{
 
     public void startGame () {
         if(game.isGameOn()) {
-            game.getTable().refill(game.getBag());
-            game.getTable().catchAfterRefill();
-            game.assignPGoal();
+            game.startGame();
         }
     }
 
     //controllo se il nickname è stato già preso
     public boolean checkNick(String name){
-        for(int i = 0; i < game.getNplayers(); i++){
+        for(int i = 0; i < game.getPlayerInGame(); i++){
             if(game.getPlayer()[i].nickname.equals(name)){
                 return false; //genera un eccezione SAMENICK
             }

@@ -2,9 +2,13 @@ package Distributed.rmi;
 
 import CONTROLLER.GameController;
 import Distributed.ServerRMIInterface;
+import Errors.NotAdjacentSlotsException;
+import Errors.NotCatchableException;
 import Listeners.GameEventListener;
 import MODEL.Game;
 import MODEL.GameView;
+import VIEW.OrderChoice;
+import VIEW.SlotChoice;
 
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
@@ -67,6 +71,26 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
+    public void updateServerSelection(Client client, SlotChoice[] SC){ //throws NotAdjacentSlotsException, NotCatchableException {
+       try{
+            this.controller.checkSelect(SC);
+            System.out.println("La selezione è andanta a buon fine ");
+       }catch(NotCatchableException e){
+            System.err.println("La tessera selezionata non è prendibile");
+            //Notify Errore al client
+        }catch(NotAdjacentSlotsException e ){
+            System.err.println("Le coordinate inserite non sono adiacenti");
+            //Notify Errore al client
+        }
+
+    }
+
+    @Override
+    public void updateServerReorder(Client client, OrderChoice C) {
+        this.controller.checkOrder(C);
+    }
+
+    @Override
     public void addGameEventListener(GameEventListener listener) {
         System.out.println("Client registrato con successo! ");
     }
@@ -93,19 +117,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
           client.updateView(new GameView(model), state);
          }   */
 
-  /*  @Override
-    public void selectTails(SlotChoice m) {
-
-        try{
-            this.controller.checkSelect(m);
-            System.out.println("La selezione è andanta a buon fine ");
-        }catch(NotCatchableException e){
-            System.err.println("La tessera selezionata non è prendibile");
-        }catch(NotAdjacentSlotsException e ){
-            System.err.println("Le coordinate inserite non sono adiacenti");
-        }
-    }
-
+/*
     @Override
     public void reorderTails() {
 
