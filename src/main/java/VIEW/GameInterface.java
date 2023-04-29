@@ -1,7 +1,7 @@
 package VIEW;
+import java.util.ArrayList;
 
 import CONTROLLER.GameController;
-import CONTROLLER.GameState;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
@@ -34,12 +34,27 @@ public class GameInterface implements Runnable{
         return nick;
     }
 
+    //inserimento del numero dei giocatori
+    public int numberOfPlayers() {
+
+        int number = 0;
+
+        do {
+            System.out.print("Inserire il numero dei giocatori: ");
+            number = keyboard.nextInt();
+            if  (number < 2 || number > 4)
+                System.out.print("Il giioco è da 2 a 4 giocatori, inserire un numero corretto ");
+        } while (number < 2 || number > 4);
+
+        return number;
+    }
+
     public void run() {
 
         int nChoices = 0;
+        GameView gameView;
 
-        displayDashboard();
-        displayPersonalShelf();
+        update(gameView);
         displayCommonGoals();
         playerMoveSelection();
         playerInsert();
@@ -63,7 +78,7 @@ public class GameInterface implements Runnable{
                 System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
             }
         } while (nChoices < 1 || nChoices > maxChoices);
-        SlotChoice[] choices = new SlotChoice[nChoices];
+        ArrayList<SlotChoice> choices = new ArrayList<>();
 
         int x = -1;
         int y = -1;
@@ -84,14 +99,12 @@ public class GameInterface implements Runnable{
                             System.out.print("Inserire parametri compresi tra 0 e 8");
                         }
                     } while (x < 0 || x > 8 || y < 0 || y > 8);
-                    choices[countChoices] = new SlotChoice(x,y);
+                    choices.add(new SlotChoice(x,y));
                     countChoices++;
 
                 } while (countChoices < nChoices);
 
-                /*Creazione della classe con enum 1 2 o 3 pasandogli choices*/
-                setChanged();
-                notifyObservers();
+                //Notifica con choice.toArray()
                 ok = true;
 
             } catch (NotCatchableException e) {
@@ -110,9 +123,10 @@ public class GameInterface implements Runnable{
             if (playerOrder()) {
                 if (nChoices == 2) {
 
-                    /*Creazione della enum di tipo 4 (no parametri)*/
-                    setChanged();
-                    notifyObservers();
+                    //Creazione di una OrderChoice con parametri convenzionalmente scelti
+                    OrderChoice order = new OrderChoice(1,1,1);
+
+                    //Notifica con OrderChoice
                 }
 
                 if (nChoices == 3) {
@@ -151,16 +165,11 @@ public class GameInterface implements Runnable{
 
                     OrderChoice order = new OrderChoice(pos1, pos2, pos3);
 
-                    /*Creazione della enum di tipo 5 passandogli order*/
-                    setChanged();
-                    notifyObservers();
+                    //Notifica con OrderChoice
+
                     System.out.print("Hai ordinato correttamente le tessere!");
                 }
             }
-        } else {
-            /*Creazione della enum di tipo 4 (no parametri)*/
-            setChanged();
-            notifyObservers();
         }
     }
 
@@ -199,8 +208,7 @@ public class GameInterface implements Runnable{
 
         do {
             try {
-                setChanged();
-                notifyObservers(c);
+                //Notifica con column
                 ok = true;
             } catch (NotEnoughSpaceChoiceException e) {
                 System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
@@ -211,26 +219,15 @@ public class GameInterface implements Runnable{
         System.out.print("Hai inserito correttamente le tessere!");
     }
 
-/*
-    public void startGame() {
-        GameState gameState = controller.getGameState();
-        switch (gameState){
-            case NOTSTARTED -> {
-                System.out.println("Inserisci il numero di giocatori: \n");
-                int nPlayers = keyboard.nextInt();
-                //rmi
 
-            }
-        }
-
-        System.out.println("Inserisci il nickname: \n");
-        String nick = keyboard.nextLine();
+    //Update della dashboard e della shelf
+    public void update(GameView gameView) {
+        displayDashboard(gameView);
+        displayPersonalShelf(gameView);
     }
-*/
-
 
     //Stampa della dashboard a schermo
-    public void displayDashboard(){
+    public void displayDashboard(GameView gameView){
         System.out.print("\t");
         for(int k = 0; k < Dashboard.getSide(); k++){
             System.out.print("\t" + k + "\t");
@@ -250,7 +247,7 @@ public class GameInterface implements Runnable{
     }
 
     //Stampa della personal shelf a schermo
-    public void displayPersonalShelf(){
+    public void displayPersonalShelf(GameView gameView){
         System.out.print("\t");
         for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
             System.out.print("\t" + k + "\t");
