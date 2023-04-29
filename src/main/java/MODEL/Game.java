@@ -1,6 +1,8 @@
 package MODEL;
 
 
+import Listeners.GameEventListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,7 +59,6 @@ public class Game implements GameEventListener {
         Player player = new Player(nick);
         this.player[playerInGame] = player;
         this.player[playerInGame].setOrderInTurn(playerInGame+1);
-        this.gameStateChanged();
         playerInGame ++;
         if (playerInGame == Nplayers) {
             setGameOn(true);
@@ -70,13 +71,20 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
+    public void startGame(){
+        state = GameState.PLAYING_IN_ORDERING;
+        getTable().refill(getBag());
+        getTable().catchAfterRefill();
+        assignPGoal();
+        this.gameStateChanged();
+    }
+
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() {
-
         //Controllo dei CommonGoal completati ed incremento
         this.commonGoal1.getGoal().control(player[playerInGame]);
         this.commonGoal1.getGoal().incrementCG();
-
+        //Secondo PGoal
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
      //Chiamata a refill (se necessario)
@@ -84,9 +92,9 @@ public class Game implements GameEventListener {
             table.refill(bag);
         }
         table.catchAfterRefill();
-
         /* notify della dashboard aggiornata */
         this.turnIsOver();
+
         //Passaggio del turno
         playerInGame ++;
         if (playerInGame == Nplayers) {
@@ -173,5 +181,10 @@ public class Game implements GameEventListener {
             listener.notifyTurnIsOver(new GameView(this));
             listener.turnIsOver();
         }
+    }
+
+    @Override
+    public void notifyTurnIsOver(GameView view) {
+
     }
 }

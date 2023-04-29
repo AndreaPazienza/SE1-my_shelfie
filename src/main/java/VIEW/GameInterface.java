@@ -1,25 +1,18 @@
 package VIEW;
 import java.util.ArrayList;
 
-import CONTROLLER.GameController;
-import Errors.NotAdjacentSlotsException;
-import Errors.NotCatchableException;
-import Errors.NotEnoughSpaceChoiceException;
-import Errors.SameNicknameException;
+
+
+import Listeners.viewListeners;
 import MODEL.*;
 
+import java.util.List;
 import java.util.Scanner;
 
-public class GameInterface implements Runnable{
+public class GameInterface implements Runnable, viewListeners {
 
+    private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
-    //public Game  gameView; //solo per fare i test
-
-    public GameInterface (){
-        //gameView = new Game(4); sempre per test
-    }
-
-
 
     //inserimento nickname per la prima volta
     public String firstRun() {
@@ -29,7 +22,6 @@ public class GameInterface implements Runnable{
 
         System.out.print("Inserire il nickname: ");
         nick = keyboard.nextLine();
-
 
         return nick;
     }
@@ -53,9 +45,8 @@ public class GameInterface implements Runnable{
 
         int nChoices = 0;
         GameView gameView;
-
-        update(gameView);
-        displayCommonGoals();
+    //Da sistemare
+        //update(gameView);
         playerMoveSelection();
         playerInsert();
     }
@@ -86,7 +77,7 @@ public class GameInterface implements Runnable{
         System.out.print("");
 
         do {
-            try {
+           // try {
                 do {
                     //Inseriemento della tessera songola e inserimento nell'array di tessere
                     do {
@@ -104,17 +95,18 @@ public class GameInterface implements Runnable{
 
                 } while (countChoices < nChoices);
 
-                //Notifica con choice.toArray()
+                notifySelectedCoordinates((SlotChoice[]) choices.toArray());
+
                 ok = true;
 
-            } catch (NotCatchableException e) {
+            /*} catch (NotCatchableException e) {
                 System.out.println("Una delle tessere selezionate non è giocabile, sceglierne delle altre");
                 ok = false;
 
             } catch (NotAdjacentSlotsException e) {
                 System.out.println("Le tessere selezionate non sono adiacenti, scelierne delle altre");
                 ok = false;
-            }
+            }*/
         }while (!ok);
 
         System.out.println("Le tessere sono state selezionate");
@@ -126,7 +118,7 @@ public class GameInterface implements Runnable{
                     //Creazione di una OrderChoice con parametri convenzionalmente scelti
                     OrderChoice order = new OrderChoice(1,1,1);
 
-                    //Notifica con OrderChoice
+                    //---------------------Notifica con OrderChoice
                 }
 
                 if (nChoices == 3) {
@@ -165,7 +157,7 @@ public class GameInterface implements Runnable{
 
                     OrderChoice order = new OrderChoice(pos1, pos2, pos3);
 
-                    //Notifica con OrderChoice
+                    //--------------------------Notifica con OrderChoice
 
                     System.out.print("Hai ordinato correttamente le tessere!");
                 }
@@ -207,27 +199,20 @@ public class GameInterface implements Runnable{
         } while (column < 0 || column > 4);
 
         do {
-            try {
-                //Notifica con column
+           // try {
+                //---------------------------Notifica con column
                 ok = true;
-            } catch (NotEnoughSpaceChoiceException e) {
+           /* } catch (NotEnoughSpaceChoiceException e) {
                 System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
                 ok = false;
-            }
+            }*/
         } while (!ok);
 
         System.out.print("Hai inserito correttamente le tessere!");
     }
 
-
-    //Update della dashboard e della shelf
-    public void update(GameView gameView) {
-        displayDashboard(gameView);
-        displayPersonalShelf(gameView);
-    }
-
-    //Stampa della dashboard a schermo
-    public void displayDashboard(GameView gameView){
+//Stampa della dashboard a schermo
+    public void displayDashboard(Dashboard board){
         System.out.print("\t");
         for(int k = 0; k < Dashboard.getSide(); k++){
             System.out.print("\t" + k + "\t");
@@ -237,8 +222,8 @@ public class GameInterface implements Runnable{
         for (int i = 0; i < Dashboard.getSide(); i ++) {
             System.out.print("" + i +"\t");
             for (int j = 0; j < Dashboard.getSide(); j ++ ) {
-                if ((!gameView.getTable().getSingleSlot(i,j).getColor().Equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(gameView.getTable().getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
+                if ((!board.getSingleSlot(i,j).getColor().Equals(Color.BLACK) && !board.getSingleSlot(i,j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(board.getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
                 } else System.out.print("\t" + "  " + "\t");
             }
             System.out.print("\n");
@@ -247,7 +232,7 @@ public class GameInterface implements Runnable{
     }
 
     //Stampa della personal shelf a schermo
-    public void displayPersonalShelf(GameView gameView){
+    public void displayPersonalShelf(PersonalShelf shelf){
         System.out.print("\t");
         for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
             System.out.print("\t" + k + "\t");
@@ -257,8 +242,8 @@ public class GameInterface implements Runnable{
         for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
             System.out.print("" + i +"\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
-                if ((!gameView.getTable().getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(gameView.getTable().getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
+                if ((!shelf.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !shelf.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
                 } else System.out.print("\t " + "  " + " \t");
             }
         }
@@ -266,8 +251,22 @@ public class GameInterface implements Runnable{
         System.out.print("\n");
     }
 
-
-    public void displayCommonGoals(){
-        //Vedere come stampare ogn singolo common goal
+    @Override
+    public void addviewEventListener(viewListeners listener) {
+        listeners.add(listener);
     }
+
+    @Override
+    public void notifySelectedCoordinates(SlotChoice[] SC) {
+        for(viewListeners listener: listeners){
+            listener.notifySelectedCoordinates(SC);
+            listener.selecteCoordinates();
+        }
+
+    }
+
+    @Override
+    public void selecteCoordinates() {
+    }
+
 }

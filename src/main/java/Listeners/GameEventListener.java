@@ -1,4 +1,6 @@
-package MODEL;
+package Listeners;
+
+import MODEL.GameView;
 
 public interface GameEventListener {
 
@@ -6,4 +8,6 @@ public interface GameEventListener {
     public void gameStateChanged();
     public void turnIsOver(); //Manda le nuove game view a fine turno
     public void notifyTurnIsOver(GameView view);
+
+
 }
