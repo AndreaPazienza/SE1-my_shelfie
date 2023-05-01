@@ -8,4 +8,5 @@ import java.rmi.RemoteException;
 public interface ClientRMIInterface extends Remote {
 
     void updateClient(GameView view) throws RemoteException;
+
 }

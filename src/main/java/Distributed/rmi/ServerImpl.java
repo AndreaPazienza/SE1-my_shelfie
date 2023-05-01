@@ -1,6 +1,7 @@
 package Distributed.rmi;
 
 import CONTROLLER.GameController;
+import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
@@ -39,23 +40,23 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void register(Client client) {
-        System.out.println("Ricevuta una tentaivo di connessione");
+    public void register(ClientRMIInterface client) {
+        System.out.println("Ricevuto un tentativo di connessione");
      if (!firstPlayerEnrolled) {
+
             model = new Game(3);
             controller = new GameController(model);
-            this.logged.add(client);
+            this.logged.add((Client) client);
             this.model.addGameEventListener(this);
 
 
-            model.signPlayer(client.nickname);
-             System.out.println("Il giocatore " + client.nickname + "è stato correttamente iscritto ");
+            model.signPlayer(((Client)client).nickname);
+             System.out.println("Il giocatore " + ((Client) client).nickname + "è stato correttamente iscritto ");
             firstPlayerEnrolled = true;
          } else {
-
-            if (controller.checkNick(client.nickname)) {
-                model.signPlayer(client.nickname);
-                this.logged.add(client);
+            if (controller.checkNick(((Client)client).nickname)) {
+                model.signPlayer(((Client)client).nickname);
+                this.logged.add((Client)client);
                 /*this.model.addObserver((o, arg) -> {
                                                 try{
                                                   client.updateView(new GameView(model), model.getCurrentState());}
@@ -64,7 +65,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                                                      }
                                                 });*/
 
-                System.out.println("Il giocatore " + client.nickname + "è stato correttamente iscritto ");
+                System.out.println("Il giocatore " + ((Client)client).nickname + "è stato correttamente iscritto ");
                 controller.startGame();
             }
         }

@@ -36,7 +36,7 @@ public class CommonGoal extends Observable {
         return deck.get(shuffle());
     }
     public static int shuffle(){
-        int randIndex = new Random().nextInt(13);
+        int randIndex = new Random().nextInt(12);
         return  randIndex;
     }
 

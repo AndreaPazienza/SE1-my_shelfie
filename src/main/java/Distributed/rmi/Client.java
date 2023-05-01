@@ -34,6 +34,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public Client(ServerRMIInterface server, int port) throws RemoteException {
         super(port);
         nickname = view.firstRun();
+        System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
     }
@@ -41,16 +42,18 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException {
         super(port, csf, ssf);
         nickname = view.firstRun();
+        System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
     }
 //Manca il controllo che il server prende i dati dal client giusto.
     public void initialize(ServerRMIInterface server) throws RemoteException {
-        try {
-            server.register(this);
-            view.addviewEventListener(this);
-        }catch (RemoteException e){
-            System.err.println("Ciao");
+        try{
+        //System.out.println(this.nickname);
+        server.register(this);
+        view.addviewEventListener(this);
+        }catch(RemoteException e){
+            System.err.println("ciao");
         }
     }
 
