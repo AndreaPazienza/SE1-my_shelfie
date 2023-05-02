@@ -1,8 +1,9 @@
 package MODEL;
 
+import java.io.Serializable;
 import java.util.Observable;
 
-public class Dashboard {
+public class Dashboard implements Serializable {
 
     private Slot[][] inDashboard;
     private static final int side = 9;

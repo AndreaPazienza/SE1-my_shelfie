@@ -1,8 +1,9 @@
 package MODEL;
 
-import java.util.Observable;
 
-public class PersonalShelf extends Observable {
+import java.io.Serializable;
+
+public class PersonalShelf implements Serializable {
 
     private Slot[][] shelf;
     private boolean itsFull;
@@ -86,7 +87,7 @@ public class PersonalShelf extends Observable {
             i--;
         }
         /*notify*/
-        notifyObservers(this.shelf);
+       // notifyObservers(this.shelf);
     }
 
     public void checkLastLine(){

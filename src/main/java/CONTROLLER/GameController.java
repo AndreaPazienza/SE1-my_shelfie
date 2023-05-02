@@ -7,6 +7,7 @@ import MODEL.*;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
@@ -20,10 +21,12 @@ public class GameController{
     }
 
 
-    public void startGame () {
-        if(game.isGameOn()) {
+    public void startGame () throws RemoteException {
             game.startGame();
-        }
+    }
+
+    public String getOnStage(){
+        return game.playerOnStage().getNickname();
     }
 
     //controllo se il nickname è stato già preso

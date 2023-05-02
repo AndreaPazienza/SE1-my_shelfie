@@ -16,7 +16,6 @@ import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterface, GameEventListener {
@@ -24,8 +23,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private GameController controller;
     private Game model;
 
-    private ArrayList<Client> logged = new ArrayList<>();
-    protected boolean firstPlayerEnrolled = false;
+    private ArrayList<ClientRMIInterface> logged = new ArrayList<>();
+    private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
         super();
@@ -40,34 +39,38 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void register(ClientRMIInterface client) {
+    public void register(ClientRMIInterface client) throws RemoteException {
         System.out.println("Ricevuto un tentativo di connessione");
      if (!firstPlayerEnrolled) {
 
-            model = new Game(3);
+            model = new Game(2);
             controller = new GameController(model);
-            this.logged.add((Client) client);
+            this.logged.add(client);
             this.model.addGameEventListener(this);
 
 
-            model.signPlayer(((Client)client).nickname);
-             System.out.println("Il giocatore " + ((Client) client).nickname + "è stato correttamente iscritto ");
+            model.signPlayer(client.getNickname());
+             System.out.println("Il giocatore " + client.getNickname()+ "è stato correttamente iscritto ");
             firstPlayerEnrolled = true;
          } else {
-            if (controller.checkNick(((Client)client).nickname)) {
-                model.signPlayer(((Client)client).nickname);
-                this.logged.add((Client)client);
-                /*this.model.addObserver((o, arg) -> {
-                                                try{
-                                                  client.updateView(new GameView(model), model.getCurrentState());}
-                                                       catch (RemoteException e){
-                                                       System.err.println("Unable to reach the client.");
-                                                     }
-                                                });*/
-
-                System.out.println("Il giocatore " + ((Client)client).nickname + "è stato correttamente iscritto ");
-                controller.startGame();
+            if (controller.checkNick(client.getNickname())) {
+                model.signPlayer(client.getNickname());
+                this.logged.add(client);
+                System.out.println("Il giocatore " + client.getNickname()+ " è stato correttamente iscritto ");
+                subscription();
+                System.out.println("Non ho ancora un errore");
+                if(model.isGameOn()) {
+                    startGame();
+                }
             }
+        }
+    }
+
+    public void startGame() throws RemoteException {
+        controller.startGame();
+        for(ClientRMIInterface client : logged){
+            if(controller.getOnStage().equals(client.getNickname()))
+                client.startTurn();
         }
     }
 
@@ -96,10 +99,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Client registrato con successo! ");
     }
 
+
     @Override
-    public void gameStateChanged() {
-        for(Client client : logged){
+    public void gameStateChanged() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+
             client.updateClient(new GameView(model));
+        }
+    }
+    public void subscription() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            client.newPlayerAdded();
         }
     }
 

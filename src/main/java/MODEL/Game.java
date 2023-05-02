@@ -3,6 +3,7 @@ package MODEL;
 
 import Listeners.GameEventListener;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,7 +61,7 @@ public class Game implements GameEventListener {
         this.player[playerInGame] = player;
         this.player[playerInGame].setOrderInTurn(playerInGame+1);
         playerInGame ++;
-        if (playerInGame == Nplayers) {
+        if (playerInGame == Nplayers-1) {
             setGameOn(true);
             playerInGame = 0;
         }
@@ -71,11 +72,11 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
-    public void startGame(){
+    public void startGame() throws RemoteException {
         state = GameState.PLAYING_IN_ORDERING;
         getTable().refill(getBag());
         getTable().catchAfterRefill();
-        assignPGoal();
+        //assignPGoal();
         this.gameStateChanged();
     }
 
@@ -169,7 +170,7 @@ public class Game implements GameEventListener {
     }
 
     @Override
-    public void gameStateChanged() {
+    public void gameStateChanged() throws RemoteException {
     for(GameEventListener listener: listeners){
         listener.gameStateChanged();
         }

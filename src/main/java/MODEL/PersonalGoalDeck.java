@@ -59,7 +59,7 @@ public class PersonalGoalDeck {
 
     public PersonalGoal extractionPGoal(){
 
-        int randomIndex = new Random().nextInt(personalGoalDeck.size());
+        int randomIndex = new Random().nextInt(personalGoalDeck.size()-1);
         PersonalGoal returningPersonal = personalGoalDeck.get(randomIndex);
         personalGoalDeck.remove(randomIndex);
         return returningPersonal;

@@ -43,13 +43,14 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void run() {
-
-        int nChoices = 0;
-        GameView gameView;
+        while(true) {
+              int nChoices = 0;
+              GameView gameView;
     //Da sistemare
-        //update(gameView);
-        playerMoveSelection();
-        playerInsert();
+    //update(gameView);
+              playerMoveSelection();
+             playerInsert();
+        }
     }
 
 
@@ -185,6 +186,9 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
+    public void arrived(){
+        System.out.println("A new player as signed");
+    }
     //Inserimento delle tessere prese nella shelf
     public void playerInsert() {
 

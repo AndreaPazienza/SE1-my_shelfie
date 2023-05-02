@@ -170,9 +170,9 @@ public class GameTest {
         game.signPlayer("Rubin");
         game.assignPGoal();
         for(int i = 0; i < 6; i++){
-            System.out.println("Colore: "+game.getPlayer()[0].getPgoal().getSingleTarget(i).getTile());
-            System.out.println("X: "+game.getPlayer()[0].getPgoal().getSingleTarget(i).getPosX());
-            System.out.println("Y: "+game.getPlayer()[0].getPgoal().getSingleTarget(i).getPosY());
+            System.out.println("Colore: "+game.getPlayer()[1].getPgoal().getSingleTarget(i).getTile());
+            System.out.println("X: "+game.getPlayer()[1].getPgoal().getSingleTarget(i).getPosX());
+            System.out.println("Y: "+game.getPlayer()[1].getPgoal().getSingleTarget(i).getPosY());
         }
      }
 }
