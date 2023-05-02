@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class GameController{
     private final Game game;
 
-    private ArrayList <Slot> selectedSlots;
+    private Slot[] selectedSlots;
 
     public GameController(Game game){
         this.game=game;
@@ -53,12 +53,13 @@ public class GameController{
     }
 
     public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException {
+        selectedSlots = new Slot[selectedCards.length];
         switch (selectedCards.length){
-           case 1 -> {
+            case 1 -> {
                 int x = selectedCards[0].getX();
                 int y = selectedCards[0].getY();
                 if(checkCoordinates(x, y)){
-                    selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
+                    selectedSlots[0]=game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
                 } else {
                     throw new NotCatchableException("La tessera selezionata non può essere presa!");
                 }
@@ -71,8 +72,8 @@ public class GameController{
                 if(checkCoordinates(x,y) && checkCoordinates(x1,y1)){
 
                     if(checkAdjacent(x, y, x1, y1)){
-                        selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
-                        selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
+                        selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
+                        selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
                     } else {
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
                     }
@@ -93,9 +94,9 @@ public class GameController{
                     the second term tell us, combined with the first one, if the three tiles are nearby.
                     the last one is used to accept only group of tiles that form a straight line*/
                     if((checkAdjacent(x,y,x1,y1) || checkAdjacent(x,y,x2,y2)) && checkAdjacent(x1,y1,x2,y2) && ((x == x1 && x1 == x2) || (y == y1 && y1 == y2))){
-                        selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
-                        selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
-                        selectedSlots.add(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x2, y2));
+                        selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
+                        selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
+                        selectedSlots[2]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x2, y2));
                     } else {
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
                     }
@@ -115,19 +116,9 @@ public class GameController{
 
     public void checkOrder(OrderChoice o){
         if(o.getT() == 1 && o.getP() == 1 && o.getS() == 1){
-            Slot[] arrayToBeSorted = (Slot[]) selectedSlots.toArray();
-            game.getPlayer()[game.getPlayerInGame()].orderCards(arrayToBeSorted);
-            selectedSlots.clear();
-            for(int i = 0; i < arrayToBeSorted.length; i++){
-                selectedSlots.add(arrayToBeSorted[i]);
-            }
+            game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots);
         } else {
-            Slot[] arrayToBeSorted = (Slot[]) selectedSlots.toArray();
-            game.getPlayer()[game.getPlayerInGame()].orderCards(arrayToBeSorted, o.getP(), o.getS(), o.getT());
-            selectedSlots.clear();
-            for(int i = 0; i < arrayToBeSorted.length; i++){
-                selectedSlots.add(arrayToBeSorted[i]);
-            }
+            game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots, o.getP(), o.getS(), o.getT());
         }
     }
     public void checkInsert(int column) throws NotEnoughSpaceChoiceException {
@@ -137,8 +128,8 @@ public class GameController{
                 countSpaces++;
             }
         }
-        if(countSpaces >= selectedSlots.size()) {
-            game.getPlayer()[game.getPlayerInGame()].getShelf().insert((Slot[])selectedSlots.toArray(), column);
+        if(countSpaces >= selectedSlots.length) {
+            game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);
         } else {
             throw new NotEnoughSpaceChoiceException("La colonna scelta non può contenere così tante tessere!");
         }

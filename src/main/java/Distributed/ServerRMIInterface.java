@@ -3,6 +3,7 @@ package Distributed;
 import Distributed.rmi.Client;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
@@ -12,10 +13,9 @@ import java.rmi.RemoteException;
 
 public interface ServerRMIInterface extends Remote {
     void register(ClientRMIInterface client) throws RemoteException;
-
-
-    void updateServerSelection(Client client, SlotChoice[] SC) throws RemoteException; //throws NotAdjacentSlotsException, NotCatchableException;
-    void updateServerReorder(Client client, OrderChoice C) throws RemoteException;
+    void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException; //throws NotAdjacentSlotsException, NotCatchableException;
+    void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException;
+    void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException;
 
 
 

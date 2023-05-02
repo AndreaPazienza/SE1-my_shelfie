@@ -2,10 +2,12 @@ package Distributed.rmi;
 
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
 import Listeners.viewListeners;
 
 import MODEL.GameView;
+import MODEL.Player;
 import VIEW.GameInterface;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
@@ -62,12 +64,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public int numberOfPlayer() {
         return view.numberOfPlayers();
     }
+
     public void run() {
-        if (playing) {
-            view.run();
+        if (playing) {  view.run();
         } else {
-            System.out.println("Waiting server's update");
-        }
+              System.out.println("Waiting server's update");}
     }
 
     @Override
@@ -86,6 +87,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void notifyOrder(OrderChoice o) throws RemoteException {
         connectedTo.updateServerReorder(this, o);
     }
+    @Override
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+        connectedTo.updateServerInsert(this, column);
+    }
 
     @Override
     public void updateClient(GameView modelView) {
@@ -99,8 +104,13 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
+    public int startGame() throws RemoteException {
+        return view.numberOfPlayers();
+    }
+
+    @Override
     public void gameIsStarting() throws RemoteException {
-        view.run();
+
     }
 
     @Override
@@ -110,8 +120,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     public void startTurn() {
         playing = true;
+        run();
     }
     public void endTurn(){
         playing = false;
+        run();
     }
 }

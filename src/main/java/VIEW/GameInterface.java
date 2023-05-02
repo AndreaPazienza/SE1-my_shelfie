@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.viewListeners;
 import MODEL.*;
 
@@ -43,15 +43,18 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void run() {
-        while(true) {
-              int nChoices = 0;
-              GameView gameView;
-    //Da sistemare
-    //update(gameView);
-              playerMoveSelection();
-             playerInsert();
-        }
+
+            playerMoveSelection();
+            try {
+                playerInsert();
+            } catch (NotEnoughSpaceChoiceException e) {
+              System.out.println("Colonna errata");
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
     }
+
+
 
 
     //Selezione delle tessere dalla dashboard
@@ -71,34 +74,32 @@ public class GameInterface implements Runnable, viewListeners {
                 System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
             }
         } while (nChoices < 1 || nChoices > maxChoices);
-        ArrayList<SlotChoice> choices = new ArrayList<>();
+
+        SlotChoice[] selection = new SlotChoice[nChoices];
 
         int x = -1;
         int y = -1;
 
-        System.out.print("");
-
         do {
-           // try {
-                do {
-                    //Inseriemento della tessera songola e inserimento nell'array di tessere
-                    do {
-                        System.out.println("Inserire le coordinate della tessera da prendere: ");
-                        System.out.println("X: ");
-                        x = keyboard.nextInt();
-                        System.out.println("Y: ");
-                        y = keyboard.nextInt();
-                        if (x < 0 || x > 8 || y < 0 || y > 8) {
-                            System.out.print("Inserire parametri compresi tra 0 e 8");
-                        }
-                    } while (x < 0 || x > 8 || y < 0 || y > 8);
-                    choices.add(new SlotChoice(x,y));
-                    countChoices++;
+            for(int i=0; i<nChoices; i++){
 
-                } while (countChoices < nChoices);
+             //Inseriemento della tessera songola e inserimento nell'array di tessere
+             do {
+                    System.out.println("Inserire le coordinate della tessera da prendere: ");
+                    System.out.println("X: ");
+                    x = keyboard.nextInt();
+                    System.out.println("Y: ");
+                     y = keyboard.nextInt();
+                  if (x < 0 || x > 8 || y < 0 || y > 8) {
+                    System.out.print("Inserire parametri compresi tra 0 e 8");
+                }
+            } while (x < 0 || x > 8 || y < 0 || y > 8);
 
-                notifySelectedCoordinates((SlotChoice[]) choices.toArray());
+             selection[i]=new SlotChoice(x, y);
+             countChoices++;
+           }
 
+                notifySelectedCoordinates(selection);
                 ok = true;
 
             /*} catch (NotCatchableException e) {
@@ -190,7 +191,7 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.println("A new player as signed");
     }
     //Inserimento delle tessere prese nella shelf
-    public void playerInsert() {
+    public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
 
         int column;
         boolean ok;
@@ -204,6 +205,7 @@ public class GameInterface implements Runnable, viewListeners {
         } while (column < 0 || column > 4);
 
         do {
+            notifyInsert(column);
            // try {
                 //---------------------------Notifica con column
                 ok = true;
@@ -281,6 +283,16 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
         }
+
+    @Override
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+        for(viewListeners listener: listeners){
+            try{listener.notifyInsert(column);}
+            catch(RemoteException e){
+                System.out.println("ciao");
+            }
+        }
     }
+}
 
 

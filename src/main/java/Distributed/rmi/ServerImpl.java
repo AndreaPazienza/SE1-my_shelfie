@@ -5,6 +5,7 @@ import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
 import MODEL.Game;
 import MODEL.GameView;
@@ -42,15 +43,11 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     public void register(ClientRMIInterface client) throws RemoteException {
         System.out.println("Ricevuto un tentativo di connessione");
      if (!firstPlayerEnrolled) {
-
-            model = new Game(2);
+            model = new Game(client.startGame());
             controller = new GameController(model);
-            this.logged.add(client);
             this.model.addGameEventListener(this);
-
-
             model.signPlayer(client.getNickname());
-             System.out.println("Il giocatore " + client.getNickname()+ "è stato correttamente iscritto ");
+            this.logged.add(client);
             firstPlayerEnrolled = true;
          } else {
             if (controller.checkNick(client.getNickname())) {
@@ -60,22 +57,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 subscription();
                 System.out.println("Non ho ancora un errore");
                 if(model.isGameOn()) {
+                    //orderInGame();
                     startGame();
                 }
             }
-        }
+         System.out.println("Il giocatore " + client.getNickname()+ "è stato correttamente iscritto ");
+     }
     }
 
-    public void startGame() throws RemoteException {
-        controller.startGame();
-        for(ClientRMIInterface client : logged){
-            if(controller.getOnStage().equals(client.getNickname()))
-                client.startTurn();
-        }
-    }
 
     @Override
-    public void updateServerSelection(Client client, SlotChoice[] SC){ //throws NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC){ //throws NotAdjacentSlotsException, NotCatchableException {
        try{
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andanta a buon fine ");
@@ -90,8 +82,14 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void updateServerReorder(Client client, OrderChoice C) {
+    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) {
         this.controller.checkOrder(C);
+    }
+
+    @Override
+    public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException {
+        this.controller.checkInsert(column);
+        //lavoro
     }
 
     @Override
@@ -103,8 +101,30 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     @Override
     public void gameStateChanged() throws RemoteException {
         for(ClientRMIInterface client : logged){
-
             client.updateClient(new GameView(model));
+        }
+    }
+
+
+    @Override
+    public void turnIsOver() throws RemoteException {
+    }
+
+    @Override
+    public void notifyTurnIsOver(GameView view) {
+
+    }
+
+    public void newTurn() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            if(controller.getOnStage().equals(client.getNickname()))
+                client.startTurn();
+        }
+    }
+    public void endTurn() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            if(controller.getOnStage().equals(client.getNickname()))
+                client.endTurn();
         }
     }
     public void subscription() throws RemoteException {
@@ -112,43 +132,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             client.newPlayerAdded();
         }
     }
-
-    @Override
-    public void turnIsOver() {
-
+    public void startGame() throws RemoteException {
+        controller.startGame();
+        newTurn();
     }
 
-    @Override
-    public void notifyTurnIsOver(GameView view) {
 
-    }
 }
 
-    /*  public void updateServerView(GameView view, GameState state) throws RemoteException {
-          client.updateView(new GameView(model), state);
-         }   */
 
-/*
-    @Override
-    public void reorderTails() {
-
-        if(controller.selectedSlot.length()==2){
-             this.controller.checkReorder(controller.selectedSlot);}
-
-        else if(controller.selectedSlot.length()==3){
-            this.controller.checkReorder(controller.selectedSlot, OrderChoice c);
-          }
-    }
-
-    @Override
-    public void insertTails(int column) {
-        try{
-         this.controller.checkInsert(controller.selectedSlot, column);
-        } catch(NotEnoughSpaceChoiceException e) {
-
-        }
-
-    }
-
-*/
-//}
