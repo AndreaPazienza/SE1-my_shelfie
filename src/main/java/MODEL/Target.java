@@ -1,6 +1,8 @@
 package MODEL;
 
-public class Target {
+import java.io.Serializable;
+
+public class Target implements Serializable {
     private Color tile;
     private int PosX;
     private int PosY;

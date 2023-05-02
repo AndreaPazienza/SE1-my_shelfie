@@ -23,6 +23,9 @@ public class GameController{
 
     public void startGame () throws RemoteException {
             game.startGame();
+            while(game.isGameOn()) {
+                game.readyToStart();
+            }
     }
 
     public String getOnStage(){
@@ -104,13 +107,6 @@ public class GameController{
                     throw new NotCatchableException("Una delle tessere selezionate non può essere presa!");
                 }
             }
-
-            /*case Type4 -> {
-                game.getPlayer()[game.getPlayerInGame()].orderCards((Slot[]) selectedSlots.toArray());
-            }
-            case Type5 -> {
-                game.getPlayer()[game.getPlayerInGame()].orderCards((Slot[]) selectedSlots.toArray(), c.getP(), c.getS(), c.getT());
-            }*/
         }
     }
 

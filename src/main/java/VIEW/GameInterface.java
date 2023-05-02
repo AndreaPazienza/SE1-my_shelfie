@@ -43,15 +43,18 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void run() {
+    System.out.println("waiting...");
+    }
 
-            playerMoveSelection();
-            try {
-                playerInsert();
-            } catch (NotEnoughSpaceChoiceException e) {
-              System.out.println("Colonna errata");
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
+    public void playing(){
+        playerMoveSelection();
+        try {
+            playerInsert();
+        } catch (NotEnoughSpaceChoiceException e) {
+            System.out.println("Colonna errata");
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
@@ -214,8 +217,6 @@ public class GameInterface implements Runnable, viewListeners {
                 ok = false;
             }*/
         } while (!ok);
-
-        System.out.print("Hai inserito correttamente le tessere!");
     }
 
 //Stampa della dashboard a schermo
@@ -237,7 +238,12 @@ public class GameInterface implements Runnable, viewListeners {
             System.out.print("\n");
         }
     }
-
+    public void startTurn(){
+    System.out.print("-- Inizio del nuovo turno -- \n");
+}
+    public void endTurn(){
+        System.out.print("-- Non è il tuo turno -- \n");
+    }
     //Stampa della personal shelf a schermo
     public void displayPersonalShelf(PersonalShelf shelf){
         System.out.print("\t");
@@ -257,6 +263,7 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
         System.out.print("\n");
     }
+
 
     @Override
     public void addviewEventListener(viewListeners listener) {
@@ -293,6 +300,7 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
     }
+
 }
 
 

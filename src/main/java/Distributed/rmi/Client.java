@@ -3,17 +3,16 @@ package Distributed.rmi;
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
 import Errors.NotEnoughSpaceChoiceException;
-import Listeners.GameEventListener;
 import Listeners.viewListeners;
 
 import MODEL.GameView;
-import MODEL.Player;
 import VIEW.GameInterface;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
 
 import java.io.Serializable;
+import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
@@ -23,7 +22,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public final String nickname;
     private final GameInterface view = new GameInterface();
 
-    private boolean playing;
     private final ServerRMIInterface connectedTo;
 
     public Client(ServerRMIInterface server) throws RemoteException{
@@ -32,7 +30,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
-        playing = false;
     }
 
     public Client(ServerRMIInterface server, int port) throws RemoteException {
@@ -61,14 +58,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
-    public int numberOfPlayer() {
-        return view.numberOfPlayers();
-    }
 
     public void run() {
-        if (playing) {  view.run();
-        } else {
-              System.out.println("Waiting server's update");}
+      view.run();
     }
 
     @Override
@@ -109,21 +101,18 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void gameIsStarting() throws RemoteException {
-
-    }
-
-    @Override
     public void newPlayerAdded() throws RemoteException {
         view.arrived();
     }
+    public void onWait() throws RemoteException{
+        view.endTurn();
+    }
 
     public void startTurn() {
-        playing = true;
-        run();
+        view.startTurn();
+        view.playing();
     }
     public void endTurn(){
-        playing = false;
-        run();
+        view.endTurn();
     }
 }

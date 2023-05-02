@@ -6,10 +6,10 @@ import java.rmi.RemoteException;
 
 public interface GameEventListener {
 
-    public void addGameEventListener(GameEventListener listener);
-    public void gameStateChanged() throws RemoteException;
-    public void turnIsOver() throws RemoteException; //Manda le nuove game view a fine turno
-    public void notifyTurnIsOver(GameView view);
-
+    void addGameEventListener(GameEventListener listener);
+    void gameStateChanged() throws RemoteException;
+    void turnIsOver() throws RemoteException; //Manda le nuove game view a fine turno
+ //   public void notifyTurnIsOver(GameView view);
+    void readyToStart() throws RemoteException;
 
 }

@@ -57,12 +57,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 subscription();
                 System.out.println("Non ho ancora un errore");
                 if(model.isGameOn()) {
-                    //orderInGame();
                     startGame();
                 }
             }
-         System.out.println("Il giocatore " + client.getNickname()+ "è stato correttamente iscritto ");
-     }
+        }
     }
 
 
@@ -89,7 +87,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException {
         this.controller.checkInsert(column);
-        //lavoro
+        System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
+        turnIsOver();
     }
 
     @Override
@@ -108,18 +107,36 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     @Override
     public void turnIsOver() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            client.updateClient(new GameView(model));
+        }
+
     }
 
     @Override
-    public void notifyTurnIsOver(GameView view) {
-
+    public void readyToStart() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            if(controller.getOnStage().equals(client.getNickname())) {
+                client.startTurn();
+            }else{
+                client.onWait();
+            }
+        }
+        turnIsOver();
+        turnUpdate();
     }
+
 
     public void newTurn() throws RemoteException {
         for(ClientRMIInterface client : logged){
-            if(controller.getOnStage().equals(client.getNickname()))
+            if(controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
+            }else{
+                client.onWait();
+            }
         }
+        turnIsOver();
+        turnUpdate();
     }
     public void endTurn() throws RemoteException {
         for(ClientRMIInterface client : logged){
@@ -134,6 +151,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     public void startGame() throws RemoteException {
         controller.startGame();
+    }
+
+
+
+    public void turnUpdate() throws RemoteException{
+        model.turnIsOver();
+        System.out.println("Pongo fine al turno: \n");
+        endTurn();
+        System.out.println("Aggioramento del turno in corso.. \n");
+        model.updateTurn();
+        System.out.println("nuovo turno: \n");
         newTurn();
     }
 

@@ -3,6 +3,8 @@ package MODEL;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
+import java.rmi.RemoteException;
+
 public class GameTest {
 
     private Game game;
@@ -90,7 +92,7 @@ public class GameTest {
 
     //Test updateTurn passato (non verificata la parte relativa ai commonGoal)
     @Test
-    void testUpdateTurn() {
+    void testUpdateTurn() throws RemoteException {
 
         Game game = new Game(4);
 

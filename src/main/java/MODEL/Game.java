@@ -79,7 +79,7 @@ public class Game implements GameEventListener {
         state = GameState.PLAYING_IN_ORDERING;
         getTable().refill(getBag());
         getTable().catchAfterRefill();
-        //assignPGoal();
+        assignPGoal();
         this.gameStateChanged();
     }
 
@@ -131,6 +131,7 @@ public class Game implements GameEventListener {
 
     }
 
+
     public int getNplayers(){ return Nplayers;}
 
     public Dashboard getTable() {
@@ -179,16 +180,25 @@ public class Game implements GameEventListener {
         }
     }
 
+    public void readyToStart() throws RemoteException {
+        for(GameEventListener listener: listeners){
+            listener.readyToStart();
+        }
+
+    }
+
     @Override
     public void turnIsOver() throws RemoteException {
         for(GameEventListener listener: listeners){
-            listener.notifyTurnIsOver(new GameView(this));
+           // listener.notifyTurnIsOver(new GameView(this));
             listener.turnIsOver();
         }
     }
 
-    @Override
+
+
+  /*  @Override
     public void notifyTurnIsOver(GameView view) {
 
-    }
+    }*/
 }
