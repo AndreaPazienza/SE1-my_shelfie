@@ -114,16 +114,16 @@ public class GameTest {
         System.out.print("\n");
 
         System.out.print(game.getTable().checkRefill() + "\n");
-        game.updateTurn();
+        //game.updateTurn();
         System.out.print("Giocatore di turno: " + game.getPlayerInGame() + "\n");
         System.out.print(game.getTable().checkRefill() + "\n");
-        game.updateTurn();
+        //game.updateTurn();
         System.out.print("Giocatore di turno: " + game.getPlayerInGame() + "\n");
         System.out.print(game.getTable().checkRefill() + "\n");
-        game.updateTurn();
+        //game.updateTurn();
         System.out.print("Giocatore di turno: " + game.getPlayerInGame() + "\n");
         System.out.print(game.getTable().checkRefill() + "\n");
-        game.updateTurn();
+        //game.updateTurn();
         System.out.print("Giocatore di turno: " + game.getPlayerInGame() + "\n");
         System.out.print("\n");
 
