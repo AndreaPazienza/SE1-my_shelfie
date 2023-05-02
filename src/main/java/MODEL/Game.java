@@ -3,6 +3,7 @@ package MODEL;
 
 import Listeners.GameEventListener;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,11 +60,14 @@ public class Game implements GameEventListener {
         Player player = new Player(nick);
         this.player[playerInGame] = player;
         this.player[playerInGame].setOrderInTurn(playerInGame+1);
-        playerInGame ++;
-        if (playerInGame == Nplayers) {
+
+        if (playerInGame == Nplayers-1) {
             setGameOn(true);
             playerInGame = 0;
+        }else{
+            playerInGame ++;
         }
+
     }
 
     //Restituisce il giocatore di turno
@@ -71,16 +75,16 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
-    public void startGame(){
+    public void startGame() throws RemoteException {
         state = GameState.PLAYING_IN_ORDERING;
         getTable().refill(getBag());
         getTable().catchAfterRefill();
-        assignPGoal();
+        //assignPGoal();
         this.gameStateChanged();
     }
 
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
-    public void updateTurn() {
+    public void updateTurn() throws RemoteException {
         //Controllo dei CommonGoal completati ed incremento
         this.commonGoal1.getGoal().control(player[playerInGame]);
         this.commonGoal1.getGoal().incrementCG();
@@ -169,14 +173,14 @@ public class Game implements GameEventListener {
     }
 
     @Override
-    public void gameStateChanged() {
+    public void gameStateChanged() throws RemoteException {
     for(GameEventListener listener: listeners){
         listener.gameStateChanged();
         }
     }
 
     @Override
-    public void turnIsOver() {
+    public void turnIsOver() throws RemoteException {
         for(GameEventListener listener: listeners){
             listener.notifyTurnIsOver(new GameView(this));
             listener.turnIsOver();

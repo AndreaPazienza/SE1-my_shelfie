@@ -3,7 +3,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 
-
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.viewListeners;
 import MODEL.*;
 
@@ -14,7 +14,6 @@ public class GameInterface implements Runnable, viewListeners {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
-
 
     //inserimento nickname per la prima volta
     public String firstRun() {
@@ -45,13 +44,17 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void run() {
 
-        int nChoices = 0;
-        GameView gameView;
-    //Da sistemare
-        //update(gameView);
-        playerMoveSelection();
-        playerInsert();
+            playerMoveSelection();
+            try {
+                playerInsert();
+            } catch (NotEnoughSpaceChoiceException e) {
+              System.out.println("Colonna errata");
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
     }
+
+
 
 
     //Selezione delle tessere dalla dashboard
@@ -71,34 +74,32 @@ public class GameInterface implements Runnable, viewListeners {
                 System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
             }
         } while (nChoices < 1 || nChoices > maxChoices);
-        ArrayList<SlotChoice> choices = new ArrayList<>();
+
+        SlotChoice[] selection = new SlotChoice[nChoices];
 
         int x = -1;
         int y = -1;
 
-        System.out.print("");
-
         do {
-           // try {
-                do {
-                    //Inseriemento della tessera songola e inserimento nell'array di tessere
-                    do {
-                        System.out.println("Inserire le coordinate della tessera da prendere: ");
-                        System.out.println("X: ");
-                        x = keyboard.nextInt();
-                        System.out.println("Y: ");
-                        y = keyboard.nextInt();
-                        if (x < 0 || x > 8 || y < 0 || y > 8) {
-                            System.out.print("Inserire parametri compresi tra 0 e 8");
-                        }
-                    } while (x < 0 || x > 8 || y < 0 || y > 8);
-                    choices.add(new SlotChoice(x,y));
-                    countChoices++;
+            for(int i=0; i<nChoices; i++){
 
-                } while (countChoices < nChoices);
+             //Inseriemento della tessera songola e inserimento nell'array di tessere
+             do {
+                    System.out.println("Inserire le coordinate della tessera da prendere: ");
+                    System.out.println("X: ");
+                    x = keyboard.nextInt();
+                    System.out.println("Y: ");
+                     y = keyboard.nextInt();
+                  if (x < 0 || x > 8 || y < 0 || y > 8) {
+                    System.out.print("Inserire parametri compresi tra 0 e 8");
+                }
+            } while (x < 0 || x > 8 || y < 0 || y > 8);
 
-                notifySelectedCoordinates((SlotChoice[]) choices.toArray());
+             selection[i]=new SlotChoice(x, y);
+             countChoices++;
+           }
 
+                notifySelectedCoordinates(selection);
                 ok = true;
 
             /*} catch (NotCatchableException e) {
@@ -186,8 +187,11 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
+    public void arrived(){
+        System.out.println("A new player as signed");
+    }
     //Inserimento delle tessere prese nella shelf
-    public void playerInsert() {
+    public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
 
         int column;
         boolean ok;
@@ -201,6 +205,7 @@ public class GameInterface implements Runnable, viewListeners {
         } while (column < 0 || column > 4);
 
         do {
+            notifyInsert(column);
            // try {
                 //---------------------------Notifica con column
                 ok = true;
@@ -215,7 +220,7 @@ public class GameInterface implements Runnable, viewListeners {
 
 //Stampa della dashboard a schermo
     public void displayDashboard(Dashboard board){
-        System.out.print("" + "\t");
+        System.out.print("\t");
         for(int k = 0; k < Dashboard.getSide(); k++){
             System.out.print("\t" + k + "\t");
         }
@@ -231,14 +236,11 @@ public class GameInterface implements Runnable, viewListeners {
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("\n");
-        System.out.print("===============================================================================\n");
-        System.out.print("\n");
     }
 
     //Stampa della personal shelf a schermo
     public void displayPersonalShelf(PersonalShelf shelf){
-        System.out.print("" + "\t");
+        System.out.print("\t");
         for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
             System.out.print("\t" + k + "\t");
         }
@@ -249,47 +251,10 @@ public class GameInterface implements Runnable, viewListeners {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!shelf.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !shelf.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
                     System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "  " + "\t");
+                } else System.out.print("\t " + "  " + " \t");
             }
-            System.out.print("\n");
-            System.out.print("\n");
         }
         System.out.print("\n");
-        System.out.print("===============================================================================\n");
-        System.out.print("\n");
-    }
-
-    //Stampa del personal goal a schermo
-    public void displayPersonalGoal(PersonalGoal pgoal) {
-
-        boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
-
-        for (int countTarget = 0; countTarget < pgoal.getGoal().length; countTarget ++)
-            isTarget[pgoal.getSingleTarget(countTarget).getPosX()][pgoal.getSingleTarget(countTarget).getPosY()] = true;
-
-        System.out.print("" + "\t");
-        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t" + k + "\t");
-        }
-        System.out.print("\n");
-        System.out.print("\n");
-
-        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
-            System.out.print("" + i + "\t");
-            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
-                    if (isTarget[i][j]) {
-                        for (int countTarget = 0; countTarget < pgoal.getGoal().length; countTarget++) {
-                            if ((pgoal.getSingleTarget(countTarget).getPosX() == i) && (pgoal.getSingleTarget(countTarget).getPosY() == j)) {
-                                System.out.print("\t" + ColorPrint.convertColor(pgoal.getSingleTarget(countTarget).getTile()) + "[]" + ColorPrint.RESET + "\t");
-                            }
-                        }
-                } else System.out.print("\t" + ".. " + "\t");
-            }
-            System.out.print("\n");
-            System.out.print("\n");
-        }
-        System.out.print("\n");
-        System.out.print("===============================================================================\n");
         System.out.print("\n");
     }
 
@@ -313,6 +278,16 @@ public class GameInterface implements Runnable, viewListeners {
     public void notifyOrder(OrderChoice o) {
         for(viewListeners listener: listeners){
             try{listener.notifyOrder(o);}
+            catch(RemoteException e){
+                System.out.println("ciao");
+            }
+        }
+        }
+
+    @Override
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+        for(viewListeners listener: listeners){
+            try{listener.notifyInsert(column);}
             catch(RemoteException e){
                 System.out.println("ciao");
             }

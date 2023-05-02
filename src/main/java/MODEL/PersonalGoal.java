@@ -1,8 +1,9 @@
 package MODEL;
 
+import java.io.Serializable;
 import java.util.Observable;
 
-public class PersonalGoal {
+public class PersonalGoal implements Serializable {
     private Target[] goal;
     private static final int N_GOALS = 6;
 

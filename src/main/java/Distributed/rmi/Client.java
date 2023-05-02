@@ -2,26 +2,29 @@ package Distributed.rmi;
 
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
 import Listeners.viewListeners;
 
 import MODEL.GameView;
+import MODEL.Player;
 import VIEW.GameInterface;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
 
-
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 
-public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface {
+public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     public final String nickname;
     private final GameInterface view = new GameInterface();
 
-    private ServerRMIInterface connectedTo = null;
+    private boolean playing;
+    private final ServerRMIInterface connectedTo;
 
     public Client(ServerRMIInterface server) throws RemoteException{
         super();
@@ -29,6 +32,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
+        playing = false;
     }
 
     public Client(ServerRMIInterface server, int port) throws RemoteException {
@@ -53,14 +57,19 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         server.register(this);
         view.addviewEventListener(this);
         }catch(RemoteException e){
-            System.err.println("ciao");
+            System.err.println(e.getCause());
         }
     }
 
     public int numberOfPlayer() {
         return view.numberOfPlayers();
     }
-    public void run(){view.run();}
+
+    public void run() {
+        if (playing) {  view.run();
+        } else {
+              System.out.println("Waiting server's update");}
+    }
 
     @Override
     public void addviewEventListener(viewListeners listener) {
@@ -78,10 +87,43 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void notifyOrder(OrderChoice o) throws RemoteException {
         connectedTo.updateServerReorder(this, o);
     }
+    @Override
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+        connectedTo.updateServerInsert(this, column);
+    }
 
     @Override
     public void updateClient(GameView modelView) {
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
+    }
+
+    @Override
+    public String getNickname() throws RemoteException {
+        return this.nickname;
+    }
+
+    @Override
+    public int startGame() throws RemoteException {
+        return view.numberOfPlayers();
+    }
+
+    @Override
+    public void gameIsStarting() throws RemoteException {
+
+    }
+
+    @Override
+    public void newPlayerAdded() throws RemoteException {
+        view.arrived();
+    }
+
+    public void startTurn() {
+        playing = true;
+        run();
+    }
+    public void endTurn(){
+        playing = false;
+        run();
     }
 }

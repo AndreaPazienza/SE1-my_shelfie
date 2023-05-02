@@ -1,6 +1,8 @@
 package MODEL;
 
-public class Slot {
+import java.io.Serializable;
+
+public class Slot implements Serializable {
     private Color color;
     private Type type;
     private boolean catchable;
