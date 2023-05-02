@@ -127,6 +127,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
 
+
+
     public void newTurn() throws RemoteException {
         for(ClientRMIInterface client : logged){
             if(controller.getOnStage().equals(client.getNickname())) {

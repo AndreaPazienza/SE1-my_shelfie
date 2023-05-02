@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfd0a734-5939-49e2-acde-ebe77eb55e11" name="Changes" comment="Aggiornamento rete: fino ad inserimento tessera">
+    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Metodo DisplayPersonalGoal e test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +34,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="9db4e015-2ee1-4fc9-bdc2-b1fabdb6085c" />
+        <option name="url" value="https://github.com/RubV18/ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
@@ -91,13 +100,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.AppClient">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="MyShelfie_RPPT" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
@@ -112,7 +114,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayDashboardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="GameInterfaceTest.displayPersonalShelfTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -122,7 +124,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="VIEW" />
       <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayDashboardTest" />
+      <option name="METHOD_NAME" value="displayPersonalShelfTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -130,17 +132,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameTest.testAssignPGoal" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="GameInterfaceTest.displayPgoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="VIEW.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
-      <option name="METHOD_NAME" value="testAssignPGoal" />
+      <option name="PACKAGE_NAME" value="VIEW" />
+      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
+      <option name="METHOD_NAME" value="displayPgoalTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameInterfaceTest.displayTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="VIEW.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="VIEW" />
+      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
+      <option name="METHOD_NAME" value="displayTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -149,19 +169,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
-      <item itemvalue="TestNG.GameTest.testAssignPGoal" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
+      <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
+      <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
+      <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
-        <item itemvalue="TestNG.GameTest.testAssignPGoal" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
+        <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
+        <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
+        <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
       </list>
     </recent_temporary>
   </component>
@@ -320,21 +340,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682543523301</updated>
     </task>
-    <task id="LOCAL-00019" summary="Connessione di tutti i client ed inizio partita, bug presente nella assegnazione dei PGoal">
-      <created>1683029189153</created>
+    <task id="LOCAL-00019" summary="Metodo DisplayPersonalGoal e test">
+      <created>1683041945953</created>
       <option name="number" value="00019" />
       <option name="presentableId" value="LOCAL-00019" />
       <option name="project" value="LOCAL" />
-      <updated>1683029189153</updated>
+      <updated>1683041945953</updated>
     </task>
-    <task id="LOCAL-00020" summary="Aggiornamento rete: fino ad inserimento tessera">
-      <created>1683036911494</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1683036911494</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,78 +399,25 @@
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
-    <MESSAGE value="Connessione di tutti i client ed inizio partita, bug presente nella assegnazione dei PGoal" />
-    <MESSAGE value="Aggiornamento rete: fino ad inserimento tessera" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento rete: fino ad inserimento tessera" />
+    <MESSAGE value="Metodo DisplayPersonalGoal e test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Metodo DisplayPersonalGoal e test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="76" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java</url>
-          <line>104</line>
-          <option name="timeStamp" value="77" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppServer.java</url>
-          <line>8</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/Game.java</url>
-          <line>99</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MODEL/Game.java</url>
-          <line>193</line>
-          <option name="timeStamp" value="106" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="110" />
+          <line>15</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java</url>
-          <line>119</line>
-          <properties class="CONTROLLER.GameController" method="checkInsert">
+          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
+          <line>10</line>
+          <properties class="AppClient" method="main">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="104" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>73</line>
-          <properties class="Distributed.rmi.Client" method="notifySelectedCoordinates">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="107" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>82</line>
-          <properties class="Distributed.rmi.Client" method="notifyInsert">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="108" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>78</line>
-          <properties class="Distributed.rmi.Client" method="notifyOrder">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="109" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

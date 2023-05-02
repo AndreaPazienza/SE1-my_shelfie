@@ -19,4 +19,5 @@ public class CGFourCorners extends CommonGoalAbs {
           if (topLeft.equals(bottomLeft) && topLeft.equals(bottomRight) && topLeft.equals(topRight)) { givePoints(player);}
         }
     }
+
 }
