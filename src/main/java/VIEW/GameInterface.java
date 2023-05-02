@@ -15,6 +15,7 @@ public class GameInterface implements Runnable, viewListeners {
     private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
 
+
     //inserimento nickname per la prima volta
     public String firstRun() {
 
@@ -214,7 +215,7 @@ public class GameInterface implements Runnable, viewListeners {
 
 //Stampa della dashboard a schermo
     public void displayDashboard(Dashboard board){
-        System.out.print("\t");
+        System.out.print("" + "\t");
         for(int k = 0; k < Dashboard.getSide(); k++){
             System.out.print("\t" + k + "\t");
         }
@@ -230,11 +231,14 @@ public class GameInterface implements Runnable, viewListeners {
             System.out.print("\n");
             System.out.print("\n");
         }
+        System.out.print("\n");
+        System.out.print("===============================================================================\n");
+        System.out.print("\n");
     }
 
     //Stampa della personal shelf a schermo
     public void displayPersonalShelf(PersonalShelf shelf){
-        System.out.print("\t");
+        System.out.print("" + "\t");
         for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
             System.out.print("\t" + k + "\t");
         }
@@ -245,10 +249,47 @@ public class GameInterface implements Runnable, viewListeners {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!shelf.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !shelf.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
                     System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t " + "  " + " \t");
+                } else System.out.print("\t" + "  " + "\t");
             }
+            System.out.print("\n");
+            System.out.print("\n");
         }
         System.out.print("\n");
+        System.out.print("===============================================================================\n");
+        System.out.print("\n");
+    }
+
+    //Stampa del personal goal a schermo
+    public void displayPersonalGoal(PersonalGoal pgoal) {
+
+        boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
+
+        for (int countTarget = 0; countTarget < pgoal.getGoal().length; countTarget ++)
+            isTarget[pgoal.getSingleTarget(countTarget).getPosX()][pgoal.getSingleTarget(countTarget).getPosY()] = true;
+
+        System.out.print("" + "\t");
+        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
+            System.out.print("\t" + k + "\t");
+        }
+        System.out.print("\n");
+        System.out.print("\n");
+
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            System.out.print("" + i + "\t");
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                    if (isTarget[i][j]) {
+                        for (int countTarget = 0; countTarget < pgoal.getGoal().length; countTarget++) {
+                            if ((pgoal.getSingleTarget(countTarget).getPosX() == i) && (pgoal.getSingleTarget(countTarget).getPosY() == j)) {
+                                System.out.print("\t" + ColorPrint.convertColor(pgoal.getSingleTarget(countTarget).getTile()) + "[]" + ColorPrint.RESET + "\t");
+                            }
+                        }
+                } else System.out.print("\t" + ".. " + "\t");
+            }
+            System.out.print("\n");
+            System.out.print("\n");
+        }
+        System.out.print("\n");
+        System.out.print("===============================================================================\n");
         System.out.print("\n");
     }
 
@@ -276,7 +317,7 @@ public class GameInterface implements Runnable, viewListeners {
                 System.out.println("ciao");
             }
         }
-        }
     }
+}
 
 

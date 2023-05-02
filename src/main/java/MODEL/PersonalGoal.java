@@ -45,6 +45,10 @@ public class PersonalGoal {
         return goal[i];
     }
 
+    public Target[] getGoal() {
+        return goal;
+    }
+
     public PersonalGoal() {
         this.goal = new Target[N_GOALS];
     }
