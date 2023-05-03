@@ -19,4 +19,5 @@ public class AppClient {
     }
 }
 
-//Fix ricezione delle view.
+//Bloccare l'interfaccia nella view.
+//Chat

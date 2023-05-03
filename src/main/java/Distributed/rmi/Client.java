@@ -124,4 +124,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void endTurn(){
         view.endTurn();
     }
+
+    @Override
+    public void winnerInterface(String winner ) throws RemoteException {
+        view.displayWin(winner);
+
+    }
+
+    @Override
+    public void notifyCompleted() throws RemoteException {
+        view.notifyAlmostOver();
+
+    }
 }

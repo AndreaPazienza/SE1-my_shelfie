@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Aggiornamento del Display">
+    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Aggiornamento invio dashboard e display della PersonalShelf">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -352,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683050899671</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Aggiornamento invio dashboard e display della PersonalShelf">
+      <created>1683130115009</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1683130115009</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +419,8 @@
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento del Display" />
+    <MESSAGE value="Aggiornamento invio dashboard e display della PersonalShelf" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento invio dashboard e display della PersonalShelf" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -431,7 +445,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>132</line>
+          <line>148</line>
           <properties class="Distributed.rmi.ServerImpl" method="newTurn">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -440,7 +454,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>165</line>
+          <line>191</line>
           <properties class="Distributed.rmi.ServerImpl" method="turnUpdate">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />

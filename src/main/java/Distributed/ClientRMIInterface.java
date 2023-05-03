@@ -18,5 +18,7 @@ public interface ClientRMIInterface extends Remote {
     void newPlayerAdded() throws RemoteException;
     void startTurn() throws  RemoteException;
     void endTurn() throws RemoteException;
+    void winnerInterface(String winner) throws RemoteException;
+    void notifyCompleted() throws RemoteException;
 
 }

@@ -15,6 +15,8 @@ public class GameInterface implements Runnable, viewListeners {
     private List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
 
+    //protected boolean playing=false;
+
     //inserimento nickname per la prima volta
     public String firstRun() {
 
@@ -243,6 +245,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void startTurn() {
         System.out.print("-- Inizio del nuovo turno -- \n");
+
     }
 
     public void endTurn() {
@@ -304,6 +307,13 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
+    }
+
+    public void displayWin(String winner){
+        System.out.println("Il gioco è finito!! \n " + winner);
+    }
+    public void notifyAlmostOver(){
+        System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!! \n");
     }
 
     //Aggiunge un listener a se stesso
