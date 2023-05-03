@@ -104,12 +104,6 @@ public class Game implements GameEventListener {
             playerInGame = 0;
         }
     }
-    public void readyToEnd() {
-        if(player[playerInGame].getOrderInTurn()!=1){
-
-        }
-
-    }
 
     //Viene decretato il vincitore (cerca massimo)
     public Player finalScore() {

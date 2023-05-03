@@ -100,7 +100,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     @Override
     public void gameStateChanged() throws RemoteException {
         for(ClientRMIInterface client : logged){
-            client.updateClientRound(new GameView(model));
+            client.updateClientFirst(new GameView(model));
         }
     }
 
@@ -109,7 +109,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     public void turnIsOver() throws RemoteException {
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
-                client.updateClientFirst(new GameView(model));
+                client.updateClientPlaying(new GameView(model));
                 client.endTurn();
             }else{
                 client.updateClientRound(new GameView(model));
@@ -143,6 +143,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     public void notifyGameFinished() throws RemoteException {
         winnerInterface(controller.endGame());
     }
+
+  /*  public void turnIsStarting() throws RemoteException {
+        for (ClientRMIInterface client : logged) {
+            client.updateClientFirst(new GameView(model));
+        }
+    }*/
 
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno

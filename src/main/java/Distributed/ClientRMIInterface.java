@@ -10,6 +10,7 @@ public interface ClientRMIInterface extends Remote {
     //Da implementare la PS solo alla fine
     void updateClientFirst(GameView view) throws RemoteException;
     void updateClientRound(GameView model) throws RemoteException;
+    void updateClientPlaying(GameView model) throws RemoteException;
     String getNickname() throws RemoteException;
 
     int startGame() throws RemoteException;
