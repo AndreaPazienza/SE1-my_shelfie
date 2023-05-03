@@ -12,7 +12,6 @@ import VIEW.SlotChoice;
 
 
 import java.io.Serializable;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
@@ -21,15 +20,15 @@ import java.rmi.server.UnicastRemoteObject;
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     public final String nickname;
     private final GameInterface view = new GameInterface();
-
     private final ServerRMIInterface connectedTo;
 
     public Client(ServerRMIInterface server) throws RemoteException{
         super();
+        connectedTo = server;
         nickname = view.firstRun();
+        view.addviewEventListener(this);
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
-        connectedTo = server;
     }
 
     public Client(ServerRMIInterface server, int port) throws RemoteException {
@@ -47,12 +46,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         initialize(server);
         connectedTo = server;
     }
-//Manca il controllo che il server prende i dati dal client giusto.
+
+
     public void initialize(ServerRMIInterface server) throws RemoteException {
         try{
-        //System.out.println(this.nickname);
         server.register(this);
-        view.addviewEventListener(this);
         }catch(RemoteException e){
             System.err.println(e.getCause());
         }
@@ -63,55 +61,60 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
       view.run();
     }
 
+    //Observer:
     @Override
     public void addviewEventListener(viewListeners listener) {
         System.out.println("\t Connessione Client/Server stabilita \n");
     }
 
 
-    //Mancano i metodi di ordering e di insertion,
+    //Observer: quando dalla view vengono prese coordinate
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException {
+        System.out.println("Invio delle coordinate in corso; \n");
         connectedTo.updateServerSelection(this, SC);
     }
-
+    //Observer: quando dalla view viene scelto l'ordinamento
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException {
         connectedTo.updateServerReorder(this, o);
     }
+    //Observer: quando dalla view viene scelta la colonna di inserimento
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
         connectedTo.updateServerInsert(this, column);
     }
-
+    //Quando il server ha un nuovo update viene mandato e mostrato dal client
     @Override
     public void updateClient(GameView modelView) {
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
-
+    //Metodo remoto: passaggio del nickname al server
     @Override
     public String getNickname() throws RemoteException {
         return this.nickname;
     }
-
+    //Metodo remoto: usato per notificare al primo client di che manca il numero di giocatori
     @Override
     public int startGame() throws RemoteException {
         return view.numberOfPlayers();
     }
-
+    //Metodo remoto: quando un nuovo cient si registra viene notificato a chi è già loggato
     @Override
     public void newPlayerAdded() throws RemoteException {
         view.arrived();
     }
+    //Metodo remoto: per segnalare al client che deve stare ancora in attesa del proprio turno
     public void onWait() throws RemoteException{
         view.endTurn();
     }
-
-    public void startTurn() {
+    //Metodo remoto: inizio del proprio turno
+    public void startTurn() throws RemoteException {
         view.startTurn();
         view.playing();
     }
+    //Metodo remoto: finel del turno
     public void endTurn(){
         view.endTurn();
     }

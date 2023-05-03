@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Metodo DisplayPersonalGoal e test">
+    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Aggiornamento del Display">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +189,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="388ac5d8-64fb-4269-a078-b91e6ec2bd14" name="Changes" comment="Update Color (aggiunta randomizer)&#10;Update PersonalGoal e Target (aggiunta costruttore)" />
+      <changelist id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Aggiornamento del Display" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -213,6 +214,7 @@
       <workItem from="1682412318806" duration="1264000" />
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
+      <workItem from="1683121119830" duration="3280000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -347,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683041945953</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Aggiornamento del Display">
+      <created>1683050899671</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1683050899671</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,24 +409,70 @@
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Metodo DisplayPersonalGoal e test" />
+    <MESSAGE value="Aggiornamento del Display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento del Display" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
-          <line>10</line>
-          <properties class="AppClient" method="main">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
+          <line>112</line>
+          <properties class="Distributed.rmi.Client" method="startTurn">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>108</line>
+          <properties class="Distributed.rmi.ServerImpl" method="turnIsOver">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>132</line>
+          <properties class="Distributed.rmi.ServerImpl" method="newTurn">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>165</line>
+          <properties class="Distributed.rmi.ServerImpl" method="turnUpdate">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>67</line>
+          <properties class="Distributed.rmi.ServerImpl" method="updateServerSelection">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>87</line>
+          <properties class="Distributed.rmi.ServerImpl" method="updateServerInsert">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -12,7 +12,7 @@ import java.util.Scanner;
 
 public class GameInterface implements Runnable, viewListeners {
 
-    private final List<viewListeners> listeners = new ArrayList<>();
+    private List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
 
     //inserimento nickname per la prima volta
@@ -35,7 +35,7 @@ public class GameInterface implements Runnable, viewListeners {
         do {
             System.out.print("Inserire il numero dei giocatori: ");
             number = keyboard.nextInt();
-            if  (number < 2 || number > 4)
+            if (number < 2 || number > 4)
                 System.out.print("Il giioco è da 2 a 4 giocatori, inserire un numero corretto ");
         } while (number < 2 || number > 4);
 
@@ -46,22 +46,20 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.println("waiting...");
     }
 
-    public void playing(){
-    playerMoveSelection();
-            try {
-                playerInsert();
-            } catch (NotEnoughSpaceChoiceException e) {
-              System.out.println("Colonna errata");
-            } catch (RemoteException e) {
-                throw new RuntimeException(e);
-            }
+    public void playing() throws RemoteException {
+        playerMoveSelection();
+        try {
+            playerInsert();
+        } catch (NotEnoughSpaceChoiceException e) {
+            System.out.println("Colonna errata");
+        } catch (RemoteException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
-
-
     //Selezione delle tessere dalla dashboard
-    public void playerMoveSelection() {
+    public void playerMoveSelection() throws RemoteException {
 
         int countChoices = 0;
         int nChoices = 0;
@@ -84,26 +82,26 @@ public class GameInterface implements Runnable, viewListeners {
         int y = -1;
 
         do {
-            for(int i=0; i<nChoices; i++){
+            for (int i = 0; i < nChoices; i++) {
 
-             //Inseriemento della tessera songola e inserimento nell'array di tessere
-             do {
+                //Inseriemento della tessera songola e inserimento nell'array di tessere
+                do {
                     System.out.println("Inserire le coordinate della tessera da prendere: ");
                     System.out.println("X: ");
                     x = keyboard.nextInt();
                     System.out.println("Y: ");
-                     y = keyboard.nextInt();
-                  if (x < 0 || x > 8 || y < 0 || y > 8) {
-                    System.out.print("Inserire parametri compresi tra 0 e 8");
-                }
-            } while (x < 0 || x > 8 || y < 0 || y > 8);
+                    y = keyboard.nextInt();
+                    if (x < 0 || x > 8 || y < 0 || y > 8) {
+                        System.out.print("Inserire parametri compresi tra 0 e 8");
+                    }
+                } while (x < 0 || x > 8 || y < 0 || y > 8);
 
-             selection[i]=new SlotChoice(x, y);
-             countChoices++;
-           }
+                selection[i] = new SlotChoice(x, y);
+                countChoices++;
+            }
 
-                notifySelectedCoordinates(selection);
-                ok = true;
+            notifySelectedCoordinates(selection);
+            ok = true;
 
             /*} catch (NotCatchableException e) {
                 System.out.println("Una delle tessere selezionate non è giocabile, sceglierne delle altre");
@@ -113,7 +111,7 @@ public class GameInterface implements Runnable, viewListeners {
                 System.out.println("Le tessere selezionate non sono adiacenti, scelierne delle altre");
                 ok = false;
             }*/
-        }while (!ok);
+        } while (!ok);
 
         System.out.println("Le tessere sono state selezionate");
 
@@ -122,7 +120,7 @@ public class GameInterface implements Runnable, viewListeners {
                 if (nChoices == 2) {
 
                     //Creazione di una OrderChoice con parametri convenzionalmente scelti
-                    OrderChoice order = new OrderChoice(1,1,1);
+                    OrderChoice order = new OrderChoice(1, 1, 1);
 
                     notifyOrder(order);
                 }
@@ -190,9 +188,10 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
-    public void arrived(){
+    public void arrived() {
         System.out.println("A new player as signed");
     }
+
     //Inserimento delle tessere prese nella shelf
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
 
@@ -209,9 +208,9 @@ public class GameInterface implements Runnable, viewListeners {
 
         do {
             notifyInsert(column);
-           // try {
-                //---------------------------Notifica con column
-                ok = true;
+            // try {
+            //---------------------------Notifica con column
+            ok = true;
            /* } catch (NotEnoughSpaceChoiceException e) {
                 System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
                 ok = false;
@@ -219,18 +218,18 @@ public class GameInterface implements Runnable, viewListeners {
         } while (!ok);
     }
 
-//Stampa della dashboard a schermo
-    public void displayDashboard(Dashboard board){
+    //Stampa della dashboard a schermo
+    public void displayDashboard(Dashboard board) {
         System.out.print("\t");
-        for(int k = 0; k < Dashboard.getSide(); k++){
+        for (int k = 0; k < Dashboard.getSide(); k++) {
             System.out.print("\t " + k + " \t");
         }
         System.out.print("\n");
         System.out.print("\n");
-        for (int i = 0; i < Dashboard.getSide(); i ++) {
-            System.out.print(i +"\t");
-            for (int j = 0; j < Dashboard.getSide(); j ++ ) {
-                if ((!board.getSingleSlot(i,j).getColor().Equals(Color.BLACK) && !board.getSingleSlot(i,j).getColor().Equals(Color.GREY))) {
+        for (int i = 0; i < Dashboard.getSide(); i++) {
+            System.out.print(i + "\t");
+            for (int j = 0; j < Dashboard.getSide(); j++) {
+                if ((!board.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !board.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
                     System.out.print("\t" + ColorPrint.convertColor(board.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
                 } else System.out.print("\t" + "   " + "\t");
             }
@@ -241,22 +240,25 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
         System.out.print("\n");
     }
-    public void startTurn(){
-    System.out.print("-- Inizio del nuovo turno -- \n");
-}
-    public void endTurn(){
+
+    public void startTurn() {
+        System.out.print("-- Inizio del nuovo turno -- \n");
+    }
+
+    public void endTurn() {
         System.out.print("-- Non è il tuo turno -- \n");
     }
+
     //Stampa della personal shelf a schermo
-    public void displayPersonalShelf(PersonalShelf shelf){
+    public void displayPersonalShelf(PersonalShelf shelf) {
         System.out.print("\t");
-        for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
+        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
             System.out.print("\t " + k + " \t");
         }
         System.out.print("\n");
         System.out.print("\n");
-        for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            System.out.print(i +"\t");
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!shelf.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !shelf.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
                     System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
@@ -271,25 +273,25 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     //Stampa del personal goal a schermo
-    public void displayPersonalGoal(PersonalGoal pGoal){
+    public void displayPersonalGoal(PersonalGoal pGoal) {
 
         boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
 
-        for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget ++) {
+        for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget++) {
             isTarget[pGoal.getSingleTarget(countTarget).getPosX()][pGoal.getSingleTarget(countTarget).getPosY()] = true;
         }
 
         System.out.print("\t");
-        for(int k = 0; k < PersonalShelf.N_COLUMN; k++){
+        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
             System.out.print("\t " + k + " \t");
         }
         System.out.print("\n");
         System.out.print("\n");
-        for (int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            System.out.print(i +"\t");
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if (isTarget[i][j]) {
-                    for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget ++) {
+                    for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget++) {
                         if ((pGoal.getSingleTarget(countTarget).getPosX() == i) && (pGoal.getSingleTarget(countTarget).getPosY() == j)) {
                             System.out.print("\t" + ColorPrint.convertColor(pGoal.getSingleTarget(countTarget).getTile()) + "[ ]" + ColorPrint.RESET + "\t");
                         }
@@ -304,41 +306,46 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
+    //Aggiunge un listener a se stesso
     @Override
     public void addviewEventListener(viewListeners listener) {
-        listeners.add(listener);
+            listeners.add(listener);
+            System.out.println("Creato bond client / view \n");
     }
 
+    //Notifica a tutti i listerner (Client) l'avvenuta selezione
     @Override
-    public void notifySelectedCoordinates(SlotChoice[] SC) {
-        for(viewListeners listener: listeners){
-            try{listener.notifySelectedCoordinates(SC);}
-            catch(RemoteException e){
-                System.out.println("ciao");
-            }
+    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException {
+        for( viewListeners listener : listeners  ) {
+            listener.notifySelectedCoordinates(SC);
         }
-
     }
 
+
+
+    //Notifica a tutti i listerner (Client) l'avvenuta notifica
     @Override
     public void notifyOrder(OrderChoice o) {
-        for(viewListeners listener: listeners){
-            try{listener.notifyOrder(o);}
-            catch(RemoteException e){
+        for( viewListeners listener : listeners  ) {
+            try {
+                listener.notifyOrder(o);
+            } catch (RemoteException e) {
                 System.out.println("ciao");
             }
         }
         }
 
+    //Notifica a tutti i listerner (Client) l'avvenuta insert
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
-        for(viewListeners listener: listeners){
-            try{listener.notifyInsert(column);}
-            catch(RemoteException e){
-                System.out.println("ciao");
-            }
+        for( viewListeners listener : listeners  ) {
+            listener.notifyInsert(column);
+        }
+          //  catch(RemoteException e){
+            //   System.out.println("ciao");
+           // }
         }
     }
-}
+
 
 

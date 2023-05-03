@@ -168,37 +168,33 @@ public class Game implements GameEventListener {
     }
 
 
+    //Agginge un Listener al modello.
     @Override
     public void addGameEventListener(GameEventListener listener) {
         listeners.add(listener);
     }
 
+    //Notifica la prima notifica del gioco: Setting e prima view.
     @Override
     public void gameStateChanged() throws RemoteException {
     for(GameEventListener listener: listeners){
         listener.gameStateChanged();
         }
     }
-
+    //Notifica l'inizio del turno del primo giocatore.
     public void readyToStart() throws RemoteException {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
         }
 
     }
-
+    //Notifica il passaggio al prossimo client durante la partita.
     @Override
     public void turnIsOver() throws RemoteException {
         for(GameEventListener listener: listeners){
-           // listener.notifyTurnIsOver(new GameView(this));
             listener.turnIsOver();
         }
     }
 
 
-
-  /*  @Override
-    public void notifyTurnIsOver(GameView view) {
-
-    }*/
 }

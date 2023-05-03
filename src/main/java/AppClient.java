@@ -18,3 +18,5 @@ public class AppClient {
         client.run();
     }
 }
+
+//Fix ricezione delle view.
