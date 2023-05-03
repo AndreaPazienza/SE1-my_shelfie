@@ -86,10 +86,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
     //Quando il server ha un nuovo update viene mandato e mostrato dal client
     @Override
-    public void updateClient(GameView modelView) {
+    public void updateClientFirst(GameView modelView) {
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
+
+    @Override
+    public void updateClientRound(GameView model) throws RemoteException {
+        view.displayDashboard(model.getTable());
+    }
+
     //Metodo remoto: passaggio del nickname al server
     @Override
     public String getNickname() throws RemoteException {

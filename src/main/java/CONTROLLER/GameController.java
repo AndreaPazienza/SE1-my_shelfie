@@ -137,6 +137,7 @@ public class GameController{
         }
     }
     public void endGame(){
+
         Player winner;
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();

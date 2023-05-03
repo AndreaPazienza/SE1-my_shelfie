@@ -96,21 +96,23 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Client registrato con successo! ");
     }
 
-    //Notifica al client l'avvenuta creazione (quindi inizio) del gioco
+    //Notifica al client l'avvenuta creazione (quindi inizio) del gioco, mandando la situazione della board
     @Override
     public void gameStateChanged() throws RemoteException {
         for(ClientRMIInterface client : logged){
-            client.updateClient(new GameView(model));
+            client.updateClientRound(new GameView(model));
         }
     }
 
-    //Notifica al client la nuova view dopo che un client ha finito il proprio turno.
+    //Notifica al client la nuova view dopo che un client ha finito il proprio turno, con la PersonalShelf
     @Override
     public void turnIsOver() throws RemoteException {
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
-                client.updateClient(new GameView(model));
+                client.updateClientFirst(new GameView(model));
                 client.endTurn();
+            }else{
+                client.updateClientRound(new GameView(model));
             }
         }
     }
