@@ -1,5 +1,6 @@
 package MODEL;
 
+//Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line.
 public class CGTwoLinesFiveTiles extends CGOnLines {
     public CGTwoLinesFiveTiles(int players){
         super(players);

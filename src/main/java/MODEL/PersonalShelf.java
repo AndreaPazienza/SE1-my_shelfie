@@ -15,10 +15,11 @@ public class PersonalShelf implements Serializable {
         return itsFull;
     }
 
-    public int calculatePoints(){ //metodo vero e proprio del calcolo dei punti: qui viene chiamato il metodo che conta le adiacenze e poi quello che assegna concretamente i punti
+    public int calculatePoints(){ //Actual method of point calculation: here the method that counts the adjacencies is called and then the one that actually assigns the points.
         int tPoints = 0;
         int adiacentSlot = 0;
-        boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
+        boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //Boolean matrix (one-to-one correspondence with the shelf) to mark the tiles to visit.
+
         for(int i = 0; i < N_ROWS; i++){
             for(int j = 0; j < N_COLUMN; j++){
                 if(!this.shelf[i][j].getColor().equals(Color.GREY) && !visited[i][j]){
@@ -37,11 +38,12 @@ public class PersonalShelf implements Serializable {
         return shelf[x][y];
     }
 
-    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //conta le adiacenze effettive
-        visited[x][y] = true; //marko la tessera che ho visitato
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //counts the effective adjacencies
+        visited[x][y] = true; //I mark the tile I have visited
         int count = 1;
-        Color color = this.shelf[x][y].getColor(); //mi salvo il colore della tessera che devo controllare
-        //controllo le tessere adiacenti: se hanno lo stesso colore e non sono markate, incremento count
+        Color color = this.shelf[x][y].getColor(); //I save the color of the tile I have to check
+//I check the adjacent tiles: if they have the same color and are not marked, I increment count.
+
         if(x > 0 && this.shelf[x-1][y] != null && color != Color.GREY && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
             count += checkAdjacentSlot(visited, x-1, y);
         }
@@ -54,6 +56,7 @@ public class PersonalShelf implements Serializable {
         if(y < N_COLUMN-1 && this.shelf[x][y+1] != null && color != Color.GREY && color == this.shelf[x][y+1].getColor()&&!visited[x][y+1]){
             count += checkAdjacentSlot(visited, x, y+1);
         }
+
         return count;
     }
 
@@ -70,18 +73,18 @@ public class PersonalShelf implements Serializable {
         }
     }
 
-    public void insert(Slot[] slots, int column){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
-        int lunghezzaReale = 0;
+    public void insert(Slot[] slots, int column){      //Here an array of already sorted slots (OrderSlot) is given as input and the player is asked for the column where to insert the slots.
+        int realLenght = 0;
         for(int i = 0;i < slots.length;i++){
             if(!(slots[i].getColor().Equals(Color.GREY))){
-                lunghezzaReale++;        //lunghezzaReale serve perchè in ingressi sarà dato un array di 3 slot
-            }                            //che non sempre sarà pieno;
+                realLenght++;       //realLenght serves because an array of 3 slots will be given as input
+            }                            //will not be always full;
         }
         int i = N_ROWS-1;
-        while (!(shelf[i][column].getColor().Equals(Color.GREY))) {   //trovo la prima posizione vuota della colonna scelta dall'utente
+        while (!(shelf[i][column].getColor().Equals(Color.GREY))) {   //find the first empty position in the column chosen by the user
                 i--;
                 }
-        for (int j = 0; j < lunghezzaReale; j++) {    //inserimento effettivo
+        for (int j = 0; j < realLenght; j++) {    //insert
             this.shelf[i][column].setColor(slots[j].getColor());
             this.shelf[i][column].setType(slots[j].getType());
             i--;
@@ -90,13 +93,14 @@ public class PersonalShelf implements Serializable {
        // notifyObservers(this.shelf);
     }
 
-    public boolean checkLastLine(){
+    public void checkLastLine(){
         for(int i = 0; i < N_COLUMN; i++){
-            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf?
-                return false;
+            if(this.shelf[0][i].getColor().equals(Color.GREY)){
+                this.itsFull = false;
+                return;
             }
         }
-       return true;
+        this.itsFull = true;
     }
     public PersonalShelf(){
         this.shelf = new Slot[N_ROWS][N_COLUMN];

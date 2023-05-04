@@ -5,11 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Sviluppo fino ad endGame (funzionante ma con bug).">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -441,7 +463,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>154</line>
-          <properties class="Distributed.rmi.ServerImpl" method="newTurn">
+          <properties class="Distributed.rmi.ServerImpl" method="subscription">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -450,7 +472,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>197</line>
-          <properties class="Distributed.rmi.ServerImpl" method="turnUpdate">
+          <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -483,8 +505,8 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

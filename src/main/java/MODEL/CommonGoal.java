@@ -26,10 +26,10 @@ public class CommonGoal extends Observable {
         deck.add(new CGSixGroupsTwoTiles(players));
         deck.add(new CGDecreaseTiles(players));
         deck.add(new CGSameTypeSquare(players));
-        //definizione colonne
+        //column definition
         deck.add(new CGThreeColumnsSixTiles(players));
         deck.add(new CGTwoColumnsSixTiles(players));
-        //definizione righe
+        //lines definition
         deck.add(new CGTwoLinesFiveTiles(players));
         deck.add(new CGFourLinesFiveTiles(players));
 

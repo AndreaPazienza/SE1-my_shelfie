@@ -12,7 +12,7 @@ public class Game implements GameEventListener {
     private final List<GameEventListener> listeners = new ArrayList<>();
     protected static int Nplayers;
     private int playerInGame;
-    private boolean firstPlayerFinished = false;
+    private int firstPlayerFinished = -1;
     private boolean gameOn;
     private Player[] player;
     private Dashboard table;
@@ -21,11 +21,11 @@ public class Game implements GameEventListener {
     private CommonGoal commonGoal1, commonGoal2;
     private GameState state;
 
-    //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
+    //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
     public Game (int numberOfPlayers) {
 
         Nplayers = numberOfPlayers;
-        playerInGame = 0;                                   //Giocatore attualmente di turno
+        playerInGame = 0;                                   //Player in turn
         gameOn = false;
         player = new Player[numberOfPlayers];
         table = new Dashboard(numberOfPlayers);
@@ -37,13 +37,24 @@ public class Game implements GameEventListener {
 
     }
 
+
+    public void setFirstPlayerFinished(int firstPlayerFinished) {
+        this.firstPlayerFinished = firstPlayerFinished;
+    }
+
+    public int getFirstPlayerFinished() {
+        return firstPlayerFinished;
+    }
+
+
+
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
             player[i].setPgoal(deck.extractionPGoal());
         }
     }
 
-    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
+    //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {
 
         Player player = new Player(nick);
@@ -59,7 +70,7 @@ public class Game implements GameEventListener {
 
     }
 
-    //Restituisce il giocatore di turno
+    //Returns the player in turn
     public Player playerOnStage() {
         return player[playerInGame];
     }
@@ -70,32 +81,25 @@ public class Game implements GameEventListener {
         getTable().catchAfterRefill();
         assignPGoal();
         this.gameStateChanged();
-        this.readyToStart();
     }
 
-    //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
+
+    //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException {
-        //Controllo dei CommonGoal completati ed incremento
+        //Check finished common goal and increment
         this.commonGoal1.getGoal().control(player[playerInGame]);
         this.commonGoal1.getGoal().incrementCG();
-        //Secondo PGoal
+        //Second PGoal
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
+        //Call to refill (if necessary)
 
-        if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
-            firstPlayerFinished=true;
-            notifyEndGame();
-        }
-        if(firstPlayerFinished && player[playerInGame].getOrderInTurn()==Nplayers){
-            notifyGameFinished();
-        }
-
-         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
         table.catchAfterRefill();
-        //Notify
+
+        /* notify of the updated dashboard */
         this.turnIsOver();
 
         //Passaggio del turno
@@ -105,7 +109,8 @@ public class Game implements GameEventListener {
         }
     }
 
-    //Viene decretato il vincitore (cerca massimo)
+
+    //The winner is declared (searches for the maximum)
     public Player finalScore() {
 
         Player winner;
@@ -121,7 +126,7 @@ public class Game implements GameEventListener {
             }
         }
 
-        //Creazione del player vincitore
+        //Creation of the winning player.
         winner = new Player(winnerNickname);
         winner.setScore(winnerScore);
         winner.setOrderInTurn(winnerOrderInTurn);
@@ -158,10 +163,6 @@ public class Game implements GameEventListener {
         return playerInGame;
     }
 
-    public boolean isFirstPlayerFinished() {
-        return firstPlayerFinished;
-    }
-
     public PersonalGoalDeck getDeck() {
         return deck;
     }
@@ -171,49 +172,34 @@ public class Game implements GameEventListener {
     }
 
 
-    //Agginge un Listener al modello.
+    //Adds a listener to the model.
     @Override
     public void addGameEventListener(GameEventListener listener) {
         listeners.add(listener);
     }
 
-    //Notifica la prima notifica del gioco: Setting e prima view.
+    //Notifies the first notification of the game: Setting and first view.
     @Override
     public void gameStateChanged() throws RemoteException {
     for(GameEventListener listener: listeners){
         listener.gameStateChanged();
         }
     }
-    //Notifica l'inizio del turno del primo giocatore.
+    //Notifies the start of the first player's turn.
     public void readyToStart() throws RemoteException {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
         }
-    }
-
-    @Override
-    public void notifyEndGame() throws RemoteException {
-        for(GameEventListener listener: listeners){
-            listener.notifyEndGame();
-        }
-    }
-
-    @Override
-    public void notifyGameFinished() throws RemoteException {
-        for(GameEventListener listener: listeners){
-            listener.notifyGameFinished();
-        }
 
     }
 
-    //Notifica il passaggio al prossimo client durante la partita.
+    //Notifies the transition to the next client during the game.
     @Override
     public void turnIsOver() throws RemoteException {
         for(GameEventListener listener: listeners){
             listener.turnIsOver();
         }
     }
-
 
 
 }

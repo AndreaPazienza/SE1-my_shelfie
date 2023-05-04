@@ -1,5 +1,6 @@
 package MODEL;
 
+//Five tiles of the same type forming a diagonal.
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
     public CGFiveTilesDiagonal(int players){
         super(players);

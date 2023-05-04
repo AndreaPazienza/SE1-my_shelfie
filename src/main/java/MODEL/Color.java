@@ -9,10 +9,9 @@ public enum Color {
     LBLUE,
     WHITE,
     YELLOW,
-    GREY, //Grey caselle corrispondenti a tessere prese
-    BLACK; //Caselle Black irraggiungibili della plancia iniziale
-
-    public static Color randomColor() { //Generatore di colore casuale, esculdendo GREY e BLACK che non sono colori effettivi
+    GREY, //Grey == taken cards
+    BLACK; // not playable positions in dashboard
+    public static Color randomColor() { // random color generator excluding GREY and BLACK (not true colors)
         Color[] values = Color.values();
         int length = (values.length - 2);
         int randIndex = new Random().nextInt(length);

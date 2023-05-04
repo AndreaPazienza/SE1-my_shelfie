@@ -39,8 +39,8 @@ public abstract class  CommonGoalAbs {
     }
 
 
-    /*Metodo per sommare i punti al player, restituito come void che opera direttamente sui punteggi
-     * per gestire il fatto che ogni che un primo player ha ottenuto il punteggio questo viene salvato*/
+    /*Method for adding points to the player, returned as void that directly operates on the scores
+     * to handle the fact that once a player has scored, it is saved/*/
 
     public boolean commonGoalAchived(){
         return playerAchived[playing];}
@@ -56,7 +56,7 @@ public abstract class  CommonGoalAbs {
     }
 
 
-    //Funzione da chiamare in un NextTurn per portare di pari passo il valore giocatore del commonGoal
+    //Function to be called in a NextTurn to keep the player value of the commonGoal in step
     public void incrementCG() {
             if (getPlaying() == playerAchived.length-1)
                   { setPlaying(0); }

@@ -1,5 +1,6 @@
 package MODEL;
 
+//Eight tiles of the same type. There’s no restriction about the position of these tiles.
 public class CGEightTilesSameType extends CommonGoalAbs {
     public CGEightTilesSameType(int players){
         super(players);

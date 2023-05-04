@@ -8,7 +8,7 @@ public interface GameEventListener {
 
     void addGameEventListener(GameEventListener listener);
     void gameStateChanged() throws RemoteException;
-    void turnIsOver() throws RemoteException; //Manda le nuove game view a fine turno
+    void turnIsOver() throws RemoteException; //Sends the new GameView when the turn is finished
  //   public void notifyTurnIsOver(GameView view);
     void readyToStart() throws RemoteException;
     void notifyEndGame() throws RemoteException;

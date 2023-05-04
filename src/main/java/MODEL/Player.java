@@ -37,8 +37,8 @@ public class Player extends Observable {
     }
 
     public void setChair() {
-        if(this.orderInTurn == 1) {     //per settare la seggiola, controllo order in turn:
-            this.chair = true;          // se il player gioca per primo, setto a true.
+        if(this.orderInTurn == 1) {     //To set the chair, I check the order in turn.
+            this.chair = true;          // if the player plays first, set it to true.
         }
         else this.chair = false;
     }
@@ -66,8 +66,7 @@ public class Player extends Observable {
         return selectedCard;
     }
 
-    public void orderCards(Slot[] selectedCards, int p, int s, int t) { //p è la posizione nell'array di partenza della prima tessera dell'array riordinato
-                                                                        //s è la seconda, t la terza
+    public void orderCards(Slot[] selectedCards, int p, int s, int t) { //p is the position in the starting array of the first tile in the reordered array, s is the second, t the third
         Slot[] tmp = new Slot[3];
         tmp[0] = selectedCards[p-1];
         tmp[1] = selectedCards[s-1];
@@ -78,7 +77,8 @@ public class Player extends Observable {
         notifyObservers(selectedCards);
     }
 
-    public void orderCards(Slot[] selectedCards){ //metodo che riordina nel caso in cui ho scelto solo due tessere
+    public void orderCards(Slot[] selectedCards){ //method that sorts if I have chosen only two tiles
+
         Slot tmp = selectedCards[1];
         selectedCards[1] = selectedCards[0];
         selectedCards[0] = tmp;
@@ -93,9 +93,9 @@ public class Player extends Observable {
 
     public void checkScore(){
         int pgoalPoints = pgoal.assignPoint(shelf);
-        int sgoalsPoints = this.getScore(); //i punti degli sharedgoals sono già dentro score (metodo give points)
+        int sgoalsPoints = this.getScore(); //the sharedgoals points are already included in the score (give points method)
         int nearbyPoints = this.shelf.calculatePoints();
-        int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calcolo i 3 singoli punteggi e li sommo insieme
+        int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calculate the 3 individual scores and add them together.
         this.setScore(points);
     }
 
