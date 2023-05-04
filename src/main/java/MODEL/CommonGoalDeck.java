@@ -7,17 +7,9 @@ import java.util.Random;
 public class CommonGoalDeck extends Observable {
 
     private CommonGoalAbs goal;
+    private static final ArrayList<CommonGoalAbs> deck = new ArrayList<>();
 
     public CommonGoalDeck(int players){
-        this.goal = this.getACommonGoal(players);
-    }
-    public CommonGoalAbs getGoal(){
-        return goal;
-    }
-
-    public CommonGoalAbs getACommonGoal(int players){
-
-        ArrayList<CommonGoalAbs> deck = new ArrayList<>();
         deck.add(new CGFourCorners(players));
         deck.add(new CGDecreaseTiles(players));
         deck.add(new CGEightTilesSameType(players));
@@ -33,10 +25,16 @@ public class CommonGoalDeck extends Observable {
         deck.add(new CGTwoLinesFiveTiles(players));
         deck.add(new CGFourLinesFiveTiles(players));
 
-        return deck.get(shuffle());
+    }
+
+    public CommonGoalAbs getACommonGoal(){
+        int Pos = shuffle();
+        CommonGoalAbs CG = deck.get(Pos);
+        deck.remove(Pos);
+        return CG;
     }
     public static int shuffle(){
-        int randIndex = new Random().nextInt(12);
+        int randIndex = new Random().nextInt(deck.size());
         return  randIndex;
     }
 
