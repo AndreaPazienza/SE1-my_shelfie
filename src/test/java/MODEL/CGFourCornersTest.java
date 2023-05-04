@@ -88,6 +88,10 @@ class CGFourCornersTest {
 
     }
 
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
 
 
 }

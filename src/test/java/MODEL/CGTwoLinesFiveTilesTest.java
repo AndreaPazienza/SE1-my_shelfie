@@ -61,4 +61,10 @@ class CGTwoLinesFiveTilesTest {
         assertEquals(0, current1.getScore() );
     }
 
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
+
+
 }

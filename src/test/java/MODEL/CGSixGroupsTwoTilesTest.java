@@ -165,4 +165,10 @@ class CGSixGroupsTwoTilesTest {
         int points = current.getScore();
         assertEquals(8,points);
     }
+
+    @Test
+    void testShow(){
+        testCommonGoal.show();
+    }
+
 }

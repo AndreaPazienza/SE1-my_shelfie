@@ -4,13 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Sviluppo fino ad endGame (funzionante ma con bug).">
+    <list default="true" id="cfd0a734-5939-49e2-acde-ebe77eb55e11" name="Changes" comment="Aggiornamento common goal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGDecreaseTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGDecreaseTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourCornersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourCornersTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourGroupsFourTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourGroupsFourTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,89 +112,101 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
-    <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GameInterfaceTest.displayPersonalShelfTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.testShow">
+    <configuration name="CGSameTypeSquareTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayPersonalShelfTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGSameTypeSquareTest" />
+      <option name="METHOD_NAME" value="testShow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayPgoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGSixGroupsTwoTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayPgoalTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGSixGroupsTwoTilesTest" />
+      <option name="METHOD_NAME" value="testShow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGThreeColumnsSixTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGThreeColumnsSixTilesTest" />
+      <option name="METHOD_NAME" value="testShow" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoColumnsSixTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoColumnsSixTilesTest" />
+      <option name="METHOD_NAME" value="testShow" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoLinesFiveTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="testShow" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AppClient" />
-      <item itemvalue="Application.AppServer" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
+      <item itemvalue="JUnit.CGSameTypeSquareTest.testShow" />
+      <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.testShow" />
+      <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.testShow" />
+      <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
+        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
+        <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.testShow" />
+        <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.testShow" />
+        <item itemvalue="JUnit.CGSameTypeSquareTest.testShow" />
       </list>
     </recent_temporary>
   </component>
@@ -354,21 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683050899671</updated>
     </task>
-    <task id="LOCAL-00021" summary="Aggiornamento invio dashboard e display della PersonalShelf">
-      <created>1683130115009</created>
+    <task id="LOCAL-00021" summary="Aggiornamento common goal">
+      <created>1683201707418</created>
       <option name="number" value="00021" />
       <option name="presentableId" value="LOCAL-00021" />
       <option name="project" value="LOCAL" />
-      <updated>1683130115009</updated>
+      <updated>1683201707418</updated>
     </task>
-    <task id="LOCAL-00022" summary="Sviluppo fino ad endGame (funzionante ma con bug).">
-      <created>1683138070012</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1683138070012</updated>
-    </task>
-    <option name="localTasksCounter" value="23" />
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -422,17 +441,25 @@
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
-    <MESSAGE value="Aggiornamento invio dashboard e display della PersonalShelf" />
-    <MESSAGE value="Sviluppo fino ad endGame (funzionante ma con bug)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sviluppo fino ad endGame (funzionante ma con bug)." />
+    <MESSAGE value="Aggiornamento common goal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiornamento common goal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
+          <line>126</line>
+          <properties class="Distributed.rmi.Client" method="startTurn">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>108</line>
-          <properties class="Distributed.rmi.ServerImpl" method="turnIsOver">
+          <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -459,7 +486,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>67</line>
-          <properties class="Distributed.rmi.ServerImpl" method="updateServerSelection">
+          <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -468,7 +495,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>87</line>
-          <properties class="Distributed.rmi.ServerImpl" method="updateServerInsert">
+          <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -483,8 +510,8 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

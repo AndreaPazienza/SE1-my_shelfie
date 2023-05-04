@@ -174,5 +174,9 @@ class CGFourGroupsFourTilesTest {
         assertEquals(0, points);
     }
 
+    @Test
+    void testShow(){
+        testCommonGoal.show();
+    }
 
 }

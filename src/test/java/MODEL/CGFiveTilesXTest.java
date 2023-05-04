@@ -92,4 +92,9 @@ class CGFiveTilesXTest {
 
     }
 
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
+
 }

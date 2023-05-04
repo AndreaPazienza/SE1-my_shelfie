@@ -259,5 +259,9 @@ class CGEightTilesSameTypeTest {
 
 
     }
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
 
 }

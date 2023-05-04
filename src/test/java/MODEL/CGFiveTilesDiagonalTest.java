@@ -167,6 +167,10 @@ class CGFiveTilesDiagonalTest {
         assertEquals(2, testingCommonGoal.playing);
     }
 
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
 
 
 }

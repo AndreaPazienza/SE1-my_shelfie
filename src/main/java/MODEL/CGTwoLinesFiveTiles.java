@@ -37,7 +37,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
         example.getSingleSlot(0,3).setColor(Color.LBLUE);
         example.getSingleSlot(0,4).setColor(Color.BLUE);
 
-        example.getSingleSlot(5,3).setColor(Color.YELLOW);
+        example.getSingleSlot(5,4).setColor(Color.YELLOW);
         example.getSingleSlot(5,3).setColor(Color.WHITE);
         example.getSingleSlot(5,2).setColor(Color.BLUE);
         example.getSingleSlot(5,1).setColor(Color.LBLUE);

@@ -87,6 +87,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //Quando il server ha un nuovo update viene mandato e mostrato dal client
     @Override
     public void updateClientFirst(GameView modelView) {
+        view.displayCommonGoal(modelView);
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
         view.onWait();

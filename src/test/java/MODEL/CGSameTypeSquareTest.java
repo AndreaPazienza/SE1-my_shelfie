@@ -169,4 +169,10 @@ class CGSameTypeSquareTest {
         assertEquals(0, points);   //quindi come lo gestiamo questo?
     }
 
+    @Test
+    void testShow(){
+        testCommonGoal.show();
+    }
+
+
 }

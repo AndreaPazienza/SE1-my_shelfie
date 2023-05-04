@@ -205,6 +205,9 @@ class CGDecreaseTilesTest {
         assertEquals(0, testingCommonGoal.playing);
 
     }
-
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
 
 }

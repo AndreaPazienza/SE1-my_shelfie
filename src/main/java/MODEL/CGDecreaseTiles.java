@@ -55,17 +55,17 @@ public class CGDecreaseTiles extends CommonGoalAbs {
         System.out.println("Ecco un esempio di shelf che soddisfa l'obiettivo:");
         PersonalShelf example = new PersonalShelf();
         for(int i = 0; i < PersonalShelf.N_COLUMN; i++){
-            example.getSingleSlot(0,i).setColor(Color.BLUE);
+            example.getSingleSlot(5,i).setColor(Color.BLUE);
         }
         for(int j = 0; j < PersonalShelf.N_COLUMN-1; j++){
-            example.getSingleSlot(0,j).setColor(Color.GREEN);
+            example.getSingleSlot(4,j).setColor(Color.GREEN);
         }
         for(int k = 0; k < PersonalShelf.N_COLUMN-2; k++){
-            example.getSingleSlot(0,k).setColor(Color.PINK);
+            example.getSingleSlot(3,k).setColor(Color.PINK);
         }
-        example.getSingleSlot(0,0).setColor(Color.WHITE);
-        example.getSingleSlot(1,0).setColor(Color.YELLOW);
-        example.getSingleSlot(1,1).setColor(Color.LBLUE);
+        example.getSingleSlot(2,1).setColor(Color.WHITE);
+        example.getSingleSlot(2,0).setColor(Color.YELLOW);
+        example.getSingleSlot(1,0).setColor(Color.LBLUE);
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {

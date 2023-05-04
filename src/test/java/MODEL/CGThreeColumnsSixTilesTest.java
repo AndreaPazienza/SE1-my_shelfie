@@ -63,5 +63,10 @@ class CGThreeColumnsSixTilesTest {
     //Controllo solo sul algoritmo con un giocatore, gli altri casi di assegnazione punti corretta sono già coperti in altre classi
     //L'importante è che questo controllo funzioni una volta
 
+    @Test
+    void testShow(){
+        testingCommonGoal.show();
+    }
+
 
 }

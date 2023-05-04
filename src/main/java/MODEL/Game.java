@@ -78,11 +78,11 @@ public class Game implements GameEventListener {
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() throws RemoteException {
         //Controllo dei CommonGoal completati ed incremento
-        this.commonGoalDeck1.getGoal().control(player[playerInGame]);
-        this.commonGoalDeck1.getGoal().incrementCG();
+        this.commonGoal1.control(player[playerInGame]);
+        this.commonGoal1.incrementCG();
         //Secondo PGoal
-        this.commonGoalDeck2.getGoal().control(player[playerInGame]);
-        this.commonGoalDeck2.getGoal().incrementCG();
+        this.commonGoal2.control(player[playerInGame]);
+        this.commonGoal2.incrementCG();
 
         if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
             firstPlayerFinished=true;
@@ -142,12 +142,12 @@ public class Game implements GameEventListener {
     public GameState getCurrentState(){return state;}
     public Player[] getPlayer() {return player;}
 
-    public CommonGoalDeck getCommonGoal1() {
-        return commonGoalDeck1;
+    public CommonGoalAbs getCommonGoal1() {
+        return commonGoal1;
     }
 
-    public CommonGoalDeck getCommonGoal2() {
-        return commonGoalDeck2;
+    public CommonGoalAbs getCommonGoal2() {
+        return commonGoal2;
     }
 
     public boolean isGameOn() {

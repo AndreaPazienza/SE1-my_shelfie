@@ -351,7 +351,14 @@ public class GameInterface implements Runnable, viewListeners {
             //   System.out.println("ciao");
            // }
         }
+
+        public void displayCommonGoal(GameView gameView){
+            System.out.println("I common goal che sono stati estratti in questa partita sono: ");
+            gameView.getCommonGoal1().show();
+            gameView.getCommonGoal2().show();
+        }
     }
+
 
 
 
