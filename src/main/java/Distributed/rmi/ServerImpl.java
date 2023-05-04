@@ -96,23 +96,21 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Client registrato con successo! ");
     }
 
-    //Notifica al client l'avvenuta creazione (quindi inizio) del gioco, mandando la situazione della board
+    //Notifica al client l'avvenuta creazione (quindi inizio) del gioco
     @Override
     public void gameStateChanged() throws RemoteException {
         for(ClientRMIInterface client : logged){
-            client.updateClientFirst(new GameView(model));
+            client.updateClient(new GameView(model));
         }
     }
 
-    //Notifica al client la nuova view dopo che un client ha finito il proprio turno, con la PersonalShelf
+    //Notifica al client la nuova view dopo che un client ha finito il proprio turno.
     @Override
     public void turnIsOver() throws RemoteException {
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
-                client.updateClientPlaying(new GameView(model));
+                client.updateClient(new GameView(model));
                 client.endTurn();
-            }else{
-                client.updateClientRound(new GameView(model));
             }
         }
     }
@@ -120,7 +118,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica al client che abbiamo iniziato la partita
     @Override
     public void readyToStart() throws RemoteException {
-
         for(ClientRMIInterface client : logged){
             if(controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
@@ -130,26 +127,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
         turnIsOver();
         turnUpdate();
-
     }
-
-    @Override
-    public void notifyEndGame() throws RemoteException {
-        controller.completeShelf();
-        notifyCompleted();
-    }
-
-    @Override
-    public void notifyGameFinished() throws RemoteException {
-        winnerInterface(controller.endGame());
-    }
-
-  /*  public void turnIsStarting() throws RemoteException {
-        for (ClientRMIInterface client : logged) {
-            client.updateClientFirst(new GameView(model));
-        }
-    }*/
-
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno
     public void newTurn() throws RemoteException {
@@ -179,16 +157,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             client.newPlayerAdded();
         }
     }
-    public void notifyCompleted() throws RemoteException {
-        for(ClientRMIInterface client : logged){
-            client.notifyCompleted();
-        }
-    }
-    public void winnerInterface(String s) throws RemoteException {
-        for(ClientRMIInterface client : logged){
-            client.winnerInterface(s);
-        }
-    }
     //Una volta giunto al numero giusto di giocatori fa partire la partita
     public void startGame() throws RemoteException {
         controller.startGame();
@@ -196,6 +164,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
     public void turnUpdate() throws RemoteException{
+       // model.turnIsOver();
+       //  System.out.println("Pongo fine al turno: \n");
+       // endTurn();
         System.out.println("Aggioramento del turno in corso.. \n");
         model.updateTurn();
         System.out.println("nuovo turno: \n");

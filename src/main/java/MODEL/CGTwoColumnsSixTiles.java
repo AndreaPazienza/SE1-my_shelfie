@@ -1,10 +1,8 @@
 package MODEL;
-
 import VIEW.ColorPrint;
+//Two columns each formed by 6 different types of tiles.
 
 public class CGTwoColumnsSixTiles extends CGOnColumn {
-
-
 
     public CGTwoColumnsSixTiles(int players){
         super(players);

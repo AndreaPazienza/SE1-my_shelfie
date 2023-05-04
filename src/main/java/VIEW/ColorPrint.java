@@ -2,6 +2,7 @@ package VIEW;
 
 import MODEL.Color;
 
+//to show colored tails
 public class ColorPrint {
 
     public static final String RESET = "\033[0m";  // Text Reset

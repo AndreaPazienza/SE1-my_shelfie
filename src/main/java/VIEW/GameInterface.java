@@ -28,7 +28,7 @@ public class GameInterface implements Runnable, viewListeners {
         return nick;
     }
 
-    //inserimento del numero dei giocatori
+    //insert of the players number
     public int numberOfPlayers() {
 
         int number = 0;
@@ -55,16 +55,16 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
 
-    //Selezione delle tessere dalla dashboard
+    //Selection of the cards from dashboard
     public void playerMoveSelection() throws RemoteException {
 
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
         boolean ok = false;
-        //Viene stabilito il massimo numero di tessere prendibili in base agli spazi liberi nella shelf
+        // The maximum number of tiles that can be taken is determined based on the free spaces in the shelf.
 
-        //Inserimento del numero di tessere da selezionare, controllo e creazione dell'array
+        //Insertion of the number of tiles to be selected, checking and creation of the array
         do {
             System.out.println("Inserire il numero di tessere da selezionare: ");
             nChoices = keyboard.nextInt();
@@ -81,7 +81,8 @@ public class GameInterface implements Runnable, viewListeners {
         do {
             for (int i = 0; i < nChoices; i++) {
 
-                //Inseriemento della tessera songola e inserimento nell'array di tessere
+
+                //Insertion of the single tile and insertion into the tiles array.//Inserimento della tessera songola e inserimento nell'array di tessere
                 do {
                     System.out.println("Inserire le coordinate della tessera da prendere: ");
                     System.out.println("X: ");
@@ -116,7 +117,7 @@ public class GameInterface implements Runnable, viewListeners {
             if (playerOrder()) {
                 if (nChoices == 2) {
 
-                    //Creazione di una OrderChoice con parametri convenzionalmente scelti
+                    //Creating an OrderChoice with conventionally chosen parameters.
                     OrderChoice order = new OrderChoice(1, 1, 1);
 
                     notifyOrder(order);
@@ -185,7 +186,7 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
-    //Inserimento delle tessere prese nella shelf
+    //Insertion of the selected tiles into the shelf.
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
 
         int column;
@@ -211,7 +212,7 @@ public class GameInterface implements Runnable, viewListeners {
         } while (!ok);
     }
 
-    //Stampa della dashboard a schermo
+    //Printing the dashboard on screen.
     public void displayDashboard(Dashboard board) {
         System.out.print("\t");
         for (int k = 0; k < Dashboard.getSide(); k++) {
@@ -234,7 +235,7 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
-    //Stampa della personal shelf a schermo
+    //Printing the personal shelf on screen.
     public void displayPersonalShelf(PersonalShelf shelf) {
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
@@ -257,7 +258,7 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
-    //Stampa del personal goal a schermo
+    //Printing the Personal Goal on screen.
     public void displayPersonalGoal(PersonalGoal pGoal) {
 
         boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
@@ -314,14 +315,14 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
 
-    //Aggiunge un listener a se stesso
+    //Adding listener
     @Override
     public void addviewEventListener(viewListeners listener) {
             listeners.add(listener);
             System.out.println("Creato bond client / view \n");
     }
 
-    //Notifica a tutti i listerner (Client) l'avvenuta selezione
+    //Notification to all listeners (Clients) of the completed selection.
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException {
         for( viewListeners listener : listeners  ) {
@@ -329,7 +330,7 @@ public class GameInterface implements Runnable, viewListeners {
         }
     }
 
-    //Notifica a tutti i listerner (Client) l'avvenuta notifica
+    //Notify all listeners (Clients) of the successful notification.
     @Override
     public void notifyOrder(OrderChoice o) {
         for( viewListeners listener : listeners  ) {
@@ -341,7 +342,7 @@ public class GameInterface implements Runnable, viewListeners {
         }
         }
 
-    //Notifica a tutti i listerner (Client) l'avvenuta insert
+    //Notification to all listeners (clients) of the successful insertion.
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
         for( viewListeners listener : listeners  ) {

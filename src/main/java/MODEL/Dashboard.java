@@ -8,14 +8,14 @@ public class Dashboard implements Serializable {
     private Slot[][] inDashboard;
     private static final int side = 9;
 
-    //Costruttore
+    //Constructor
     public Dashboard (int numberOfPlayers) {
 
         inDashboard = new Slot[side][side];
 
         boolean[][] notPlayable = new boolean[side][side];
 
-        //Inizializzazione prima e nona riga della maschera
+        //Initialization of the first and ninth row of the mask
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4) {
                 notPlayable[0][i] = true;
@@ -23,7 +23,7 @@ public class Dashboard implements Serializable {
             }
         }
 
-        //Inizializzazione seconda ottava riga della maschera
+        //Initialization of the second and eighth row of the mask
         for (int i  = 0; i < side; i ++) {
             if (i != 3 && i != 4 && i != 5) {
                 notPlayable[1][i] = true;
@@ -35,7 +35,7 @@ public class Dashboard implements Serializable {
                 }
             }
 
-        //Inizializzazione terza e settima riga della maschera
+        //Initialization of the third and seventh row of the mask
         for (int i  = 0; i < side; i ++) {
             if (i != 2 && i != 3 && i != 4 && i != 5 && i != 6) {
                 notPlayable[2][i] = true;
@@ -47,11 +47,11 @@ public class Dashboard implements Serializable {
             }
         }
 
-        //Inizializzazione quarta e sesta riga della maschera
+        //Initialization of the fourth and sixth row of the mask
         notPlayable[3][0] = true;
         notPlayable[5][8] = true;
 
-        //Inizializzazione delle caselle con 4 pallini (se necessario)
+        //Initialization of slots with 4 dots (if necessary)
         if (numberOfPlayers < 4) {
             notPlayable[0][4] = true;
             notPlayable[1][5] = true;
@@ -63,7 +63,7 @@ public class Dashboard implements Serializable {
             notPlayable[8][4] = true;
         }
 
-        //Inizializzazione delle caselle con 3 pallini (se necessario)
+        //Initialization of slots with 3 dots (if necessary)
         if (numberOfPlayers < 3) {
             notPlayable[0][3] = true;
             notPlayable[2][2] = true;
@@ -75,7 +75,7 @@ public class Dashboard implements Serializable {
             notPlayable[8][5] = true;
         }
 
-        //Set a nero delle caselle corrispondenti a true (non giocabili), set a grigio delle caselle corrispondenti a false (giocabili)
+        //Set corresponding boxes to black for true (non-playable), set corresponding boxes to gray for false (playable)
         for (int i = 0; i < side; i ++) {
             for(int j = 0; j < side; j ++) {
                 if (notPlayable[i][j]) inDashboard[i][j] = new Slot (Color.BLACK);
@@ -86,7 +86,7 @@ public class Dashboard implements Serializable {
         }
     }
 
-    //Ripopolamento della MODEL.Dashboard
+    //Refill of MODEL.Dashboard
     public void refill(Bag bag) {
 
         //Per tutti gli slot in MODEL.Dashboard che hanno colore grigio
@@ -118,15 +118,15 @@ public class Dashboard implements Serializable {
     }
 
 
-    //Controllo della MODEL.Dashboard per vedere se il Refill è necessario
+    //Control of MODEL.Dashboard to check if refill is needed
     public boolean checkRefill() {
 
         boolean refill = true;
 
-        //Se su MODEL.Dashboard c'è uno slot non singolo (quindi con uno slot adiacente non grigio o nero) allora non è necessario
+        //If there is a non-single slot (therefore with an adjacent non-gray or black slot) on MODEL.Dashboard, then it is not necessary.
         for (int i = 0; i < side && refill; i ++) {
             for(int j = 0; j < side && refill; j ++) {
-                //Controllo delle adiecenze su tutti gli MODEL.Slot non grigi o neri (q
+                //Adjacencies control in all the MODEL.Slot (not grey and black)
                 if (!inDashboard[i][j].getColor().equals(Color.GREY) && !inDashboard[i][j].getColor().equals(Color.BLACK) && adjaciencies(i,j) != 0) {
                     refill = false;
                 }
@@ -140,19 +140,19 @@ public class Dashboard implements Serializable {
 
         int numberOfAdjacencies = 0;
 
-        //Controllo sullo MODEL.Slot a sinistra (se esiste)
+        //Check on the left MODEL.Slot (if it exists)
         if (x != 0 && !inDashboard[x-1][y].getColor().equals(Color.GREY) && !inDashboard[x-1][y].getColor().equals(Color.BLACK))
             numberOfAdjacencies ++;
 
-        //Controllo sullo MODEL.Slot a destra (se esiste)
+        //Check on the right MODEL.Slot (if it exists)
         if (x != side-1 && !inDashboard[x+1][y].getColor().equals(Color.GREY) && !inDashboard[x+1][y].getColor().equals(Color.BLACK))
             numberOfAdjacencies ++;
 
-        //Controllo sullo MODEL.Slot superiore (se esiste)
+        //Check on the top MODEL.Slot (if it exists)
         if (y != 0 && !inDashboard[x][y-1].getColor().equals(Color.GREY) && !inDashboard[x][y-1].getColor().equals(Color.BLACK))
             numberOfAdjacencies ++;
 
-        //Controllo sullo MODEL.Slot inferiore (se esiste)
+        //Check on the bottom MODEL.Slot (if it exists)
         if (y != side-1 && !inDashboard[x][y+1].getColor().equals(Color.GREY) && !inDashboard[x][y+1].getColor().equals(Color.BLACK))
             numberOfAdjacencies ++;
 

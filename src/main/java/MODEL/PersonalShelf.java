@@ -37,11 +37,12 @@ public class PersonalShelf implements Serializable {
         return shelf[x][y];
     }
 
-    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //conta le adiacenze effettive
-        visited[x][y] = true; //marko la tessera che ho visitato
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //counts the effective adjacencies
+        visited[x][y] = true; //I mark the tile I have visited
         int count = 1;
-        Color color = this.shelf[x][y].getColor(); //mi salvo il colore della tessera che devo controllare
-        //controllo le tessere adiacenti: se hanno lo stesso colore e non sono markate, incremento count
+        Color color = this.shelf[x][y].getColor(); //I save the color of the tile I have to check
+//I check the adjacent tiles: if they have the same color and are not marked, I increment count.
+
         if(x > 0 && this.shelf[x-1][y] != null && color != Color.GREY && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
             count += checkAdjacentSlot(visited, x-1, y);
         }
@@ -92,11 +93,11 @@ public class PersonalShelf implements Serializable {
 
     public boolean checkLastLine(){
         for(int i = 0; i < N_COLUMN; i++){
-            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf
+            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf?
                 return false;
             }
         }
-        return true;
+       return true;
     }
     public PersonalShelf(){
         this.shelf = new Slot[N_ROWS][N_COLUMN];

@@ -1,6 +1,11 @@
 package MODEL;
-
 import VIEW.ColorPrint;
+//Four groups each containing at least
+//4 tiles of the same type (not necessarily in the depicted shape).
+//The tiles of one group can be different from those of another group.
+
+
+
 
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
     public CGFourGroupsFourTiles(int players){
@@ -26,7 +31,6 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
             }
         }
     }
-
 
     private int checkAdjacentSlot(PersonalShelf shelf, boolean[][] visited, int x, int y){
 

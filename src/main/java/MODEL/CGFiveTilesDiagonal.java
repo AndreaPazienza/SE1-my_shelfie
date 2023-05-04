@@ -1,6 +1,8 @@
 package MODEL;
 
 import VIEW.ColorPrint;
+//Five tiles of the same type forming a diagonal.
+
 
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
     public CGFiveTilesDiagonal(int players){
@@ -33,7 +35,6 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
         }
 
     }
-
 
     private boolean checkIncreasignDiagonal(PersonalShelf shelf, Color reference, int rows, int column) {
 

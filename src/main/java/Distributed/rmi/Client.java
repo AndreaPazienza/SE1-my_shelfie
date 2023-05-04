@@ -68,23 +68,26 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
 
-    //Observer: quando dalla view vengono prese coordinate
+    //Observer: when coordinates are taken from the view
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException {
         System.out.println("Invio delle coordinate in corso; \n");
         connectedTo.updateServerSelection(this, SC);
     }
-    //Observer: quando dalla view viene scelto l'ordinamento
+
+    //Observer: when the sorting is chosen from the view
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException {
         connectedTo.updateServerReorder(this, o);
     }
-    //Observer: quando dalla view viene scelta la colonna di inserimento
+
+    //Observer: when the insertion column is chosen from the view
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
         connectedTo.updateServerInsert(this, column);
     }
-    //Quando il server ha un nuovo update viene mandato e mostrato dal client
+
+    //When the server has a new update, it is sent and displayed by the client.
     @Override
     public void updateClientFirst(GameView modelView) {
         view.displayCommonGoal(modelView);
@@ -104,31 +107,37 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.displayDashboard(model.getTable());
     }
 
-    //Metodo remoto: passaggio del nickname al server
+
+    //Remote method: passing the nickname to the server.
     @Override
     public String getNickname() throws RemoteException {
         return this.nickname;
     }
-    //Metodo remoto: usato per notificare al primo client di che manca il numero di giocatori
+
+    //Remote method: used to notify the first client that the number of players is missing
     @Override
     public int startGame() throws RemoteException {
         return view.numberOfPlayers();
     }
-    //Metodo remoto: quando un nuovo cient si registra viene notificato a chi è già loggato
+
+    //Remote method: when a new client registers, those already logged in are notified.
     @Override
     public void newPlayerAdded() throws RemoteException {
         view.arrived();
     }
-    //Metodo remoto: per segnalare al client che deve stare ancora in attesa del proprio turno
+
+    //Remote method: to notify the client that they still have to wait for their turn.
     public void onWait() throws RemoteException{
         view.onWait();
     }
-    //Metodo remoto: inizio del proprio turno
+
+    //Remote method: begin of turn
     public void startTurn() throws RemoteException {
         view.startTurn();
         view.playing();
     }
-    //Metodo remoto: finel del turno
+
+    //Remote method:: end turn
     public void endTurn(){
         view.onWait();
     }

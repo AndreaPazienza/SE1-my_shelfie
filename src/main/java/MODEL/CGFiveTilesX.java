@@ -1,6 +1,7 @@
 package MODEL;
-
 import VIEW.ColorPrint;
+//Five tiles of the same type forming an X.
+
 
 public class CGFiveTilesX extends CommonGoalAbs {
     public CGFiveTilesX(int players) {

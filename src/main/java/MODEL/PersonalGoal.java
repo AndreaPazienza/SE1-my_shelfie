@@ -10,16 +10,16 @@ public class PersonalGoal implements Serializable {
     public int assignPoint(PersonalShelf shelf) {
         int counter = 0;
         int points = 0;
-        for (int i = 0; i < N_GOALS; i++) {            //nel for faccio i confronti; counter mi tiene traccia del numero
-            int x = goal[i].getPosX();           //di confronti passati
+        for (int i = 0; i < N_GOALS; i++) {            //in the for loop I make the comparisons; the counter keeps track of the number.
+            int x = goal[i].getPosX();           //of past comparisons
             int y = goal[i].getPosY();
             Color col = goal[i].getTile();
             if (col.Equals(shelf.getSingleSlot(x,y).getColor())) {
                 counter++;
             }
         }
-        switch (counter) {           //lo switch mi serve ad assegnare i punteggi; essendo una void, aggiorno diretto
-            case 0:                  //l'attributo Score del player;
+        switch (counter) {           //The switch is used to assign points; being a void, it updates directly.
+            case 0:                  //score player attribute
                 return 0;
             case 1:
                 points += 1;

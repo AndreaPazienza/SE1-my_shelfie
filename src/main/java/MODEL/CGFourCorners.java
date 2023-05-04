@@ -1,6 +1,8 @@
 package MODEL;
-
 import VIEW.ColorPrint;
+
+//Four tiles of the same type in the four corners of the bookshelf.
+
 
 public class CGFourCorners extends CommonGoalAbs {
 

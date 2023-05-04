@@ -22,7 +22,7 @@ public class Game implements GameEventListener {
     private CommonGoalAbs commonGoal1, commonGoal2;
     private GameState state;
 
-    //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
+    //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
     public Game (int numberOfPlayers) {
 
         Nplayers = numberOfPlayers;
@@ -34,8 +34,8 @@ public class Game implements GameEventListener {
         deck = new PersonalGoalDeck();
         commonGoalDeck = new CommonGoalDeck(numberOfPlayers);
         state = GameState.LOGIN;
-    }
 
+    }
 
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
@@ -43,7 +43,7 @@ public class Game implements GameEventListener {
         }
     }
 
-    //Inserimento del giocatore nell'array dei player e incremento di Nplayers
+    //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {
 
         Player player = new Player(nick);
@@ -59,7 +59,7 @@ public class Game implements GameEventListener {
 
     }
 
-    //Restituisce il giocatore di turno
+    //Returns the player in turn
     public Player playerOnStage() {
         return player[playerInGame];
     }
@@ -75,7 +75,8 @@ public class Game implements GameEventListener {
         this.readyToStart();
     }
 
-    //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
+
+    //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException {
         //Controllo dei CommonGoal completati ed incremento
         this.commonGoal1.control(player[playerInGame]);
@@ -97,7 +98,8 @@ public class Game implements GameEventListener {
             table.refill(bag);
         }
         table.catchAfterRefill();
-        //Notify
+
+        /* notify of the updated dashboard */
         this.turnIsOver();
 
         //Passaggio del turno
@@ -107,7 +109,8 @@ public class Game implements GameEventListener {
         }
     }
 
-    //Viene decretato il vincitore (cerca massimo)
+
+    //The winner is declared (searches for the maximum)
     public Player finalScore() {
 
         Player winner;
@@ -123,7 +126,7 @@ public class Game implements GameEventListener {
             }
         }
 
-        //Creazione del player vincitore
+        //Creation of the winning player.
         winner = new Player(winnerNickname);
         winner.setScore(winnerScore);
         winner.setOrderInTurn(winnerOrderInTurn);
@@ -173,20 +176,20 @@ public class Game implements GameEventListener {
     }
 
 
-    //Agginge un Listener al modello.
+    //Adds a listener to the model.
     @Override
     public void addGameEventListener(GameEventListener listener) {
         listeners.add(listener);
     }
 
-    //Notifica la prima notifica del gioco: Setting e prima view.
+    //Notifies the first notification of the game: Setting and first view.
     @Override
     public void gameStateChanged() throws RemoteException {
     for(GameEventListener listener: listeners){
         listener.gameStateChanged();
         }
     }
-    //Notifica l'inizio del turno del primo giocatore.
+    //Notifies the start of the first player's turn.
     public void readyToStart() throws RemoteException {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
@@ -206,9 +209,7 @@ public class Game implements GameEventListener {
             listener.notifyGameFinished();
         }
 
-    }
-
-    //Notifica il passaggio al prossimo client durante la partita.
+    //Notifies the transition to the next client during the game.
     @Override
     public void turnIsOver() throws RemoteException {
         for(GameEventListener listener: listeners){

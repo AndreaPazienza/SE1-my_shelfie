@@ -8,7 +8,7 @@ public class Bag{
 
     private ArrayList<Slot> inBag = new ArrayList<>();
 
-    //Costruttore di Bag come array ordinato di Slot (l'estrazione randomica è lasciata al metodo Refill di Dashboard)
+    //Bag constructor as an ordered array of slots the random extraction is given to the refill method in dashboard
     public Bag() {
         //Setting del colore
         for (int i = 0; i < 132; i++) {
