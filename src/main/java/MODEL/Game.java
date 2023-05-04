@@ -23,7 +23,7 @@ public class Game implements GameEventListener {
     private GameState state;
 
     //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
-    public Game (int numberOfPlayers) {
+    public Game(int numberOfPlayers) {
 
         Nplayers = numberOfPlayers;
         playerInGame = 0;                                   //Giocatore attualmente di turno
@@ -37,8 +37,8 @@ public class Game implements GameEventListener {
 
     }
 
-    public void assignPGoal(){
-        for(int i = 0; i < player.length; i++){
+    public void assignPGoal() {
+        for (int i = 0; i < player.length; i++) {
             player[i].setPgoal(deck.extractionPGoal());
         }
     }
@@ -48,13 +48,13 @@ public class Game implements GameEventListener {
 
         Player player = new Player(nick);
         this.player[playerInGame] = player;
-        this.player[playerInGame].setOrderInTurn(playerInGame+1);
+        this.player[playerInGame].setOrderInTurn(playerInGame + 1);
 
-        if (playerInGame == Nplayers-1) {
+        if (playerInGame == Nplayers - 1) {
             setGameOn(true);
             playerInGame = 0;
-        }else{
-            playerInGame ++;
+        } else {
+            playerInGame++;
         }
 
     }
@@ -62,6 +62,14 @@ public class Game implements GameEventListener {
     //Returns the player in turn
     public Player playerOnStage() {
         return player[playerInGame];
+    }
+
+    public Player previousOnStage(){
+        if(playerInGame == 0){
+            return player[Nplayers-1];
+        } else {
+            return player[playerInGame - 1];
+        }
     }
 
     public void startGame() throws RemoteException {
@@ -85,15 +93,15 @@ public class Game implements GameEventListener {
         this.commonGoal2.control(player[playerInGame]);
         this.commonGoal2.incrementCG();
 
-        if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
-            firstPlayerFinished=true;
+        if (this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished) {
+            firstPlayerFinished = true;
             notifyEndGame();
         }
-        if(firstPlayerFinished && player[playerInGame].getOrderInTurn()==Nplayers){
+        if (firstPlayerFinished && player[playerInGame].getOrderInTurn() == Nplayers) {
             notifyGameFinished();
         }
 
-         //Chiamata a refill (se necessario)
+        //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
@@ -103,7 +111,7 @@ public class Game implements GameEventListener {
         this.turnIsOver();
 
         //Passaggio del turno
-        playerInGame ++;
+        playerInGame++;
         if (playerInGame == Nplayers) {
             playerInGame = 0;
         }
@@ -118,7 +126,7 @@ public class Game implements GameEventListener {
         int winnerScore = 0;
         int winnerOrderInTurn = 0;
 
-        for (int i = 0; i < player.length; i ++) {
+        for (int i = 0; i < player.length; i++) {
             if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
                 winnerScore = player[i].getScore();
                 winnerOrderInTurn = player[i].getOrderInTurn();
@@ -136,14 +144,22 @@ public class Game implements GameEventListener {
     }
 
 
-    public int getNplayers(){ return Nplayers;}
+    public int getNplayers() {
+        return Nplayers;
+    }
 
     public Dashboard getTable() {
         return table;
     }
-   // public boolean isStarted(){ return state == GameState.NOTSTARTED; }
-    public GameState getCurrentState(){return state;}
-    public Player[] getPlayer() {return player;}
+
+    // public boolean isStarted(){ return state == GameState.NOTSTARTED; }
+    public GameState getCurrentState() {
+        return state;
+    }
+
+    public Player[] getPlayer() {
+        return player;
+    }
 
     public CommonGoalAbs getCommonGoal1() {
         return commonGoal1;
@@ -157,7 +173,9 @@ public class Game implements GameEventListener {
         return gameOn;
     }
 
-    public void setGameOn(boolean gameOn){this.gameOn=gameOn;}
+    public void setGameOn(boolean gameOn) {
+        this.gameOn = gameOn;
+    }
 
     public int getPlayerInGame() {
         return playerInGame;
@@ -185,38 +203,38 @@ public class Game implements GameEventListener {
     //Notifies the first notification of the game: Setting and first view.
     @Override
     public void gameStateChanged() throws RemoteException {
-    for(GameEventListener listener: listeners){
-        listener.gameStateChanged();
+        for (GameEventListener listener : listeners) {
+            listener.gameStateChanged();
         }
     }
+
     //Notifies the start of the first player's turn.
     public void readyToStart() throws RemoteException {
-        for(GameEventListener listener: listeners){
+        for (GameEventListener listener : listeners) {
             listener.readyToStart();
         }
     }
 
     @Override
     public void notifyEndGame() throws RemoteException {
-        for(GameEventListener listener: listeners){
+        for (GameEventListener listener : listeners) {
             listener.notifyEndGame();
         }
     }
 
     @Override
     public void notifyGameFinished() throws RemoteException {
-        for(GameEventListener listener: listeners){
+        for (GameEventListener listener : listeners) {
             listener.notifyGameFinished();
         }
-
-    //Notifies the transition to the next client during the game.
-    @Override
-    public void turnIsOver() throws RemoteException {
-        for(GameEventListener listener: listeners){
-            listener.turnIsOver();
-        }
     }
+    //Notifies the transition to the next client during the game.
+        @Override
+        public void turnIsOver () throws RemoteException {
+            for (GameEventListener listener : listeners) {
+                listener.turnIsOver();
+            }
+        }
 
 
-
-}
+    }
