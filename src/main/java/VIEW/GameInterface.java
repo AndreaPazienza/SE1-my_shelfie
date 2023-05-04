@@ -261,6 +261,7 @@ public class GameInterface implements Runnable, viewListeners {
     public void displayPersonalGoal(PersonalGoal pGoal) {
 
         boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
+        System.out.println("Il Personal Goal (Tienilo segreto!!) che ti assegnerà punti extra è il seguente: \n");
 
         for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget++) {
             isTarget[pGoal.getSingleTarget(countTarget).getPosX()][pGoal.getSingleTarget(countTarget).getPosY()] = true;

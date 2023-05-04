@@ -137,7 +137,7 @@ public class GameController{
        game.getPlayer()[game.getPlayerInGame()].sumPoints(1);
     }
     public String endGame(){
-        game.setGameOn(false);
+
         Player winner;
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();

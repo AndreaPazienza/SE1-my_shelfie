@@ -99,8 +99,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica al client l'avvenuta creazione (quindi inizio) del gioco, mandando la situazione della board
     @Override
     public void gameStateChanged() throws RemoteException {
+        int i=0;
         for(ClientRMIInterface client : logged){
-            client.updateClientFirst(new GameView(model));
+            client.updateClientFirst(new GameView(i, model));
+            i++;
         }
     }
 

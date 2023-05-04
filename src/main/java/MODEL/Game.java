@@ -86,7 +86,6 @@ public class Game implements GameEventListener {
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException {
-        if(gameOn) {
             //Controllo dei CommonGoal completati ed incremento
             this.commonGoal1.control(player[playerInGame]);
             this.commonGoal1.incrementCG();
@@ -112,9 +111,12 @@ public class Game implements GameEventListener {
             if (playerInGame == Nplayers) {
                 playerInGame = 0;
             }
-            /* notify of the updated dashboard */
-            this.turnIsOver();
-        }
+
+            if(gameOn) {
+                /* notify of the updated dashboard */
+                this.turnIsOver();
+            }
+
     }
 
 

@@ -92,7 +92,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void updateClientFirst(GameView modelView) {
         view.displayCommonGoal(modelView);
         view.displayDashboard(modelView.getTable());
-        view.displayPersonalShelf(modelView.getShelf());
+        view.displayPersonalGoal(modelView.getPgoal());
         view.onWait();
     }
     //Manda al giocaente la situazione attuale e la propria personal shelf
