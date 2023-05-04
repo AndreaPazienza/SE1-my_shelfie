@@ -3,6 +3,7 @@ package Distributed.rmi;
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
 import Errors.NotEnoughSpaceChoiceException;
+import Errors.SameNicknameException;
 import Listeners.viewListeners;
 
 import MODEL.GameView;
@@ -18,20 +19,19 @@ import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
-    public final String nickname;
+    private String nickname;
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
 
-    public Client(ServerRMIInterface server) throws RemoteException{
+    public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
         connectedTo = server;
         nickname = view.firstRun();
         view.addviewEventListener(this);
-        System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
     }
 
-    public Client(ServerRMIInterface server, int port) throws RemoteException {
+    public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
         super(port);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -39,7 +39,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         connectedTo = server;
     }
 
-    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException {
+    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, SameNicknameException {
         super(port, csf, ssf);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -48,12 +48,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
 
-    public void initialize(ServerRMIInterface server) throws RemoteException {
+    public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         try{
         server.register(this);
-        }catch(RemoteException e){
-            System.err.println(e.getCause());
+        }catch(RemoteException | SameNicknameException e){
+           sameNickFound(e.getMessage());
         }
+    }
+
+    public void sameNickFound(String errorMessage) throws SameNicknameException, RemoteException {
+        view.errorNick(errorMessage);
     }
 
 
@@ -85,6 +89,15 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
         connectedTo.updateServerInsert(this, column);
+    }
+
+    @Override
+    public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
+        nickname = view.firstRun();
+        try{connectedTo.register(this);}
+        catch (RemoteException | SameNicknameException e){
+            sameNickFound(e.getMessage());
+        }
     }
 
     //When the server has a new update, it is sent and displayed by the client.

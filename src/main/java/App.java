@@ -1,6 +1,7 @@
 import Distributed.rmi.Client;
 import Distributed.rmi.ServerImpl;
 import Distributed.ServerRMIInterface;
+import Errors.SameNicknameException;
 
 import java.rmi.RemoteException;
 
@@ -10,7 +11,7 @@ import java.rmi.RemoteException;
  */
 public class App 
 {
-    public static void main( String[] args ) throws RemoteException {
+    public static void main( String[] args ) throws RemoteException, SameNicknameException {
         ServerRMIInterface server = new ServerImpl();
 
         Client client1 = new Client(server);

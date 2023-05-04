@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 
 import Errors.NotEnoughSpaceChoiceException;
+import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
 
@@ -353,10 +354,25 @@ public class GameInterface implements Runnable, viewListeners {
            // }
         }
 
-        public void displayCommonGoal(GameView gameView){
+    @Override
+    public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
+        for( viewListeners listener : listeners  ) {
+            listener.notifyOneMoreTime();
+        }
+    }
+
+    public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
+        }
+        public void errorNick(String message) throws SameNicknameException, RemoteException {
+           System.out.println(message);
+           System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
+           String response = keyboard.nextLine();
+            if(response.equals("si")){
+                notifyOneMoreTime();
+            }
         }
     }
 

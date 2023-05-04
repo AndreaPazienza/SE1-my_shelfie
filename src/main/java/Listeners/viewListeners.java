@@ -1,6 +1,7 @@
 package Listeners;
 
 import Errors.NotEnoughSpaceChoiceException;
+import Errors.SameNicknameException;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
@@ -12,5 +13,6 @@ public interface viewListeners {
     void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException;
     void notifyOrder(OrderChoice o) throws RemoteException;
     void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException;
+    void notifyOneMoreTime() throws SameNicknameException, RemoteException;
 
 }

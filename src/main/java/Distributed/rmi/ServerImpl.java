@@ -6,6 +6,7 @@ import Distributed.ServerRMIInterface;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
+import Errors.SameNicknameException;
 import Listeners.GameEventListener;
 import MODEL.Game;
 import MODEL.GameView;
@@ -41,7 +42,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Metodo remoto usato dal client per registrarsi al model
     @Override
-    public void register(ClientRMIInterface client) throws RemoteException {
+    public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException {
         System.out.println("Ricevuto un tentativo di connessione");
         if (!firstPlayerEnrolled) {
             model = new Game(client.startGame());
@@ -59,6 +60,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 if(model.isGameOn()) {
                     startGame();
                 }
+            }else{
+                throw new SameNicknameException("Il nickname è già preso!! \n");
             }
         }
     }
