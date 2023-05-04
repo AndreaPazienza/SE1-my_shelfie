@@ -2,6 +2,8 @@ package Distributed.rmi;
 
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
+import Errors.NotAdjacentSlotsException;
+import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
@@ -74,7 +76,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Observer: when coordinates are taken from the view
     @Override
-    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException {
+    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
         System.out.println("Invio delle coordinate in corso; \n");
         connectedTo.updateServerSelection(this, SC);
     }
@@ -145,7 +147,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     //Remote method: begin of turn
-    public void startTurn() throws RemoteException {
+    public void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         view.startTurn();
         view.playing();
     }
@@ -164,5 +166,30 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void notifyCompleted() throws RemoteException {
         view.notifyAlmostOver();
 
+    }
+
+    @Override
+    public void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
+        view.errorNotCatchable();
+    }
+
+    @Override
+    public void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
+        view.notifyError(message);
+    }
+
+    @Override
+    public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+        view.errorNotAdjacent();
+    }
+
+    @Override
+    public void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException {
+        view.errorNotEnoughSpace();
+    }
+
+    @Override
+    public void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException {
+        view.notifyError(message);
     }
 }

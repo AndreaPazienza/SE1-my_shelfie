@@ -1,5 +1,8 @@
 package Distributed;
 
+import Errors.NotAdjacentSlotsException;
+import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import MODEL.GameView;
 
 import java.rmi.Remote;
@@ -17,9 +20,17 @@ public interface ClientRMIInterface extends Remote {
     void onWait() throws RemoteException;
 
     void newPlayerAdded() throws RemoteException;
-    void startTurn() throws  RemoteException;
+    void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
     void endTurn() throws RemoteException;
     void winnerInterface(String winner) throws RemoteException;
     void notifyCompleted() throws RemoteException;
+    void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
 
+    void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
+
+    void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
+
+    void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException;
+
+    void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException;
 }

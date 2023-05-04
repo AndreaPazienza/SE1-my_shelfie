@@ -68,16 +68,28 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
-    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC){ //throws NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
         try{
             this.controller.checkSelect(SC);
-            System.out.println("La selezione è andanta a buon fine ");
+            System.out.println("La selezione è andata a buon fine ");
         }catch(NotCatchableException e){
-            System.err.println("La tessera selezionata non è prendibile");
-            //Notify Errore al client
+            for(ClientRMIInterface clients : logged){
+                if(controller.getOnStage().equals(clients.getNickname())){
+                    clients.errorNotCatchable();
+                } else {
+                    String message = model.playerOnStage().nickname+" ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
+                    clients.errorNotify(message);
+                }
+            }
         }catch(NotAdjacentSlotsException e ){
-            System.err.println("Le coordinate inserite non sono adiacenti");
-            //Notify Errore al client
+            for(ClientRMIInterface clients : logged){
+                if(controller.getOnStage().equals(client.getNickname())){
+                    clients.errorNotAdjacent();
+                } else {
+                    String message = model.playerOnStage().nickname+" ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
+                    clients.errorNotify(message);
+                }
+            }
         }
 
     }
@@ -89,7 +101,18 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException {
-        this.controller.checkInsert(column);
+        try {
+            this.controller.checkInsert(column);
+        } catch (NotEnoughSpaceChoiceException e){
+            for(ClientRMIInterface clients : logged){
+                if(controller.getOnStage().equals(clients.getNickname())){
+                    clients.errorNotEnoughSpace();
+                } else {
+                    String message = model.playerOnStage().nickname+" ha fatto un errore nell'inserimento! Sta rifacendo la sua scelta!\n)";
+                    clients.errorNotifyInsert(message);
+                }
+            }
+        }
         System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
         controller.turnUpdate();
     }
@@ -111,7 +134,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Notifica al client la nuova view dopo che un client ha finito il proprio turno, con la PersonalShelf
     @Override
-    public void turnIsOver() throws RemoteException {
+    public void turnIsOver() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
                 client.updateClientPlaying(new GameView(model));
@@ -125,7 +148,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Notifica al client che abbiamo iniziato la partita
     @Override
-    public void readyToStart() throws RemoteException {
+    public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
 
         for(ClientRMIInterface client : logged){
             if(controller.getOnStage().equals(client.getNickname())) {
@@ -149,7 +172,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno
-    public void newTurn() throws RemoteException {
+    public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
