@@ -86,10 +86,23 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
     //Quando il server ha un nuovo update viene mandato e mostrato dal client
     @Override
-    public void updateClient(GameView modelView) {
+    public void updateClientFirst(GameView modelView) {
+        view.displayDashboard(modelView.getTable());
+        view.displayPersonalShelf(modelView.getShelf());
+        view.onWait();
+    }
+    //Manda al giocaente la situazione attuale e la propria personal shelf
+    @Override
+    public void updateClientPlaying(GameView modelView) {
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
+    //Manda a tutti i client la nuova board
+    @Override
+    public void updateClientRound(GameView model) throws RemoteException {
+        view.displayDashboard(model.getTable());
+    }
+
     //Metodo remoto: passaggio del nickname al server
     @Override
     public String getNickname() throws RemoteException {
@@ -107,7 +120,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
     //Metodo remoto: per segnalare al client che deve stare ancora in attesa del proprio turno
     public void onWait() throws RemoteException{
-        view.endTurn();
+        view.onWait();
     }
     //Metodo remoto: inizio del proprio turno
     public void startTurn() throws RemoteException {
@@ -116,6 +129,17 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
     //Metodo remoto: finel del turno
     public void endTurn(){
-        view.endTurn();
+        view.onWait();
+    }
+
+    @Override
+    public void winnerInterface(String winner ) throws RemoteException {
+        view.displayWin(winner);
+    }
+
+    @Override
+    public void notifyCompleted() throws RemoteException {
+        view.notifyAlmostOver();
+
     }
 }

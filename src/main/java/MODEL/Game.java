@@ -12,7 +12,7 @@ public class Game implements GameEventListener {
     private final List<GameEventListener> listeners = new ArrayList<>();
     protected static int Nplayers;
     private int playerInGame;
-    private int firstPlayerFinished = -1;
+    private boolean firstPlayerFinished = false;
     private boolean gameOn;
     private Player[] player;
     private Dashboard table;
@@ -36,17 +36,6 @@ public class Game implements GameEventListener {
         state = GameState.LOGIN;
 
     }
-
-
-    public void setFirstPlayerFinished(int firstPlayerFinished) {
-        this.firstPlayerFinished = firstPlayerFinished;
-    }
-
-    public int getFirstPlayerFinished() {
-        return firstPlayerFinished;
-    }
-
-
 
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
@@ -81,6 +70,7 @@ public class Game implements GameEventListener {
         getTable().catchAfterRefill();
         assignPGoal();
         this.gameStateChanged();
+        this.readyToStart();
     }
 
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
@@ -91,12 +81,21 @@ public class Game implements GameEventListener {
         //Secondo PGoal
         this.commonGoal2.getGoal().control(player[playerInGame]);
         this.commonGoal2.getGoal().incrementCG();
-     //Chiamata a refill (se necessario)
+
+        if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
+            firstPlayerFinished=true;
+            notifyEndGame();
+        }
+        if(firstPlayerFinished && player[playerInGame].getOrderInTurn()==Nplayers){
+            notifyGameFinished();
+        }
+
+         //Chiamata a refill (se necessario)
         if (table.checkRefill()) {
             table.refill(bag);
         }
         table.catchAfterRefill();
-        /* notify della dashboard aggiornata */
+        //Notify
         this.turnIsOver();
 
         //Passaggio del turno
@@ -159,6 +158,10 @@ public class Game implements GameEventListener {
         return playerInGame;
     }
 
+    public boolean isFirstPlayerFinished() {
+        return firstPlayerFinished;
+    }
+
     public PersonalGoalDeck getDeck() {
         return deck;
     }
@@ -186,8 +189,23 @@ public class Game implements GameEventListener {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
         }
+    }
+
+    @Override
+    public void notifyEndGame() throws RemoteException {
+        for(GameEventListener listener: listeners){
+            listener.notifyEndGame();
+        }
+    }
+
+    @Override
+    public void notifyGameFinished() throws RemoteException {
+        for(GameEventListener listener: listeners){
+            listener.notifyGameFinished();
+        }
 
     }
+
     //Notifica il passaggio al prossimo client durante la partita.
     @Override
     public void turnIsOver() throws RemoteException {
@@ -195,6 +213,7 @@ public class Game implements GameEventListener {
             listener.turnIsOver();
         }
     }
+
 
 
 }

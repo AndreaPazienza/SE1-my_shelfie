@@ -22,9 +22,9 @@ public class GameController{
 
     public void startGame () throws RemoteException {
             game.startGame();
-            while(game.isGameOn()) {
-                game.readyToStart();
-            }
+    }
+    public boolean finishedGame(){
+        return game.isGameOn();
     }
 
     public String getOnStage(){
@@ -131,20 +131,19 @@ public class GameController{
         }
     }
 
-    public void completeRound(){
-        //int countdown = game.getNplayers()-game.getPlayerInGame();
-        while(game.getPlayerInGame()!= 0){
-            //turnManagement();
-        }
+    public void completeShelf() {
+       game.getPlayer()[game.getPlayerInGame()].sumPoints(1);
     }
-    public void endGame(){
+    public String endGame(){
         Player winner;
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();
         }
         winner = game.finalScore();
-        //System.out.println("Il vincitore è :"+winner.getNickname()+" Complimenti!");
+
         game.setGameOn(false);
+
+        return "Il vincitore è: " + winner.getNickname() + " Congratulazioni! Con punteggio di: " + winner.getScore();
     }
 
 

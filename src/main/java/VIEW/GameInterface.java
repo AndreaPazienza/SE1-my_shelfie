@@ -15,6 +15,7 @@ public class GameInterface implements Runnable, viewListeners {
     private List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
 
+
     //inserimento nickname per la prima volta
     public String firstRun() {
 
@@ -41,20 +42,16 @@ public class GameInterface implements Runnable, viewListeners {
 
         return number;
     }
-
-    public void run() {
-        System.out.println("waiting...");
-    }
-
     public void playing() throws RemoteException {
-        playerMoveSelection();
-        try {
-            playerInsert();
-        } catch (NotEnoughSpaceChoiceException e) {
-            System.out.println("Colonna errata");
-        } catch (RemoteException e) {
-            throw new RuntimeException(e);
-        }
+            playerMoveSelection();
+            try {
+                playerInsert();
+            } catch (NotEnoughSpaceChoiceException e) {
+                System.out.println("Colonna errata");
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+
     }
 
 
@@ -188,10 +185,6 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
-    public void arrived() {
-        System.out.println("A new player as signed");
-    }
-
     //Inserimento delle tessere prese nella shelf
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
 
@@ -239,14 +232,6 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
-    }
-
-    public void startTurn() {
-        System.out.print("-- Inizio del nuovo turno -- \n");
-    }
-
-    public void endTurn() {
-        System.out.print("-- Non è il tuo turno -- \n");
     }
 
     //Stampa della personal shelf a schermo
@@ -306,6 +291,29 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
+    public void displayWin(String winner){
+        System.out.println("Il gioco è finito!! \n " + winner);
+    }
+    public void notifyAlmostOver(){
+        System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!! \n");
+    }
+    public void arrived() {
+        System.out.println("A new player as signed");
+    }
+    public void startTurn() {
+        System.out.print("-- Inizio del nuovo turno -- \n");
+    }
+
+    public void onWait() {
+
+            System.out.print("-- Non è il tuo turno -- \n");
+
+    }
+    public void run() {
+        System.out.println("waiting...");
+    }
+
+
     //Aggiunge un listener a se stesso
     @Override
     public void addviewEventListener(viewListeners listener) {
@@ -320,8 +328,6 @@ public class GameInterface implements Runnable, viewListeners {
             listener.notifySelectedCoordinates(SC);
         }
     }
-
-
 
     //Notifica a tutti i listerner (Client) l'avvenuta notifica
     @Override

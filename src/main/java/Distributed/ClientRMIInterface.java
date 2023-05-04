@@ -7,8 +7,10 @@ import java.rmi.RemoteException;
 
 public interface ClientRMIInterface extends Remote {
 
-    void updateClient(GameView view) throws RemoteException;
-
+    //Da implementare la PS solo alla fine
+    void updateClientFirst(GameView view) throws RemoteException;
+    void updateClientRound(GameView model) throws RemoteException;
+    void updateClientPlaying(GameView model) throws RemoteException;
     String getNickname() throws RemoteException;
 
     int startGame() throws RemoteException;
@@ -17,5 +19,7 @@ public interface ClientRMIInterface extends Remote {
     void newPlayerAdded() throws RemoteException;
     void startTurn() throws  RemoteException;
     void endTurn() throws RemoteException;
+    void winnerInterface(String winner) throws RemoteException;
+    void notifyCompleted() throws RemoteException;
 
 }
