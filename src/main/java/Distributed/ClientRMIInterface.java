@@ -24,13 +24,13 @@ public interface ClientRMIInterface extends Remote {
     void endTurn() throws RemoteException;
     void winnerInterface(String winner) throws RemoteException;
     void notifyCompleted() throws RemoteException;
-    void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
+    void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException;
 
     void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
 
     void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
 
-    void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException;
+    void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
     void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException;
 }

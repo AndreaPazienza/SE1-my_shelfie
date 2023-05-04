@@ -20,7 +20,7 @@ public class GameController{
     }
 
 
-    public void startGame () throws RemoteException {
+    public void startGame () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             game.setGameOn(true);
             game.startGame();
     }
@@ -149,7 +149,7 @@ public class GameController{
         return "Il vincitore è: " + winner.getNickname() + " Congratulazioni! Con punteggio di: " + winner.getScore();
     }
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
-    public void turnUpdate() throws RemoteException {
+    public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Aggioramento del turno in corso.. \n");
         game.updateTurn();
     }

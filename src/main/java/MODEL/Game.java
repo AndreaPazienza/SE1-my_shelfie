@@ -1,6 +1,9 @@
 package MODEL;
 
 
+import Errors.NotAdjacentSlotsException;
+import Errors.NotCatchableException;
+import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
 
 import java.rmi.RemoteException;
@@ -72,7 +75,7 @@ public class Game implements GameEventListener {
         }
     }
 
-    public void startGame() throws RemoteException {
+    public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         state = GameState.PLAYING_IN_ORDERING;
         getTable().refill(getBag());
         getTable().catchAfterRefill();
@@ -85,7 +88,7 @@ public class Game implements GameEventListener {
 
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
-    public void updateTurn() throws RemoteException {
+    public void updateTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             //Controllo dei CommonGoal completati ed incremento
             this.commonGoal1.control(player[playerInGame]);
             this.commonGoal1.incrementCG();
@@ -201,7 +204,7 @@ public class Game implements GameEventListener {
         }
     }
     //Notifies the start of the first player's turn.
-    public void readyToStart() throws RemoteException {
+    public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
         }
@@ -222,7 +225,7 @@ public class Game implements GameEventListener {
     }
     //Notifies the transition to the next client during the game.
         @Override
-        public void turnIsOver () throws RemoteException {
+        public void turnIsOver () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             for (GameEventListener listener : listeners) {
                 listener.turnIsOver();
             }

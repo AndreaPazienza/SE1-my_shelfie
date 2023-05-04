@@ -13,10 +13,10 @@ import java.rmi.RemoteException;
 
 
 public interface ServerRMIInterface extends Remote {
-    void register(ClientRMIInterface client) throws RemoteException, SameNicknameException;
-    void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException; //throws NotAdjacentSlotsException, NotCatchableException;
+    void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
+    void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException; //throws NotAdjacentSlotsException, NotCatchableException;
     void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException;
-    void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException;
+    void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
 
 

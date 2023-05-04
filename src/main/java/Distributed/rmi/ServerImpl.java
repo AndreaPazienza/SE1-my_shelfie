@@ -42,7 +42,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Metodo remoto usato dal client per registrarsi al model
     @Override
-    public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException {
+    public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Ricevuto un tentativo di connessione");
         if (!firstPlayerEnrolled) {
             model = new Game(client.startGame());
@@ -68,7 +68,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
-    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
         try{
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andata a buon fine ");
@@ -100,7 +100,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
     @Override
-    public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException {
+    public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         try {
             this.controller.checkInsert(column);
         } catch (NotEnoughSpaceChoiceException e){
@@ -182,8 +182,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
 
-
-    //----SU
     //Notifica di aver aggiunto un nuovo player alla partita
     public void subscription() throws RemoteException {
         for(ClientRMIInterface client : logged){
@@ -201,13 +199,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
     //Una volta giunto al numero giusto di giocatori fa partire la partita
-    public void startGame() throws RemoteException {
+    public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         controller.startGame();
     }
-
-
-    //---------FINO A QUI
-
 
 }
 

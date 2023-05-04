@@ -1,5 +1,6 @@
 import Distributed.rmi.Client;
 import Distributed.ServerRMIInterface;
+import Errors.SameNicknameException;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -19,6 +20,3 @@ public class AppClient {
         client.run();
     }
 }
-
-//Bloccare l'interfaccia nella view.
-//Chat

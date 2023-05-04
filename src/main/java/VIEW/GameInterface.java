@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
+import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
 
@@ -17,31 +18,24 @@ public class GameInterface implements Runnable, viewListeners {
     private List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard = new Scanner(System.in);
 
-
     //inserimento nickname per la prima volta
     public String firstRun() {
-
-        String nick = null;
-        boolean ok = false;
-
+    String nick = null;
+    boolean ok = false;
         System.out.print("Inserire il nickname: ");
         nick = keyboard.nextLine();
-
-        return nick;
+    return nick;
     }
 
     //insert of the players number
     public int numberOfPlayers() {
-
         int number = 0;
-
         do {
             System.out.print("Inserire il numero dei giocatori: ");
             number = keyboard.nextInt();
             if (number < 2 || number > 4)
                 System.out.print("Il giioco è da 2 a 4 giocatori, inserire un numero corretto ");
         } while (number < 2 || number > 4);
-
         return number;
     }
     public void playing() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
@@ -51,8 +45,7 @@ public class GameInterface implements Runnable, viewListeners {
 
 
     //Selection of the cards from dashboard
-    public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException {
-
+    public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
@@ -69,14 +62,10 @@ public class GameInterface implements Runnable, viewListeners {
         } while (nChoices < 1 || nChoices > maxChoices);
 
         SlotChoice[] selection = new SlotChoice[nChoices];
-
         int x = -1;
         int y = -1;
-
         do {
             for (int i = 0; i < nChoices; i++) {
-
-
                 //Insertion of the single tile and insertion into the tiles array.//Inserimento della tessera songola e inserimento nell'array di tessere
                 do {
                     System.out.println("Inserire le coordinate della tessera da prendere: ");
@@ -95,15 +84,6 @@ public class GameInterface implements Runnable, viewListeners {
 
             notifySelectedCoordinates(selection);
             ok = true;
-
-            /*} catch (NotCatchableException e) {
-                System.out.println("Una delle tessere selezionate non è giocabile, sceglierne delle altre");
-                ok = false;
-
-            } catch (NotAdjacentSlotsException e) {
-                System.out.println("Le tessere selezionate non sono adiacenti, scelierne delle altre");
-                ok = false;
-            }*/
         } while (!ok);
 
         System.out.println("Le tessere sono state selezionate");
@@ -161,7 +141,6 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
     }
-
     //Richiesta di ordinamento
     public boolean playerOrder() {
 
@@ -181,7 +160,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     //Insertion of the selected tiles into the shelf.
-    public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException {
+    public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
 
         int column;
         boolean ok;
@@ -301,15 +280,11 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void onWait() {
-
-            System.out.print("-- Non è il tuo turno -- \n");
-
+        System.out.print("-- Non è il tuo turno -- \n");
     }
     public void run() {
         System.out.println("waiting...");
     }
-
-
     //Adding listener
     @Override
     public void addviewEventListener(viewListeners listener) {
@@ -319,7 +294,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Notification to all listeners (Clients) of the completed selection.
     @Override
-    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException {
+    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         for( viewListeners listener : listeners  ) {
             listener.notifySelectedCoordinates(SC);
         }
@@ -339,23 +314,20 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Notification to all listeners (clients) of the successful insertion.
     @Override
-    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyInsert(column);
         }
-          //  catch(RemoteException e){
-            //   System.out.println("ciao");
-           // }
-        }
+    }
 
     @Override
-    public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
+    public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
     }
 
-    public void displayCommonGoal(GameView gameView){
+        public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
@@ -369,7 +341,7 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
 
-    public void errorNotCatchable() throws RemoteException, NotAdjacentSlotsException, NotCatchableException {
+    public void errorNotCatchable() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         System.err.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
         playerMoveSelection();
     }
@@ -379,12 +351,12 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        System.out.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione");
+        System.err.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione");
         playing();
     }
 
-    public void errorNotEnoughSpace() throws NotEnoughSpaceChoiceException, RemoteException {
-        System.out.println("La colonna selezionata non ha abbastanza spazio! Sceglierne un'altra!");
+    public void errorNotEnoughSpace() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+        System.err.println("La colonna selezionata non ha abbastanza spazio! Sceglierne un'altra!");
         playerInsert();
     }
 }

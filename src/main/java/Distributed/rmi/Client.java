@@ -55,6 +55,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         server.register(this);
         }catch(RemoteException | SameNicknameException e){
            sameNickFound(e.getMessage());
+        } catch (NotEnoughSpaceChoiceException e) {
+            throw new RuntimeException(e);
+        } catch (NotAdjacentSlotsException e) {
+            throw new RuntimeException(e);
+        } catch (NotCatchableException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -76,7 +82,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Observer: when coordinates are taken from the view
     @Override
-    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
+    public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
         System.out.println("Invio delle coordinate in corso; \n");
         connectedTo.updateServerSelection(this, SC);
     }
@@ -89,7 +95,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Observer: when the insertion column is chosen from the view
     @Override
-    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException {
+    public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerInsert(this, column);
     }
 
@@ -97,7 +103,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
         nickname = view.firstRun();
         try{connectedTo.register(this);}
-        catch (RemoteException | SameNicknameException e){
+        catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
+               NotCatchableException e){
             sameNickFound(e.getMessage());
         }
     }
@@ -169,7 +176,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
+    public void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
         view.errorNotCatchable();
     }
 
@@ -184,7 +191,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException {
+    public void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotEnoughSpace();
     }
 

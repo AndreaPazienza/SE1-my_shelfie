@@ -12,9 +12,9 @@ import java.rmi.RemoteException;
 
 public interface viewListeners {
     void addviewEventListener(viewListeners listener);
-    void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
+    void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException;
     void notifyOrder(OrderChoice o) throws RemoteException;
-    void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException;
+    void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyOneMoreTime() throws SameNicknameException, RemoteException;
 
 }
