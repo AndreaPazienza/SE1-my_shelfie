@@ -145,6 +145,11 @@ public class GameController{
 
         return "Il vincitore è: " + winner.getNickname() + " Congratulazioni! Con punteggio di: " + winner.getScore();
     }
+    //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
+    public void turnUpdate() throws RemoteException {
+        System.out.println("Aggioramento del turno in corso.. \n");
+        game.updateTurn();
+    }
 
 
 }

@@ -174,9 +174,8 @@ public class GameInterface implements Runnable, viewListeners {
         String string;
         String yes = "si";
         String no = "no";
-
+        System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
         do {
-            System.out.println("Vuoi ordinare le tessere selezionate? si o no?");
             string = keyboard.nextLine();
             if (string.equals(yes))
                 reorder = true;

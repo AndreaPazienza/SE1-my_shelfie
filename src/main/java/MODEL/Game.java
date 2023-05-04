@@ -205,10 +205,10 @@ public class Game implements GameEventListener {
 
     @Override
     public void notifyGameFinished() throws RemoteException {
-        for(GameEventListener listener: listeners){
+        for (GameEventListener listener : listeners) {
             listener.notifyGameFinished();
         }
-
+    }
     //Notifies the transition to the next client during the game.
     @Override
     public void turnIsOver() throws RemoteException {
