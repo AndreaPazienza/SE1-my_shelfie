@@ -1,6 +1,8 @@
 package MODEL;
 
-public abstract class  CommonGoalAbs {
+import java.io.Serializable;
+
+public abstract class  CommonGoalAbs implements Serializable {
 
     protected int playing=0;
     private int maxPoint = 8;

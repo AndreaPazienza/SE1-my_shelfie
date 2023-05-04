@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
-public class CommonGoal extends Observable {
+public class CommonGoalDeck extends Observable {
 
     private CommonGoalAbs goal;
 
-    public CommonGoal(int players){
+    public CommonGoalDeck(int players){
         this.goal = this.getACommonGoal(players);
     }
     public CommonGoalAbs getGoal(){

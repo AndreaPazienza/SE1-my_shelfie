@@ -18,7 +18,8 @@ public class Game implements GameEventListener {
     private Dashboard table;
     private Bag bag;
     private PersonalGoalDeck deck;
-    private CommonGoal commonGoal1, commonGoal2;
+    private CommonGoalDeck commonGoalDeck;
+    private CommonGoalAbs commonGoal1, commonGoal2;
     private GameState state;
 
     //Costruttore della partita che a sua volta costruisce la Dashboard passando il numero di giocatori che si inseriranno (in seguito)
@@ -31,11 +32,10 @@ public class Game implements GameEventListener {
         table = new Dashboard(numberOfPlayers);
         bag = new Bag();
         deck = new PersonalGoalDeck();
-        commonGoal1 = new CommonGoal(numberOfPlayers);
-        commonGoal2 = new CommonGoal(numberOfPlayers);
+        commonGoalDeck = new CommonGoalDeck(numberOfPlayers);
         state = GameState.LOGIN;
-
     }
+
 
     public void assignPGoal(){
         for(int i = 0; i < player.length; i++){
@@ -69,6 +69,8 @@ public class Game implements GameEventListener {
         getTable().refill(getBag());
         getTable().catchAfterRefill();
         assignPGoal();
+        commonGoal1 = commonGoalDeck.getACommonGoal();
+        commonGoal2 = commonGoalDeck.getACommonGoal();
         this.gameStateChanged();
         this.readyToStart();
     }
@@ -76,11 +78,11 @@ public class Game implements GameEventListener {
     //Chiamata a refill se necessario e setting di catchable, passaggio del turno al giocatore successivo
     public void updateTurn() throws RemoteException {
         //Controllo dei CommonGoal completati ed incremento
-        this.commonGoal1.getGoal().control(player[playerInGame]);
-        this.commonGoal1.getGoal().incrementCG();
+        this.commonGoalDeck1.getGoal().control(player[playerInGame]);
+        this.commonGoalDeck1.getGoal().incrementCG();
         //Secondo PGoal
-        this.commonGoal2.getGoal().control(player[playerInGame]);
-        this.commonGoal2.getGoal().incrementCG();
+        this.commonGoalDeck2.getGoal().control(player[playerInGame]);
+        this.commonGoalDeck2.getGoal().incrementCG();
 
         if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
             firstPlayerFinished=true;
@@ -140,12 +142,12 @@ public class Game implements GameEventListener {
     public GameState getCurrentState(){return state;}
     public Player[] getPlayer() {return player;}
 
-    public CommonGoal getCommonGoal1() {
-        return commonGoal1;
+    public CommonGoalDeck getCommonGoal1() {
+        return commonGoalDeck1;
     }
 
-    public CommonGoal getCommonGoal2() {
-        return commonGoal2;
+    public CommonGoalDeck getCommonGoal2() {
+        return commonGoalDeck2;
     }
 
     public boolean isGameOn() {
