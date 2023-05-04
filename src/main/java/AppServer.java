@@ -1,5 +1,6 @@
-import Distributed.rmi.ServerImpl;
-import Distributed.ServerRMIInterface;
+
+import Distributed.*;
+import Distributed.rmi.*;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -12,7 +13,6 @@ public class AppServer {
         ServerRMIInterface server = new ServerImpl();
         Registry registry = LocateRegistry.createRegistry(1066);
         try{
-            //System.setProperty("java.rmi.server.hostname","192.168.1.74");
             registry.bind("server",server);}catch (AlreadyBoundException e){
             registry.rebind("server", server);
         }

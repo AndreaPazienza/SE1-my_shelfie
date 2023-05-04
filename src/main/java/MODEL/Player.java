@@ -83,7 +83,6 @@ public class Player extends Observable {
         selectedCards[1] = selectedCards[0];
         selectedCards[0] = tmp;
         notifyObservers(selectedCards);
-
     }
 
     public void sumPoints(int p){

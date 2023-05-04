@@ -9,7 +9,7 @@ public abstract class  CommonGoalAbs {
 
     public abstract void control(Player player);
 
-   // public abstract void show();
+    public abstract void show();
 
     public CommonGoalAbs(int totalPlayer){
 

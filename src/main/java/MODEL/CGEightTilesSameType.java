@@ -1,5 +1,7 @@
 package MODEL;
 
+import VIEW.ColorPrint;
+
 public class CGEightTilesSameType extends CommonGoalAbs {
     public CGEightTilesSameType(int players){
         super(players);
@@ -31,6 +33,42 @@ public class CGEightTilesSameType extends CommonGoalAbs {
             givePoints(player);
        }
     }
+
+    }
+
+    @Override
+    public void show() {
+        System.out.println("Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere.");
+        System.out.println("Ecco un esempio di shelf che soddisfa l'obiettivo:");
+        PersonalShelf example = new PersonalShelf();
+        example.getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        example.getSingleSlot(3,2).setColor(Color.LBLUE);
+        example.getSingleSlot(2,1 ).setColor(Color.LBLUE);
+        example.getSingleSlot(3,3 ).setColor(Color.LBLUE);
+        example.getSingleSlot(4,2 ).setColor(Color.LBLUE);
+        example.getSingleSlot(5,1 ).setColor(Color.LBLUE);
+        example.getSingleSlot(1,4 ).setColor(Color.LBLUE);
+        example.getSingleSlot(0,3 ).setColor(Color.LBLUE);
+        example.getSingleSlot(0,4 ).setColor(Color.LBLUE);
+        System.out.print("\t");
+        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
+            System.out.print("\t " + k + " \t");
+        }
+        System.out.print("\n");
+        System.out.print("\n");
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            System.out.print(i + "\t");
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "   " + "\t");
+            }
+            System.out.print("\n");
+            System.out.print("\n");
+        }
+        System.out.print("=================================================================================\n");
+        System.out.print("\n");
+        System.out.print("\n");
 
     }
 

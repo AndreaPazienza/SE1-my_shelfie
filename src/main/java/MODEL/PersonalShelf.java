@@ -90,14 +90,13 @@ public class PersonalShelf implements Serializable {
        // notifyObservers(this.shelf);
     }
 
-    public void checkLastLine(){
+    public boolean checkLastLine(){
         for(int i = 0; i < N_COLUMN; i++){
-            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf?
-                this.itsFull = false;
-                return;
+            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf
+                return false;
             }
         }
-        this.itsFull = true;
+        return true;
     }
     public PersonalShelf(){
         this.shelf = new Slot[N_ROWS][N_COLUMN];

@@ -39,6 +39,7 @@ public class GameController{
             }
         }
         return true;
+
     }
 
     //method which controls if a tile can be caught

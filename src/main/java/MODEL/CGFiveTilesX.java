@@ -1,5 +1,7 @@
 package MODEL;
 
+import VIEW.ColorPrint;
+
 public class CGFiveTilesX extends CommonGoalAbs {
     public CGFiveTilesX(int players) {
         super(players);
@@ -35,6 +37,38 @@ public class CGFiveTilesX extends CommonGoalAbs {
                 }
             }
         }
+    }
+
+    @Override
+    public void show() {
+        System.out.println("Cinque tessere dello stesso tipo che formano una X");
+        System.out.println("Ecco un esempio di shelf che soddisfa l'obiettivo:");
+        PersonalShelf example = new PersonalShelf();
+        example.getSingleSlot(5,4 ).setColor(Color.YELLOW);
+        example.getSingleSlot(3,2).setColor(Color.YELLOW);
+        example.getSingleSlot(4,3 ).setColor(Color.YELLOW);
+        example.getSingleSlot(3,4 ).setColor(Color.YELLOW);
+        example.getSingleSlot(5,2 ).setColor(Color.YELLOW);
+
+        System.out.print("\t");
+        for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
+            System.out.print("\t " + k + " \t");
+        }
+        System.out.print("\n");
+        System.out.print("\n");
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            System.out.print(i + "\t");
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "   " + "\t");
+            }
+            System.out.print("\n");
+            System.out.print("\n");
+        }
+        System.out.print("=================================================================================\n");
+        System.out.print("\n");
+        System.out.print("\n");
     }
 }
 
