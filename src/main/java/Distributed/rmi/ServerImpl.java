@@ -107,9 +107,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica al client la nuova view dopo che un client ha finito il proprio turno, con la PersonalShelf
     @Override
     public void turnIsOver() throws RemoteException {
-
         for (ClientRMIInterface client : logged) {
-            if (controller.previousOnStage()) {
+            if (controller.getOnStage().equals(client.getNickname())) {
                 client.updateClientPlaying(new GameView(model));
                 client.endTurn();
             }else{

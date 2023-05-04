@@ -21,6 +21,7 @@ public class GameController{
 
 
     public void startGame () throws RemoteException {
+            game.setGameOn(true);
             game.startGame();
     }
     public boolean finishedGame(){
@@ -30,6 +31,7 @@ public class GameController{
     public String getOnStage(){
         return game.playerOnStage().getNickname();
     }
+    public String getPrevOnStage(){return game.previousOnStage().getNickname();}
 
     //controllo se il nickname è stato già preso
     public boolean checkNick(String name){
@@ -135,6 +137,7 @@ public class GameController{
        game.getPlayer()[game.getPlayerInGame()].sumPoints(1);
     }
     public String endGame(){
+        game.setGameOn(false);
         Player winner;
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();

@@ -14,7 +14,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
             return true;
         }
         else {
-            for(int i=0; i<rows.length; i++){
+            for(int i=0; i<rows.length-1; i++){
                 for(int j=i+1; j<rows.length; j++ ){
                     if(rows[i].equals(rows[j]) || rows[0].equals(Color.GREY)){
                         return false;

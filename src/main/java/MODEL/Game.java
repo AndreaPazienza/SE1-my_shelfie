@@ -86,36 +86,37 @@ public class Game implements GameEventListener {
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException {
-        //Controllo dei CommonGoal completati ed incremento
-        this.commonGoal1.control(player[playerInGame]);
-        this.commonGoal1.incrementCG();
-        //Secondo PGoal
-        this.commonGoal2.control(player[playerInGame]);
-        this.commonGoal2.incrementCG();
+        if(gameOn) {
+            //Controllo dei CommonGoal completati ed incremento
+            this.commonGoal1.control(player[playerInGame]);
+            this.commonGoal1.incrementCG();
+            //Secondo PGoal
+            this.commonGoal2.control(player[playerInGame]);
+            this.commonGoal2.incrementCG();
 
-        if(this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished){
-            firstPlayerFinished=true;
-            notifyEndGame();
-        }
-        if(firstPlayerFinished && player[playerInGame].getOrderInTurn()==Nplayers){
-            notifyGameFinished();
-        }
+            if (this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished) {
+                firstPlayerFinished = true;
+                notifyEndGame();
+            }
+            if (firstPlayerFinished && player[playerInGame].getOrderInTurn() == Nplayers) {
+                notifyGameFinished();
+            }
 
-         //Chiamata a refill (se necessario)
-        if (table.checkRefill()) {
-            table.refill(bag);
-        }
-        table.catchAfterRefill();
-
-        /* notify of the updated dashboard */
-        this.turnIsOver();
-
-        //Passaggio del turno
-        playerInGame ++;
-        if (playerInGame == Nplayers) {
-            playerInGame = 0;
+            //Chiamata a refill (se necessario)
+            if (table.checkRefill()) {
+                table.refill(bag);
+            }
+            table.catchAfterRefill();
+            //Passaggio del turno
+            playerInGame++;
+            if (playerInGame == Nplayers) {
+                playerInGame = 0;
+            }
+            /* notify of the updated dashboard */
+            this.turnIsOver();
         }
     }
+
 
 
     //The winner is declared (searches for the maximum)
