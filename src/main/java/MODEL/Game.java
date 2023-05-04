@@ -64,6 +64,14 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
+    public Player previousOnStage(){
+        if(playerInGame == 0){
+            return player[Nplayers-1];
+        } else {
+            return player[playerInGame - 1];
+        }
+    }
+
     public void startGame() throws RemoteException {
         state = GameState.PLAYING_IN_ORDERING;
         getTable().refill(getBag());
@@ -205,17 +213,17 @@ public class Game implements GameEventListener {
 
     @Override
     public void notifyGameFinished() throws RemoteException {
-        for (GameEventListener listener : listeners) {
+        for(GameEventListener listener: listeners){
             listener.notifyGameFinished();
         }
     }
     //Notifies the transition to the next client during the game.
-    @Override
-    public void turnIsOver() throws RemoteException {
-        for(GameEventListener listener: listeners){
-            listener.turnIsOver();
+        @Override
+        public void turnIsOver () throws RemoteException {
+            for (GameEventListener listener : listeners) {
+                listener.turnIsOver();
+            }
         }
-    }
 
 
 

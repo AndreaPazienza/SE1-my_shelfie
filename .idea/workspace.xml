@@ -4,27 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cfd0a734-5939-49e2-acde-ebe77eb55e11" name="Changes" comment="Aggiornamento common goal">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiornamento common goal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGDecreaseTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGDecreaseTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGEightTilesSameTypeTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesDiagonalTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFiveTilesXTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourCornersTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourCornersTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourGroupsFourTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourGroupsFourTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGFourLinesFiveTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSameTypeSquareTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGSixGroupsTwoTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGThreeColumnsSixTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoColumnsSixTilesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,19 +96,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.testShow">
-    <configuration name="CGSameTypeSquareTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.AppClient">
+    <configuration name="AppClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGSameTypeSquareTest" />
-      <option name="METHOD_NAME" value="testShow" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,7 +169,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.CGSameTypeSquareTest.testShow" />
+      <item itemvalue="Application.AppClient" />
       <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.testShow" />
       <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.testShow" />
       <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
@@ -202,11 +177,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppClient" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
         <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
         <item itemvalue="JUnit.CGThreeColumnsSixTilesTest.testShow" />
         <item itemvalue="JUnit.CGSixGroupsTwoTilesTest.testShow" />
-        <item itemvalue="JUnit.CGSameTypeSquareTest.testShow" />
       </list>
     </recent_temporary>
   </component>
@@ -450,7 +425,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
           <line>126</line>
-          <properties class="Distributed.rmi.Client" method="startTurn">
+          <properties class="Distributed.rmi.Client">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -459,7 +434,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>108</line>
-          <properties class="Distributed.rmi.ServerImpl">
+          <properties class="Distributed.rmi.ServerImpl" method="turnIsOver">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -467,8 +442,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>154</line>
-          <properties class="Distributed.rmi.ServerImpl" method="newTurn">
+          <line>176</line>
+          <properties class="Distributed.rmi.ServerImpl" method="subscription">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -476,17 +451,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>197</line>
-          <properties class="Distributed.rmi.ServerImpl" method="turnUpdate">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>67</line>
-          <properties class="Distributed.rmi.ServerImpl">
+          <properties class="Distributed.rmi.ServerImpl" method="updateServerSelection">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
@@ -495,7 +461,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>87</line>
-          <properties class="Distributed.rmi.ServerImpl">
+          <properties class="Distributed.rmi.ServerImpl" method="updateServerInsert">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
