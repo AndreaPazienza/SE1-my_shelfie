@@ -1,5 +1,6 @@
 package MODEL;
 import VIEW.ColorPrint;
+import VIEW.Image;
 //Four groups each containing at least
 //4 tiles of the same type (not necessarily in the depicted shape).
 //The tiles of one group can be different from those of another group.
@@ -78,7 +79,7 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -86,13 +87,13 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(example.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }

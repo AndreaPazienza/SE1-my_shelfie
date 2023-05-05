@@ -1,12 +1,14 @@
 package MODEL;
 import VIEW.ColorPrint;
+import VIEW.Image;
 //Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square.
 
 public class CGSameTypeSquare extends CommonGoalAbs {
 
-    public CGSameTypeSquare(int players){
+    public CGSameTypeSquare(int players) {
         super(players);
     }
+
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {
@@ -47,18 +49,18 @@ public class CGSameTypeSquare extends CommonGoalAbs {
         System.out.println("Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato 2x2. Le tessere dei due gruppi devono essere dello stesso tipo");
         System.out.println("Ecco un esempio di shelf che soddisfa l'obiettivo");
         PersonalShelf example = new PersonalShelf();
-        example.getSingleSlot(0,0).setColor(Color.YELLOW);
-        example.getSingleSlot(0,1).setColor(Color.YELLOW);
-        example.getSingleSlot(1,0).setColor(Color.YELLOW);
-        example.getSingleSlot(1,1).setColor(Color.YELLOW);
-        example.getSingleSlot(4,0).setColor(Color.YELLOW);
-        example.getSingleSlot(5,0).setColor(Color.YELLOW);
-        example.getSingleSlot(4,1).setColor(Color.YELLOW);
-        example.getSingleSlot(5,1).setColor(Color.YELLOW);
+        example.getSingleSlot(0, 0).setColor(Color.YELLOW);
+        example.getSingleSlot(0, 1).setColor(Color.YELLOW);
+        example.getSingleSlot(1, 0).setColor(Color.YELLOW);
+        example.getSingleSlot(1, 1).setColor(Color.YELLOW);
+        example.getSingleSlot(4, 0).setColor(Color.YELLOW);
+        example.getSingleSlot(5, 0).setColor(Color.YELLOW);
+        example.getSingleSlot(4, 1).setColor(Color.YELLOW);
+        example.getSingleSlot(5, 1).setColor(Color.YELLOW);
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -66,13 +68,13 @@ public class CGSameTypeSquare extends CommonGoalAbs {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(example.getSingleSlot(i, j).getColor()) + "]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }

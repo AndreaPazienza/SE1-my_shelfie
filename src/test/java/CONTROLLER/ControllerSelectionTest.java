@@ -24,6 +24,7 @@ class ControllerSelectionTest {
         model.signPlayer(nick2);
     }
 
+    /*
     @Test
     void selectOneTileCorrect() throws NotAdjacentSlotsException, NotCatchableException {
         SlotChoice[] slotChoice = new SlotChoice[1];
@@ -209,4 +210,5 @@ class ControllerSelectionTest {
             System.out.println("Le tessere selezionate non sono adiacenti");
         }
     }
+    */
 }

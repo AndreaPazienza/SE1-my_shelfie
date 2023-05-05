@@ -194,7 +194,7 @@ public class GameInterface implements Runnable, viewListeners {
     public void displayDashboard(Dashboard board) {
         System.out.print("\t");
         for (int k = 0; k < Dashboard.getSide(); k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -202,13 +202,13 @@ public class GameInterface implements Runnable, viewListeners {
             System.out.print(i + "\t");
             for (int j = 0; j < Dashboard.getSide(); j++) {
                 if ((!board.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !board.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(board.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(board.getSingleSlot(i, j).getColor()) + "["+ Image.colorToImage(board.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }
@@ -217,7 +217,7 @@ public class GameInterface implements Runnable, viewListeners {
     public void displayPersonalShelf(PersonalShelf shelf) {
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -225,13 +225,13 @@ public class GameInterface implements Runnable, viewListeners {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!shelf.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !shelf.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(shelf.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(shelf.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }
@@ -248,7 +248,7 @@ public class GameInterface implements Runnable, viewListeners {
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -258,15 +258,15 @@ public class GameInterface implements Runnable, viewListeners {
                 if (isTarget[i][j]) {
                     for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget++) {
                         if ((pGoal.getSingleTarget(countTarget).getPosX() == i) && (pGoal.getSingleTarget(countTarget).getPosY() == j)) {
-                            System.out.print("\t" + ColorPrint.convertColor(pGoal.getSingleTarget(countTarget).getTile()) + "[ ]" + ColorPrint.RESET + "\t");
+                            System.out.print("\t" + ColorPrint.convertColor(pGoal.getSingleTarget(countTarget).getTile()) + "[" + Image.colorToImage(pGoal.getSingleTarget(countTarget).getTile()) +"]" + ColorPrint.RESET + "\t");
                         }
                     }
-                } else System.out.print("\t" + " . " + "\t");
+                } else System.out.print("\t" + "   ...   " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }

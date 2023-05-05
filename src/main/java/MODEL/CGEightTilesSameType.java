@@ -1,5 +1,7 @@
 package MODEL;
 import VIEW.ColorPrint;
+import VIEW.Image;
+
 //Eight tiles of the same type. There’s no restriction about the position of these tiles.
 public class CGEightTilesSameType extends CommonGoalAbs {
     public CGEightTilesSameType(int players){
@@ -49,9 +51,10 @@ public class CGEightTilesSameType extends CommonGoalAbs {
         example.getSingleSlot(1,4 ).setColor(Color.LBLUE);
         example.getSingleSlot(0,3 ).setColor(Color.LBLUE);
         example.getSingleSlot(0,4 ).setColor(Color.LBLUE);
+
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -59,16 +62,15 @@ public class CGEightTilesSameType extends CommonGoalAbs {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(example.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
-
     }
 
 }

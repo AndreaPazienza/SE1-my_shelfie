@@ -12,25 +12,25 @@ public enum Image {
     GAME;
 
     //Conversion from the color to the image on the card
-    public static Image ColorToImage(Color c) {
+    public static String colorToImage(Color c) {
         switch (c) {
             case GREEN -> {
-                return CAT;
+                return "  CAT  ";
             }
             case PINK -> {
-                return PLANT;
+                return " PLANT ";
             }
             case BLUE -> {
-                return FRAME;
+                return " FRAME ";
             }
             case LBLUE -> {
-                return TROPHY;
+                return "TROPHY ";
             }
             case WHITE -> {
-                return BOOK;
+                return " BOOK  ";
             }
             case YELLOW -> {
-                return GAME;
+                return " GAME  ";
             }
         }
         return null;
