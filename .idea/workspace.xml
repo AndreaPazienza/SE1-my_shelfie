@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Gestione del sameNickError">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Gestione errori della partita">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +19,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -99,85 +94,105 @@
       <recent name="MODEL" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="CONTROLLER" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
-    <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoColumnsSixTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug">
+    <configuration name="ControllerSelectionTest.selectThreeCatchable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="CONTROLLER.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="testShow" />
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
+      <option name="METHOD_NAME" value="selectThreeCatchable" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+    <configuration name="ControllerSelectionTest.selectThreeCorrectNearbyBug" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="CONTROLLER.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
+      <option name="METHOD_NAME" value="selectThreeCorrectNearbyBug" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerSelectionTest.selectThreeNotAdjacent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="CONTROLLER.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="testShow" />
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
+      <option name="METHOD_NAME" value="selectThreeNotAdjacent" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ControllerSelectionTest.selectThreeNotCatchable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CONTROLLER.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
+      <option name="METHOD_NAME" value="selectThreeNotCatchable" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ControllerSelectionTest.selectTwoNotCorrectAtAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CONTROLLER.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
+      <option name="METHOD_NAME" value="selectTwoNotCorrectAtAll" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AppServer" />
-      <item itemvalue="Application.AppClient" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest" />
-      <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
+      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCatchable" />
+      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug" />
+      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotAdjacent" />
+      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotCatchable" />
+      <item itemvalue="JUnit.ControllerSelectionTest.selectTwoNotCorrectAtAll" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
-        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
+        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug" />
+        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotAdjacent" />
+        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotCatchable" />
+        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCatchable" />
+        <item itemvalue="JUnit.ControllerSelectionTest.selectTwoNotCorrectAtAll" />
       </list>
     </recent_temporary>
   </component>
@@ -428,12 +443,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>135</line>
+          <line>148</line>
           <properties class="Distributed.rmi.Client">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>201</line>
+          <properties class="Distributed.rmi.ServerImpl">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>70</line>
+          <properties class="Distributed.rmi.ServerImpl">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
@@ -449,8 +482,8 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

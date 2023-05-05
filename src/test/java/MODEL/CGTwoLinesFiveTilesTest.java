@@ -51,7 +51,7 @@ class CGTwoLinesFiveTilesTest {
         current1.getShelf().getSingleSlot(0,3).setColor(Color.BLUE);
         current1.getShelf().getSingleSlot(0,4).setColor(Color.BLUE);
 
-        current1.getShelf().getSingleSlot(5,3).setColor(Color.YELLOW);
+        current1.getShelf().getSingleSlot(5,4).setColor(Color.YELLOW);
         current1.getShelf().getSingleSlot(5,3).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(5,2).setColor(Color.BLUE);
         current1.getShelf().getSingleSlot(5,1).setColor(Color.LBLUE);
