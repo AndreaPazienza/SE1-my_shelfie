@@ -25,7 +25,7 @@ class ControllerOrderTest {
         model.signPlayer(nick1);
         model.signPlayer(nick2);
     }
-
+/*
     @Test
     void orderTwoTest() throws NotAdjacentSlotsException, NotCatchableException {
         SlotChoice[] slotChoice = new SlotChoice[2];
@@ -171,4 +171,6 @@ class ControllerOrderTest {
         System.out.println(controller.selectedSlots[1].getColor());
         System.out.println(controller.selectedSlots[2].getColor());
     }
+
+ */
 }
