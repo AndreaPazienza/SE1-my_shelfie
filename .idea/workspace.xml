@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Gestione errori della partita">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Inizio test del controller, test della selezione, bug tessera centrale da fixare">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +96,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug">
-    <configuration name="ControllerSelectionTest.selectThreeCatchable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ControllerOrderTest.orderThreeTest5">
+    <configuration name="ControllerOrderTest.orderThreeTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -108,14 +106,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
-      <option name="METHOD_NAME" value="selectThreeCatchable" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
+      <option name="METHOD_NAME" value="orderThreeTest1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerSelectionTest.selectThreeCorrectNearbyBug" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerOrderTest.orderThreeTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -124,14 +122,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
-      <option name="METHOD_NAME" value="selectThreeCorrectNearbyBug" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
+      <option name="METHOD_NAME" value="orderThreeTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerSelectionTest.selectThreeNotAdjacent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerOrderTest.orderThreeTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -140,14 +138,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
-      <option name="METHOD_NAME" value="selectThreeNotAdjacent" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
+      <option name="METHOD_NAME" value="orderThreeTest3" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerSelectionTest.selectThreeNotCatchable" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerOrderTest.orderThreeTest4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -156,14 +154,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
-      <option name="METHOD_NAME" value="selectThreeNotCatchable" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
+      <option name="METHOD_NAME" value="orderThreeTest4" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerSelectionTest.selectTwoNotCorrectAtAll" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerOrderTest.orderThreeTest5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -172,27 +170,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerSelectionTest" />
-      <option name="METHOD_NAME" value="selectTwoNotCorrectAtAll" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
+      <option name="METHOD_NAME" value="orderThreeTest5" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCatchable" />
-      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug" />
-      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotAdjacent" />
-      <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotCatchable" />
-      <item itemvalue="JUnit.ControllerSelectionTest.selectTwoNotCorrectAtAll" />
+      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest1" />
+      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest2" />
+      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest3" />
+      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest4" />
+      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest5" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCorrectNearbyBug" />
-        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotAdjacent" />
-        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeNotCatchable" />
-        <item itemvalue="JUnit.ControllerSelectionTest.selectThreeCatchable" />
-        <item itemvalue="JUnit.ControllerSelectionTest.selectTwoNotCorrectAtAll" />
+        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest5" />
+        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest4" />
+        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest3" />
+        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest2" />
+        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest1" />
       </list>
     </recent_temporary>
   </component>
@@ -380,7 +378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683207504775</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Inizio test del controller, test della selezione, bug tessera centrale da fixare">
+      <created>1683276106017</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1683276106017</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -436,7 +441,8 @@
     <MESSAGE value="Aggiornamento del Display" />
     <MESSAGE value="Aggiornamento common goal" />
     <MESSAGE value="Patch nullPointExcept. &amp; aggiornamento invio shelf &amp; Board" />
-    <option name="LAST_COMMIT_MESSAGE" value="Patch nullPointExcept. &amp; aggiornamento invio shelf &amp; Board" />
+    <MESSAGE value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
