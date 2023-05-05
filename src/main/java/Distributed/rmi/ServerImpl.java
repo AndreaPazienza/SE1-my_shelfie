@@ -9,6 +9,7 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.GameEventListener;
 import MODEL.Game;
+import MODEL.GameState;
 import MODEL.GameView;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
@@ -24,7 +25,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     private GameController controller;
     private Game model;
-
     private ArrayList<ClientRMIInterface> logged = new ArrayList<>();
     private boolean firstPlayerEnrolled = false;
 
@@ -43,27 +43,32 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Metodo remoto usato dal client per registrarsi al model
     @Override
     public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        System.out.println("Ricevuto un tentativo di connessione");
-        if (!firstPlayerEnrolled) {
-            model = new Game(client.startGame());
-            controller = new GameController(model);
-            this.model.addGameEventListener(this);
-            model.signPlayer(client.getNickname());
-            this.logged.add(client);
-            firstPlayerEnrolled = true;
-        } else {
-            if (controller.checkNick(client.getNickname())) {
-                model.signPlayer(client.getNickname());
-                this.logged.add(client);
-                System.out.println("Il giocatore " + client.getNickname()+ " è stato correttamente iscritto ");
-                subscription();
-                if(model.isGameOn()) {
-                    startGame();
-                }
-            }else{
-                throw new SameNicknameException("Il nickname è già preso!! \n");
-            }
-        }
+
+           System.out.println("Ricevuto un tentativo di connessione");
+           if (!firstPlayerEnrolled) {
+               model = new Game(client.startGame());
+               controller = new GameController(model);
+               this.model.addGameEventListener(this);
+               model.signPlayer(client.getNickname());
+               this.logged.add(client);
+               firstPlayerEnrolled = true;
+           } else {
+               if(model.getCurrentState().equals(GameState.LOGIN)) {
+                   if (controller.checkNick(client.getNickname())) {
+                       model.signPlayer(client.getNickname());
+                       this.logged.add(client);
+                       System.out.println("Il giocatore " + client.getNickname() + " è stato correttamente iscritto ");
+                       subscription();
+                       if (model.isGameOn()) {
+                           startGame();
+                       }
+                   } else {
+                       throw new SameNicknameException("Il nickname è già preso!! \n");
+                   }
+               }else{
+                   client.notifyGameStarted();
+               }
+           }
     }
 
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
@@ -116,6 +121,23 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
         controller.turnUpdate();
     }
+
+    @Override
+    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        try {
+            this.controller.checkSpaceChoices(number);
+        } catch (NotEnoughSpaceChoiceException e) {
+            for (ClientRMIInterface clients : logged) {
+                if (controller.getOnStage().equals(clients.getNickname())) {
+                    clients.errorChoices(e.getMessage());
+                } else {
+                    String message = model.playerOnStage().nickname + " ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
+                    clients.errorNotifyInsert(message);
+                }
+            }
+        }
+    }
+
     //Viene aggiunto il Listener al gioco
     @Override
     public void addGameEventListener(GameEventListener listener) {

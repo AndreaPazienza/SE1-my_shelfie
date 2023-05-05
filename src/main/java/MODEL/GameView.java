@@ -7,12 +7,14 @@ public class GameView implements Serializable {
     static final long serialVersionUID = 1L;
     private final Dashboard table;
     private final PersonalShelf shelf;
+    private final boolean gameState;
     private final PersonalGoal pgoal;
     private final CommonGoalAbs commonGoal1, commonGoal2;
     private final GameState state;
     public GameView(Game game){
         table = game.getTable();
         shelf = game.getPlayer()[game.getPlayerInGame()].getShelf();
+        gameState = game.isGameOn();
         pgoal = null;
         commonGoal1 = null;
         commonGoal2 = null;
@@ -24,6 +26,7 @@ public class GameView implements Serializable {
         commonGoal1 = game.getCommonGoal1();
         commonGoal2 = game.getCommonGoal2();
         state = game.getCurrentState();
+        gameState = game.isGameOn();
         pgoal = game.getPlayer()[index].getPgoal();
     }
 
@@ -49,4 +52,6 @@ public class GameView implements Serializable {
     }
 
     public GameState getState(){return state;}
+
+    public boolean getGameState(){return gameState;}
 }
