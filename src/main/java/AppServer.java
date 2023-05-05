@@ -23,3 +23,4 @@ public class AppServer {
 
 }
 
+//Gestire richiesta di connessione a partita iniziata

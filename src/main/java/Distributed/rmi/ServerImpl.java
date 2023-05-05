@@ -116,6 +116,15 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
         controller.turnUpdate();
     }
+
+    @Override
+    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException, NotEnoughSpaceChoiceException {
+        try{this.controller.checkSpaceChoices(number);
+        }catch(){
+
+        }
+    }
+
     //Viene aggiunto il Listener al gioco
     @Override
     public void addGameEventListener(GameEventListener listener) {

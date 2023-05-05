@@ -155,6 +155,9 @@ public class GameController{
     }
 
 
+    public void checkSpaceChoices(int number) {
+        n
+    }
 }
 
 

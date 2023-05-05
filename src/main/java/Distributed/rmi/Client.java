@@ -24,6 +24,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     private String nickname;
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
+    private boolean gameState = false;
 
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
@@ -109,9 +110,15 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
+    @Override
+    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException {
+        connectedTo.updateServerChoices(this, number);
+    }
+
     //When the server has a new update, it is sent and displayed by the client.
     @Override
     public void updateClientFirst(GameView modelView) {
+        gameState= modelView.getGameState();
         view.displayCommonGoal(modelView);
         view.displayDashboard(modelView.getTable());
         view.displayPersonalGoal(modelView.getPgoal());
@@ -120,12 +127,14 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //Manda al giocaente la situazione attuale e la propria personal shelf
     @Override
     public void updateClientPlaying(GameView modelView) {
+        gameState = modelView.getGameState();
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
     //Manda a tutti i client la nuova board
     @Override
     public void updateClientRound(GameView model) throws RemoteException {
+        gameState= model.getGameState();
         view.displayDashboard(model.getTable());
     }
 
@@ -155,13 +164,21 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: begin of turn
     public void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+       if(gameState){
         view.startTurn();
         view.playing();
+       }else{
+           view.endgame();
+       }
     }
 
     //Remote method:: end turn
     public void endTurn(){
-        view.onWait();
+        if(gameState) {
+            view.onWait();
+        }else{
+            view.endgame();
+        }
     }
 
     @Override

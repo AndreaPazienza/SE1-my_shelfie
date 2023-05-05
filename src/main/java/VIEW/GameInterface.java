@@ -1,4 +1,5 @@
 package VIEW;
+import java.awt.*;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -9,6 +10,7 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
+import MODEL.Color;
 
 import java.util.List;
 import java.util.Scanner;
@@ -56,6 +58,9 @@ public class GameInterface implements Runnable, viewListeners {
         do {
             System.out.println("Inserire il numero di tessere da selezionare: ");
             nChoices = keyboard.nextInt();
+            notifyChoices(nChoices);
+            //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
+            //tessere selezionate dall'utente.
             if (nChoices > maxChoices) {
                 System.out.println("Nessuna colonna della shelf ha così tanto spazio disponibile: ");
             }
@@ -327,12 +332,19 @@ public class GameInterface implements Runnable, viewListeners {
         }
     }
 
-        public void displayCommonGoal(GameView gameView){
+    @Override
+    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException {
+        for( viewListeners listener : listeners  ) {
+            listener.notifyChoices(number);
+        }
+    }
+
+    public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
         }
-        public void errorNick(String message) throws SameNicknameException, RemoteException {
+    public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
            String response = keyboard.nextLine();
@@ -358,6 +370,9 @@ public class GameInterface implements Runnable, viewListeners {
     public void errorNotEnoughSpace() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         System.err.println("La colonna selezionata non ha abbastanza spazio! Sceglierne un'altra!");
         playerInsert();
+    }
+    public void endgame(){
+        System.out.println(" Il gioco è finito! ");
     }
 }
 
