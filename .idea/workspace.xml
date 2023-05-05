@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Inizio test del controller, test della selezione, bug tessera centrale da fixare">
-      <change afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare">
+      <change afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
     </list>
@@ -96,8 +96,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ControllerOrderTest.orderThreeTest5">
-    <configuration name="ControllerOrderTest.orderThreeTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ControllerInsertTest.InsertInFullColumn">
+    <configuration name="ControllerInsertTest.InsertInAlmostFullColumnThreeTiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -106,14 +106,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
-      <option name="METHOD_NAME" value="orderThreeTest1" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerInsertTest" />
+      <option name="METHOD_NAME" value="InsertInAlmostFullColumnThreeTiles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerOrderTest.orderThreeTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerInsertTest.InsertInEmptyColumnThreeTiles" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -122,14 +122,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
-      <option name="METHOD_NAME" value="orderThreeTest2" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerInsertTest" />
+      <option name="METHOD_NAME" value="InsertInEmptyColumnThreeTiles" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerOrderTest.orderThreeTest3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerInsertTest.InsertInEmptyColumnTwoTile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -138,14 +138,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
-      <option name="METHOD_NAME" value="orderThreeTest3" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerInsertTest" />
+      <option name="METHOD_NAME" value="InsertInEmptyColumnTwoTile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerOrderTest.orderThreeTest4" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerInsertTest.InsertInEmptyShelfOneTile" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -154,14 +154,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
-      <option name="METHOD_NAME" value="orderThreeTest4" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerInsertTest" />
+      <option name="METHOD_NAME" value="InsertInEmptyShelfOneTile" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ControllerOrderTest.orderThreeTest5" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ControllerInsertTest.InsertInFullColumn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -170,27 +170,27 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerOrderTest" />
-      <option name="METHOD_NAME" value="orderThreeTest5" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerInsertTest" />
+      <option name="METHOD_NAME" value="InsertInFullColumn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest1" />
-      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest2" />
-      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest3" />
-      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest4" />
-      <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest5" />
+      <item itemvalue="JUnit.ControllerInsertTest.InsertInAlmostFullColumnThreeTiles" />
+      <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyColumnThreeTiles" />
+      <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyColumnTwoTile" />
+      <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyShelfOneTile" />
+      <item itemvalue="JUnit.ControllerInsertTest.InsertInFullColumn" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest5" />
-        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest4" />
-        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest3" />
-        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest2" />
-        <item itemvalue="JUnit.ControllerOrderTest.orderThreeTest1" />
+        <item itemvalue="JUnit.ControllerInsertTest.InsertInFullColumn" />
+        <item itemvalue="JUnit.ControllerInsertTest.InsertInAlmostFullColumnThreeTiles" />
+        <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyColumnThreeTiles" />
+        <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyColumnTwoTile" />
+        <item itemvalue="JUnit.ControllerInsertTest.InsertInEmptyShelfOneTile" />
       </list>
     </recent_temporary>
   </component>
@@ -385,7 +385,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683276106017</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare">
+      <created>1683276829903</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1683276829903</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,7 +449,8 @@
     <MESSAGE value="Aggiornamento common goal" />
     <MESSAGE value="Patch nullPointExcept. &amp; aggiornamento invio shelf &amp; Board" />
     <MESSAGE value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
+    <MESSAGE value="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
