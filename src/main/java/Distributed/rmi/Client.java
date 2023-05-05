@@ -122,7 +122,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.displayCommonGoal(modelView);
         view.displayDashboard(modelView.getTable());
         view.displayPersonalGoal(modelView.getPgoal());
-        view.onWait();
+       // view.onWait();
     }
     //Manda al giocaente la situazione attuale e la propria personal shelf
     @Override
@@ -220,5 +220,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotAllowedChoice(message);
+    }
+
+    @Override
+    public void notifyGameStarted() throws RemoteException {
+        view.denyAcess();
     }
 }

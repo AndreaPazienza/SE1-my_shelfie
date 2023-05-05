@@ -379,6 +379,10 @@ public class GameInterface implements Runnable, viewListeners {
         System.err.println(message);
         playing();
     }
+
+    public void denyAcess() {
+        System.err.println("La partiat è già iniziata, troppo tardi :/ ");
+    }
 }
 
 
