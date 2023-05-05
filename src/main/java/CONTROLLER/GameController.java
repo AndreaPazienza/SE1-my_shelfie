@@ -160,16 +160,16 @@ public class GameController{
         int column = PersonalShelf.N_COLUMN;
         int freeColumnSpace=0;
         boolean space = false;
-        for(int i=0; i < rows ; i++){
-            for (int j=0; i < column; i++){
-                if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).equals(Color.GREY)){
+        for (int j=0; j < column; j++){
+                for(int i=0; i < rows ; i++){
+                if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
                     freeColumnSpace++;
                 }
-            if(freeColumnSpace>=number){
-                space = true;
+                if(freeColumnSpace>=number){
+                    space = true;
                 }
-            freeColumnSpace=0;
             }
+            freeColumnSpace=0;
         }
         if(!space){
             throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
