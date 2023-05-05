@@ -111,7 +111,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException {
+    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerChoices(this, number);
     }
 
@@ -215,5 +215,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException {
         view.notifyError(message);
+    }
+
+    @Override
+    public void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        view.errorNotAllowedChoice(message);
     }
 }

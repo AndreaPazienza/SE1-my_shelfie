@@ -333,7 +333,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     @Override
-    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException {
+    public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyChoices(number);
         }
@@ -373,6 +373,11 @@ public class GameInterface implements Runnable, viewListeners {
     }
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
+    }
+
+    public void errorNotAllowedChoice(String message) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+        System.err.println(message);
+        playing();
     }
 }
 

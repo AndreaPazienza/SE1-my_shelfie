@@ -15,10 +15,8 @@ public interface ClientRMIInterface extends Remote {
     void updateClientRound(GameView model) throws RemoteException;
     void updateClientPlaying(GameView model) throws RemoteException;
     String getNickname() throws RemoteException;
-
     int startGame() throws RemoteException;
     void onWait() throws RemoteException;
-
     void newPlayerAdded() throws RemoteException;
     void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
     void endTurn() throws RemoteException;
@@ -33,4 +31,5 @@ public interface ClientRMIInterface extends Remote {
     void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
     void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException;
+    void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 }

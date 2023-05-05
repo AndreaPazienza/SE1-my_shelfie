@@ -24,7 +24,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     private GameController controller;
     private Game model;
-
     private ArrayList<ClientRMIInterface> logged = new ArrayList<>();
     private boolean firstPlayerEnrolled = false;
 
@@ -118,10 +117,18 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException, NotEnoughSpaceChoiceException {
-        try{this.controller.checkSpaceChoices(number);
-        }catch(){
-
+    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        try {
+            this.controller.checkSpaceChoices(number);
+        } catch (NotEnoughSpaceChoiceException e) {
+            for (ClientRMIInterface clients : logged) {
+                if (controller.getOnStage().equals(clients.getNickname())) {
+                    clients.errorChoices(e.getMessage());
+                } else {
+                    String message = model.playerOnStage().nickname + " ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
+                    clients.errorNotifyInsert(message);
+                }
+            }
         }
     }
 

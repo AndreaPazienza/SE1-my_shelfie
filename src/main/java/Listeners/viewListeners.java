@@ -16,6 +16,6 @@ public interface viewListeners {
     void notifyOrder(OrderChoice o) throws RemoteException;
     void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyOneMoreTime() throws SameNicknameException, RemoteException;
-    void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException;
+    void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
 }
