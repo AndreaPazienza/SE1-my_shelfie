@@ -7,7 +7,6 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
-
 import MODEL.GameView;
 import VIEW.GameInterface;
 import VIEW.OrderChoice;

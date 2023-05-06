@@ -129,6 +129,20 @@ public class PersonalShelf implements Serializable {
         }
     }
 
+    //builder that permit us to go faster to the endgame
+    public PersonalShelf(int i){
+        this.shelf = new Slot[N_ROWS][N_COLUMN];
+        for(int k = 0; k < N_ROWS; k++){
+            for(int j = 0; j < N_COLUMN; j++){
+                this.shelf[k][j]  = new Slot(Color.GREEN);
+            }
+        }
+        this.shelf[0][0].setColor(Color.GREY);
+        this.shelf[1][0].setColor(Color.GREY);
+        this.shelf[2][0].setColor(Color.GREY);
+        this.itsFull = false;
+    }
+
     public int getMaxChoices(){
         return this.maxChoices;
     }

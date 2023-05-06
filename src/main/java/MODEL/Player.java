@@ -63,6 +63,7 @@ public class Player extends Observable {
         Slot selectedCard = new Slot(dashboard.getSingleSlot(x,y).getColor());
         selectedCard.setType(dashboard.getSingleSlot(x,y).getType());
         dashboard.getSingleSlot(x,y).setGrey();
+        dashboard.getSingleSlot(x,y).setCatchable(false);
         return selectedCard;
     }
 
@@ -106,7 +107,7 @@ public class Player extends Observable {
 
         this.nickname = nick;
         this.score = 0;
-        this.shelf = new PersonalShelf();
+        this.shelf = new PersonalShelf(1);
         this.pgoal = null;
         this.orderInTurn = 0;
         this.chair = false;
