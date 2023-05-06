@@ -29,4 +29,6 @@ public interface ClientRMIInterface extends Remote {
     void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException;
     void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyGameStarted() throws RemoteException;
+    void errorCrash() throws RemoteException;
+    void ping() throws RemoteException;
 }

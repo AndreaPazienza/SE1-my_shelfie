@@ -232,5 +232,7 @@ public class Game implements GameEventListener {
         }
 
 
-
+    public void forcedGameOver() {
+        this.setGameOn(false);
+    }
 }

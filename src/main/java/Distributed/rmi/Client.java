@@ -12,6 +12,7 @@ import MODEL.GameView;
 import VIEW.GameInterface;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
+import VIEW.turnThread;
 
 
 import java.io.Serializable;
@@ -163,10 +164,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     //Remote method: begin of turn
-    public void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    public void startTurn() throws RemoteException{
        if(gameState){
         view.startTurn();
-        view.playing();
+        turnThread play = new turnThread(view);
+        play.start();
        }else{
            view.endgame();
        }
@@ -183,6 +185,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void winnerInterface(String winner ) throws RemoteException {
+        gameState=false;
         view.displayWin(winner);
     }
 
@@ -226,4 +229,14 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void notifyGameStarted() throws RemoteException {
         view.denyAcess();
     }
+
+    @Override
+    public void errorCrash() throws RemoteException {
+        view.endgame();
+    }
+
+    @Override
+    public void ping() throws RemoteException {
+    }
+
 }

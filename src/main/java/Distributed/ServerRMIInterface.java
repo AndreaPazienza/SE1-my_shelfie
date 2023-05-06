@@ -19,6 +19,5 @@ public interface ServerRMIInterface extends Remote {
     void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
     void updateServerChoices(ClientRMIInterface client, int number ) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
-
 }
 
