@@ -10,13 +10,17 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
 
     public boolean controlRows(Player current, Color[] rows, int found) {
 
-        if (found >= 2 ) {
+        if (found > 2) {
+            return true;
+        }
+
+        if (found == 2 ) {
             givePoints(current);
             return true;
         }
         else {
             for(int i=0; i<rows.length-1; i++){
-                for(int j=i+1; j<rows.length; j++ ){
+                for(int j=i+1; j<rows.length-1; j++ ){
                     if(rows[i].Equals(rows[j]) || rows[0].Equals(Color.GREY)){
                         return false;
                     }
