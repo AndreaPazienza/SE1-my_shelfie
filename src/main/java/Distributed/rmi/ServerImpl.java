@@ -34,7 +34,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private final ArrayList<ClientRMIInterface> loggedCrashed = new ArrayList<>();
     private String[] dudesCrashed;
     private String[] dudesInGame;
-    private Timer timer = new Timer();
+    private Timer timerCrash = new Timer();
+    private Timer timerTurn = new Timer();
     private TimerTask waitPlayers;
     private boolean firstPlayerEnrolled = false;
 
@@ -249,6 +250,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             for (ClientRMIInterface client : logged) {
                 if (controller.getOnStage().equals(client.getNickname())) {
                     client.startTurn();
+                    startTurnTimer();
                 } else {
                     client.onWait();
                 }
@@ -362,7 +364,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
            notifyWaitingForReconnection();
         }else{
            System.err.println("Ho cancellato il timer");
-           timer.cancel();
+           timerCrash.cancel();
        }
 
     }
@@ -379,9 +381,39 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 }
             }
         };
-        timer.schedule(waitPlayers, 10000);
+        timerCrash.schedule(waitPlayers, 10000);
     }
 
+
+    private void startTurnTimer(){
+        System.out.println("Con il nuovo turno ho avviato il timer, il client ha 1min per fare la mossa");
+        TimerTask turnPlayer = new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    System.out.println("Il client non ha risposto");
+                    notifyPlayerNotResponding();
+
+                } catch (NotEnoughSpaceChoiceException e) {
+                    throw new RuntimeException(e);
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                } catch (NotAdjacentSlotsException e) {
+                    throw new RuntimeException(e);
+                } catch (NotCatchableException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        };
+        timerTurn.schedule(turnPlayer, 120000);
+    }
+
+    private void notifyPlayerNotResponding() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+        try{pingClient();}catch (RemoteException | RuntimeException e){
+            System.err.println("Client not responding ");
+            controller.skipTurn();
+            System.err.println("C'è stato un crash di un client, ora giocherà " + controller.getOnStage());}
+    }
 
     private void notifyNoMorePlayers() throws RemoteException {
         for(ClientRMIInterface client : logged){
