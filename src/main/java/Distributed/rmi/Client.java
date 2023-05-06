@@ -54,14 +54,13 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         try{
         server.register(this);
-        }catch(RemoteException | SameNicknameException e){
+        }catch(SameNicknameException e){
            sameNickFound(e.getMessage());
-        } catch (NotEnoughSpaceChoiceException e) {
+        } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
             throw new RuntimeException(e);
-        } catch (NotAdjacentSlotsException e) {
-            throw new RuntimeException(e);
-        } catch (NotCatchableException e) {
-            throw new RuntimeException(e);
+        } catch (RemoteException e) {
+           // view.gameCancelled();
+            view.endgame();
         }
     }
 
@@ -236,6 +235,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void ping() throws RemoteException {
+    }
+
+    @Override
+    public void subscriptionCancelled() throws RemoteException {
+        view.gameCancelled();
     }
 
 }

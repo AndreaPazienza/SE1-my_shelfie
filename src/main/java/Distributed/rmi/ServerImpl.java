@@ -3,6 +3,7 @@ package Distributed.rmi;
 import CONTROLLER.GameController;
 import Distributed.ClientRMIInterface;
 import Distributed.ServerRMIInterface;
+import Distributed.crashPreGame;
 import Distributed.crashThread;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
@@ -28,6 +29,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private GameController controller;
     private Game model;
     private ArrayList<ClientRMIInterface> logged = new ArrayList<>();
+    private Client[] dudesInGame;
     private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
@@ -45,7 +47,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Metodo remoto usato dal client per registrarsi al model
     @Override
     public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        ping();
+
            System.out.println("Ricevuto un tentativo di connessione");
            if (!firstPlayerEnrolled) {
                model = new Game(client.startGame());
@@ -55,6 +57,11 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                this.logged.add(client);
                firstPlayerEnrolled = true;
            } else {
+              try{ this.ping(); } catch (RemoteException e){
+                    notifyCrashPregame();
+                    client.subscriptionCancelled();
+              }
+
                if(model.getCurrentState().equals(GameState.LOGIN)) {
                    if (controller.checkNick(client.getNickname())) {
                        model.signPlayer(client.getNickname());
@@ -175,6 +182,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica al client che abbiamo iniziato la partita
     @Override
     public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
         for(ClientRMIInterface client : logged){
             if(controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
@@ -198,7 +206,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno
     public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-    try{ping();}catch (RemoteException e){ System.out.println("Errore qui NT"); }
+        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
         for (ClientRMIInterface client : logged) {
             if (controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
@@ -227,21 +235,19 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Una volta giunto al numero giusto di giocatori fa partire la partita
     public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+      //dudesInGame = new Client[]
       controller.startGame();}
 
 
     public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        try{ ping();
-        }catch (RemoteException e){
-            model.forcedGameOver();
-            notifyForcedCrash(); }
+        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
         controller.turnUpdate();}
 
     public void ping() throws RemoteException{
         for(ClientRMIInterface client : logged){
             try{client.ping();}
             catch (RemoteException e){
-                System.err.println("Il client down è: " +client.getNickname());
+               throw new RemoteException(" Un client è crashato.");
             }
         }
     }
@@ -249,7 +255,14 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     public void notifyForcedCrash() throws RemoteException {
         for(ClientRMIInterface client : logged){
             crashThread notifyUser = new crashThread(client);
-            notifyUser.run();
+            try{notifyUser.run();}catch (RuntimeException e){System.err.println("-- Client ko --");}
+        }
+    }
+
+    public void notifyCrashPregame() throws RemoteException{
+        for(ClientRMIInterface client : logged){
+            crashPreGame notifyUser = new crashPreGame(client);
+            try{notifyUser.start();} catch (RuntimeException e){System.err.println("-- Client ko --");}
         }
     }
 

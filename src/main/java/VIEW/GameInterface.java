@@ -381,7 +381,11 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void denyAcess() {
-        System.err.println("La partiat è già iniziata, troppo tardi :/ ");
+        System.err.println("La partita è già iniziata, troppo tardi :/ ");
+    }
+
+    public void gameCancelled() {
+        System.err.println("-- Partita annullata, uno dei client iscritti è uscito -- ");
     }
 }
 

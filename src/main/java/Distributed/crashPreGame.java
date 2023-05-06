@@ -7,11 +7,11 @@ import VIEW.GameInterface;
 
 import java.rmi.RemoteException;
 
-public class crashThread extends Thread{
+public class crashPreGame extends Thread{
     public volatile boolean valid = true;
     private ClientRMIInterface client;
 
-    public crashThread(ClientRMIInterface client){
+    public crashPreGame(ClientRMIInterface client){
         this.client = client;
     }
 
@@ -19,7 +19,7 @@ public class crashThread extends Thread{
     public void run() {
         while (valid) {
             try {
-                client.errorCrash();
+                client.subscriptionCancelled();
             } catch (RemoteException e) {
                 throw new RuntimeException(e);
             }
