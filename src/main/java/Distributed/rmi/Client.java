@@ -230,7 +230,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void errorCrash() throws RemoteException {
-        view.endgame();
+        view.playerCrash();
     }
 
     @Override
@@ -240,6 +240,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void subscriptionCancelled() throws RemoteException {
         view.gameCancelled();
+    }
+
+    @Override
+    public void skipTurn(String message) throws RemoteException {
+        view.skip(message);
     }
 
 }

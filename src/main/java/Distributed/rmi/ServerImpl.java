@@ -22,14 +22,18 @@ import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterface, GameEventListener {
 
     private GameController controller;
     private Game model;
-    private ArrayList<ClientRMIInterface> logged = new ArrayList<>();
-    private Client[] dudesInGame;
+    private final ArrayList<ClientRMIInterface> logged = new ArrayList<>();
+
+    private final ArrayList<ClientRMIInterface> loggedCrashed = new ArrayList<>();
+    private String[] dudesCrashed;
+    private String[] dudesInGame;
     private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
@@ -74,15 +78,37 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                    } else {
                        throw new SameNicknameException("Il nickname è già preso!! \n");
                    }
-               }else{
+               }else if(checkReEntering(client.getNickname())){
+                   backInGame(client.getNickname());
+                   System.out.println("Un client è rientrato in partita, buona fortuna! ");
+
+               } else{
                    client.notifyGameStarted();
                }
            }
     }
 
+    private void backInGame(String name) {
+
+        for(int i = 0; i<dudesInGame.length; i++){
+            if(dudesInGame[i] == null){
+                //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
+                dudesInGame[i]=name;
+            }
+        }
+        for(int i = 0; i< Objects.requireNonNull(dudesCrashed).length; i++){
+            if(dudesCrashed[i].equals(name)){
+                //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
+                dudesCrashed=null;
+            }
+        }
+
+    }
+
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
     public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
+      //  pingClient();
         try{
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andata a buon fine ");
@@ -109,12 +135,14 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     //metodo remoto: usato dal client quando un utente ha scelto se riordinare le tessere
     @Override
-    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) {
+    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException {
+     //   pingClient();
         this.controller.checkOrder(C);
     }
     //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+   //     pingClient();
         try {
             this.controller.checkInsert(column);
             System.out.println("Inserimento corretto ");
@@ -182,7 +210,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica al client che abbiamo iniziato la partita
     @Override
     public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
+        pingClient();
         for(ClientRMIInterface client : logged){
             if(controller.getOnStage().equals(client.getNickname())) {
                 client.startTurn();
@@ -203,17 +231,47 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         winnerInterface(controller.endGame());
     }
 
+    @Override
+    public void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        if(playingCrashedPlayer(controller.getOnStage())){
+            controller.skipTurn();
+        }
+    }
+
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno
     public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
+        pingClient();
+     if(!playingCrashedPlayer(controller.getOnStage())) {
+            for (ClientRMIInterface client : logged) {
+                if (controller.getOnStage().equals(client.getNickname())) {
+                    client.startTurn();
+                } else {
+                    client.onWait();
+                }
+            }
+       }else{
+            System.err.println("Non ho trovato nessun player ");
+            this.turnUpdate();
+        }
+    }
+    public void newTurnAfterCrash() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for (ClientRMIInterface client : logged) {
-            if (controller.getOnStage().equals(client.getNickname())) {
-                client.startTurn();
-            } else {
-                client.onWait();
+                if (controller.getOnStage().equals(client.getNickname())) {
+                    client.startTurn();
+                } else {
+                    client.onWait();
+                }
+            }
+    }
+
+    private boolean playingCrashedPlayer(String onStage) {
+        for(int i=0; i < dudesCrashed.length; i++){
+            if(onStage.equals(dudesCrashed[i])){
+                return true;
             }
         }
+        return false;
     }
 
     //Notifica di aver aggiunto un nuovo player alla partita
@@ -235,13 +293,58 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Una volta giunto al numero giusto di giocatori fa partire la partita
     public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-      //dudesInGame = new Client[]
+     dudesInGame = new String[model.getNplayers()];
+     playingClients(dudesInGame, logged);
+     dudesCrashed = new String[model.getNplayers()-1];
       controller.startGame();}
 
 
     public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        try{ ping(); }catch (RemoteException e){ model.forcedGameOver(); notifyForcedCrash(); }
-        controller.turnUpdate();}
+        try{pingClient();
+            System.out.println("Nessun client down ");
+            controller.turnUpdate();
+            }catch (RuntimeException e) {
+            if (playingCrashedPlayer(controller.getOnStage())) {
+                controller.skipTurn();
+                System.err.println("C'è stato un crash di un client, ora giocherà " + controller.getOnStage());
+            }
+        }
+    }
+
+   private void playingClients(String[] nicknames, ArrayList<ClientRMIInterface> subscribed) throws RemoteException {
+        for(int i=0; i< model.getNplayers(); i++){
+            nicknames[i] = subscribed.get(i).getNickname();
+        }
+    }
+    private void saveCrash(String[] Crash, String formerPlayer){
+        for(int i=0; i < dudesCrashed.length; i++){
+            if(Crash[i]==null){
+                Crash[i]=formerPlayer;
+                return;
+            }
+        }
+    }
+    private String findCrashedClient(ArrayList<ClientRMIInterface> subscribed){
+        for(int i=0; i< model.getNplayers(); i++){
+          try{subscribed.get(i).ping();
+             } catch (RemoteException e) {
+               String nameCrash = dudesInGame[i];
+               saveCrash(dudesCrashed, nameCrash);
+               dudesInGame[i]=null;
+               return nameCrash;
+           }
+        }
+        return "nessuno";
+    }
+    private boolean checkReEntering(String nick){
+        for(int i = 0; i < dudesCrashed.length ; i++){
+            if(nick.equals(dudesCrashed[i])){
+                dudesCrashed[i]=null;
+                return true;
+            }
+        }
+        return false;
+    }
 
     public void ping() throws RemoteException{
         for(ClientRMIInterface client : logged){
@@ -251,12 +354,40 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         }
     }
+    public void pingClient() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        try{ ping(); }catch (RemoteException e){
+            System.out.println("IO");
+            notifyForcedCrash();
+            whosHere(dudesCrashed);
+            whosHere(dudesInGame);
+            swapCrashed();
+            turnUpdate();
+            throw new RuntimeException("Ping error"); }
+    }
+    private void whosHere(String[] toPrint){
+        for(int i=0; i<toPrint.length; i++){
+            System.out.print(toPrint[i] + "\t");
+        }
+        System.out.println("-");
+    }
 
-    public void notifyForcedCrash() throws RemoteException {
+    private void swapCrashed() {
+        for(int i=0; i < dudesInGame.length; i++){
+            if(dudesInGame[i]==null){
+                logged.remove(i);
+                System.out.println("Ho rimosso il client crashato, ora abbiamo ancora: "+ logged.size()+" Giocanti");
+                break;
+            }
+        }
+
+    }
+
+    public void notifyForcedCrash() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for(ClientRMIInterface client : logged){
             crashThread notifyUser = new crashThread(client);
-            try{notifyUser.run();}catch (RuntimeException e){System.err.println("-- Client ko --");}
+            try{notifyUser.run();}catch (RuntimeException e){System.err.println("-- Client ko: " + findCrashedClient(logged)) ;}
         }
+        System.out.println("Ho notificato tutti i client! Aggiorno al prossimo turno ");
     }
 
     public void notifyCrashPregame() throws RemoteException{

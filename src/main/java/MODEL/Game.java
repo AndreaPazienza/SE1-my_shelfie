@@ -89,7 +89,8 @@ public class Game implements GameEventListener {
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-            //Controllo dei CommonGoal completati ed incremento
+
+        //Controllo dei CommonGoal completati ed incremento
             this.commonGoal1.control(player[playerInGame]);
             this.commonGoal1.incrementCG();
             //Secondo PGoal
@@ -121,7 +122,6 @@ public class Game implements GameEventListener {
             }
 
     }
-
 
 
     //The winner is declared (searches for the maximum)
@@ -184,6 +184,14 @@ public class Game implements GameEventListener {
     public PersonalGoalDeck getDeck() {
         return deck;
     }
+    public void nextPlayerInGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        if (playerInGame == Nplayers-1) {
+            playerInGame = 0;
+        }else{
+            playerInGame ++;
+        }
+        notifySkipTurn();
+    }
 
     public Bag getBag() {
         return this.bag;
@@ -223,6 +231,14 @@ public class Game implements GameEventListener {
             listener.notifyGameFinished();
         }
     }
+
+    @Override
+    public void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        for(GameEventListener listener: listeners){
+            listener.notifySkipTurn();
+        }
+    }
+
     //Notifies the transition to the next client during the game.
         @Override
         public void turnIsOver () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {

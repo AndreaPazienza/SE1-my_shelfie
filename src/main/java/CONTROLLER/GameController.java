@@ -12,11 +12,12 @@ import java.rmi.RemoteException;
 
 public class GameController{
     private final Game game;
-
+    private Player[] clientCrashed;
     private Slot[] selectedSlots;
 
     public GameController(Game game){
         this.game=game;
+        clientCrashed = new Player[game.getNplayers()-1];
     }
 
 
@@ -27,6 +28,7 @@ public class GameController{
     public boolean finishedGame(){
         return game.isGameOn();
     }
+    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {game.nextPlayerInGame();}
 
     public String getOnStage(){
         return game.playerOnStage().getNickname();
@@ -41,7 +43,6 @@ public class GameController{
             }
         }
         return true;
-
     }
 
     //method which controls if a tile can be caught

@@ -1,5 +1,6 @@
 package VIEW;
 import java.awt.*;
+import java.awt.desktop.SystemEventListener;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -386,6 +387,14 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void gameCancelled() {
         System.err.println("-- Partita annullata, uno dei client iscritti è uscito -- ");
+    }
+
+    public void playerCrash() {
+        System.out.println("Un giocatore ha abbandoanto la partita ");
+    }
+
+    public void skip(String message) {
+        System.out.println(message);
     }
 }
 
