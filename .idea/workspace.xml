@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Crash della partita (pregame / in game) in caso di disconessione di uno dei client.">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Crash della partita, continuo a giocare anche con il client che Crasha">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" afterDir="false" />
@@ -221,7 +219,7 @@
       <workItem from="1683279242925" duration="335000" />
       <workItem from="1683284793862" duration="2401000" />
       <workItem from="1683287290199" duration="350000" />
-      <workItem from="1683315598462" duration="23940000" />
+      <workItem from="1683315598462" duration="27859000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -433,7 +431,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683378864008</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Crash della partita, continuo a giocare anche con il client che Crasha">
+      <created>1683389995820</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683389995820</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -466,7 +471,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
@@ -491,7 +495,8 @@
     <MESSAGE value="[2] utilizzo thread: by Gabri" />
     <MESSAGE value="Classi thread implementate" />
     <MESSAGE value="Crash della partita (pregame / in game) in caso di disconessione di uno dei client." />
-    <option name="LAST_COMMIT_MESSAGE" value="Crash della partita (pregame / in game) in caso di disconessione di uno dei client." />
+    <MESSAGE value="Crash della partita, continuo a giocare anche con il client che Crasha" />
+    <option name="LAST_COMMIT_MESSAGE" value="Crash della partita, continuo a giocare anche con il client che Crasha" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

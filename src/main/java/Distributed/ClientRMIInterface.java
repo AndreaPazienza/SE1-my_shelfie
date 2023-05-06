@@ -32,5 +32,6 @@ public interface ClientRMIInterface extends Remote {
     void errorCrash() throws RemoteException;
     void ping() throws RemoteException;
     void subscriptionCancelled() throws RemoteException;
-    void skipTurn(String message) throws RemoteException;
+    void errorMissingPlayers() throws RemoteException;
+    void errorEndGameNoMorePlayers() throws RemoteException;
 }

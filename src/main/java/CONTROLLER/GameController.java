@@ -176,6 +176,7 @@ public class GameController{
             throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
         }
     }
+
 }
 
 

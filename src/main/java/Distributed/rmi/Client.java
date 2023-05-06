@@ -25,6 +25,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
+    private boolean endGame;
 
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
@@ -32,6 +33,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         nickname = view.firstRun();
         view.addviewEventListener(this);
         initialize(server);
+
     }
 
     public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
@@ -70,7 +72,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
 
     public void run() {
-      view.run();
+
+        view.run();
+
     }
 
     //Observer:
@@ -243,8 +247,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void skipTurn(String message) throws RemoteException {
-        view.skip(message);
+    public void errorMissingPlayers() throws RemoteException {
+        view.waitingForPlayers();
     }
+
+    @Override
+    public void errorEndGameNoMorePlayers() throws RemoteException {
+        endGame=true;
+        view.endgame();
+        view.run();
+    }
+
 
 }

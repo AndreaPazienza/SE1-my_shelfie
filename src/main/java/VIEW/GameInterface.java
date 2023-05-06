@@ -396,6 +396,10 @@ public class GameInterface implements Runnable, viewListeners {
     public void skip(String message) {
         System.out.println(message);
     }
+
+    public void waitingForPlayers() {
+        System.err.println(" Se non rientrano i giocatori entro 10s annullo la partita ");
+    }
 }
 
 

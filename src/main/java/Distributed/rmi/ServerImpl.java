@@ -16,13 +16,13 @@ import MODEL.GameView;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
-import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterface, GameEventListener {
@@ -34,6 +34,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private final ArrayList<ClientRMIInterface> loggedCrashed = new ArrayList<>();
     private String[] dudesCrashed;
     private String[] dudesInGame;
+    private Timer timer = new Timer();
+    private TimerTask waitPlayers;
     private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
@@ -79,7 +81,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                        throw new SameNicknameException("Il nickname è già preso!! \n");
                    }
                }else if(checkReEntering(client.getNickname())){
-                   backInGame(client.getNickname());
+                   backInGame(client.getNickname(), dudesCrashed, dudesInGame);
+                   logged.add(client);
+                   checkTimeoutGame();
                    System.out.println("Un client è rientrato in partita, buona fortuna! ");
 
                } else{
@@ -88,20 +92,20 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
            }
     }
 
-    private void backInGame(String name) {
+    private void backInGame(String name, String[] crash, String[] enrolled) {
+    int i=0;
+        for(i=0; i<enrolled.length; i++){
+            if(enrolled[i] == null){
+                //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
+                enrolled[i]=name;
+            }
+        }
 
-        for(int i = 0; i<dudesInGame.length; i++){
-            if(dudesInGame[i] == null){
-                //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
-                dudesInGame[i]=name;
-            }
+        i=0;
+        while(!crash[i].equals(name) ){
+            i++;
         }
-        for(int i = 0; i< Objects.requireNonNull(dudesCrashed).length; i++){
-            if(dudesCrashed[i].equals(name)){
-                //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
-                dudesCrashed=null;
-            }
-        }
+        crash[i]=null;
 
     }
 
@@ -175,7 +179,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         }
     }
-
 
     //Viene aggiunto il Listener al gioco
     @Override
@@ -255,16 +258,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             this.turnUpdate();
         }
     }
-    public void newTurnAfterCrash() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        for (ClientRMIInterface client : logged) {
-                if (controller.getOnStage().equals(client.getNickname())) {
-                    client.startTurn();
-                } else {
-                    client.onWait();
-                }
-            }
-    }
-
     private boolean playingCrashedPlayer(String onStage) {
         for(int i=0; i < dudesCrashed.length; i++){
             if(onStage.equals(dudesCrashed[i])){
@@ -339,7 +332,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private boolean checkReEntering(String nick){
         for(int i = 0; i < dudesCrashed.length ; i++){
             if(nick.equals(dudesCrashed[i])){
-                dudesCrashed[i]=null;
                 return true;
             }
         }
@@ -356,14 +348,54 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     public void pingClient() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         try{ ping(); }catch (RemoteException e){
-            System.out.println("IO");
             notifyForcedCrash();
             whosHere(dudesCrashed);
             whosHere(dudesInGame);
             swapCrashed();
+            checkTimeoutGame();
             turnUpdate();
             throw new RuntimeException("Ping error"); }
     }
+    public void checkTimeoutGame() throws RemoteException {
+
+       if(logged.size()==1){
+           notifyWaitingForReconnection();
+        }else{
+           System.err.println("Ho cancellato il timer");
+           timer.cancel();
+       }
+
+    }
+    private void startTimer(){
+        System.out.println("Ho avviato il timer");
+        waitPlayers = new TimerTask() {
+            @Override
+            public void run() {
+                System.err.println("Il timer è Scaduto");
+                try {
+                    notifyNoMorePlayers();
+                } catch (RemoteException e) {
+                    System.err.println("Qualcosa è successo anche all'unico connesso");
+                }
+            }
+        };
+        timer.schedule(waitPlayers, 10000);
+    }
+
+
+    private void notifyNoMorePlayers() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+           client.errorEndGameNoMorePlayers();
+        }
+
+    }
+
+    private void notifyWaitingForReconnection() throws RemoteException {
+        for(ClientRMIInterface client : logged){
+            client.errorMissingPlayers();
+        }
+    }
+
     private void whosHere(String[] toPrint){
         for(int i=0; i<toPrint.length; i++){
             System.out.print(toPrint[i] + "\t");
@@ -376,6 +408,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             if(dudesInGame[i]==null){
                 logged.remove(i);
                 System.out.println("Ho rimosso il client crashato, ora abbiamo ancora: "+ logged.size()+" Giocanti");
+                if(logged.size()==1){
+                    System.err.println("Ho  notato che c'è solo un client dalla swap! ");
+                    startTimer();
+                }
                 break;
             }
         }
