@@ -4,27 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta enum delle immagini con metodo per la conversione">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/VIEW/GameInterfaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -112,118 +100,108 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.GameInterfaceTest.displayTest">
-    <configuration name="GameInterfaceTest.displayCgoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayCgoalTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsLeftRight" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayDashboardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayDashboardTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayPersonalShelfTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayPersonalShelfTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotTheLast" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayPgoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.checkWithGrey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayPgoalTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkWithGrey" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GameInterfaceTest.displayTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GameInterfaceTest" />
-      <option name="METHOD_NAME" value="displayTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="emptyOne" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.GameInterfaceTest.displayCgoalTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
-      <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.GameInterfaceTest.displayTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayCgoalTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayPgoalTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayPersonalShelfTest" />
-        <item itemvalue="TestNG.GameInterfaceTest.displayDashboardTest" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ea2eb483-1052-4827-89a6-a5d28abe9b37" name="Changes" comment="Aggiornamento del Display" />
+      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -249,6 +227,7 @@
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
+      <workItem from="1683360953317" duration="7519000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -425,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683294094695</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display">
+      <created>1683300819424</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1683300819424</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -458,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Player.java" />
     <MESSAGE value="Update Player.java, PersonalGoal.java, PersonalShelf.java&#10;(eliminazione costanti, creazione costruttori, eliminazione errori)" />
     <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
@@ -483,20 +468,12 @@
     <MESSAGE value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
     <MESSAGE value="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare" />
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta enum delle immagini con metodo per la conversione" />
+    <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>148</line>
-          <properties class="Distributed.rmi.Client" method="onWait">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>201</line>
@@ -505,25 +482,6 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>70</line>
-          <properties class="Distributed.rmi.ServerImpl">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
