@@ -30,8 +30,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private GameController controller;
     private Game model;
     private final ArrayList<ClientRMIInterface> logged = new ArrayList<>();
-
-    private final ArrayList<ClientRMIInterface> loggedCrashed = new ArrayList<>();
     private String[] dudesCrashed;
     private String[] dudesInGame;
     private Timer timerCrash = new Timer();
@@ -64,12 +62,15 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                this.logged.add(client);
                firstPlayerEnrolled = true;
            } else {
-              try{ this.ping(); } catch (RemoteException e){
+               //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura)
+              try{ this.ping();
+              } catch (RemoteException e){
                     notifyCrashPregame();
                     client.subscriptionCancelled();
               }
 
                if(model.getCurrentState().equals(GameState.LOGIN)) {
+                   //Ogni client che vuole accedere se la partita è iniziata riceverà questo errore
                    if (controller.checkNick(client.getNickname())) {
                        model.signPlayer(client.getNickname());
                        this.logged.add(client);
@@ -82,19 +83,23 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                        throw new SameNicknameException("Il nickname è già preso!! \n");
                    }
                }else if(checkReEntering(client.getNickname())){
+                   //Questo else-if mette in condizione il server di accettare una riconessione di un client
                    backInGame(client.getNickname(), dudesCrashed, dudesInGame);
                    logged.add(client);
                    checkTimeoutGame();
                    System.out.println("Un client è rientrato in partita, buona fortuna! ");
 
-               } else{
+               } else {
+
                    client.notifyGameStarted();
                }
            }
     }
 
+    //Primo metodo di controllo del client, controlla che sia uno di quelli crashati e lo rimette in partita
     private void backInGame(String name, String[] crash, String[] enrolled) {
     int i=0;
+    //Manca controllo della posizione corretta, si fa con array presente in model
         for(i=0; i<enrolled.length; i++){
             if(enrolled[i] == null){
                 //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
@@ -109,45 +114,40 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         crash[i]=null;
 
     }
-
+    //Il Ping() controlla che ci siano sempre tutti i client
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
     public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
-      //  pingClient();
+       //pingClient();
         try{
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andata a buon fine ");
         }catch(NotCatchableException e){
-            for(ClientRMIInterface clients : logged){
-                if(controller.getOnStage().equals(clients.getNickname())){
-                    clients.errorNotCatchable();
-                } else {
-                    String message = model.playerOnStage().nickname+" ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
-                    clients.errorNotify(message);
-                }
-            }
-        }catch(NotAdjacentSlotsException e ){
-            for(ClientRMIInterface clients : logged){
+            client.errorNotCatchable();
+            throw new NotCatchableException("Una coordinata non era giocabile! ");
+        }catch(NotAdjacentSlotsException e){
+        throw new NotAdjacentSlotsException("Le tessere non sono adiacenti! ");
+            /*  for(ClientRMIInterface clients : logged){
                 if(controller.getOnStage().equals(client.getNickname())){
                     clients.errorNotAdjacent();
                 } else {
                     String message = model.playerOnStage().nickname+" ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
                     clients.errorNotify(message);
                 }
-            }
+            }*/
         }
 
     }
     //metodo remoto: usato dal client quando un utente ha scelto se riordinare le tessere
     @Override
-    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException {
-     //   pingClient();
+    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+       // pingClient();
         this.controller.checkOrder(C);
     }
     //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-   //     pingClient();
+       //  pingClient();
         try {
             this.controller.checkInsert(column);
             System.out.println("Inserimento corretto ");
@@ -260,6 +260,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             this.turnUpdate();
         }
     }
+
     private boolean playingCrashedPlayer(String onStage) {
         for(int i=0; i < dudesCrashed.length; i++){
             if(onStage.equals(dudesCrashed[i])){
@@ -369,7 +370,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     }
     private void startTimer(){
-        System.out.println("Ho avviato il timer");
+        System.out.println("Ho avviato il timer per annullare la partita ");
         waitPlayers = new TimerTask() {
             @Override
             public void run() {
@@ -381,7 +382,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 }
             }
         };
-        timerCrash.schedule(waitPlayers, 10000);
+        timerCrash.schedule(waitPlayers, 5000);
     }
 
 
@@ -391,21 +392,20 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             @Override
             public void run() {
                 try {
-                    System.out.println("Il client non ha risposto");
+                    System.out.println("Il client sta ancora decidendo la sua mossa ");
                     notifyPlayerNotResponding();
 
-                } catch (NotEnoughSpaceChoiceException e) {
+                } catch (NotEnoughSpaceChoiceException | NotAdjacentSlotsException e) {
                     throw new RuntimeException(e);
                 } catch (RemoteException e) {
-                    throw new RuntimeException(e);
-                } catch (NotAdjacentSlotsException e) {
                     throw new RuntimeException(e);
                 } catch (NotCatchableException e) {
                     throw new RuntimeException(e);
                 }
             }
         };
-        timerTurn.schedule(turnPlayer, 120000);
+        //Due minuti di timer
+        timerTurn.schedule(turnPlayer, 50000);
     }
 
     private void notifyPlayerNotResponding() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {

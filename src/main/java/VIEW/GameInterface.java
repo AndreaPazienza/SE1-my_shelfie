@@ -92,8 +92,6 @@ public class GameInterface implements Runnable, viewListeners {
             ok = true;
         } while (!ok);
 
-        System.out.println("Le tessere sono state selezionate");
-
         if (nChoices != 1) {
             if (playerOrder()) {
                 if (nChoices == 2) {
@@ -314,6 +312,12 @@ public class GameInterface implements Runnable, viewListeners {
                 listener.notifyOrder(o);
             } catch (RemoteException e) {
                 System.out.println("ciao");
+            } catch (NotEnoughSpaceChoiceException e) {
+                throw new RuntimeException(e);
+            } catch (NotAdjacentSlotsException e) {
+                throw new RuntimeException(e);
+            } catch (NotCatchableException e) {
+                throw new RuntimeException(e);
             }
         }
         }
@@ -354,9 +358,8 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
 
-    public void errorNotCatchable() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    public void errorNotCatchable(){
         System.err.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
-        playerMoveSelection();
     }
 
     public void notifyError(String message) {
@@ -365,12 +368,10 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         System.err.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione");
-        playing();
     }
 
     public void errorNotEnoughSpace() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         System.err.println("La colonna selezionata non ha abbastanza spazio! Sceglierne un'altra!");
-        playerInsert();
     }
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
@@ -378,7 +379,6 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void errorNotAllowedChoice(String message) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         System.err.println(message);
-        playing();
     }
 
     public void denyAcess() {
@@ -391,10 +391,6 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void playerCrash() {
         System.out.println("Un giocatore ha abbandoanto la partita ");
-    }
-
-    public void skip(String message) {
-        System.out.println(message);
     }
 
     public void waitingForPlayers() {

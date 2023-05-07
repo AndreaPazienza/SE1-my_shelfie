@@ -1,4 +1,4 @@
-package CONTROLLER;
+/*package CONTROLLER;
 
 import Errors.SameNicknameException;
 import MODEL.Game;

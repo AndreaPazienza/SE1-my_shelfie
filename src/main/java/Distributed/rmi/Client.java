@@ -93,7 +93,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Observer: when the sorting is chosen from the view
     @Override
-    public void notifyOrder(OrderChoice o) throws RemoteException {
+    public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerReorder(this, o);
     }
 
@@ -169,7 +169,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void startTurn() throws RemoteException{
        if(gameState){
         view.startTurn();
-        turnThread play = new turnThread(view);
+        turnThread play = new turnThread(view, this);
         play.start();
        }else{
            view.endgame();
@@ -198,33 +198,46 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
+    public void errorNotCatchable() throws RemoteException{
         view.errorNotCatchable();
+        turnThread play = new turnThread(view, this);
+        play.start();
     }
 
     @Override
     public void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
         view.notifyError(message);
+        turnThread play = new turnThread(view, this);
+        play.start();
     }
 
     @Override
     public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         view.errorNotAdjacent();
+        turnThread play = new turnThread(view, this);
+        play.start();
     }
 
     @Override
     public void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotEnoughSpace();
+        turnThread play = new turnThread(view, this);
+        play.runInsert();
     }
 
     @Override
     public void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException {
         view.notifyError(message);
+        turnThread play = new turnThread(view, this);
+        play.runInsert();
+
     }
 
     @Override
     public void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotAllowedChoice(message);
+        turnThread play = new turnThread(view, this);
+        play.start();
     }
 
     @Override
