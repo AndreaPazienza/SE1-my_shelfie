@@ -192,6 +192,11 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         winnerInterface(controller.endGame());
     }
 
+    @Override
+    public void notifyLastError() throws RemoteException {
+
+    }
+
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno
     public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {

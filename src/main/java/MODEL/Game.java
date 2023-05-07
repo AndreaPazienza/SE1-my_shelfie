@@ -25,6 +25,18 @@ public class Game implements GameEventListener {
     private CommonGoalAbs commonGoal1, commonGoal2;
     private GameState state;
 
+    private GameError lastError = null;
+
+
+    public GameError getLastError (){
+        return lastError;
+    }
+
+    public void setLastError(GameError lastError) {
+        this.lastError = lastError;
+        //notifyLastError();
+    }
+
     //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
     public Game (int numberOfPlayers) {
 
@@ -242,6 +254,13 @@ public class Game implements GameEventListener {
                 listener.turnIsOver();
             }
         }
+
+    @Override
+    public void notifyLastError() throws RemoteException {
+        for(GameEventListener listener: listeners){
+            listener.notifyLastError();
+        }
+    }
 
 
 
