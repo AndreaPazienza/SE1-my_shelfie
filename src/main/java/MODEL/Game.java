@@ -163,6 +163,18 @@ public class Game implements GameEventListener {
         return commonGoal1;
     }
 
+    public void setCommonGoal1(CommonGoalAbs commonGoal1) {
+        this.commonGoal1 = commonGoal1;
+    }
+
+    public void setCommonGoal2(CommonGoalAbs commonGoal2) {
+        this.commonGoal2 = commonGoal2;
+    }
+
+    public CommonGoalDeck getCommonGoalDeck() {
+        return commonGoalDeck;
+    }
+
     public CommonGoalAbs getCommonGoal2() {
         return commonGoal2;
     }

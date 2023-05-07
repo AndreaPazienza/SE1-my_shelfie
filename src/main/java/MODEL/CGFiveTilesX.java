@@ -1,5 +1,6 @@
 package MODEL;
 import VIEW.ColorPrint;
+import VIEW.Image;
 //Five tiles of the same type forming an X.
 
 
@@ -53,7 +54,7 @@ public class CGFiveTilesX extends CommonGoalAbs {
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -61,13 +62,13 @@ public class CGFiveTilesX extends CommonGoalAbs {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(example.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }

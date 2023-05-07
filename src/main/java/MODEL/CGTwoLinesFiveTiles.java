@@ -1,5 +1,6 @@
 package MODEL;
 import VIEW.ColorPrint;
+import VIEW.Image;
 //Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line.
 
 public class CGTwoLinesFiveTiles extends CGOnLines {
@@ -9,14 +10,18 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
 
     public boolean controlRows(Player current, Color[] rows, int found) {
 
-        if (found >= 2 ) {
+        if (found > 2) {
+            return true;
+        }
+
+        if (found == 2 ) {
             givePoints(current);
             return true;
         }
         else {
             for(int i=0; i<rows.length-1; i++){
-                for(int j=i+1; j<rows.length; j++ ){
-                    if(rows[i].equals(rows[j]) || rows[0].equals(Color.GREY)){
+                for(int j=i+1; j<rows.length-1; j++ ){
+                    if(rows[i].Equals(rows[j]) || rows[0].Equals(Color.GREY)){
                         return false;
                     }
                 }
@@ -43,7 +48,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
 
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
-            System.out.print("\t " + k + " \t");
+            System.out.print("\t    " + k + "    \t");
         }
         System.out.print("\n");
         System.out.print("\n");
@@ -51,13 +56,13 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
             System.out.print(i + "\t");
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if ((!example.getSingleSlot(i, j).getColor().Equals(Color.BLACK) && !example.getSingleSlot(i, j).getColor().Equals(Color.GREY))) {
-                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[ ]" + ColorPrint.RESET + "\t");
-                } else System.out.print("\t" + "   " + "\t");
+                    System.out.print("\t" + ColorPrint.convertColor(example.getSingleSlot(i, j).getColor()) + "[" + Image.colorToImage(example.getSingleSlot(i, j).getColor()) +"]" + ColorPrint.RESET + "\t");
+                } else System.out.print("\t" + "         " + "\t");
             }
             System.out.print("\n");
             System.out.print("\n");
         }
-        System.out.print("=================================================================================\n");
+        System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
     }

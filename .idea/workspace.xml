@@ -4,17 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Implementazione Timer per l'endgame se non ci sono client connessi oltre a uno">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fix del problema di catchable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerNickTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerNickTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
-    <list id="811312ab-ebfc-42a4-8105-1dabc22c4feb" name="Changes by gabry" comment="[2] utilizzo thread: by Gabri" />
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,9 +21,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
         <option value="Enum" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -69,24 +67,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="VIEW" />
@@ -95,30 +92,16 @@
       <recent name="" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="VIEW" />
       <recent name="Errors" />
       <recent name="MODEL" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="CONTROLLER" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
-    <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoColumnsSixTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -127,29 +110,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoColumnsSixTilesTest" />
-      <option name="METHOD_NAME" value="testShow" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsLeftRight" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.testShow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -159,33 +127,81 @@
       </extension>
       <option name="PACKAGE_NAME" value="MODEL" />
       <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="testShow" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotTheLast" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoLinesFiveTilesTest.checkWithGrey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkWithGrey" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="emptyOne" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AppServer" />
-      <item itemvalue="Application.AppClient" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest" />
-      <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.testShow" />
-        <item itemvalue="JUnit.CGTwoColumnsSixTilesTest.testShow" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Gestione del sameNickError" />
+      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -211,11 +227,7 @@
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
-      <workItem from="1683216492166" duration="97000" />
-      <workItem from="1683279242925" duration="335000" />
-      <workItem from="1683284793862" duration="2401000" />
-      <workItem from="1683287290199" duration="350000" />
-      <workItem from="1683315598462" duration="29234000" />
+      <workItem from="1683360953317" duration="8550000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -371,77 +383,42 @@
       <option name="project" value="LOCAL" />
       <updated>1683207504775</updated>
     </task>
-    <task id="LOCAL-00023" summary="Implementazione rete RMI completa: Gioco funzionante in locale e distribuito, manca bugfix su endgame (non termina a fine partita).">
-      <created>1683216579507</created>
+    <task id="LOCAL-00023" summary="Inizio test del controller, test della selezione, bug tessera centrale da fixare">
+      <created>1683276106017</created>
       <option name="number" value="00023" />
       <option name="presentableId" value="LOCAL-00023" />
       <option name="project" value="LOCAL" />
-      <updated>1683216579507</updated>
+      <updated>1683276106017</updated>
     </task>
-    <task id="LOCAL-00024" summary="Correzione endgame + inizio gestione spazio in selezione">
-      <created>1683286339509</created>
+    <task id="LOCAL-00024" summary="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare">
+      <created>1683276829903</created>
       <option name="number" value="00024" />
       <option name="presentableId" value="LOCAL-00024" />
       <option name="project" value="LOCAL" />
-      <updated>1683286339509</updated>
+      <updated>1683276829903</updated>
     </task>
-    <task id="LOCAL-00025" summary="Gestione dello spazio in selezione">
-      <created>1683287188456</created>
+    <task id="LOCAL-00025" summary="Aggiunta enum delle immagini con metodo per la conversione">
+      <created>1683294094695</created>
       <option name="number" value="00025" />
       <option name="presentableId" value="LOCAL-00025" />
       <option name="project" value="LOCAL" />
-      <updated>1683287188456</updated>
+      <updated>1683294094695</updated>
     </task>
-    <task id="LOCAL-00026" summary="Modifiche leggere">
-      <created>1683292436770</created>
+    <task id="LOCAL-00026" summary="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display">
+      <created>1683300819424</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1683292436770</updated>
+      <updated>1683300819424</updated>
     </task>
-    <task id="LOCAL-00027" summary="aggiornamento ad utilizzo thread per gestione della partita e fasi di crash">
-      <created>1683368976258</created>
+    <task id="LOCAL-00027" summary="Fix del problema di catchable">
+      <created>1683369311058</created>
       <option name="number" value="00027" />
       <option name="presentableId" value="LOCAL-00027" />
       <option name="project" value="LOCAL" />
-      <updated>1683368976258</updated>
+      <updated>1683369311058</updated>
     </task>
-    <task id="LOCAL-00028" summary="[2] utilizzo thread: by Gabri">
-      <created>1683369056190</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1683369056190</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Classi thread implementate">
-      <created>1683369079407</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1683369079407</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Crash della partita (pregame / in game) in caso di disconessione di uno dei client.">
-      <created>1683378864008</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1683378864008</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Crash della partita, continuo a giocare anche con il client che Crasha">
-      <created>1683389995820</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1683389995820</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Implementazione Timer per l'endgame se non ci sono client connessi oltre a uno">
-      <created>1683396953045</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1683396953045</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,6 +451,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
+    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
+    <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
@@ -489,30 +471,24 @@
     <MESSAGE value="Aggiornamento del Display" />
     <MESSAGE value="Aggiornamento common goal" />
     <MESSAGE value="Patch nullPointExcept. &amp; aggiornamento invio shelf &amp; Board" />
-    <MESSAGE value="Implementazione rete RMI completa: Gioco funzionante in locale e distribuito, manca bugfix su endgame (non termina a fine partita)." />
-    <MESSAGE value="Correzione endgame + inizio gestione spazio in selezione" />
-    <MESSAGE value="Gestione dello spazio in selezione" />
-    <MESSAGE value="Modifiche leggere" />
-    <MESSAGE value="aggiornamento ad utilizzo thread per gestione della partita e fasi di crash" />
-    <MESSAGE value="[2] utilizzo thread: by Gabri" />
-    <MESSAGE value="Classi thread implementate" />
-    <MESSAGE value="Crash della partita (pregame / in game) in caso di disconessione di uno dei client." />
-    <MESSAGE value="Crash della partita, continuo a giocare anche con il client che Crasha" />
-    <MESSAGE value="Implementazione Timer per l'endgame se non ci sono client connessi oltre a uno" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementazione Timer per l'endgame se non ci sono client connessi oltre a uno" />
+    <MESSAGE value="Inizio test del controller, test della selezione, bug tessera centrale da fixare" />
+    <MESSAGE value="Proseguo test del controller, test dell'ordinamento, nessun bug da segnalare" />
+    <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
+    <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
+    <MESSAGE value="Fix del problema di catchable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix del problema di catchable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java</url>
-          <line>11</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="21" />
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>201</line>
+          <properties class="Distributed.rmi.ServerImpl">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
