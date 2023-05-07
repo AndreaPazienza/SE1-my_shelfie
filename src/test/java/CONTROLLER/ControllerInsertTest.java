@@ -9,6 +9,9 @@ import VIEW.SlotChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.rmi.RemoteException;
+
+import static MODEL.GameError.SPACE_CHOICES_ERROR;
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerInsertTest {
@@ -26,7 +29,7 @@ class ControllerInsertTest {
     }
 
     @Test
-    void InsertInEmptyShelfOneTile() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    void InsertInEmptyShelfOneTile() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[1];
         slotChoice[0] = new SlotChoice(4,1);
         System.out.println(model.getTable().getSingleSlot(4,1).getColor());
@@ -36,7 +39,7 @@ class ControllerInsertTest {
     }
 
     @Test
-    void InsertInEmptyColumnTwoTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    void InsertInEmptyColumnTwoTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -49,7 +52,7 @@ class ControllerInsertTest {
     }
 
     @Test
-    void InsertInEmptyColumnThreeTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    void InsertInEmptyColumnThreeTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -71,7 +74,7 @@ class ControllerInsertTest {
     }
 
     @Test
-    void InsertInAlmostFullColumnThreeTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    void InsertInAlmostFullColumnThreeTiles() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -95,7 +98,7 @@ class ControllerInsertTest {
     }
 
     @Test
-    void InsertInFullColumn() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    void InsertInFullColumn() throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -116,6 +119,9 @@ class ControllerInsertTest {
             controller.checkInsert(0);
         } catch(NotEnoughSpaceChoiceException e){
           System.out.println("La colonna selezionata non ha abbastanza spazio!");
+          if (model.getLastError().equals(SPACE_CHOICES_ERROR)){
+              System.out.println("Ok errore captato");
+          }
         }
     }
 
