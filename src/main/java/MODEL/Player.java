@@ -63,6 +63,7 @@ public class Player extends Observable {
         Slot selectedCard = new Slot(dashboard.getSingleSlot(x,y).getColor());
         selectedCard.setType(dashboard.getSingleSlot(x,y).getType());
         dashboard.getSingleSlot(x,y).setGrey();
+        dashboard.getSingleSlot(x,y).setCatchable(false);
         return selectedCard;
     }
 
