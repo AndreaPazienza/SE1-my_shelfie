@@ -19,10 +19,11 @@ import java.util.Scanner;
 public class GameInterface implements Runnable, viewListeners {
 
     private List<viewListeners> listeners = new ArrayList<>();
-    public Scanner keyboard = new Scanner(System.in);
+    public Scanner keyboard;
 
     //inserimento nickname per la prima volta
     public String firstRun() {
+        keyboard = new Scanner(System.in);
     String nick = null;
     boolean ok = false;
         System.out.print("Inserire il nickname: ");
@@ -32,6 +33,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //insert of the players number
     public int numberOfPlayers() {
+        keyboard = new Scanner(System.in);
         int number = 0;
         do {
             System.out.print("Inserire il numero dei giocatori: ");
@@ -49,6 +51,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Selection of the cards from dashboard
     public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+        keyboard = new Scanner(System.in);
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
@@ -59,7 +62,9 @@ public class GameInterface implements Runnable, viewListeners {
         do {
             System.out.println("Inserire il numero di tessere da selezionare: ");
             nChoices = keyboard.nextInt();
-            notifyChoices(nChoices);
+            try{notifyChoices(nChoices);}catch (RuntimeException e){
+                System.out.println("Sono down ");
+                return;}
             //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
             //tessere selezionate dall'utente.
             if (nChoices > maxChoices) {
@@ -147,7 +152,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
     //Richiesta di ordinamento
     public boolean playerOrder() {
-
+        keyboard = new Scanner(System.in);
         boolean reorder = false;
         String string;
         String yes = "si";
@@ -165,28 +170,16 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Insertion of the selected tiles into the shelf.
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-
         int column;
-        boolean ok;
-
+        keyboard = new Scanner(System.in);
         System.out.println("Scrivere il numero della colonna in cui inserire le tessere: ");
         do {
             column = keyboard.nextInt();
             if (column < 0 || column > 4) {
-                System.out.print("Inserire un numero compreso tra 0 e 4");
+                System.out.println("Inserire un numero compreso tra 0 e 4");
             }
         } while (column < 0 || column > 4);
-
-        do {
-            notifyInsert(column);
-            // try {
-            //---------------------------Notifica con column
-            ok = true;
-           /* } catch (NotEnoughSpaceChoiceException e) {
-                System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
-                ok = false;
-            }*/
-        } while (!ok);
+       notifyInsert(column);
     }
 
     //Printing the dashboard on screen.

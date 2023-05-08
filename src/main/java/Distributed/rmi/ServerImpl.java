@@ -32,9 +32,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private final ArrayList<ClientRMIInterface> logged = new ArrayList<>();
     private String[] dudesCrashed;
     private String[] dudesInGame;
-    private Timer timerCrash = new Timer();
-    private Timer timerTurn = new Timer();
-    private TimerTask waitPlayers;
+    private final Timer timerCrash = new Timer();
+    private final Timer timerTurn = new Timer();
     private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
@@ -53,116 +52,103 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     @Override
     public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
 
-           System.out.println("Ricevuto un tentativo di connessione");
-           if (!firstPlayerEnrolled) {
-               model = new Game(client.startGame());
-               controller = new GameController(model);
-               this.model.addGameEventListener(this);
-               model.signPlayer(client.getNickname());
-               this.logged.add(client);
-               firstPlayerEnrolled = true;
-           } else {
-               //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura)
-              try{ this.ping();
-              } catch (RemoteException e){
-                    notifyCrashPregame();
-                    client.subscriptionCancelled();
-              }
+        System.out.println("Ricevuto un tentativo di connessione");
+        if (!firstPlayerEnrolled) {
+            model = new Game(client.startGame());
+            controller = new GameController(model);
+            this.model.addGameEventListener(this);
+            model.signPlayer(client.getNickname());
+            this.logged.add(client);
+            firstPlayerEnrolled = true;
+        } else {
+            //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura)
+            try {
+                this.ping();
+            } catch (RemoteException e) {
+                notifyCrashPregame();
+                client.subscriptionCancelled();
+            }
 
-               if(model.getCurrentState().equals(GameState.LOGIN)) {
-                   //Ogni client che vuole accedere se la partita è iniziata riceverà questo errore
-                   if (controller.checkNick(client.getNickname())) {
-                       model.signPlayer(client.getNickname());
-                       this.logged.add(client);
-                       System.out.println("Il giocatore " + client.getNickname() + " è stato correttamente iscritto ");
-                       subscription();
-                       if (model.isGameOn()) {
-                           startGame();
-                       }
-                   } else {
-                       throw new SameNicknameException("Il nickname è già preso!! \n");
-                   }
-               }else if(checkReEntering(client.getNickname())){
-                   //Questo else-if mette in condizione il server di accettare una riconessione di un client
-                   backInGame(client.getNickname(), dudesCrashed, dudesInGame);
-                   logged.add(client);
-                   checkTimeoutGame();
-                   System.out.println("Un client è rientrato in partita, buona fortuna! ");
+            if (model.getCurrentState().equals(GameState.LOGIN)) {
+                //Ogni client che vuole accedere se la partita è iniziata riceverà questo errore
+                if (controller.checkNick(client.getNickname())) {
+                    model.signPlayer(client.getNickname());
+                    this.logged.add(client);
+                    System.out.println("Il giocatore " + client.getNickname() + " è stato correttamente iscritto ");
+                    subscription();
+                    if (model.isGameOn()) {
+                        startGame();
+                    }
+                } else {
+                    throw new SameNicknameException("Il nickname è già preso!! \n");
+                }
+            } else if (checkReEntering(client.getNickname())) {
+                //Questo else-if mette in condizione il server di accettare una riconessione di un client
+                backInGame(client.getNickname(), dudesCrashed, dudesInGame);
+                logged.add(client);
+                checkTimeoutGame();
+                System.out.println("Un client è rientrato in partita, buona fortuna! ");
 
-               } else {
+            } else {
 
-                   client.notifyGameStarted();
-               }
-           }
+                client.notifyGameStarted();
+            }
+        }
     }
 
     //Primo metodo di controllo del client, controlla che sia uno di quelli crashati e lo rimette in partita
     private void backInGame(String name, String[] crash, String[] enrolled) {
-    int i=0;
-    //Manca controllo della posizione corretta, si fa con array presente in model
-        for(i=0; i<enrolled.length; i++){
-            if(enrolled[i] == null){
+        int i = 0;
+        //Manca controllo della posizione corretta, si fa con array presente in model
+        for (i = 0; i < enrolled.length; i++) {
+            if (enrolled[i] == null) {
                 //Potrebbe metterlo in un ordine diverso nel caso sia più di un client a crashare
-                enrolled[i]=name;
+                enrolled[i] = name;
             }
         }
 
-        i=0;
-        while(!crash[i].equals(name) ){
+        i = 0;
+        while (!crash[i].equals(name)) {
             i++;
         }
-        crash[i]=null;
+        crash[i] = null;
 
     }
+
     //Il Ping() controlla che ci siano sempre tutti i client
     //metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
     public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
-       //pingClient();
-        try{
+        //pingClient();
+        try {
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andata a buon fine ");
-        }catch(NotCatchableException e){
-            client.errorNotCatchable();
-            throw new NotCatchableException("Una coordinata non era giocabile! ");
-        }catch(NotAdjacentSlotsException e){
-        throw new NotAdjacentSlotsException("Le tessere non sono adiacenti! ");
-            /*  for(ClientRMIInterface clients : logged){
-                if(controller.getOnStage().equals(client.getNickname())){
-                    clients.errorNotAdjacent();
-                } else {
-                    String message = model.playerOnStage().nickname+" ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
-                    clients.errorNotify(message);
-                }
-            }*/
+        } catch (NotCatchableException e) {
+            throw new NotCatchableException(e.getMessage());
+        } catch (NotAdjacentSlotsException e) {
+            throw new NotAdjacentSlotsException(e.getMessage());
         }
 
     }
+
     //metodo remoto: usato dal client quando un utente ha scelto se riordinare le tessere
     @Override
     public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-       // pingClient();
         this.controller.checkOrder(C);
     }
+
     //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-       //  pingClient();
         try {
             this.controller.checkInsert(column);
-            System.out.println("Inserimento corretto ");
-        } catch (NotEnoughSpaceChoiceException e){
-            for(ClientRMIInterface clients : logged){
-                if(controller.getOnStage().equals(clients.getNickname())){
-                    clients.errorNotEnoughSpace();
-                } else {
-                    String message = model.playerOnStage().nickname+" ha fatto un errore nell'inserimento! Sta rifacendo la sua scelta!\n)";
-                    clients.errorNotifyInsert(message);
-                }
-            }
+            //Alzato
+            System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
+            turnUpdate();
+        } catch (NotEnoughSpaceChoiceException e) {
+            throw new NotEnoughSpaceChoiceException(e.getMessage());
         }
-        System.out.println("Inserimento corretto \n Passo al prossimo giocatore \n");
-        turnUpdate();
+        //Da qui
     }
 
     @Override
@@ -173,6 +159,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             for (ClientRMIInterface clients : logged) {
                 if (controller.getOnStage().equals(clients.getNickname())) {
                     clients.errorChoices(e.getMessage());
+                    throw new RuntimeException();
                 } else {
                     String message = model.playerOnStage().nickname + " ha fatto un errore nella selezione! Sta rifacendo la sua scelta!\n)";
                     clients.errorNotifyInsert(message);
@@ -239,6 +226,16 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     public void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         if(playingCrashedPlayer(controller.getOnStage())){
             controller.skipTurn();
+        }
+    }
+
+    @Override
+    public void notifyLastError() throws RemoteException {
+        System.err.println("Ho generato un errore ");
+        for (ClientRMIInterface client : logged) {
+            if (controller.getOnStage().equals(client.getNickname())) {
+                client.updateClientError(new GameView(model, -1));
+            }
         }
     }
 
@@ -359,19 +356,20 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             turnUpdate();
             throw new RuntimeException("Ping error"); }
     }
-    public void checkTimeoutGame() throws RemoteException {
+    public void checkTimeoutGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
 
        if(logged.size()==1){
            notifyWaitingForReconnection();
         }else{
            System.err.println("Ho cancellato il timer");
            timerCrash.cancel();
+           newTurn();
        }
 
     }
     private void startTimer(){
         System.out.println("Ho avviato il timer per annullare la partita ");
-        waitPlayers = new TimerTask() {
+        TimerTask waitPlayers = new TimerTask() {
             @Override
             public void run() {
                 System.err.println("Il timer è Scaduto");
@@ -382,6 +380,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 }
             }
         };
+
         timerCrash.schedule(waitPlayers, 5000);
     }
 
@@ -395,11 +394,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                     System.out.println("Il client sta ancora decidendo la sua mossa ");
                     notifyPlayerNotResponding();
 
-                } catch (NotEnoughSpaceChoiceException | NotAdjacentSlotsException e) {
-                    throw new RuntimeException(e);
-                } catch (RemoteException e) {
-                    throw new RuntimeException(e);
-                } catch (NotCatchableException e) {
+                } catch (NotEnoughSpaceChoiceException | NotAdjacentSlotsException | NotCatchableException |
+                         RemoteException e) {
                     throw new RuntimeException(e);
                 }
             }
@@ -444,7 +440,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                     System.err.println("Ho  notato che c'è solo un client dalla swap! ");
                     startTimer();
                 }
-                break;
             }
         }
 

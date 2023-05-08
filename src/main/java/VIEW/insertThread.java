@@ -1,33 +1,32 @@
 package VIEW;
 
-import Distributed.rmi.Client;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
-import VIEW.GameInterface;
 
 import java.rmi.RemoteException;
 
-public class turnThread extends Thread{
+public class insertThread extends Thread{
 
     public volatile boolean valid = true;
     private GameInterface view;
 
-    public turnThread(GameInterface view){
+    public insertThread(GameInterface view){
         this.view = view;
     }
 
     @Override
     public synchronized void run() {
-        System.out.println("Inizio del thread");
       while(valid) {
           try {
-              view.playing();
+              view.playerInsert();
           } catch (RemoteException | NotEnoughSpaceChoiceException | NotCatchableException |
                    NotAdjacentSlotsException e) {
+              System.err.println(e.getMessage());
+              System.err.println("Sto chiudendo il thread del client per un errore ");
               stopThread();
            }
-          System.err.println("--non ho più nulla da fare--");
+          System.err.println("--non ho più nulla da fare, insert--");
           stopThread();
          }
       }

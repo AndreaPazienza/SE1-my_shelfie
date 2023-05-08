@@ -12,12 +12,10 @@ import java.rmi.RemoteException;
 
 public class GameController{
     private final Game game;
-    private Player[] clientCrashed;
     private Slot[] selectedSlots;
 
     public GameController(Game game){
         this.game=game;
-        clientCrashed = new Player[game.getNplayers()-1];
     }
 
 
@@ -25,15 +23,11 @@ public class GameController{
             game.setGameOn(true);
             game.startGame();
     }
-    public boolean finishedGame(){
-        return game.isGameOn();
-    }
     public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {game.nextPlayerInGame();}
 
     public String getOnStage(){
         return game.playerOnStage().getNickname();
     }
-    public String getPrevOnStage(){return game.previousOnStage().getNickname();}
 
     //controllo se il nickname è stato già preso
     public boolean checkNick(String name){
@@ -125,17 +119,19 @@ public class GameController{
             game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots, o.getP(), o.getS(), o.getT());
         }
     }
-    public void checkInsert(int column) throws NotEnoughSpaceChoiceException {
+    public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {
         int countSpaces = 0;
         for(int i = 0; i < PersonalShelf.N_ROWS; i++){
             if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i, column).getColor().Equals(Color.GREY)){
                 countSpaces++;
             }
         }
+
         if(countSpaces >= selectedSlots.length) {
             game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);
         } else {
             game.setLastError(GameError.INSERT_ERROR);
+            System.err.println("Mando eccezione di non abbstanza spazio ");
             throw new NotEnoughSpaceChoiceException("La colonna scelta non può contenere così tante tessere!");
         }
     }
@@ -163,7 +159,7 @@ public class GameController{
     }
 
 
-    public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException {
+    public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
         int freeColumnSpace=0;

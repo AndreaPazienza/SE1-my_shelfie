@@ -17,29 +17,28 @@ public class Game implements GameEventListener {
     private int playerInGame;
     private boolean firstPlayerFinished = false;
     private boolean gameOn;
-    private Player[] player;
-    private Dashboard table;
-    private Bag bag;
-    private PersonalGoalDeck deck;
-    private CommonGoalDeck commonGoalDeck;
+    private final Player[] player;
+    private final Dashboard table;
+    private final Bag bag;
+    private final PersonalGoalDeck deck;
+    private final CommonGoalDeck commonGoalDeck;
     private CommonGoalAbs commonGoal1, commonGoal2;
     private GameState state;
 
-    private GameError lastError = null;
+    private GameError lastError;
 
 
     public GameError getLastError (){
         return lastError;
     }
 
-    public void setLastError(GameError lastError) {
+    public void setLastError(GameError lastError) throws RemoteException {
         this.lastError = lastError;
-        //notifyLastError();
+        notifyLastError();
     }
 
     //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
     public Game (int numberOfPlayers) {
-
         Nplayers = numberOfPlayers;
         playerInGame = 0;                                   //Giocatore attualmente di turno
         gameOn = false;
@@ -49,7 +48,6 @@ public class Game implements GameEventListener {
         deck = new PersonalGoalDeck();
         commonGoalDeck = new CommonGoalDeck(numberOfPlayers);
         state = GameState.LOGIN;
-
     }
 
     public void assignPGoal(){

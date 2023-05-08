@@ -22,6 +22,3 @@ public class AppServer {
     }
 
 }
-
-//Controllo OrderChoice
-//Crash del client

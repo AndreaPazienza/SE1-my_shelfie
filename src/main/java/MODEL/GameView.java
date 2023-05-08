@@ -33,6 +33,7 @@ public class GameView implements Serializable {
         pgoal = game.getPlayer()[index].getPgoal();
     }
 
+    //Utilizzare Optional<T>
     public GameView(Game game, int ind){
         table = game.getTable();
         shelf = game.getPlayer()[game.getPlayerInGame()].getShelf();
@@ -66,6 +67,10 @@ public class GameView implements Serializable {
     }
 
     public GameState getState(){return state;}
+
+    public GameError getGameError() {
+        return gameError;
+    }
 
     public boolean getGameState(){return gameState;}
 
