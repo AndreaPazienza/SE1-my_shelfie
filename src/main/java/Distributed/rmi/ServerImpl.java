@@ -353,12 +353,14 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             whosHere(dudesInGame);
             swapCrashed();
             checkTimeoutGame();
-            turnUpdate();
+            if(logged.size()!=1){
+            turnUpdate();}
             throw new RuntimeException("Ping error"); }
     }
     public void checkTimeoutGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
 
        if(logged.size()==1){
+           startTimer();
            notifyWaitingForReconnection();
         }else{
            System.err.println("Ho cancellato il timer");
@@ -381,7 +383,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         };
 
-        timerCrash.schedule(waitPlayers, 5000);
+        timerCrash.schedule(waitPlayers, 8000);
     }
 
 
@@ -438,8 +440,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 System.out.println("Ho rimosso il client crashato, ora abbiamo ancora: "+ logged.size()+" Giocanti");
                 if(logged.size()==1){
                     System.err.println("Ho  notato che c'è solo un client dalla swap! ");
-                    startTimer();
+                    //startTimer();
                 }
+                break;
             }
         }
 
