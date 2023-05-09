@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguo test del controller, test dell'inserimento, nessun bug da segnalare">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="gestione crash di tutti i giocatori">
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerInsertTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerNickTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerNickTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerOrderTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerSelectionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,8 +94,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
-    <configuration name="AppClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.AppClient">
+    <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
       <method v="2">
@@ -404,7 +394,21 @@
       <option name="project" value="LOCAL" />
       <updated>1683369311058</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="aggiunta metodo getSelectedSlot, sistemati test controller">
+      <created>1683621694650</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1683621694650</updated>
+    </task>
+    <task id="LOCAL-00029" summary="gestione crash di tutti i giocatori">
+      <created>1683621841968</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1683621841968</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,8 +441,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
-    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Aggiornamento indici costruttore" />
@@ -462,7 +464,9 @@
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix del problema di catchable" />
+    <MESSAGE value="aggiunta metodo getSelectedSlot, sistemati test controller" />
+    <MESSAGE value="gestione crash di tutti i giocatori" />
+    <option name="LAST_COMMIT_MESSAGE" value="gestione crash di tutti i giocatori" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

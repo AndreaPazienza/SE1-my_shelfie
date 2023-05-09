@@ -457,7 +457,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             crashThread notifyUser = new crashThread(client);
             try{notifyUser.run();}catch (RuntimeException e){System.err.println("-- Client ko: " + findCrashedClient(logged)) ;}
         }
-        System.out.println("Ho notificato tutti i client! Aggiorno al prossimo turno ");
+        if(logged.size() > 0) {
+            System.out.println("Ho notificato tutti i client! Aggiorno al prossimo turno ");
+        }
     }
 
     public void notifyCrashPregame() throws RemoteException{
