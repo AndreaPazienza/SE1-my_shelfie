@@ -353,7 +353,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             whosHere(dudesInGame);
             swapCrashed();
             checkTimeoutGame();
-            if(logged.size()!=1){
+            if(logged.size()!=1 && logged.size()!=0){
             turnUpdate();}
             throw new RuntimeException("Ping error"); }
     }
@@ -441,6 +441,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 if(logged.size()==1){
                     System.err.println("Ho  notato che c'è solo un client dalla swap! ");
                     //startTimer();
+                } if(logged.size()==0){
+                    System.err.println("Tutti i giocatori sono crashati! La partita è terminata!");
+                    model.setGameOn(false);
+                    System.exit(0);
                 }
                 break;
             }

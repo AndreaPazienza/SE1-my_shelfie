@@ -141,6 +141,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
 
+
     //Remote method: passing the nickname to the server.
     @Override
     public String getNickname() throws RemoteException {

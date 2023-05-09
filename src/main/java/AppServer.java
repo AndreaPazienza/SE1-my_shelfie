@@ -18,7 +18,6 @@ public class AppServer {
             registry.rebind("server", server);
       }
 
-
     }
 
 }
