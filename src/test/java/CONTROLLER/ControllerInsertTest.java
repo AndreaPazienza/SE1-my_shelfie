@@ -1,4 +1,4 @@
-/*package CONTROLLER;
+package CONTROLLER;
 
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;

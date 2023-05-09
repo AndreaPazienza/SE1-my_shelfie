@@ -1,4 +1,4 @@
-/*package CONTROLLER;
+package CONTROLLER;
 
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
@@ -9,6 +9,8 @@ import MODEL.PersonalShelf;
 import VIEW.SlotChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.rmi.RemoteException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -29,7 +31,7 @@ class CheckSpaceChoicesTest {
 
     //Shelf inizializzata con riga in cima vuota, e tessera da selezionare solo 1
     @Test
-    void CountInsert() throws NotEnoughSpaceChoiceException {
+    void CountInsert() throws NotEnoughSpaceChoiceException, RemoteException {
         for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if(i==0){
@@ -45,7 +47,7 @@ class CheckSpaceChoicesTest {
 
 
     //Shelf inizializzata con riga 0 e 1 in cima vuota, e tessera da selezionare 2
-    void CountInsert1() throws NotEnoughSpaceChoiceException {
+    void CountInsert1() throws NotEnoughSpaceChoiceException, RemoteException {
         for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if(i==0 || i==1){
@@ -60,7 +62,7 @@ class CheckSpaceChoicesTest {
     }
 
     //Shelf inizializzata con riga 0 e 1 in cima vuota, e tessera da selezionare 3
-    void CountInsert2() throws NotEnoughSpaceChoiceException {
+    void CountInsert2() throws NotEnoughSpaceChoiceException, RemoteException {
         for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if(i==0 || i==1){

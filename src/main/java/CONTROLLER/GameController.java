@@ -181,6 +181,10 @@ public class GameController{
         }
     }
 
+
+    public Slot[] getSelectedSlots() {
+        return selectedSlots;
+    }
 }
 
 
