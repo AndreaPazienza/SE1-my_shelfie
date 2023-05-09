@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fix del problema dell'assegnamento dei punti e test">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fix del problema di catchable">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/CGTwoLinesFiveTilesTest.java" afterDir="false" />
     </list>
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,17 +100,19 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
-    <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppClient" />
+  <component name="RunManager" selected="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey">
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsLeftRight" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,6 +128,22 @@
       <option name="PACKAGE_NAME" value="MODEL" />
       <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
       <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkTwoRowsNotTheLast" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -162,19 +182,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.AppClient" />
-      <item itemvalue="Application.AppServer" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsLeftRight" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotTheLast" />
       </list>
     </recent_temporary>
   </component>
@@ -207,9 +227,7 @@
       <workItem from="1682537413784" duration="6167000" />
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
-      <workItem from="1683360953317" duration="8655000" />
-      <workItem from="1683465165923" duration="14399000" />
-      <workItem from="1683632397299" duration="1632000" />
+      <workItem from="1683360953317" duration="8550000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -400,14 +418,7 @@
       <option name="project" value="LOCAL" />
       <updated>1683369311058</updated>
     </task>
-    <task id="LOCAL-00028" summary="Fix del problema dell'assegnamento dei punti e test">
-      <created>1683370298743</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1683370298743</updated>
-    </task>
-    <option name="localTasksCounter" value="29" />
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -440,6 +451,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
@@ -464,8 +476,7 @@
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
-    <MESSAGE value="Fix del problema dell'assegnamento dei punti e test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix del problema dell'assegnamento dei punti e test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix del problema di catchable" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -12,7 +12,6 @@ import java.rmi.RemoteException;
 
 public class GameController{
     private final Game game;
-
     private Slot[] selectedSlots;
 
     public GameController(Game game){
@@ -24,14 +23,11 @@ public class GameController{
             game.setGameOn(true);
             game.startGame();
     }
-    public boolean finishedGame(){
-        return game.isGameOn();
-    }
+    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {game.nextPlayerInGame();}
 
     public String getOnStage(){
         return game.playerOnStage().getNickname();
     }
-    public String getPrevOnStage(){return game.previousOnStage().getNickname();}
 
     //controllo se il nickname è stato già preso
     public boolean checkNick(String name){
@@ -41,7 +37,6 @@ public class GameController{
             }
         }
         return true;
-
     }
 
     //method which controls if a tile can be caught
@@ -57,7 +52,7 @@ public class GameController{
         return false;
     }
 
-    public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException {
+    public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException, RemoteException {
         selectedSlots = new Slot[selectedCards.length];
         switch (selectedCards.length){
             case 1 -> {
@@ -66,6 +61,7 @@ public class GameController{
                 if(checkCoordinates(x, y)){
                     selectedSlots[0]=game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
                 } else {
+                    game.setLastError(GameError.SELECT_ERROR_NOT_CATCHABLE);
                     throw new NotCatchableException("La tessera selezionata non può essere presa!");
                 }
             }
@@ -80,9 +76,11 @@ public class GameController{
                         selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
                         selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
                     } else {
+                        game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
                     }
                 } else {
+                    game.setLastError(GameError.SELECT_ERROR_ONE_NOT_CATCHABLE);
                     throw new NotCatchableException("Una delle tessere selezionate non può essere presa!");
                 }
             }
@@ -103,9 +101,11 @@ public class GameController{
                         selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
                         selectedSlots[2]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x2, y2));
                     } else {
+                        game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
                     }
                 } else {
+                    game.setLastError(GameError.SELECT_ERROR_ONE_NOT_CATCHABLE);
                     throw new NotCatchableException("Una delle tessere selezionate non può essere presa!");
                 }
             }
@@ -119,16 +119,19 @@ public class GameController{
             game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots, o.getP(), o.getS(), o.getT());
         }
     }
-    public void checkInsert(int column) throws NotEnoughSpaceChoiceException {
+    public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {
         int countSpaces = 0;
         for(int i = 0; i < PersonalShelf.N_ROWS; i++){
             if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i, column).getColor().Equals(Color.GREY)){
                 countSpaces++;
             }
         }
+
         if(countSpaces >= selectedSlots.length) {
             game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);
         } else {
+            game.setLastError(GameError.INSERT_ERROR);
+            System.err.println("Mando eccezione di non abbstanza spazio ");
             throw new NotEnoughSpaceChoiceException("La colonna scelta non può contenere così tante tessere!");
         }
     }
@@ -148,6 +151,7 @@ public class GameController{
 
         return "Il vincitore è: " + winner.getNickname() + " Congratulazioni! Con punteggio di: " + winner.getScore();
     }
+
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
     public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Aggioramento del turno in corso.. \n");
@@ -155,7 +159,7 @@ public class GameController{
     }
 
 
-    public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException {
+    public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
         int freeColumnSpace=0;
@@ -172,8 +176,14 @@ public class GameController{
             freeColumnSpace=0;
         }
         if(!space){
+            game.setLastError(GameError.SPACE_CHOICES_ERROR);
             throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
         }
+    }
+
+
+    public Slot[] getSelectedSlots() {
+        return selectedSlots;
     }
 }
 

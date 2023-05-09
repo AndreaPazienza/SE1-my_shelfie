@@ -7,6 +7,8 @@ import VIEW.SlotChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.rmi.RemoteException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerSelectionTest {
@@ -24,14 +26,14 @@ class ControllerSelectionTest {
         model.signPlayer(nick2);
     }
 
-    /*
+
     @Test
-    void selectOneTileCorrect() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectOneTileCorrect() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[1];
         slotChoice[0] = new SlotChoice(4,1);
         System.out.println(model.getTable().getSingleSlot(4,1).getColor());
         controller.checkSelect(slotChoice);
-        System.out.println(controller.selectedSlots[0].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
     }
 
     @Test
@@ -41,26 +43,26 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(4,5).getColor());
         try {
             controller.checkSelect(slotChoice);
-            System.out.println(controller.selectedSlots[0].getColor());
-        }catch(NotCatchableException | NotAdjacentSlotsException e){
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+        }catch(NotCatchableException | NotAdjacentSlotsException | RemoteException e){
             System.out.println("La tessera presa non è catchable");
         }
     }
 
     @Test
-    void selectTwoCatchable() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectTwoCatchable() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
         System.out.println(model.getTable().getSingleSlot(4,1).getColor());
         System.out.println(model.getTable().getSingleSlot(5,1).getColor());
         controller.checkSelect(slotChoice);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
     }
 
     @Test
-    void selectTwoNotCatchable() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectTwoNotCatchable() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(2,5);
         slotChoice[1] = new SlotChoice(3,5);
@@ -68,8 +70,8 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(3,5).getColor());
         try {
             controller.checkSelect(slotChoice);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
         }catch(NotCatchableException e){
             System.out.println("Una delle tessere selezionate non è catchable!");
         }catch(NotAdjacentSlotsException e){
@@ -78,7 +80,7 @@ class ControllerSelectionTest {
     }
 
     @Test
-    void selectTwoNotAdjacent() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectTwoNotAdjacent() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(2,5);
@@ -86,8 +88,8 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(2,5).getColor());
         try {
             controller.checkSelect(slotChoice);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
         }catch(NotAdjacentSlotsException e){
             System.out.println("Le tessere selezionate non sono adiacenti");
         }catch(NotCatchableException e){
@@ -96,7 +98,7 @@ class ControllerSelectionTest {
     }
 
     @Test
-    void selectTwoNotCorrectAtAll() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectTwoNotCorrectAtAll() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(3,5);
@@ -104,8 +106,8 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(3,5).getColor());
         try {
             controller.checkSelect(slotChoice);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
         }catch(NotAdjacentSlotsException e){
             System.out.println("Le tessere selezionate non sono adiacenti");
         }catch(NotCatchableException e){
@@ -114,7 +116,7 @@ class ControllerSelectionTest {
     }
 
     @Test
-    void selectThreeCatchable() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectThreeCatchable() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -128,13 +130,13 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(4,2).getColor());
         System.out.println(model.getTable().getSingleSlot(5,2).getColor());
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void selectThreeNotCatchable() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectThreeNotCatchable() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -149,9 +151,9 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(3,3).getColor());
         try {
             controller.checkSelect(slotChoice2);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
-            System.out.println(controller.selectedSlots[2].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
+            System.out.println(controller.getSelectedSlots()[2].getColor());
         }catch(NotCatchableException e){
             System.out.println("Una delle tessere selezionate non è catchable!");
         }catch(NotAdjacentSlotsException e){
@@ -160,7 +162,7 @@ class ControllerSelectionTest {
     }
 
     @Test
-    void selectThreeNotAdjacent() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectThreeNotAdjacent() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -175,9 +177,9 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(3,3).getColor());
         try {
             controller.checkSelect(slotChoice2);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
-            System.out.println(controller.selectedSlots[2].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
+            System.out.println(controller.getSelectedSlots()[2].getColor());
         }catch(NotCatchableException e){
             System.out.println("Una delle tessere selezionate non è catchable!");
         }catch(NotAdjacentSlotsException e){
@@ -186,7 +188,7 @@ class ControllerSelectionTest {
     }
 
     @Test
-    void selectThreeCorrectNearbyBug() throws NotAdjacentSlotsException, NotCatchableException {
+    void selectThreeCorrectNearbyBug() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -201,14 +203,13 @@ class ControllerSelectionTest {
         System.out.println(model.getTable().getSingleSlot(5,2).getColor());
         try {
             controller.checkSelect(slotChoice2);
-            System.out.println(controller.selectedSlots[0].getColor());
-            System.out.println(controller.selectedSlots[1].getColor());
-            System.out.println(controller.selectedSlots[2].getColor());
+            System.out.println(controller.getSelectedSlots()[0].getColor());
+            System.out.println(controller.getSelectedSlots()[1].getColor());
+            System.out.println(controller.getSelectedSlots()[2].getColor());
         }catch(NotCatchableException e){
             System.out.println("Una delle tessere selezionate non è catchable!");
         }catch(NotAdjacentSlotsException e){
             System.out.println("Le tessere selezionate non sono adiacenti");
         }
     }
-    */
 }

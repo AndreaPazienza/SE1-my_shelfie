@@ -8,7 +8,7 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
 public class AppServer {
-    public static void main(String[] args) throws RemoteException, AlreadyBoundException {
+    public static void main(String[] args) throws RemoteException{
 
         ServerRMIInterface server = new ServerImpl();
         String Ip = "192.168.22.176";
@@ -18,9 +18,6 @@ public class AppServer {
             registry.rebind("server", server);
       }
 
-
     }
 
 }
-
-//Gestire richiesta di connessione a partita iniziata

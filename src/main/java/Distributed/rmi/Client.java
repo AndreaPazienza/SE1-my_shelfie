@@ -7,11 +7,8 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
-
 import MODEL.GameView;
-import VIEW.GameInterface;
-import VIEW.OrderChoice;
-import VIEW.SlotChoice;
+import VIEW.*;
 
 
 import java.io.Serializable;
@@ -22,9 +19,11 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
+
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
+    private boolean endGame;
 
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
@@ -32,6 +31,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         nickname = view.firstRun();
         view.addviewEventListener(this);
         initialize(server);
+
     }
 
     public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
@@ -52,16 +52,15 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
 
     public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException {
-        try{
-        server.register(this);
-        }catch(RemoteException | SameNicknameException e){
-           sameNickFound(e.getMessage());
-        } catch (NotEnoughSpaceChoiceException e) {
+        try {
+            server.register(this);
+        } catch (SameNicknameException e) {
+            sameNickFound(e.getMessage());
+        } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
             throw new RuntimeException(e);
-        } catch (NotAdjacentSlotsException e) {
-            throw new RuntimeException(e);
-        } catch (NotCatchableException e) {
-            throw new RuntimeException(e);
+        } catch (RemoteException e) {
+            // view.gameCancelled();
+            view.endgame();
         }
     }
 
@@ -71,7 +70,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
 
     public void run() {
-      view.run();
+        view.run();
     }
 
     //Observer:
@@ -90,7 +89,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Observer: when the sorting is chosen from the view
     @Override
-    public void notifyOrder(OrderChoice o) throws RemoteException {
+    public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerReorder(this, o);
     }
 
@@ -103,9 +102,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
         nickname = view.firstRun();
-        try{connectedTo.register(this);}
-        catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
-               NotCatchableException e){
+        try {
+            connectedTo.register(this);
+        } catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
+                 NotCatchableException e) {
             sameNickFound(e.getMessage());
         }
     }
@@ -118,12 +118,13 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //When the server has a new update, it is sent and displayed by the client.
     @Override
     public void updateClientFirst(GameView modelView) {
-        gameState= modelView.getGameState();
+        gameState = modelView.getGameState();
         view.displayCommonGoal(modelView);
         view.displayDashboard(modelView.getTable());
         view.displayPersonalGoal(modelView.getPgoal());
-       // view.onWait();
+        // view.onWait();
     }
+
     //Manda al giocaente la situazione attuale e la propria personal shelf
     @Override
     public void updateClientPlaying(GameView modelView) {
@@ -131,12 +132,14 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
+
     //Manda a tutti i client la nuova board
     @Override
     public void updateClientRound(GameView model) throws RemoteException {
-        gameState= model.getGameState();
+        gameState = model.getGameState();
         view.displayDashboard(model.getTable());
     }
+
 
 
     //Remote method: passing the nickname to the server.
@@ -158,31 +161,33 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     //Remote method: to notify the client that they still have to wait for their turn.
-    public void onWait() throws RemoteException{
+    public void onWait() throws RemoteException {
         view.onWait();
     }
 
     //Remote method: begin of turn
-    public void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-       if(gameState){
-        view.startTurn();
-        view.playing();
-       }else{
-           view.endgame();
-       }
+    public void startTurn() throws RemoteException {
+        if (gameState) {
+            view.startTurn();
+            turnThread play = new turnThread(view);
+            play.start();
+        } else {
+            view.endgame();
+        }
     }
 
     //Remote method:: end turn
-    public void endTurn(){
-        if(gameState) {
+    public void endTurn() {
+        if (gameState) {
             view.onWait();
-        }else{
+        } else {
             view.endgame();
         }
     }
 
     @Override
-    public void winnerInterface(String winner ) throws RemoteException {
+    public void winnerInterface(String winner) throws RemoteException {
+        gameState = false;
         view.displayWin(winner);
     }
 
@@ -193,7 +198,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
+    public void errorNotCatchable(NotCatchableException e) throws RemoteException {
         view.errorNotCatchable();
     }
 
@@ -220,10 +225,58 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotAllowedChoice(message);
+
     }
 
     @Override
     public void notifyGameStarted() throws RemoteException {
         view.denyAcess();
     }
+
+    @Override
+    public void errorCrash() throws RemoteException {
+        view.playerCrash();
+    }
+
+    @Override
+    public void ping() throws RemoteException {
+    }
+
+    @Override
+    public void subscriptionCancelled() throws RemoteException {
+        view.gameCancelled();
+    }
+
+    @Override
+    public void errorMissingPlayers() throws RemoteException {
+        view.waitingForPlayers();
+    }
+
+    @Override
+    public void errorEndGameNoMorePlayers() throws RemoteException {
+        endGame = true;
+        view.endgame();
+    }
+
+    @Override
+    public void updateClientError(GameView modelView) throws RemoteException {
+        switch (modelView.getGameError()) {
+            case SELECT_ERROR_NOT_CATCHABLE, SELECT_ERROR_ONE_NOT_CATCHABLE, SELECT_ERROR_NOT_ADJACENT, SPACE_CHOICES_ERROR -> {
+                System.out.println("Avvio play 2 ");
+                turnThread play2 = new turnThread(view);
+                play2.start();
+            }
+
+            case INSERT_ERROR -> {
+                System.err.println("Avvio il 3");
+                insertThread play3 = new insertThread(view);
+                play3.start();
+
+            }
+
+        }
+
+    }
 }
+
+

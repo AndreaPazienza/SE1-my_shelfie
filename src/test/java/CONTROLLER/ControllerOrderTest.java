@@ -8,6 +8,8 @@ import VIEW.SlotChoice;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.rmi.RemoteException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerOrderTest {
@@ -25,23 +27,23 @@ class ControllerOrderTest {
         model.signPlayer(nick1);
         model.signPlayer(nick2);
     }
-/*
+
     @Test
-    void orderTwoTest() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderTwoTest() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
         controller.checkSelect(slotChoice);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
         OrderChoice orderChoice = new OrderChoice(1,1,1);
         controller.checkOrder(orderChoice);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
     }
 
     @Test
-    void orderThreeTest() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -52,18 +54,18 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
         OrderChoice o = new OrderChoice(3,2,1);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void orderThreeTest1() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest1() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -74,18 +76,18 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor()+"\n");
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor()+"\n");
         OrderChoice o = new OrderChoice(3,1,2);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void orderThreeTest2() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest2() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -96,18 +98,18 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor()+"\n");
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor()+"\n");
         OrderChoice o = new OrderChoice(2,1,3);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void orderThreeTest3() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest3() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -118,18 +120,18 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor()+"\n");
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor()+"\n");
         OrderChoice o = new OrderChoice(2,3,1);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void orderThreeTest4() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest4() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -140,18 +142,18 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor()+"\n");
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor()+"\n");
         OrderChoice o = new OrderChoice(1,3,2);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
 
     @Test
-    void orderThreeTest5() throws NotAdjacentSlotsException, NotCatchableException {
+    void orderThreeTest5() throws NotAdjacentSlotsException, NotCatchableException, RemoteException {
         SlotChoice[] slotChoice = new SlotChoice[2];
         slotChoice[0] = new SlotChoice(4,1);
         slotChoice[1] = new SlotChoice(5,1);
@@ -162,15 +164,13 @@ class ControllerOrderTest {
         slotChoice2[1] = new SlotChoice(4,2);
         slotChoice2[2] = new SlotChoice(5,2);
         controller.checkSelect(slotChoice2);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor()+"\n");
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor()+"\n");
         OrderChoice o = new OrderChoice(1,2,3);
         controller.checkOrder(o);
-        System.out.println(controller.selectedSlots[0].getColor());
-        System.out.println(controller.selectedSlots[1].getColor());
-        System.out.println(controller.selectedSlots[2].getColor());
+        System.out.println(controller.getSelectedSlots()[0].getColor());
+        System.out.println(controller.getSelectedSlots()[1].getColor());
+        System.out.println(controller.getSelectedSlots()[2].getColor());
     }
-
- */
 }

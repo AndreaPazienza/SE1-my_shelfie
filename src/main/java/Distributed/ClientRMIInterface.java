@@ -22,11 +22,17 @@ public interface ClientRMIInterface extends Remote {
     void endTurn() throws RemoteException;
     void winnerInterface(String winner) throws RemoteException;
     void notifyCompleted() throws RemoteException;
-    void errorNotCatchable() throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException;
+    void errorNotCatchable(NotCatchableException e) throws RemoteException;
     void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException;
     void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
     void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException;
     void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyGameStarted() throws RemoteException;
+    void errorCrash() throws RemoteException;
+    void ping() throws RemoteException;
+    void subscriptionCancelled() throws RemoteException;
+    void errorMissingPlayers() throws RemoteException;
+    void errorEndGameNoMorePlayers() throws RemoteException;
+    void updateClientError(GameView view) throws RemoteException;
 }
