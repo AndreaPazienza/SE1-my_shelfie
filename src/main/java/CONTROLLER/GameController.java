@@ -158,27 +158,31 @@ public class GameController{
         game.updateTurn();
     }
 
-
+    //Problemi in questa funzione quando crasha un player con 3 giocatori
     public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {
+
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
         int freeColumnSpace=0;
         boolean space = false;
-        for (int j=0; j < column; j++){
-                for(int i=0; i < rows ; i++){
+
+        for (int j=0; j < column && !space ; j++){
+                for(int i=0; i < rows && !space ; i++){
                 if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
                     freeColumnSpace++;
                 }
                 if(freeColumnSpace>=number){
-                    space = true;
+                    System.out.println("Colonna libera trovata ");
+                    return;
                 }
             }
             freeColumnSpace=0;
         }
-        if(!space){
-            game.setLastError(GameError.SPACE_CHOICES_ERROR);
-            throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
-        }
+        //Entra comunque in questo IF, non va bene
+        System.err.println("Nessuna posizione libera trovata ");
+        game.setLastError(GameError.SPACE_CHOICES_ERROR);
+        throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
+
     }
 
 

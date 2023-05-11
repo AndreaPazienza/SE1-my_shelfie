@@ -167,9 +167,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: begin of turn
     public void startTurn() throws RemoteException {
+        System.out.println("Avvio il turno per la n volta ");
+        turnThread play = new turnThread(view);
         if (gameState) {
             view.startTurn();
-            turnThread play = new turnThread(view);
             play.start();
         } else {
             view.endgame();
@@ -198,12 +199,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void errorNotCatchable(NotCatchableException e) throws RemoteException {
+    public void errorNotCatchable(NotCatchableException e) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         view.errorNotCatchable();
     }
 
     @Override
-    public void errorNotify(String message) throws RemoteException, NotCatchableException, NotAdjacentSlotsException {
+    public void errorNotify(String message) throws RemoteException {
         view.notifyError(message);
     }
 

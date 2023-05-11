@@ -21,7 +21,7 @@ public class crashPreGame extends Thread{
             try {
                 client.subscriptionCancelled();
             } catch (RemoteException e) {
-                throw new RuntimeException(e);
+                System.err.println("Client disconnesso ");
             }
             System.err.println(" Chiudo il thread ");
             stopThread();

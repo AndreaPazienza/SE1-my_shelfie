@@ -79,7 +79,6 @@ public class Player extends Observable {
     }
 
     public void orderCards(Slot[] selectedCards){ //method that sorts if I have chosen only two tiles
-
         Slot tmp = selectedCards[1];
         selectedCards[1] = selectedCards[0];
         selectedCards[0] = tmp;
@@ -104,10 +103,9 @@ public class Player extends Observable {
     }
 
     public Player(String nick){
-
         this.nickname = nick;
         this.score = 0;
-        this.shelf = new PersonalShelf(1);
+        this.shelf = new PersonalShelf();
         this.pgoal = null;
         this.orderInTurn = 0;
         this.chair = false;

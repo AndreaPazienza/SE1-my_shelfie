@@ -18,7 +18,7 @@ import javax.swing.*;
 public class GameInterface implements Runnable, viewListeners {
 
     private List<viewListeners> listeners = new ArrayList<>();
-    public Scanner keyboard = new Scanner(System.in);
+    public Scanner keyboard;
 
     //inserimento nickname per la prima volta
     public String firstRun() {
@@ -53,8 +53,11 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
 
+
+
     //Selection of the cards from dashboard
     public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+        keyboard = new Scanner(System.in);
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
@@ -64,10 +67,11 @@ public class GameInterface implements Runnable, viewListeners {
         //Insertion of the number of tiles to be selected, checking and creation of the array
         System.out.print("Inserire il numero di tessere da selezionare: ");
         do {
-            nChoices = getCorrectInt();
-            notifyChoices(nChoices);
+            nChoices = keyboard.nextInt();
             //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
             //tessere selezionate dall'utente.
+            System.err.println("chiamata al server ");
+            notifyChoices(nChoices);
             if (nChoices < 1)
                 System.err.print("Scegliere almeno una tessera: ");
             if (nChoices > maxChoices) {
@@ -75,25 +79,22 @@ public class GameInterface implements Runnable, viewListeners {
             }
         } while (nChoices < 1 || nChoices > maxChoices);
 
-        SlotChoice[] selection = new SlotChoice[nChoices];
         int x = -1;
         int y = -1;
+        SlotChoice[] selection = new SlotChoice[nChoices];
         do {
             for (int i = 0; i < nChoices; i++) {
                 //Insertion of the single tile and insertion into the tiles array.//Inserimento della tessera songola e inserimento nell'array di tessere
                 System.out.println("Inserire le coordinate della tessera da prendere");
                 do {
-
-                    System.out.print("X" + i+1 + ": ");
-                    x = getCorrectInt();
-                    System.out.print("Y" + i+1 + ": ");
+                    System.out.print("X: ");
+                     x = getCorrectInt();
+                    System.out.print("Y: " );
                     y = getCorrectInt();
-
                     if (x < 0 || x > 8 || y < 0 || y > 8) {
                         System.err.println("Inserire parametri compresi tra 0 e 8");
                     }
                 } while (x < 0 || x > 8 || y < 0 || y > 8);
-
                 selection[i] = new SlotChoice(x, y);
                 countChoices++;
             }
@@ -107,19 +108,15 @@ public class GameInterface implements Runnable, viewListeners {
         if (nChoices != 1) {
             if (playerOrder()) {
                 if (nChoices == 2) {
-
                     //Creating an OrderChoice with conventionally chosen parameters.
                     OrderChoice order = new OrderChoice(1, 1, 1);
-
                     notifyOrder(order);
                 }
 
                 if (nChoices == 3) {
-
                     int pos1;
                     int pos2;
                     int pos3;
-
                     do {
                         do {
                             System.out.print("Quale tessera vuoi inserire per prima? ");
@@ -128,24 +125,21 @@ public class GameInterface implements Runnable, viewListeners {
                                 System.err.print("Inserire posizione da 1 a 3: ");
                             }
                         } while (pos1 < 1 || pos1 > 3);
-
-                        do {
+                    do {
                             System.out.print("Quale tessera vuoi inserire per seconda? ");
                             pos2 = getCorrectInt();
                             if (pos2 < 1 || pos2 > 3) {
                                 System.err.print("Inserire posizione da 1 a 3: ");
                             }
                         } while (pos2 < 1 || pos2 > 3);
-
-                        do {
+                    do {
                             System.out.print("Quale tessera vuoi inserire per ultima? ");
                             pos3 = getCorrectInt();
                             if (pos3 < 1 || pos3 > 3) {
                                 System.err.print("Inserire posizione da 1 a 3: ");
                             }
                         } while (pos3 < 1 || pos3 > 3);
-
-                        if (pos1 == pos2 || pos1 == pos3 || pos2 == pos3) {
+                    if (pos1 == pos2 || pos1 == pos3 || pos2 == pos3) {
                             System.err.println("Inserire una combinazione di coordinate valide");
                         }
 
@@ -162,7 +156,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
     //Richiesta di ordinamento
     public boolean playerOrder() {
-
+        keyboard = new Scanner(System.in);
         boolean reorder = false;
         String string;
         String yes = "si";
@@ -187,7 +181,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Insertion of the selected tiles into the shelf.
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-
+        keyboard = new Scanner(System.in);
         int column;
         boolean ok;
 
@@ -215,7 +209,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Method that checks if the input is actually an int value
     public int getCorrectInt() {
-
+        keyboard = new Scanner(System.in);
         int val = 0;
         boolean ok;
 
@@ -240,7 +234,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Method that checks if the input is actually a string
     public String getCorrectString() {
-
+        keyboard = new Scanner(System.in);
         String string = "";
         boolean ok;
 
@@ -387,6 +381,12 @@ public class GameInterface implements Runnable, viewListeners {
                 listener.notifyOrder(o);
             } catch (RemoteException e) {
                 System.out.println("ciao");
+            } catch (NotEnoughSpaceChoiceException e) {
+                throw new RuntimeException(e);
+            } catch (NotAdjacentSlotsException e) {
+                throw new RuntimeException(e);
+            } catch (NotCatchableException e) {
+                throw new RuntimeException(e);
             }
         }
         }
@@ -455,8 +455,14 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     public void denyAcess() {
-        System.err.println("La partiat è già iniziata, troppo tardi :/ ");
+        System.err.println("La partita è già iniziata, troppo tardi :/ ");
     }
+
+    public void playerCrash() {System.err.println("E' crashato un player ");}
+
+    public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
+
+    public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
 }
 
 
