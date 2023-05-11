@@ -57,7 +57,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Selection of the cards from dashboard
     public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        keyboard = new Scanner(System.in);
+
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
@@ -67,7 +67,7 @@ public class GameInterface implements Runnable, viewListeners {
         //Insertion of the number of tiles to be selected, checking and creation of the array
         System.out.print("Inserire il numero di tessere da selezionare: ");
         do {
-            nChoices = keyboard.nextInt();
+            nChoices = getCorrectInt();
             //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
             //tessere selezionate dall'utente.
             System.err.println("chiamata al server ");
@@ -375,7 +375,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Notify all listeners (Clients) of the successful notification.
     @Override
-    public void notifyOrder(OrderChoice o) {
+    public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             try {
                 listener.notifyOrder(o);
