@@ -55,6 +55,15 @@ public class Game implements GameEventListener {
             player[i].setPgoal(deck.extractionPGoal());
         }
     }
+    //Metodo che data una string da la posizione del player giocante.
+    public int positionInGame(String name){
+        for(int i=0; i<Nplayers; i++){
+            if(player[i].getNickname().equals(name)){
+                return player[i].getOrderInTurn()-1;
+            }
+        }
+        return -1;
+    }
 
     //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {

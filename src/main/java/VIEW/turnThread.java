@@ -24,7 +24,7 @@ public class turnThread extends Thread{
           try {
               view.playing();
           } catch (RemoteException | NotEnoughSpaceChoiceException | NotCatchableException |
-                   NotAdjacentSlotsException e) {
+                   NotAdjacentSlotsException | RuntimeException e) {
               stopThread();
            }
           System.err.println("--non ho più nulla da fare--");

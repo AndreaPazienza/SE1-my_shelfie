@@ -105,7 +105,7 @@ public class Player extends Observable {
     public Player(String nick){
         this.nickname = nick;
         this.score = 0;
-        this.shelf = new PersonalShelf();
+        this.shelf = new PersonalShelf(1);
         this.pgoal = null;
         this.orderInTurn = 0;
         this.chair = false;

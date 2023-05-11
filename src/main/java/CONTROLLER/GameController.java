@@ -146,10 +146,15 @@ public class GameController{
             game.getPlayer()[i].checkScore();
         }
         winner = game.finalScore();
-
+        StringBuilder endGameString = new StringBuilder();
         game.setGameOn(false);
 
-        return "Il vincitore è: " + winner.getNickname() + " Congratulazioni! Con punteggio di: " + winner.getScore();
+        for(int i=0; i < game.getNplayers(); i++){
+            endGameString.append("\n").append(game.getPlayer()[i].getNickname()).append(" ha totalizzato: ").append(game.getPlayer()[i].getScore()).append(" punti ");
+        }
+        endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
+
+        return endGameString.toString();
     }
 
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
