@@ -120,8 +120,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void updateClientFirst(GameView modelView) {
         gameState = modelView.getGameState();
         view.displayCommonGoal(modelView);
-        view.displayDashboard(modelView.getTable());
         view.displayPersonalGoal(modelView.getPgoal());
+        view.displayDashboard(modelView.getTable());
+
         // view.onWait();
     }
 
@@ -129,6 +130,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void updateClientPlaying(GameView modelView) {
         gameState = modelView.getGameState();
+        for(int i = 0; i < 6; i++){
+            view.displayTarget(i, modelView);
+        }
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }

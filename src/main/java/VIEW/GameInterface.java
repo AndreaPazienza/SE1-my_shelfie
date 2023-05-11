@@ -463,6 +463,10 @@ public class GameInterface implements Runnable, viewListeners {
     public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
 
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
+
+    public void displayTarget(int i, GameView gameView) {
+        System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
+    }
 }
 
 
