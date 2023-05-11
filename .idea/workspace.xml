@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.00: &#10;Gioco funzionante con FA della Resilienza alle disconnessioni.">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="aggiornamento primo display">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
-    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,7 +100,7 @@
   <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -213,7 +208,7 @@
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1683798347796" duration="143000" />
-      <workItem from="1683803571264" duration="14905000" />
+      <workItem from="1683803571264" duration="4690000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -404,12 +399,12 @@
       <option name="project" value="LOCAL" />
       <updated>1683369311058</updated>
     </task>
-    <task id="LOCAL-00028" summary="Versione textualUI Beta v1.00: &#10;Gioco funzionante con FA della Resilienza alle disconnessioni.">
-      <created>1683808362542</created>
+    <task id="LOCAL-00028" summary="bug fix nella selezione">
+      <created>1683815518138</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1683808362542</updated>
+      <updated>1683815518138</updated>
     </task>
     <option name="localTasksCounter" value="29" />
     <servers />
@@ -444,7 +439,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Aggiornamento indici costruttore" />
@@ -468,8 +462,9 @@
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
-    <MESSAGE value="Versione textualUI Beta v1.00: &#10;Gioco funzionante con FA della Resilienza alle disconnessioni." />
-    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.00: &#10;Gioco funzionante con FA della Resilienza alle disconnessioni." />
+    <MESSAGE value="bug fix nella selezione" />
+    <MESSAGE value="aggiornamento primo display" />
+    <option name="LAST_COMMIT_MESSAGE" value="aggiornamento primo display" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,7 +489,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>354</line>
+          <line>349</line>
           <properties class="Distributed.rmi.ServerImpl" method="pingClient">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -503,24 +498,19 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>463</line>
+          <line>440</line>
           <properties class="Distributed.rmi.ServerImpl" method="swapCrashed">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppServer.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

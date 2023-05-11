@@ -57,7 +57,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Selection of the cards from dashboard
     public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        keyboard = new Scanner(System.in);
+
         int countChoices = 0;
         int nChoices = 0;
         int maxChoices = 3;
@@ -67,7 +67,7 @@ public class GameInterface implements Runnable, viewListeners {
         //Insertion of the number of tiles to be selected, checking and creation of the array
         System.out.print("Inserire il numero di tessere da selezionare: ");
         do {
-            nChoices = keyboard.nextInt();
+            nChoices = getCorrectInt();
             //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
             //tessere selezionate dall'utente.
             System.err.println("chiamata al server ");
@@ -375,7 +375,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     //Notify all listeners (Clients) of the successful notification.
     @Override
-    public void notifyOrder(OrderChoice o) {
+    public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             try {
                 listener.notifyOrder(o);
@@ -463,6 +463,10 @@ public class GameInterface implements Runnable, viewListeners {
     public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
 
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
+
+    public void displayTarget(int i, GameView gameView) {
+        System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
+    }
 }
 
 
