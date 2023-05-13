@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Random;
 
-public class CommonGoalDeck extends Observable {
+public class CommonGoalDeck{
 
     private CommonGoalAbs goal;
     private static final ArrayList<CommonGoalAbs> deck = new ArrayList<>();
