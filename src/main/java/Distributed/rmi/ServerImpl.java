@@ -64,10 +64,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             firstPlayerEnrolled = true;
             //Se il primo è già iscritto si passa a questa parte del codice in cui vengono distinti tre casi principali
         } else {
+            if(!model.isGameOn()){
             //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura), controlla che ogni client iscritto
             //Sia ancora attivo, in caso manda la partita in chiusura.
-            try {
-                this.pingInPreGame();
+            try {this.pingInPreGame();
             } catch (RemoteException e) {
                 notifyCrashPregame();
                 client.subscriptionCancelled();
@@ -85,18 +85,18 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                     }
                 } else {
                     throw new SameNicknameException("Il nickname è già preso!! \n");
-                }
+                }}
                 //Nel caso in cui non siamo nello stato di LOGIN viene controllato se il tentativo viene da uno dei client crashati precedentemente
                 //Altrimenti andrà a notificare tale client che la partita è già inziata, non permettendo un ingresso
-            }/* else if (checkReEntering(client.getNickname())) {
+            }else if (checkReEntering(client.getNickname())) {
                 //Questo else-if mette in condizione il server di accettare una riconessione di un client
-                backInGame(client.getNickname());
+                backInGame(client);
                 if (logged.size() == 1) {
                     restartGameAfterCrash();
                 }
                 logged.add(client);
                 System.out.println("Un client è rientrato in partita, buona fortuna! ");
-            } */else {
+            }else {
                 client.notifyGameStarted();
             }
         }
@@ -104,16 +104,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
 
     //Primo metodo di controllo del client, controlla che sia uno di quelli crashati e lo rimette in partita
-   /* private void backInGame(String name) {
+    private void backInGame(ClientRMIInterface client) throws RemoteException {
         //Manca controllo della posizione corretta, si fa con array presente in model
-        dudesInGame[model.positionInGame(name)] = name;
-        int i = 0;
-        while (!dudesCrashed[i].equals(name)) {
-            i++;
-        }
-        dudesCrashed[i] = null;
-
-    }*/
+        int reenteringPosition = model.positionInGame(client.getNickname());
+        dudesInGame[reenteringPosition] = client.getNickname();
+        effectiveLogged[reenteringPosition]=client;
+    }
 
     //Metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
     @Override
@@ -321,6 +317,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private boolean checkReEntering(String nick) {
         for (int i = 0; i < dudesCrashed.length; i++) {
             if (nick.equals(dudesCrashed[i])) {
+                dudesCrashed[i]=null;
                 return true;
             }
         }

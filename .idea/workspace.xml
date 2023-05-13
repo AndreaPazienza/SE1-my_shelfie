@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche">
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +212,7 @@
       <workItem from="1683898194189" duration="527000" />
       <workItem from="1683902162807" duration="3550000" />
       <workItem from="1683909840776" duration="6618000" />
-      <workItem from="1683976955405" duration="14483000" />
+      <workItem from="1683976955405" duration="14823000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -426,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683980701446</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche">
+      <created>1683999033899</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1683999033899</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +464,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
@@ -484,7 +488,8 @@
     <MESSAGE value="aggiornamento primo display" />
     <MESSAGE value="Versione textualUI Beta v1.01: &#10;Riscrittura dei metodi di crash per gestire crash simultanei" />
     <MESSAGE value="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)" />
+    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
