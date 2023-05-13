@@ -183,57 +183,68 @@ public class GameController{
         int freeDashboardSpace1 = 0;
         int freeDashboardSpace2 = 0;
         int freeColumnSpace = 0;
-        boolean space = false;
+        boolean spaceDashboard = false;
+        boolean spaceShelf = false;
 
         //Checking the dashboard row by row
-        for (int i = 0; i < Dashboard.getSide() && !space; i ++) {
+        for (int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
             int counter = 0;
-            for(int j = 0; j < Dashboard.getSide() && !space; j ++) {
-                if (game.getTable().getSingleSlot(i,j).isCatchable() && (game.getTable().getSingleSlot(i,j-1).isCatchable() || j == 0)) {
+            for(int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
+                if (counter == 0) {
+                    if (game.getTable().getSingleSlot(i,j).isCatchable())
+                        counter ++;
+                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i,j-1).isCatchable())
                     counter ++;
-                } else {
-                    if (counter > freeDashboardSpace1) {
-                        freeDashboardSpace1 = counter;
-                    }
-                    if (number >= freeDashboardSpace1)
-                        space = true;
-                    else counter = 0;
-                }
+
+                if (!game.getTable().getSingleSlot(i,j).isCatchable())
+                    counter = 0;
+
+                if (counter >= freeDashboardSpace1)
+                    freeDashboardSpace1 = counter;
+                if (freeDashboardSpace1 >= number)
+                    spaceDashboard = true;
             }
         }
+
+        System.out.println("Controllando per riga: " + freeDashboardSpace1);
 
         //Checking the dashboard column by column
-        for (int j = 0; j < Dashboard.getSide() && !space; j ++) {
+        for (int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
             int counter = 0;
-            for(int i = 0; i < Dashboard.getSide() && !space; i ++) {
-                if (game.getTable().getSingleSlot(i,j).isCatchable() && (game.getTable().getSingleSlot(i,j-1).isCatchable() || j == 0)) {
+            for(int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
+                if (counter == 0) {
+                    if (game.getTable().getSingleSlot(i,j).isCatchable())
+                        counter ++;
+                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i-1,j).isCatchable())
                     counter ++;
-                } else {
-                    if (counter > freeDashboardSpace2) {
-                        freeDashboardSpace2 = counter;
-                    }
-                    if (number >= freeDashboardSpace2)
-                        space = true;
-                    else counter = 0;
-                }
+
+                if (!game.getTable().getSingleSlot(i,j).isCatchable())
+                    counter = 0;
+
+                if (counter >= freeDashboardSpace1)
+                    freeDashboardSpace2 = counter;
+                if (freeDashboardSpace2 >= number)
+                    spaceDashboard = true;
             }
         }
 
+        System.out.println("Controllando per colonna: " + freeDashboardSpace2);
+
         //Checking the shelf
-        for (int j=0; j < column && !space ; j++){
-                for(int i=0; i < rows && !space ; i++){
+        for (int j=0; j < column && !spaceShelf ; j++){
+                for(int i=0; i < rows && !spaceShelf ; i++){
                 if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
                     freeColumnSpace++;
                 }
                 if(freeColumnSpace>=number){
                     System.out.println("Colonna libera trovata ");
-                    space = true;
+                    spaceShelf = true;
                 }
             }
             freeColumnSpace = 0;
         }
 
-        if (space)
+        if (spaceDashboard && spaceShelf)
             return;
 
         //Entra comunque in questo IF, non va bene

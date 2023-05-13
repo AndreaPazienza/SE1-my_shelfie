@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Gestione e controllo degli input da tastiera">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -144,17 +144,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckSpaceChoicesTest.CountInsert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="CONTROLLER.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="emptyOne" />
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.CheckSpaceChoicesTest" />
+      <option name="METHOD_NAME" value="CountInsert2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -163,17 +163,17 @@
     <list>
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
+      <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
       </list>
     </recent_temporary>
   </component>
@@ -397,7 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683369311058</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Fixaggio dei bug in inserimento dei parametri">
+      <created>1683984921304</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1683984921304</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -430,7 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PersonalShelf.java (introduzione metodi per il check delle adiacenze finale)" />
     <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
@@ -455,7 +461,8 @@
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix del problema di catchable" />
+    <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
