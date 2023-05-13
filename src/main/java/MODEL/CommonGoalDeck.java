@@ -22,7 +22,7 @@ public class CommonGoalDeck extends Observable {
         deck.add(new CGThreeColumnsSixTiles(players));
         deck.add(new CGTwoColumnsSixTiles(players));
         //lines definition
-        //deck.add(new CGTwoLinesFiveTiles(players));
+        deck.add(new CGTwoLinesFiveTiles(players));
         deck.add(new CGFourLinesFiveTiles(players));
 
     }

@@ -20,7 +20,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
         }
         else {
             for(int i=0; i<rows.length-1; i++){
-                for(int j=i+1; j<rows.length-1; j++ ){
+                for(int j=i+1; j<rows.length; j++ ){
                     if(rows[i].Equals(rows[j]) || rows[0].Equals(Color.GREY)){
                         return false;
                     }
