@@ -65,6 +65,14 @@ public class Game implements GameEventListener {
         return -1;
     }
 
+    public int getPlayerPosition(String name){
+        for (Player playing : player) {
+            if (playing.getNickname().equals(name))
+                return playing.getOrderInTurn()-1;
+        }
+        return -1;
+    }
+
     //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {
 
