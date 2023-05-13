@@ -23,7 +23,9 @@ public class GameController{
             game.setGameOn(true);
             game.startGame();
     }
-    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {game.nextPlayerInGame();}
+    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        game.nextPlayerInGame();
+    }
 
     public String getOnStage(){
         return game.playerOnStage().getNickname();

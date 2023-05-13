@@ -19,7 +19,6 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
-
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
@@ -130,9 +129,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void updateClientPlaying(GameView modelView) {
         gameState = modelView.getGameState();
-        for(int i = 0; i < 6; i++){
+        /*for(int i = 0; i < 6; i++){
             view.displayTarget(i, modelView);
-        }
+        }*/
         view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
     }
@@ -173,6 +172,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void startTurn() throws RemoteException {
         System.out.println("Avvio il turno per la n volta ");
         turnThread play = new turnThread(view);
+        //thread non si chiude per la prima volta
         if (gameState) {
             view.startTurn();
             play.start();
@@ -199,37 +199,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void notifyCompleted() throws RemoteException {
         view.notifyAlmostOver();
-
-    }
-
-    @Override
-    public void errorNotCatchable(NotCatchableException e) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        view.errorNotCatchable();
-    }
-
-    @Override
-    public void errorNotify(String message) throws RemoteException {
-        view.notifyError(message);
-    }
-
-    @Override
-    public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        view.errorNotAdjacent();
-    }
-
-    @Override
-    public void errorNotEnoughSpace() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        view.errorNotEnoughSpace();
-    }
-
-    @Override
-    public void errorNotifyInsert(String message) throws RemoteException, NotEnoughSpaceChoiceException {
-        view.notifyError(message);
-    }
-
-    @Override
-    public void errorChoices(String message) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        view.errorNotAllowedChoice(message);
 
     }
 
@@ -276,11 +245,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
                 System.err.println("Avvio il 3");
                 insertThread play3 = new insertThread(view);
                 play3.start();
-
             }
-
         }
-
     }
 }
 

@@ -4,10 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="aggiornamento primo display">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.01: &#10;Fix bug (rientro ordinato in gioco), aggiunta commenti serverImpl &amp; aggiornamento interfaccia di vittoria">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/crashThread.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +105,7 @@
   <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="MyShelfie_RPPT" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -209,6 +214,13 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1683798347796" duration="143000" />
       <workItem from="1683803571264" duration="4690000" />
+      <workItem from="1683842121403" duration="18000" />
+      <workItem from="1683883859171" duration="168000" />
+      <workItem from="1683895706111" duration="97000" />
+      <workItem from="1683898194189" duration="527000" />
+      <workItem from="1683902162807" duration="3550000" />
+      <workItem from="1683909840776" duration="6618000" />
+      <workItem from="1683976955405" duration="1380000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -471,7 +483,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>84</line>
+          <line>83</line>
           <properties class="Distributed.rmi.Client" method="notifySelectedCoordinates">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -480,7 +492,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>113</line>
+          <line>112</line>
           <properties class="Distributed.rmi.Client" method="notifyChoices">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
@@ -489,28 +501,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>349</line>
-          <properties class="Distributed.rmi.ServerImpl" method="pingClient">
+          <line>431</line>
+          <properties class="Distributed.rmi.ServerImpl" method="notifyForcedCrash">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="50" />
+          <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>440</line>
-          <properties class="Distributed.rmi.ServerImpl" method="swapCrashed">
+          <line>404</line>
+          <properties class="Distributed.rmi.ServerImpl" method="startTurnTimer">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="51" />
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="52" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

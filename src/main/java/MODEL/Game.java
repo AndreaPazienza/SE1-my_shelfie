@@ -108,14 +108,13 @@ public class Game implements GameEventListener {
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
     public void updateTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
         //Controllo dei CommonGoal completati ed incremento
             this.commonGoal1.control(player[playerInGame]);
             this.commonGoal1.incrementCG();
-            //Secondo PGoal
+        //Secondo PGoal
             this.commonGoal2.control(player[playerInGame]);
             this.commonGoal2.incrementCG();
-
+        //Controllati i PersonalGoal viene controllato che non si tratti di fine gioco
             if (this.player[playerInGame].getShelf().checkLastLine() && !firstPlayerFinished) {
                 firstPlayerFinished = true;
                 notifyEndGame();
@@ -124,19 +123,18 @@ public class Game implements GameEventListener {
                 notifyGameFinished();
             }
 
-            //Chiamata a refill (se necessario)
+        //Chiamata a refill (se necessario)
             if (table.checkRefill()) {
                 table.refill(bag);
             }
             table.catchAfterRefill();
-            //Passaggio del turno
+        //Passaggio del turno
             playerInGame++;
             if (playerInGame == Nplayers) {
                 playerInGame = 0;
             }
-
+        //Se il gioco non è stato posto in stato di fine continuerà ad aggiornare i turni
             if(gameOn) {
-                /* notify of the updated dashboard */
                 this.turnIsOver();
             }
 

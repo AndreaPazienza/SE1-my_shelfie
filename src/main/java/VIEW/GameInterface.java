@@ -17,7 +17,7 @@ import javax.swing.*;
 
 public class GameInterface implements Runnable, viewListeners {
 
-    private List<viewListeners> listeners = new ArrayList<>();
+    private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard;
 
     //inserimento nickname per la prima volta
@@ -56,7 +56,7 @@ public class GameInterface implements Runnable, viewListeners {
 
 
     //Selection of the cards from dashboard
-    public void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    private void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int countChoices = 0;
         int nChoices = 0;
@@ -155,7 +155,7 @@ public class GameInterface implements Runnable, viewListeners {
         }
     }
     //Richiesta di ordinamento
-    public boolean playerOrder() {
+    private boolean playerOrder() {
         keyboard = new Scanner(System.in);
         boolean reorder = false;
         String string;
@@ -208,7 +208,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     //Method that checks if the input is actually an int value
-    public int getCorrectInt() {
+    private int getCorrectInt() {
         keyboard = new Scanner(System.in);
         int val = 0;
         boolean ok;
@@ -233,7 +233,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     //Method that checks if the input is actually a string
-    public String getCorrectString() {
+    private String getCorrectString() {
         keyboard = new Scanner(System.in);
         String string = "";
         boolean ok;
@@ -307,7 +307,7 @@ public class GameInterface implements Runnable, viewListeners {
     //Printing the Personal Goal on screen.
     public void displayPersonalGoal(PersonalGoal pGoal) {
 
-        boolean isTarget[][] = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
+        boolean[][] isTarget = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
         System.out.println("Il Personal Goal (Tienilo segreto!!) che ti assegnerà punti extra è il seguente: \n");
 
         for (int countTarget = 0; countTarget < pGoal.getGoal().length; countTarget++) {
@@ -427,31 +427,8 @@ public class GameInterface implements Runnable, viewListeners {
             }
         }
 
-    public void errorNotCatchable() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        System.err.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
-        playerMoveSelection();
-    }
-
-    public void notifyError(String message) {
-        System.out.println(message);
-    }
-
-    public void errorNotAdjacent() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        System.err.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione");
-        playing();
-    }
-
-    public void errorNotEnoughSpace() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-        System.err.println("La colonna selezionata non ha abbastanza spazio! Sceglierne un'altra!");
-        playerInsert();
-    }
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
-    }
-
-    public void errorNotAllowedChoice(String message) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-        System.err.println(message);
-        playing();
     }
 
     public void denyAcess() {
