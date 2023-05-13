@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -212,7 +213,8 @@
       <workItem from="1683898194189" duration="527000" />
       <workItem from="1683902162807" duration="3550000" />
       <workItem from="1683909840776" duration="6618000" />
-      <workItem from="1683976955405" duration="14823000" />
+      <workItem from="1683976955405" duration="15128000" />
+      <workItem from="1683999733257" duration="1125000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -431,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683999033899</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn.">
+      <created>1683999599604</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1683999599604</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -464,7 +473,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
@@ -489,7 +497,8 @@
     <MESSAGE value="Versione textualUI Beta v1.01: &#10;Riscrittura dei metodi di crash per gestire crash simultanei" />
     <MESSAGE value="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)" />
     <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
+    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn." />
+    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

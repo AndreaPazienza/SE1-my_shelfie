@@ -137,7 +137,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         try {
             this.controller.checkInsert(column);
             System.out.println("Inserimento corretto, Passo al prossimo giocatore \n");
-            timerTurn.cancel();
             this.turnUpdate();
         } catch (NotEnoughSpaceChoiceException e) {
             throw new NotEnoughSpaceChoiceException(e.getMessage());
@@ -299,20 +298,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         controller.startGame();
     }
 
-    //Ad ogni turn update viene controllato che nessuno sia crashato, che non sia il player che doveva giocare come prossimo
+    //A ogni turn update viene controllato che nessuno sia crashato, che non sia il player che doveva giocare come prossimo
     private void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         controller.turnUpdate();
     }
 
-    //Salva i client
+    //Passaggio dalla struttura dinamica a una struttura statica
     private void playingClients(String[] nicknames, ArrayList<ClientRMIInterface> subscribed) throws RemoteException {
         for (int i = 0; i < model.getNplayers(); i++) {
             nicknames[i]  = subscribed.get(i).getNickname();
         }
     }
-
-
-
     //metodo per il rientro
     private boolean checkReEntering(String nick) {
         for (int i = 0; i < dudesCrashed.length; i++) {
@@ -340,11 +336,15 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     private void pingGameOn() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         boolean crash = false;
+        boolean inTurn = false;
         //Viene fatto un ciclo per contattare tutti i client
         for(int i = 0; i < effectiveLogged.length; i++){
             try {if(effectiveLogged[i]!=null){
                 effectiveLogged[i].ping();}
             }catch (RemoteException e){
+                if(controller.getOnStage().equals(dudesInGame[i])){
+                    inTurn = true;
+                }
                 //Nel caso in cui ci sia una remoteException nella data posizione viene preso il corrispettivo all'interno
                 //Del array statico che riporta tutti i nomi dei giocatori della partita
                 System.out.println("Il giocatore " + dudesInGame[i] + " non risponde");
@@ -356,6 +356,9 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
         if(crash){
             crashRoutine();
+            if(inTurn){
+                turnUpdate();
+            }
         }
 
     }
@@ -373,7 +376,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         //Ora si procede a operare sul turno in base a quanti client sono crashati
         checkTimeoutGame();
     }
-
+    //Sfruttando il fatto che ci siano solo strutture statiche viene aggiornato in tutte la posizione corretta in cui il client ha failato
+    //In modo da avere tale posizione nulla e comportarsi di conseguenza
+    //Una copia è sempre tenuta nella struttura di "backup" che si assicura che i client iscritti alla partita rimangano (come nomi)
+    //i medesimi
     private void swapCrash(){
     //Devo riaggiornare la nuova posizione, facendo un sort dei valori nulli in cima, simulando il comportamento di una lista
         for(int i = 0; i < dudesCrashed.length; i++){
@@ -384,7 +390,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
       System.out.println("Swap completata, giocatori eliminati ");
     }
-
+    //Generico metodo per stabilire le posizioni non nulle (dunque effettive) di un Array.
     private int realLength(Object[] o){
         int realLength=0;
         for(int i = 0; i < o.length; i++){
@@ -399,16 +405,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private void saveCrash(int position, String formerPlayer) {
         dudesCrashed[position]=formerPlayer;
     }
-    //Stampa i giocatori rimasti
-    private void whosHere(String[] toPrint) {
-        for (String s : toPrint) {
-            System.out.print(s + "\t");
-        }
-        System.out.println("-");
-    }
-    private void whosHere(ArrayList<String> toPrint) {
-        for (String s : toPrint) {
-            System.out.print(s + "\t");
+    //Stampa il contenuto di un generico array
+    private void whosHere(Object[] toPrint) {
+        for (Object s : toPrint) {
+            System.out.print(s.toString() + "\t");
         }
         System.out.println("-");
     }
@@ -444,20 +444,19 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         };
 
-        timerCrash.schedule(waitPlayers, 80000);
+        timerCrash.schedule(waitPlayers, 10000);
     }
 
-    //Avvia un timer per andare a controllare che il giocatore di turno sia ancora raggiungibile, altrimenti andrà a saltarlo
+    //Avvia un timer per andare a controllare che i giocatori siano raggiungibili, se è quello di turno allo skippo.
     private void startTurnTimer() {
-        System.out.println("Con il nuovo turno ho avviato il timer");
+        System.out.println("Ho avviato il timer per controllare lo stato dei client ");
         TimerTask turnPlayer = new TimerTask() {
             @Override
             public void run() {
                     System.out.println("Il client sta ancora decidendo la sua mossa ");
                 try {
-                    //Altro tipo di ping che lo fa solo per il client giocante non su TUTTI.
                     pingGameOn();
-                    timerTurn.schedule(this, 5000);
+                    startTurnTimer();
                 } catch (RemoteException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
                          NotCatchableException e) {
                     System.out.println("Il giocante è down ");
@@ -465,7 +464,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         };
         //Due minuti di timer
-        timerTurn.schedule(turnPlayer, 500000);
+        timerTurn.schedule(turnPlayer, 60000);
+
     }
 
 
