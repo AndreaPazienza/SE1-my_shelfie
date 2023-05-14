@@ -420,7 +420,7 @@ public class GameInterface implements Runnable, viewListeners {
         }
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
-           System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
+           System.out.println("Vuoi provare ad entrare nella partita con un nuovo nickname? (Inserisci 'si')");
            String response = keyboard.nextLine();
             if(response.equals("si")){
                 notifyOneMoreTime();

@@ -191,6 +191,9 @@ public class GameController{
         throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
 
     }
+    public void switchGameState(){
+        game.setGameOn(!game.isGameOn());
+    }
 
 
     public Slot[] getSelectedSlots() {

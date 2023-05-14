@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn.">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +221,8 @@
       <workItem from="1683902162807" duration="3550000" />
       <workItem from="1683909840776" duration="6618000" />
       <workItem from="1683976955405" duration="15128000" />
-      <workItem from="1683999733257" duration="1125000" />
+      <workItem from="1683999733257" duration="1651000" />
+      <workItem from="1684070835871" duration="3270000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -440,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683999599604</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante">
+      <created>1684000883822</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1684000883822</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -473,7 +488,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
@@ -498,7 +512,8 @@
     <MESSAGE value="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)" />
     <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
     <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn." />
-    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn." />
+    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante" />
+    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

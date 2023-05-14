@@ -173,21 +173,17 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         System.out.println("Avvio il turno per la n volta ");
         turnThread play = new turnThread(view);
         //thread non si chiude per la prima volta
-        if (gameState) {
+         //if (gameState) {
             view.startTurn();
             play.start();
-        } else {
-            view.endgame();
-        }
+         //}
     }
 
     //Remote method:: end turn
     public void endTurn() {
-        if (gameState) {
+       // if (gameState) {
             view.onWait();
-        } else {
-            view.endgame();
-        }
+       // }
     }
 
     @Override

@@ -32,7 +32,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private ClientRMIInterface[] effectiveLogged;
     private String[] dudesCrashed ;
     private String[] dudesInGame ;
-    private final Timer timerCrash = new Timer();
+    private Timer timerCrash = new Timer();
     private final Timer timerTurn = new Timer();
     private boolean firstPlayerEnrolled = false;
 
@@ -64,16 +64,16 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             firstPlayerEnrolled = true;
             //Se il primo è già iscritto si passa a questa parte del codice in cui vengono distinti tre casi principali
         } else {
-            if(!model.isGameOn()){
+            if(!model.isGameOn() && model.getCurrentState().equals(GameState.LOGIN)){
             //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura), controlla che ogni client iscritto
             //Sia ancora attivo, in caso manda la partita in chiusura.
-            try {this.pingInPreGame();
+            try {
+                this.pingInPreGame();
             } catch (RemoteException e) {
                 notifyCrashPregame();
                 client.subscriptionCancelled();
             }
             //Tentativo d'iscrizione quando il game non è anora partito, accetta tutti i client a patto che non abbiano lo stesso nick
-            if (model.getCurrentState().equals(GameState.LOGIN)) {
                 //Ogni client che vuole accedere se la partita è iniziata riceverà questo errore
                 if (controller.checkNick(client.getNickname())) {
                     model.signPlayer(client.getNickname());
@@ -85,17 +85,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                     }
                 } else {
                     throw new SameNicknameException("Il nickname è già preso!! \n");
-                }}
+                }
                 //Nel caso in cui non siamo nello stato di LOGIN viene controllato se il tentativo viene da uno dei client crashati precedentemente
                 //Altrimenti andrà a notificare tale client che la partita è già inziata, non permettendo un ingresso
             }else if (checkReEntering(client.getNickname())) {
                 //Questo else-if mette in condizione il server di accettare una riconessione di un client
                 backInGame(client);
-                if (logged.size() == 1) {
+                if (realLength(effectiveLogged)==2) {
                     restartGameAfterCrash();
                 }
-                logged.add(client);
                 System.out.println("Un client è rientrato in partita, buona fortuna! ");
+                resumeGame();
             }else {
                 client.notifyGameStarted();
             }
@@ -238,22 +238,39 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Ad ogni nuovo turno si va a verificare che tutti gli utenti iscritti non siano andati in crash.
     public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Chiamata a nuovo turno, puntando al giocatore: "+controller.getOnStage());
-
-      if(!playingCrashedPlayer(controller.getOnStage())) {
-          for (ClientRMIInterface client : effectiveLogged) {
-              if (client != null) {
-                  if (controller.getOnStage().equals(client.getNickname())) {
-                      client.startTurn();
-                      startTurnTimer();
-                  } else {
-                      client.onWait();
-                  }
-              }
-          }
-      }else{
-          controller.skipTurn();
-      }
+    if(model.isGameOn()) {
+        if (!playingCrashedPlayer(controller.getOnStage())) {
+            for (ClientRMIInterface client : effectiveLogged) {
+                if (client != null) {
+                    if (controller.getOnStage().equals(client.getNickname())) {
+                        client.startTurn();
+                        startTurnTimer();
+                    } else {
+                        client.onWait();
+                    }
+                }
+            }
+        } else {
+            controller.skipTurn();
+        }
     }
+    }
+
+    public void resumeGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        System.out.println("Riprendo il gioco puntando al giocatore: "+controller.getOnStage());
+                gameStateChanged();
+                for (ClientRMIInterface client : effectiveLogged) {
+                    if (client != null) {
+                        if (controller.getOnStage().equals(client.getNickname())) {
+                            client.startTurn();
+                            startTurnTimer();
+                        } else {
+                            client.onWait();
+                        }
+                    }
+                }
+    }
+
 
     //Metodo usato nel caso di rientro di una persona nel game, va a controllare il nick faccia parte dei crashati
     private boolean playingCrashedPlayer(String onStage) {
@@ -406,18 +423,20 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         dudesCrashed[position]=formerPlayer;
     }
     //Stampa il contenuto di un generico array
-    private void whosHere(Object[] toPrint) {
+    private void whosHere(String[] toPrint) {
         for (Object s : toPrint) {
-            System.out.print(s.toString() + "\t");
+            System.out.print(s + "\t");
         }
         System.out.println("-");
     }
 
     //Nel caso in cui il giocatore era rimasto solo viene messo il gioco in pausa, questa funzione fa riprendere il gioco
-    private void restartGameAfterCrash() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-        System.err.println("Ho cancellato il timer");
+    private void restartGameAfterCrash() throws RemoteException{
+       //Manca riprendere il gioco
+        System.err.println("Timer di fine partita annullato ");
         timerCrash.cancel();
-        this.newTurn();
+        timerCrash = new Timer();
+        controller.switchGameState();
     }
 
     //Nel caso in cui sia rimasto un solo client si andrà ad attivare un timer per aspettare le riconnessioni
@@ -425,12 +444,15 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         if (realLength(effectiveLogged) == 1) {
             startTimer();
             notifyWaitingForReconnection();
+            //Manca di riprendere il game
+            controller.switchGameState();
         }
     }
 
 
     //Timer di timerout alla partita
     private void startTimer() {
+
         System.out.println("Ho avviato il timer per annullare la partita ");
         TimerTask waitPlayers = new TimerTask() {
             @Override
@@ -443,8 +465,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 }
             }
         };
-
-        timerCrash.schedule(waitPlayers, 10000);
+      timerCrash.schedule(waitPlayers, 8000);
     }
 
     //Avvia un timer per andare a controllare che i giocatori siano raggiungibili, se è quello di turno allo skippo.
@@ -504,6 +525,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         for(ClientRMIInterface client : effectiveLogged){
             if(client!=null) {
                 client.errorMissingPlayers();
+            }else{
+                System.err.println("Discarding event for fallen client");
             }
         }
     }

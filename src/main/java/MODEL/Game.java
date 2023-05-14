@@ -75,7 +75,6 @@ public class Game implements GameEventListener {
 
     //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {
-
         Player player = new Player(nick);
         this.player[playerInGame] = player;
         this.player[playerInGame].setOrderInTurn(playerInGame+1);

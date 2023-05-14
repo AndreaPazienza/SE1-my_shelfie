@@ -16,15 +16,14 @@ public class CommonGoalDeck{
         deck.add(new CGFiveTilesDiagonal(players));
         deck.add(new CGFiveTilesX(players));
         deck.add(new CGSixGroupsTwoTiles(players));
-        deck.add(new CGDecreaseTiles(players));
+        deck.add(new CGFourGroupsFourTiles(players));
         deck.add(new CGSameTypeSquare(players));
         //column definition
         deck.add(new CGThreeColumnsSixTiles(players));
         deck.add(new CGTwoColumnsSixTiles(players));
         //lines definition
-        //deck.add(new CGTwoLinesFiveTiles(players));
+        deck.add(new CGTwoLinesFiveTiles(players));
         deck.add(new CGFourLinesFiveTiles(players));
-
     }
 
     public CommonGoalAbs getACommonGoal(){
