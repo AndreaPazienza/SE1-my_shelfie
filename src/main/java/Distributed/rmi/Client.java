@@ -7,6 +7,7 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
+import MODEL.GameError;
 import MODEL.GameView;
 import VIEW.*;
 
@@ -230,7 +231,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void updateClientError(GameView modelView) throws RemoteException {
-        switch (modelView.getGameError()) {
+        GameError error = modelView.getGameError();
+        printerErrors(error);
+        switch (error) {
             case SELECT_ERROR_NOT_CATCHABLE, SELECT_ERROR_ONE_NOT_CATCHABLE, SELECT_ERROR_NOT_ADJACENT, SPACE_CHOICES_ERROR -> {
                 System.out.println("Avvio play 2 ");
                 turnThread play2 = new turnThread(view);
@@ -242,6 +245,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
                 insertThread play3 = new insertThread(view);
                 play3.start();
             }
+        }
+    }
+
+    public void printerErrors(GameError error){
+        switch (error){
+            case SELECT_ERROR_NOT_CATCHABLE -> view.errorNotCatchable();
+            case SELECT_ERROR_ONE_NOT_CATCHABLE -> view.errorOneNotCatchable();
+            case SELECT_ERROR_NOT_ADJACENT -> view.errorNotAdjacent();
+            case SPACE_CHOICES_ERROR -> view.errorSpaceChoicesError();
+            case INSERT_ERROR -> view.errorInsert();
         }
     }
 }

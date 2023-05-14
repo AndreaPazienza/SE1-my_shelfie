@@ -444,6 +444,25 @@ public class GameInterface implements Runnable, viewListeners {
     public void displayTarget(int i, GameView gameView) {
         System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
     }
+    public void errorNotCatchable() {
+        System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
+    }
+
+    public void errorOneNotCatchable() {
+        System.out.println("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
+    }
+
+    public void errorNotAdjacent() {
+        System.out.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
+    }
+
+    public void errorSpaceChoicesError() {
+        System.out.println("Non c'è abbastanza spazio nella shelf per così tante tessere!");
+    }
+
+    public void errorInsert() {
+        System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+    }
 }
 
 

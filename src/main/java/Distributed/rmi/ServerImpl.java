@@ -465,7 +465,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 }
             }
         };
-      timerCrash.schedule(waitPlayers, 8000);
+      timerCrash.schedule(waitPlayers, 8000); //metterci 30000
     }
 
     //Avvia un timer per andare a controllare che i giocatori siano raggiungibili, se è quello di turno allo skippo.
