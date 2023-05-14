@@ -62,7 +62,9 @@ class CheckSpaceChoicesTest {
     }
 
     //Shelf inizializzata con riga 0 e 1 in cima vuota, e tessera da selezionare 3
+    @Test
     void CountInsert2() throws NotEnoughSpaceChoiceException, RemoteException {
+        model.getTable().refill(model.getBag());
         for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
             for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
                 if(i==0 || i==1){
@@ -73,8 +75,12 @@ class CheckSpaceChoicesTest {
                 }
             }
         }
-        controller.checkSpaceChoices(3);
+        controller.checkSpaceChoices(1);
     }
+
+
+
+
 }
 
 

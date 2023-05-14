@@ -11,10 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class CGTwoLinesFiveTilesTest {
     private Player current1;
+    private Player current2;
     private CommonGoalAbs testingCommonGoal;
     @BeforeEach
     public void init(){
         current1 = new Player("Dovahkiin");
+        current2 = new Player("Giocatore2");
         testingCommonGoal = new CGTwoLinesFiveTiles(4);
     }
 
@@ -117,6 +119,26 @@ class CGTwoLinesFiveTilesTest {
         //current1.getShelf().getSingleSlot(5,0).setColor(Color.GREY);
         current1.getShelf().getSingleSlot(5,1).setColor(Color.WHITE);
         current1.getShelf().getSingleSlot(5,2).setColor(Color.PINK);
+        current1.getShelf().getSingleSlot(5,3).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(5,4).setColor(Color.BLUE);
+
+        testingCommonGoal.control(current1);
+        assertEquals(0, current1.getScore() );
+
+    }
+
+
+    @Test
+    void checkWithDiff() {
+        current1.getShelf().getSingleSlot(4,0).setColor(Color.GREEN);
+        current1.getShelf().getSingleSlot(4,1).setColor(Color.WHITE);
+        current1.getShelf().getSingleSlot(4,2).setColor(Color.PINK);
+        current1.getShelf().getSingleSlot(4,3).setColor(Color.LBLUE);
+        current1.getShelf().getSingleSlot(4,4).setColor(Color.BLUE);
+
+        current1.getShelf().getSingleSlot(5,0).setColor(Color.BLUE);
+        current1.getShelf().getSingleSlot(5,1).setColor(Color.PINK);
+        current1.getShelf().getSingleSlot(5,2).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(5,3).setColor(Color.LBLUE);
         current1.getShelf().getSingleSlot(5,4).setColor(Color.BLUE);
 

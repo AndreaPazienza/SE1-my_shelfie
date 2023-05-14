@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalAbs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/CheckSpaceChoicesTest.java" afterDir="false" />
     </list>
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -105,14 +100,14 @@
   <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -149,17 +144,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.emptyOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CheckSpaceChoicesTest.CountInsert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="MODEL.*" />
+          <option name="PATTERN" value="CONTROLLER.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="emptyOne" />
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.CheckSpaceChoicesTest" />
+      <option name="METHOD_NAME" value="CountInsert2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -168,17 +163,17 @@
     <list>
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
+      <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.emptyOne" />
       </list>
     </recent_temporary>
   </component>
@@ -212,17 +207,6 @@
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
-      <workItem from="1683798347796" duration="143000" />
-      <workItem from="1683803571264" duration="4690000" />
-      <workItem from="1683842121403" duration="18000" />
-      <workItem from="1683883859171" duration="168000" />
-      <workItem from="1683895706111" duration="97000" />
-      <workItem from="1683898194189" duration="527000" />
-      <workItem from="1683902162807" duration="3550000" />
-      <workItem from="1683909840776" duration="6618000" />
-      <workItem from="1683976955405" duration="15128000" />
-      <workItem from="1683999733257" duration="1651000" />
-      <workItem from="1684070835871" duration="3270000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -413,49 +397,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683369311058</updated>
     </task>
-    <task id="LOCAL-00028" summary="bug fix nella selezione">
-      <created>1683815518138</created>
+    <task id="LOCAL-00028" summary="Fixaggio dei bug in inserimento dei parametri">
+      <created>1683984921304</created>
       <option name="number" value="00028" />
       <option name="presentableId" value="LOCAL-00028" />
       <option name="project" value="LOCAL" />
-      <updated>1683815518138</updated>
+      <updated>1683984921304</updated>
     </task>
-    <task id="LOCAL-00029" summary="Versione textualUI Beta v1.01: &#10;Riscrittura dei metodi di crash per gestire crash simultanei">
-      <created>1683978404547</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1683978404547</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)">
-      <created>1683980701446</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1683980701446</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche">
-      <created>1683999033899</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1683999033899</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn.">
-      <created>1683999599604</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1683999599604</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante">
-      <created>1684000883822</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1684000883822</updated>
-    </task>
-    <option name="localTasksCounter" value="34" />
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -488,6 +437,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
+    <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <MESSAGE value="Aggiornamento indici costruttore" />
+    <MESSAGE value="Correzione numero dei tipi" />
+    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
@@ -506,40 +461,20 @@
     <MESSAGE value="Aggiunta enum delle immagini con metodo per la conversione" />
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
-    <MESSAGE value="bug fix nella selezione" />
-    <MESSAGE value="aggiornamento primo display" />
-    <MESSAGE value="Versione textualUI Beta v1.01: &#10;Riscrittura dei metodi di crash per gestire crash simultanei" />
-    <MESSAGE value="Versione textualUI Beta v1.01: &#10;Gestione crash simultanei (non giocante)" />
-    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione dei crash simultanei mediante strutture dati statiche" />
-    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Gestione del rientro con crash multipli e cambio dei metodi di ping di preGame e durante gameOn." />
-    <MESSAGE value="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante" />
-    <option name="LAST_COMMIT_MESSAGE" value="Versione textualUI Beta v1.02: &#10;Aggiornamento timer per saltare eventualmente il player giocante" />
+    <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>83</line>
-          <properties class="Distributed.rmi.Client" method="notifySelectedCoordinates">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>192</line>
+          <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>112</line>
-          <properties class="Distributed.rmi.Client" method="notifyChoices">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/AppClient.java</url>
-          <line>9</line>
-          <option name="timeStamp" value="52" />
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
