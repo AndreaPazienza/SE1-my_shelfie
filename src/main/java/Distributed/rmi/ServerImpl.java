@@ -488,9 +488,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         timerTurn.schedule(turnPlayer, 60000);
 
     }
-
-
-
     public void notifyForcedCrash() throws RemoteException {
         for (ClientRMIInterface client : effectiveLogged) {
             if(client!=null) {
@@ -498,7 +495,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         }
     }
-
     public void notifyCrashPregame() throws RemoteException{
         for(ClientRMIInterface client : effectiveLogged){
             if(client!=null) {

@@ -56,10 +56,6 @@ public class GameController{
 
     public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException, RemoteException {
         selectedSlots = new Slot[selectedCards.length];
-
-
-
-
         switch (selectedCards.length){
             case 1 -> {
                 int x = selectedCards[0].getX();
@@ -127,18 +123,10 @@ public class GameController{
     }
     public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {
         int countSpaces = 0;
-        for(int i = 0; i < PersonalShelf.N_ROWS; i++) {
+        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
             if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i, column).getColor().Equals(Color.GREY)){
                 countSpaces++;
             }
-        }
-
-        if(countSpaces >= selectedSlots.length) {
-            game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);
-        } else {
-            game.setLastError(GameError.INSERT_ERROR);
-            System.err.println("Mando eccezione di non abbstanza spazio ");
-            throw new NotEnoughSpaceChoiceException("La colonna scelta non può contenere così tante tessere!");
         }
 
         if(countSpaces >= selectedSlots.length) {
@@ -182,73 +170,21 @@ public class GameController{
 
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
-        int freeDashboardSpace1 = 0;
-        int freeDashboardSpace2 = 0;
-        int freeColumnSpace = 0;
-        boolean spaceDashboard = false;
-        boolean spaceShelf = false;
+        int freeColumnSpace=0;
+        boolean space = false;
 
-        //Checking the dashboard row by row
-        for (int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
-            int counter = 0;
-            for(int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
-                if (counter == 0) {
-                    if (game.getTable().getSingleSlot(i,j).isCatchable())
-                        counter ++;
-                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i,j-1).isCatchable())
-                    counter ++;
-
-                if (!game.getTable().getSingleSlot(i,j).isCatchable())
-                    counter = 0;
-
-                if (counter >= freeDashboardSpace1)
-                    freeDashboardSpace1 = counter;
-                if (freeDashboardSpace1 >= number)
-                    spaceDashboard = true;
-            }
-        }
-
-        System.out.println("Controllando per riga: " + freeDashboardSpace1);
-
-        //Checking the dashboard column by column
-        for (int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
-            int counter = 0;
-            for(int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
-                if (counter == 0) {
-                    if (game.getTable().getSingleSlot(i,j).isCatchable())
-                        counter ++;
-                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i-1,j).isCatchable())
-                    counter ++;
-
-                if (!game.getTable().getSingleSlot(i,j).isCatchable())
-                    counter = 0;
-
-                if (counter >= freeDashboardSpace1)
-                    freeDashboardSpace2 = counter;
-                if (freeDashboardSpace2 >= number)
-                    spaceDashboard = true;
-            }
-        }
-
-        System.out.println("Controllando per colonna: " + freeDashboardSpace2);
-
-        //Checking the shelf
-        for (int j=0; j < column && !spaceShelf ; j++){
-                for(int i=0; i < rows && !spaceShelf ; i++){
+        for (int j=0; j < column && !space ; j++){
+                for(int i=0; i < rows && !space ; i++){
                 if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
                     freeColumnSpace++;
                 }
                 if(freeColumnSpace>=number){
                     System.out.println("Colonna libera trovata ");
-                    spaceShelf = true;
+                    return;
                 }
             }
-            freeColumnSpace = 0;
+            freeColumnSpace=0;
         }
-
-        if (spaceDashboard && spaceShelf)
-            return;
-
         //Entra comunque in questo IF, non va bene
         System.err.println("Nessuna posizione libera trovata ");
         game.setLastError(GameError.SPACE_CHOICES_ERROR);
