@@ -58,8 +58,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
             throw new RuntimeException(e);
         } catch (RemoteException e) {
-            // view.gameCancelled();
-            view.endgame();
+            e.printStackTrace();
+         System.err.println("Non riesco a chiamare il server ");
         }
     }
 

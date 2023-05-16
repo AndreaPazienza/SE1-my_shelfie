@@ -60,6 +60,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             this.model.addGameEventListener(this);
             model.signPlayer(client.getNickname());
             this.logged.add(client);
+            System.out.println("Primo client inserito correttamente ");
             //Se il primo è già iscritto si passa a questa parte del codice in cui vengono distinti tre casi principali
         } else {
             if(!model.isGameOn() && model.getCurrentState().equals(GameState.LOGIN)){

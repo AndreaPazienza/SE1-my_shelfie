@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri (versione corretta)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -96,17 +99,17 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
+  <component name="RunManager" selected="Application.AppServer">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="MyShelfie_RPPT" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="MyShelfie_RPPT" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -168,8 +171,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="Application.AppClient" />
         <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
@@ -476,7 +479,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>192</line>
+          <line>193</line>
           <properties class="Distributed.rmi.ServerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
