@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="aggiornamento display pGoal al giocatore di turno">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Sistemate le notifiche degli errori">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +96,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
+  <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
@@ -208,6 +206,8 @@
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
+      <workItem from="1684168586121" duration="2799000" />
+      <workItem from="1684235804553" duration="303000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -405,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683984921304</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Sistemate le notifiche degli errori">
+      <created>1684077726804</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684077726804</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +450,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Aggiornamento indici costruttore" />
@@ -468,7 +474,8 @@
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri" />
+    <MESSAGE value="Sistemate le notifiche degli errori" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistemate le notifiche degli errori" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

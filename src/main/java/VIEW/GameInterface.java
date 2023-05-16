@@ -23,11 +23,14 @@ public class GameInterface implements Runnable, viewListeners {
     //inserimento nickname per la prima volta
     public String firstRun() {
     String nick = null;
-
+    do{
         System.out.print("Inserire il nickname: ");
         nick = getCorrectString();
         System.out.print("\n");
-
+        if(nick.isBlank()){
+            System.out.println("Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!");
+        }
+    }while(nick.isBlank());
     return nick;
     }
 
