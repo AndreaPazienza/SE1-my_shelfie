@@ -423,7 +423,7 @@ public class GameInterface implements Runnable, viewListeners {
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
            String yes = "si";
            String no = "no";
-        String response = keyboard.nextLine();
+           String response = keyboard.nextLine();
         do {
             if (!response.equals(yes) && !response.equals(no)) {
                 System.err.print("Inserire 'si' oppure 'no' come risposta: ");
@@ -431,12 +431,13 @@ public class GameInterface implements Runnable, viewListeners {
             }
 
         } while (!response.equals(yes) && !response.equals(no));
+
         System.out.print("\n");
 
             if(response.equals("si")){
                 notifyOneMoreTime();
             }
-        }
+    }
 
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
