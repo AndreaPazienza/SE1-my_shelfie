@@ -421,7 +421,18 @@ public class GameInterface implements Runnable, viewListeners {
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
-           String response = keyboard.nextLine();
+           String yes = "si";
+           String no = "no";
+        String response = keyboard.nextLine();
+        do {
+            if (!response.equals(yes) && !response.equals(no)) {
+                System.err.print("Inserire 'si' oppure 'no' come risposta: ");
+                response = keyboard.nextLine();
+            }
+
+        } while (!response.equals(yes) && !response.equals(no));
+        System.out.print("\n");
+
             if(response.equals("si")){
                 notifyOneMoreTime();
             }
