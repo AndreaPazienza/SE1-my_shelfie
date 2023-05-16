@@ -111,8 +111,7 @@ public class Dashboard implements Serializable {
 
                 if (!cell.getColor().equals(Color.GREY) && !cell.getColor().equals(Color.BLACK) && adjaciencies(i,j) < 4 ) {
                     cell.setCatchable(true);
-
-                }
+                } else cell.setCatchable(false);
             }
         }
     }

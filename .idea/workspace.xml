@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri">
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri (versione corretta)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,7 +104,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
       <module name="MyShelfie_RPPT" />
       <method v="2">
@@ -207,6 +206,7 @@
       <workItem from="1682600617497" duration="7056000" />
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
+      <workItem from="1684237275565" duration="3226000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -404,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683984921304</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Fixaggio dei bug in inserimento dei parametri (versione corretta)">
+      <created>1684088330243</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1684088330243</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update PersonalShelf.java (aggiunta metodo get della singola slot)" />
     <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
     <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
     <MESSAGE value="Aggiornamento indici costruttore" />
@@ -462,7 +468,8 @@
     <MESSAGE value="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
     <MESSAGE value="Fix del problema di catchable" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri" />
+    <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
