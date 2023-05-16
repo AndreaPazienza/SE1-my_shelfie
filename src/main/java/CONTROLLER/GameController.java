@@ -23,6 +23,7 @@ public class GameController{
             game.setGameOn(true);
             game.startGame();
     }
+
     public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         game.nextPlayerInGame();
     }
@@ -141,6 +142,7 @@ public class GameController{
     public void completeShelf() {
        game.getPlayer()[game.getPlayerInGame()].sumPoints(1);
     }
+
     public String endGame(){
 
         Player winner;
@@ -170,27 +172,76 @@ public class GameController{
 
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
-        int freeColumnSpace=0;
-        boolean space = false;
+        int freeDashboardSpace1 = 0;
+        int freeDashboardSpace2 = 0;
+        int freeColumnSpace = 0;
+        boolean spaceDashboard = false;
+        boolean spaceShelf = false;
 
-        for (int j=0; j < column && !space ; j++){
-                for(int i=0; i < rows && !space ; i++){
+        //Checking the dashboard row by row
+        for (int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
+            int counter = 0;
+            for(int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
+                if (counter == 0) {
+                    if (game.getTable().getSingleSlot(i,j).isCatchable())
+                        counter ++;
+                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i,j-1).isCatchable())
+                    counter ++;
+
+                if (!game.getTable().getSingleSlot(i,j).isCatchable())
+                    counter = 0;
+
+                if (counter >= freeDashboardSpace1)
+                    freeDashboardSpace1 = counter;
+                if (freeDashboardSpace1 >= number)
+                    spaceDashboard = true;
+            }
+        }
+
+        //Checking the dashboard column by column
+        for (int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
+            int counter = 0;
+            for(int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
+                if (counter == 0) {
+                    if (game.getTable().getSingleSlot(i,j).isCatchable())
+                        counter ++;
+                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i-1,j).isCatchable())
+                    counter ++;
+
+                if (!game.getTable().getSingleSlot(i,j).isCatchable())
+                    counter = 0;
+
+                if (counter >= freeDashboardSpace1)
+                    freeDashboardSpace2 = counter;
+                if (freeDashboardSpace2 >= number)
+                    spaceDashboard = true;
+            }
+        }
+
+        //Checking the shelf
+        for (int j=0; j < column && !spaceShelf ; j++){
+            for(int i=0; i < rows && !spaceShelf ; i++){
                 if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
                     freeColumnSpace++;
                 }
                 if(freeColumnSpace>=number){
                     System.out.println("Colonna libera trovata ");
-                    return;
+                    spaceShelf = true;
                 }
             }
-            freeColumnSpace=0;
+            freeColumnSpace = 0;
         }
+
+        if (spaceDashboard && spaceShelf)
+            return;
+
+
         //Entra comunque in questo IF, non va bene
         System.err.println("Nessuna posizione libera trovata ");
         game.setLastError(GameError.SPACE_CHOICES_ERROR);
         throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
-
     }
+
     public void switchGameState(){
         game.setGameOn(!game.isGameOn());
     }
