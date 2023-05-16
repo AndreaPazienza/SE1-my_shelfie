@@ -93,9 +93,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 backInGame(client);
                 if (realLength(effectiveLogged)==2) {
                     restartGameAfterCrash();
+                    resumeGame();
                 }
                 System.out.println("Un client è rientrato in partita, buona fortuna! ");
-                resumeGame();
+
             }else {
                 client.notifyGameStarted();
             }
