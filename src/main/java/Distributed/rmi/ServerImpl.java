@@ -34,7 +34,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private String[] dudesInGame ;
     private Timer timerCrash = new Timer();
     private final Timer timerTurn = new Timer();
-    private boolean firstPlayerEnrolled = false;
 
     public ServerImpl() throws RemoteException {
         super();
@@ -55,13 +54,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         System.out.println("Ricevuto un tentativo di connessione");
         //Primo controllo alla prima richiesta di connessione, nel caso in cui sia la prima volta
         //Viene creato il nuovo model + controller
-        if (!firstPlayerEnrolled) {
+        if (logged.size()==0) {
             model = new Game(client.startGame());
             controller = new GameController(model);
             this.model.addGameEventListener(this);
             model.signPlayer(client.getNickname());
             this.logged.add(client);
-            firstPlayerEnrolled = true;
             //Se il primo è già iscritto si passa a questa parte del codice in cui vengono distinti tre casi principali
         } else {
             if(!model.isGameOn() && model.getCurrentState().equals(GameState.LOGIN)){
