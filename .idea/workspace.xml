@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fix generale">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Fixaggio dei bug in inserimento dei parametri (versione corretta)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +33,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="BugFix" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,111 +65,103 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.editor",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="VIEW.GraphicObjects" />
       <recent name="VIEW" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
-      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material" />
-      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
-      <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Errors" />
       <recent name="MODEL" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="VIEW.GraphicObjects" />
       <recent name="CONTROLLER" />
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
-    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="MyShelfie_RPPT" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="App" />
-      <module name="MyShelfie_RPPT" />
-      <option name="VM_PARAMETERS" value="--module-path $MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17/javafx-fxml-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17/javafx-controls-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17/javafx-graphics-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17/javafx-base-17-mac.jar --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingegneriaDelSoftware.provaFinale.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="MyShelfie_RPPT" />
-      <option name="VM_PARAMETERS" value="--module-path $MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17/javafx-fxml-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17/javafx-controls-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17/javafx-graphics-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17/javafx-base-17-mac.jar --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="MyShelfie_RPPT" />
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaitingRoomTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGTwoLinesFiveTilesTest.checkWithGrey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.GraphicObjects.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW.GraphicObjects" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GraphicObjects.WaitingRoomTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
+      <option name="METHOD_NAME" value="checkWithGrey" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckSpaceChoicesTest.CountInsert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CONTROLLER.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.CheckSpaceChoicesTest" />
+      <option name="METHOD_NAME" value="CountInsert2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ControllerEndGameTest.checkEndGame1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CONTROLLER.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="CONTROLLER" />
+      <option name="MAIN_CLASS_NAME" value="CONTROLLER.ControllerEndGameTest" />
+      <option name="METHOD_NAME" value="checkEndGame1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -178,25 +169,25 @@
     </configuration>
     <list>
       <item itemvalue="Application.AppClient" />
-      <item itemvalue="Application.App (1)" />
-      <item itemvalue="Application.App" />
       <item itemvalue="Application.AppServer" />
-      <item itemvalue="JUnit.WaitingRoomTest.test" />
+      <item itemvalue="JUnit.ControllerEndGameTest.checkEndGame1" />
+      <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
+      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
+        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+        <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
+        <item itemvalue="JUnit.ControllerEndGameTest.checkEndGame1" />
         <item itemvalue="Application.AppServer" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="Application.App (1)" />
-        <item itemvalue="JUnit.WaitingRoomTest.test" />
+        <item itemvalue="Application.AppClient" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini" />
+      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -224,25 +215,6 @@
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
-      <workItem from="1684842431500" duration="17908000" />
-      <workItem from="1684945521232" duration="1707000" />
-      <workItem from="1685110399873" duration="6449000" />
-      <workItem from="1685445623578" duration="5265000" />
-      <workItem from="1685453292906" duration="3248000" />
-      <workItem from="1685537683764" duration="6296000" />
-      <workItem from="1686267787994" duration="145000" />
-      <workItem from="1686405063719" duration="1312000" />
-      <workItem from="1686649327289" duration="21525000" />
-      <workItem from="1687378689182" duration="376000" />
-      <workItem from="1687379116453" duration="113000" />
-      <workItem from="1687379247458" duration="605000" />
-      <workItem from="1687437591091" duration="437000" />
-      <workItem from="1687451699921" duration="787000" />
-      <workItem from="1687570533349" duration="7637000" />
-      <workItem from="1687610752571" duration="3809000" />
-      <workItem from="1687706146974" duration="19668000" />
-      <workItem from="1687769033498" duration="68000" />
-      <workItem from="1687769748316" duration="7366000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -447,98 +419,7 @@
       <option name="project" value="LOCAL" />
       <updated>1684088330243</updated>
     </task>
-    <task id="LOCAL-00030" summary="Controller to fix">
-      <created>1684508382125</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1684508382125</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame">
-      <created>1684533735512</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1684533735512</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Exit in caso di non inserimento di nuovo nickanme">
-      <created>1685447903490</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1685447903490</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Risoluzione immagini">
-      <created>1687020348916</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1687020348916</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Idea modifica firstRun e numberOfPlayers nella GUI">
-      <created>1687539857356</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1687539857356</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Fase di selezione da GUI ed aggiunta classe Tile">
-      <created>1687578176731</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1687578176731</updated>
-    </task>
-    <task id="LOCAL-00036" summary="fix schermate e metodi">
-      <created>1687623211667</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1687623211667</updated>
-    </task>
-    <task id="LOCAL-00037" summary="aggiunta drag and drop ordinamento">
-      <created>1687728682247</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1687728682247</updated>
-    </task>
-    <task id="LOCAL-00038" summary="fix dimensione scheramta play">
-      <created>1687736324894</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1687736324894</updated>
-    </task>
-    <task id="LOCAL-00039" summary="fix ridimensionamento schermate">
-      <created>1687769094866</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1687769094866</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Update GUI errorTextArea">
-      <created>1687811489628</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1687811489628</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Complete GUI">
-      <created>1687856084739</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1687856084739</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Fix generale">
-      <created>1687881543601</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1687881543601</updated>
-    </task>
-    <option name="localTasksCounter" value="43" />
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -550,6 +431,11 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
               <option name="FILTERS">
                 <map>
                   <entry key="branch">
@@ -583,7 +469,19 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Update Slot.java, PersonalGoal.java, PersonalShelf.java&#10;Create PersonalGoalTest.java&#10;(aggiunta metodo setSlot in slot, variazioni del costruttore in PGoal, PShelf)" />
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <MESSAGE value="Aggiornamento indici costruttore" />
+    <MESSAGE value="Correzione numero dei tipi" />
+    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
+    <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
+    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
+    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+    <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
+    <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
+    <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
+    <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
+    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
@@ -596,22 +494,22 @@
     <MESSAGE value="Fix del problema di catchable" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
-    <MESSAGE value="Controller to fix" />
-    <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
-    <MESSAGE value="Exit in caso di non inserimento di nuovo nickanme" />
-    <MESSAGE value="Risoluzione immagini" />
-    <MESSAGE value="Idea modifica firstRun e numberOfPlayers nella GUI" />
-    <MESSAGE value="Fase di selezione da GUI ed aggiunta classe Tile" />
-    <MESSAGE value="fix schermate e metodi" />
-    <MESSAGE value="aggiunta drag and drop ordinamento" />
-    <MESSAGE value="fix dimensione scheramta play" />
-    <MESSAGE value="fix ridimensionamento schermate" />
-    <MESSAGE value="Update GUI errorTextArea" />
-    <MESSAGE value="Complete GUI" />
-    <MESSAGE value="Fix generale" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix generale" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>193</line>
+          <properties class="Distributed.rmi.ServerImpl">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
