@@ -373,7 +373,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         if(crash){
             crashRoutine();
             if(inTurn){
-                turnUpdate();
+                controller.skipTurn();
             }
         }
 
