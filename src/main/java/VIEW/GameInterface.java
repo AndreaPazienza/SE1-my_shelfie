@@ -23,11 +23,14 @@ public class GameInterface implements Runnable, viewListeners {
     //inserimento nickname per la prima volta
     public String firstRun() {
     String nick = null;
-
+    do{
         System.out.print("Inserire il nickname: ");
         nick = getCorrectString();
         System.out.print("\n");
-
+        if(nick.isBlank()){
+            System.out.println("Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!");
+        }
+    }while(nick.isBlank());
     return nick;
     }
 
@@ -433,11 +436,23 @@ public class GameInterface implements Runnable, viewListeners {
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
+           String yes = "si";
+           String no = "no";
            String response = keyboard.nextLine();
+        do {
+            if (!response.equals(yes) && !response.equals(no)) {
+                System.err.print("Inserire 'si' oppure 'no' come risposta: ");
+                response = keyboard.nextLine();
+            }
+
+        } while (!response.equals(yes) && !response.equals(no));
+
+        System.out.print("\n");
+
             if(response.equals("si")){
                 notifyOneMoreTime();
             }
-        }
+    }
 
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
@@ -455,6 +470,25 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void displayTarget(int i, GameView gameView) {
         System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
+    }
+    public void errorNotCatchable() {
+        System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
+    }
+
+    public void errorOneNotCatchable() {
+        System.out.println("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
+    }
+
+    public void errorNotAdjacent() {
+        System.out.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
+    }
+
+    public void errorSpaceChoicesError() {
+        System.out.println("Non c'è abbastanza spazio nella shelf per così tante tessere!");
+    }
+
+    public void errorInsert() {
+        System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
     }
 }
 
