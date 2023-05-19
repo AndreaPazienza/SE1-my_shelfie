@@ -3,9 +3,9 @@ package VIEW.GraphicObjects;
 import javax.swing.*;
 import java.awt.*;
 
-public class NickChoice extends JFrame {
+public class NickChoice extends JFrame{
 
-    private JFrame window;
+    //private JFrame window;
     private JTextField nickField;
 
     private JButton confirm;
@@ -14,13 +14,13 @@ public class NickChoice extends JFrame {
 
 
     public NickChoice(){
-        this.window = new JFrame();
+        //this.window = new JFrame();
         this.label = new JLabel("Inserire il nickname: ");
         this.nickField = new JTextField();
         this.confirm = new JButton("INVIA");
 
-        window.setSize(500, 600);
-        window.setVisible(true);
+        /*window.setSize(500, 600);
+        window.setVisible(true);*/
         //caricamento sfondo
         nickField.setVisible(true);
         confirm.setVisible(true);
@@ -43,7 +43,7 @@ public class NickChoice extends JFrame {
         return nickField;
     }
 
-    public JFrame getWindow() {
-        return window;
-    }
+    //public JFrame getWindow() {
+       // return window;
+    //}
 }

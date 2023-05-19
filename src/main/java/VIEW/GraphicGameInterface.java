@@ -28,23 +28,27 @@ public class GraphicGameInterface implements Runnable, viewListeners {
             public void actionPerformed(ActionEvent e) {
                 nick[0] = nickChoice.getNickField().getText();
                 if(nick[0].isBlank()){
-                    JDialog error = new JDialog(nickChoice.getWindow(), "ERRORE");
+                    JDialog error = new JDialog(nickChoice, "ERRORE");
                     error.add(new JLabel("Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!"));
                     firstRun();
                 }
             }
         });
-         return nick[0];
+        return nick[0];
     }
 
-    public void waitingRoom(){
+    public void waitingRoom(int enrolledPlayers, int nPlayers){
         WaitingRoom wRoom = new WaitingRoom();
-
+        wRoom.getEnrolledPlayer().setMaximum(nPlayers);
+        wRoom.getEnrolledPlayer().setValue(enrolledPlayers);
+        wRoom.getEnrolledPlayer().setString("Si sono iscritti "+wRoom.getEnrolledPlayer().getValue()+" su "+wRoom.getEnrolledPlayer().getMaximum());
     }
 
-    public void arrived(){
-
+    public int numberOfPlayers(){
+        NumberOfPlayerChoice choice = new NumberOfPlayerChoice();
+        return (int) choice.getOptions()[choice.getChoice()];
     }
+
 
 
 
