@@ -13,19 +13,36 @@ import java.rmi.RemoteException;
 public class GameController{
     private final Game game;
     private Slot[] selectedSlots;
+    private Target[] coordinatesSaver;
+    private boolean didSelection = false;
 
     public GameController(Game game){
         this.game=game;
     }
 
 
-    public void startGame () throws Exception {
+    public void startGame () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             game.setGameOn(true);
             game.startGame();
     }
-
-    public void skipTurn() throws Exception {
+    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        System.err.println("ciao");
+        System.err.println("\n"+didSelection);
+        if(didSelection){
+            System.err.println("Sto per fare l'undo!");
+            undoSelection();
+        }
         game.nextPlayerInGame();
+    }
+
+    private void undoSelection() {
+
+        for(int i = 0; i < coordinatesSaver.length;i++){
+            game.getTable().setSingleSlot(selectedSlots[i], coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY());
+            game.getTable().getSingleSlot(coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY()).setCatchable(true);
+            System.err.println("Ho fatto una undo: "+coordinatesSaver[i].getTile()+"in posizione: "+coordinatesSaver[i].getPosX()+coordinatesSaver[i].getPosY());
+        }
+        didSelection = false;
     }
 
     public String getOnStage(){
@@ -57,11 +74,15 @@ public class GameController{
 
     public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException, RemoteException {
         selectedSlots = new Slot[selectedCards.length];
+        coordinatesSaver = new Target[selectedCards.length];
         switch (selectedCards.length){
             case 1 -> {
                 int x = selectedCards[0].getX();
                 int y = selectedCards[0].getY();
                 if(checkCoordinates(x, y)){
+                    didSelection = true;
+                    //System.out.println("\n"+didSelection);
+                    coordinatesSaver[0] = new Target(game.getTable().getSingleSlot(x,y).getColor(), x, y);
                     selectedSlots[0]=game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);
                 } else {
                     game.setLastError(GameError.SELECT_ERROR_NOT_CATCHABLE);
@@ -78,6 +99,9 @@ public class GameController{
                     if(checkAdjacent(x, y, x1, y1)){
                         selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
                         selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
+                        coordinatesSaver[0] = new Target(selectedSlots[0].getColor(), x, y);
+                        coordinatesSaver[1] = new Target(selectedSlots[1].getColor(), x1, y1);
+                        didSelection = true;
                     } else {
                         game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
@@ -103,6 +127,10 @@ public class GameController{
                         selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));
                         selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));
                         selectedSlots[2]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x2, y2));
+                        coordinatesSaver[0] = new Target(selectedSlots[0].getColor(), x, y);
+                        coordinatesSaver[1] = new Target(selectedSlots[1].getColor(), x1, y1);
+                        coordinatesSaver[2] = new Target(selectedSlots[2].getColor(), x2, y2);
+                        didSelection = true;
                     } else {
                         game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);
                         throw new NotAdjacentSlotsException("Le tessere selezionate non sono adiacenti!");
@@ -132,6 +160,7 @@ public class GameController{
 
         if(countSpaces >= selectedSlots.length) {
             game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);
+            didSelection = false;
         } else {
             game.setLastError(GameError.INSERT_ERROR);
             System.err.println("Mando eccezione di non abbstanza spazio ");
@@ -149,20 +178,20 @@ public class GameController{
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();
         }
-        game.finalScore();
+        winner = game.finalScore();
         StringBuilder endGameString = new StringBuilder();
         game.setGameOn(false);
 
         for(int i=0; i < game.getNplayers(); i++){
             endGameString.append("\n").append(game.getPlayer()[i].getNickname()).append(" ha totalizzato: ").append(game.getPlayer()[i].getScore()).append(" punti ");
         }
-        //endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
+        endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
 
         return endGameString.toString();
     }
 
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
-    public void turnUpdate() throws Exception {
+    public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Aggioramento del turno in corso.. \n");
         game.updateTurn();
     }
