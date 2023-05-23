@@ -285,4 +285,19 @@ public class Game implements GameEventListener {
     public void forcedGameOver() {
         this.setGameOn(false);
     }
+
+    public void undoTurn(Slot[] selectedSlots, Target[] coordinatesSaver) throws NotEnoughSpaceChoiceException, RemoteException {
+        for(int i = 0; i < coordinatesSaver.length;i++){
+            getTable().setSingleSlot(selectedSlots[i], coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY());
+            getTable().getSingleSlot(coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY()).setCatchable(true);
+            System.err.println("Ho fatto una undo: "+coordinatesSaver[i].getTile()+"in posizione: "+coordinatesSaver[i].getPosX()+coordinatesSaver[i].getPosY());
+        }
+        notifyForcedTurnEnding();
+    }
+
+    public void notifyForcedTurnEnding() throws NotEnoughSpaceChoiceException, RemoteException {
+        for(GameEventListener listener: listeners){
+            listener.notifyForcedTurnEnding();
+        }
+    }
 }

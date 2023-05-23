@@ -35,13 +35,8 @@ public class GameController{
         game.nextPlayerInGame();
     }
 
-    private void undoSelection() {
-
-        for(int i = 0; i < coordinatesSaver.length;i++){
-            game.getTable().setSingleSlot(selectedSlots[i], coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY());
-            game.getTable().getSingleSlot(coordinatesSaver[i].getPosX(), coordinatesSaver[i].getPosY()).setCatchable(true);
-            System.err.println("Ho fatto una undo: "+coordinatesSaver[i].getTile()+"in posizione: "+coordinatesSaver[i].getPosX()+coordinatesSaver[i].getPosY());
-        }
+    private void undoSelection() throws NotEnoughSpaceChoiceException, RemoteException {
+        game.undoTurn(selectedSlots, coordinatesSaver);
         didSelection = false;
     }
 
@@ -152,6 +147,12 @@ public class GameController{
     }
     public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {
         int countSpaces = 0;
+
+        if(column==-1){
+            didSelection=false;
+            return;
+        }
+
         for(int i = 0; i < PersonalShelf.N_ROWS; i++){
             if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i, column).getColor().Equals(Color.GREY)){
                 countSpaces++;

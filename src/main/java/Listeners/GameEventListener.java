@@ -17,4 +17,5 @@ public interface GameEventListener {
     void notifyGameFinished() throws RemoteException;
     void notifySkipTurn() throws Exception;
     void notifyLastError() throws RemoteException;
+    void notifyForcedTurnEnding() throws NotEnoughSpaceChoiceException, RemoteException;
 }

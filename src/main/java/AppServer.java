@@ -11,12 +11,11 @@ public class AppServer {
     public static void main(String[] args) throws RemoteException{
 
         ServerRMIInterface server = new ServerImpl();
-        //System.setProperty("java.rmi.server.hostname","192.168.22.176");
+       // String Ip = "192.168.22.176";
         Registry registry = LocateRegistry.createRegistry( 1066);
 
      try{
-            registry.bind("server",server);
-        }catch (AlreadyBoundException e){
+            registry.bind("server",server);}catch (AlreadyBoundException e){
             registry.rebind("server", server);
       }
 
