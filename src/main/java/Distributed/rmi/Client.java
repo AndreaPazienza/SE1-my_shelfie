@@ -21,6 +21,7 @@ import java.rmi.server.UnicastRemoteObject;
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
     private final GameInterface view = new GameInterface();
+    private final GraphicGameInterface graphicView = new GraphicGameInterface();
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
     private boolean endGame;
