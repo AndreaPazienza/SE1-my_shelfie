@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, selectedFrame">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Listeners/OrderListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TilesToOrder.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, terminata la schermata di selezione">
+      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +218,7 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
       <workItem from="1684842431500" duration="17908000" />
-      <workItem from="1684945521232" duration="7381000" />
+      <workItem from="1684945521232" duration="11993000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -453,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684947364963</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Proseguimento GUI, terminata la schermata di selezione">
+      <created>1685115060059</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1685115060059</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -499,7 +504,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
@@ -524,7 +528,8 @@
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
     <MESSAGE value="Proseguimento GUI" />
     <MESSAGE value="Proseguimento GUI, selectedFrame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proseguimento GUI, selectedFrame" />
+    <MESSAGE value="Proseguimento GUI, terminata la schermata di selezione" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proseguimento GUI, terminata la schermata di selezione" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
