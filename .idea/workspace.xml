@@ -4,102 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/VIEW/GraphicObjects/WaitingRoomTest.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, selectedFrame">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Listeners/OrderListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TilesToOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Box 280x280px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Box 280x280px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Box noshadow 280x280.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Box noshadow 280x280.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Display_1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Display_2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Display_3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Display_4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Display_5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Icon 50x50px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Icon 50x50px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Publisher.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Publisher.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Title 2000x2000px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Title 2000x2000px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Title 2000x618px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/Title 2000x618px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/banner 1386x400px.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/Publisher material/banner 1386x400px.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/bookshelf.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/boards/bookshelf.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/bookshelf_orth.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/boards/bookshelf_orth.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/livingroom.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/boards/livingroom.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/11.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/12.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/common goal cards/back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Cornici1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Cornici1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Cornici1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Gatti1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Gatti1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Gatti1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Giochi1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Giochi1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Giochi1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Libri1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Libri1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Libri1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Piante1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Piante1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Piante1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.1.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Trofei1.1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Trofei1.2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/item tiles/Trofei1.3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/Sacchetto Aperto.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/misc/Sacchetto Aperto.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/Sacchetto Chiuso.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/misc/Sacchetto Chiuso.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/base_pagina2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/misc/base_pagina2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/firstplayertoken.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/misc/firstplayertoken.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/sfondo parquet.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/misc/sfondo parquet.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals10.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals10.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals11.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals11.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals12.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals12.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals2.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals3.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals3.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals4.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals5.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals5.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals6.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals6.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals7.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals7.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals8.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals8.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals9.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/Personal_Goals9.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/back.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/back.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/front_EMPTY.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/front_EMPTY.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/11.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/11.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/12.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/12.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/personal goal cards/old/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/end game.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/end game.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_back_example.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GraphicResources/scoring tokens/scoring_back_example.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -311,7 +220,7 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
       <workItem from="1684842431500" duration="17908000" />
-      <workItem from="1684945521232" duration="1707000" />
+      <workItem from="1684945521232" duration="7381000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -530,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684533735512</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Proseguimento GUI">
+      <created>1684947293102</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1684947293102</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Proseguimento GUI, selectedFrame">
+      <created>1684947364963</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1684947364963</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,8 +499,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiornamento indici costruttore" />
-    <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
@@ -601,7 +522,9 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Controller to fix" />
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
+    <MESSAGE value="Proseguimento GUI" />
+    <MESSAGE value="Proseguimento GUI, selectedFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proseguimento GUI, selectedFrame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
