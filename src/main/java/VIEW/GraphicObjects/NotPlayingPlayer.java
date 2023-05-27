@@ -13,7 +13,7 @@ public class NotPlayingPlayer extends JFrame {
     private ImageIcon backgroundDash, backgroundInsert, backgroundPGoal, backgroundCGoal1, backgroundCGoal2;
 
     public NotPlayingPlayer(GameView gameView){
-        super("IN ATTESA! STA GIOCANDO QUALCUN ALTRO!");
+        super();
         TileButton[][] tiles;
 
         setLayout(new BorderLayout());

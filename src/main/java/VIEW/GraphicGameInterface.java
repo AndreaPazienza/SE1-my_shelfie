@@ -8,6 +8,7 @@ import Listeners.OrderListener;
 import Listeners.viewListeners;
 import MODEL.Dashboard;
 import MODEL.GameView;
+import MODEL.PersonalShelf;
 import VIEW.GraphicObjects.*;
 
 import javax.swing.*;
@@ -75,7 +76,7 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     public void playing(GameView gameView) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         playerMoveSelection(gameView);
-        playerInsert();
+        playerInsert(gameView);
     }
 
     private void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
@@ -195,7 +196,27 @@ public class GraphicGameInterface implements Runnable, viewListeners {
         };
     }
 
-    private void playerInsert() {
+    private void playerInsert(GameView gameView){
+        InsertFrame insertFrame = new InsertFrame(gameView);
+        ActionListener a = e -> {
+            InsertButton insertChoice = (InsertButton) e.getSource();
+            try {
+                notifyInsert(insertChoice.getIndex());
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
+            }
+        };
+        for(Component component : insertFrame.getShelfWithB().getRootPane().getComponents()){
+            if(component instanceof InsertButton){
+                ((InsertButton) component).addActionListener(a);
+            }
+        }
     }
 
 
