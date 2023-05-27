@@ -7,6 +7,7 @@ import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.Dashboard;
 import MODEL.GameView;
+import MODEL.Player;
 import VIEW.GraphicObjects.*;
 
 import javax.swing.*;
@@ -141,6 +142,13 @@ public class GraphicGameInterface implements Runnable, viewListeners {
     }
 
     private void playerInsert() {
+    }
+
+    private void endGame(Player ranking[]) {
+        EndGame endGame = new EndGame();
+        endGame.setTexts(ranking);
+        mainFrame.add(endGame);
+        mainFrame.setVisible(true);
     }
 
 
