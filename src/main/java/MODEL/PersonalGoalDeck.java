@@ -12,31 +12,46 @@ import java.io.FileReader;
 
 
 public class PersonalGoalDeck {
-    private ArrayList<PersonalGoal> personalGoalDeck = new ArrayList<>();
 
-    public void initializePersonalGoalDeck() {
+    private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
+
+    public PersonalGoalDeck() {
         // Leggi il file JSON
         FileReader reader;
-        try {
-            reader = new FileReader("src/main/java/File/PersonalGoals.json");
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
+
+        {
+            try {
+                reader = new FileReader("src/main/java/File/PersonalGoals.json");
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         // Parsa il contenuto JSON
         JSONParser parser = new JSONParser();
         Object obj;
-        try {
-            obj = parser.parse(reader);
-        } catch (IOException | ParseException e) {
-            throw new RuntimeException(e);
+
+        {
+            try {
+                obj = parser.parse(reader);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ParseException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         JSONObject jsonObject = (JSONObject) obj;
+
+        // Ora hai l'oggetto JSON che rappresenta il contenuto del file
+        // Puoi estrarre i dati necessari da questo oggetto
+
         JSONArray goalsArray = (JSONArray) jsonObject.get("goal");
+
 
         for (Object goalObj : goalsArray) {
             JSONObject goalJson = (JSONObject) goalObj;
+
             JSONArray targetArray = (JSONArray) goalJson.get("target");
 
             // Creare un oggetto PersonalGoal e aggiungere i target
@@ -44,18 +59,23 @@ public class PersonalGoalDeck {
 
             for (Object targetObj : targetArray) {
                 JSONObject targetJson = (JSONObject) targetObj;
-                int posX = (int) targetJson.get("posX");
-                int posY = (int) targetJson.get("posY");
-                Color color = (Color) targetJson.get("color"); // Assumendo che il colore sia una stringa
+
+                Long posX = (Long) targetJson.get("posX");
+                Long posY = (Long) targetJson.get("posY");
+
+                String color = (String) targetJson.get("color");
+                Color color1 = Color.colorToString(color);
+
+                int intPosX = posX.intValue();
+                int intPosY = posY.intValue();
 
                 // Creare un oggetto Target e aggiungerlo all'oggetto PersonalGoal
-                Target target = new Target(color, posX, posY);
+                Target target = new Target(color1, intPosX, intPosY);
                 personalGoal.addTarget(target);
             }
             this.personalGoalDeck.add(personalGoal);
         }
     }
-
     /*public PersonalGoalDeck(){
         PersonalGoal pgoal1 = new PersonalGoal();
         pgoal1.setPGoal1();
@@ -109,7 +129,7 @@ public class PersonalGoalDeck {
      */
 
     public PersonalGoal extractionPGoal(){
-        initializePersonalGoalDeck();
+
         int randomIndex = new Random().nextInt(personalGoalDeck.size());
         PersonalGoal returningPersonal = personalGoalDeck.get(randomIndex);
         personalGoalDeck.remove(randomIndex);
