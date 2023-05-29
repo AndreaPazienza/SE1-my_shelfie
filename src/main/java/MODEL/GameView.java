@@ -97,4 +97,7 @@ public class GameView implements Serializable {
 
     public boolean getGameState(){return gameState;}
 
+    public Player[] getRanking() {
+        return ranking;
+    }
 }
