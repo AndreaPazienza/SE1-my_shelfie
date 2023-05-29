@@ -54,6 +54,16 @@ public class PersonalGoal implements Serializable {
         this.goal = new Target[N_GOALS];
     }
 
+    public void addTarget(Target target) {
+        // Cerca il primo slot libero nell'array di target
+        for (int i = 0; i < N_GOALS; i++) {
+            if (goal[i] == null) {
+                goal[i] =target;
+                break; // Esci dal ciclo dopo aver aggiunto il target
+            }
+        }
+    }
+
     public void setPGoal1(){
         goal[0] = new Target(Color.PINK, 0, 0);
         goal[1] = new Target(Color.BLUE, 0, 2);

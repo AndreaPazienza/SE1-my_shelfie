@@ -1,13 +1,62 @@
 package MODEL;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import java.io.FileReader;
+
 
 public class PersonalGoalDeck {
+    private ArrayList<PersonalGoal> personalGoalDeck = new ArrayList<>();
 
-    private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
+    public void initializePersonalGoalDeck() {
+        // Leggi il file JSON
+        FileReader reader;
+        try {
+            reader = new FileReader("src/main/java/File/PersonalGoals.json");
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
-    public PersonalGoalDeck(){
+        // Parsa il contenuto JSON
+        JSONParser parser = new JSONParser();
+        Object obj;
+        try {
+            obj = parser.parse(reader);
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
+        }
+
+        JSONObject jsonObject = (JSONObject) obj;
+        JSONArray goalsArray = (JSONArray) jsonObject.get("goal");
+
+        for (Object goalObj : goalsArray) {
+            JSONObject goalJson = (JSONObject) goalObj;
+            JSONArray targetArray = (JSONArray) goalJson.get("target");
+
+            // Creare un oggetto PersonalGoal e aggiungere i target
+            PersonalGoal personalGoal = new PersonalGoal();
+
+            for (Object targetObj : targetArray) {
+                JSONObject targetJson = (JSONObject) targetObj;
+                int posX = (int) targetJson.get("posX");
+                int posY = (int) targetJson.get("posY");
+                Color color = (Color) targetJson.get("color"); // Assumendo che il colore sia una stringa
+
+                // Creare un oggetto Target e aggiungerlo all'oggetto PersonalGoal
+                Target target = new Target(color, posX, posY);
+                personalGoal.addTarget(target);
+            }
+            this.personalGoalDeck.add(personalGoal);
+        }
+    }
+
+    /*public PersonalGoalDeck(){
         PersonalGoal pgoal1 = new PersonalGoal();
         pgoal1.setPGoal1();
         this.personalGoalDeck.add(pgoal1);
@@ -56,9 +105,11 @@ public class PersonalGoalDeck {
         pgoal12.setPGoal12();
         this.personalGoalDeck.add(pgoal12);
     }
+    /*
+     */
 
     public PersonalGoal extractionPGoal(){
-
+        initializePersonalGoalDeck();
         int randomIndex = new Random().nextInt(personalGoalDeck.size());
         PersonalGoal returningPersonal = personalGoalDeck.get(randomIndex);
         personalGoalDeck.remove(randomIndex);
@@ -68,4 +119,5 @@ public class PersonalGoalDeck {
     public ArrayList<PersonalGoal> getPersonalGoalDeck() {
         return personalGoalDeck;
     }
+
 }

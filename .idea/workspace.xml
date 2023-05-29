@@ -4,99 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Controller to fix">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Box 280x280px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Box noshadow 280x280.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Display_5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Icon 50x50px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Publisher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Title 2000x2000px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/Title 2000x618px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/Publisher material/banner 1386x400px.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/bookshelf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/bookshelf_orth.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/boards/livingroom.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/common goal cards/back.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Cornici1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Gatti1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Giochi1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Libri1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Piante1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/item tiles/Trofei1.3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/Sacchetto Aperto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/Sacchetto Chiuso.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/base_pagina2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/firstplayertoken.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/misc/sfondo parquet.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/Personal_Goals9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/back.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/front_EMPTY.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/12.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/personal goal cards/old/9.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/end game.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_8.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/GraphicResources/scoring tokens/scoring_back_example.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="nickname Bug fix">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dependencies/json-simple-1.1.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/File/PersonalGoals.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -165,6 +80,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
@@ -185,6 +101,10 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/dependencies" />
+      <recent name="$PROJECT_DIR$/src/main/java/File" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Errors" />
       <recent name="MODEL" />
@@ -204,39 +124,7 @@
     </configuration>
     <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkWithGrey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkWithGrey" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,20 +145,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PersonalGoalDeckTest.testExtraction" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalDeckTest.testExtraction2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
+      <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction" />
+      <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
       <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
       </list>
     </recent_temporary>
   </component>
@@ -305,6 +225,7 @@
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
+      <workItem from="1685199151775" duration="7855000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
