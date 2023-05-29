@@ -198,6 +198,7 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     private void playerInsert(GameView gameView){
         InsertFrame insertFrame = new InsertFrame(gameView);
+        mainFrame.add(insertFrame);
         ActionListener a = e -> {
             InsertButton insertChoice = (InsertButton) e.getSource();
             try {
@@ -260,5 +261,35 @@ public class GraphicGameInterface implements Runnable, viewListeners {
     @Override
     public void run() {
 
+    }
+
+    public void errorNotCatchable() {
+        ErrorPane error = new ErrorPane("La tessera selezionata non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorOneNotCatchable() {
+        ErrorPane error = new ErrorPane("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorNotAdjacent() {
+        ErrorPane error = new ErrorPane("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorSpaceChoicesError() {
+        ErrorPane error = new ErrorPane("Non c'è abbastanza spazio nella shelf per così tante tessere!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorInsert() {
+        ErrorPane error = new ErrorPane("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+        mainFrame.add(error);
+        error.setVisible(true);
     }
 }
