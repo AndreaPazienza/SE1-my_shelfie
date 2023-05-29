@@ -285,7 +285,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Notifica di aver aggiunto un nuovo player alla partita
     public void subscription() throws RemoteException {
         for (ClientRMIInterface client : logged) {
-            client.newPlayerAdded();
+            client.newPlayerAdded(logged.size(), model.getNplayers());
         }
     }
 

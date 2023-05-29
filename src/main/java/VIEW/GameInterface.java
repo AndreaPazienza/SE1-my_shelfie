@@ -15,7 +15,7 @@ import MODEL.Color;
 
 import javax.swing.*;
 
-public class GameInterface implements Runnable, viewListeners {
+public class GameInterface implements Runnable, viewListeners, UserInterface {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard;

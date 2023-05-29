@@ -19,7 +19,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicGameInterface implements Runnable, viewListeners {
+public class GraphicGameInterface implements Runnable, viewListeners, UserInterface {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     private JFrame mainFrame;
@@ -79,7 +79,7 @@ public class GraphicGameInterface implements Runnable, viewListeners {
         playerInsert(gameView);
     }
 
-    private void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+    public void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         SelectionFrame selectionFrame = new SelectionFrame(gameView);
         mainFrame.add(selectionFrame);
         final boolean[] didSelection = {false};
@@ -193,6 +193,7 @@ public class GraphicGameInterface implements Runnable, viewListeners {
                     OrderChoice order = new OrderChoice(1,1,1);
                     try {
                         notifyOrder(order);
+                        mainFrame.remove(selectionFrame);
                     } catch (RemoteException e) {
                         throw new RuntimeException(e);
                     } catch (NotEnoughSpaceChoiceException e) {
@@ -207,13 +208,14 @@ public class GraphicGameInterface implements Runnable, viewListeners {
         };
     }
 
-    private void playerInsert(GameView gameView){
+    public void playerInsert(GameView gameView){
         InsertFrame insertFrame = new InsertFrame(gameView);
         mainFrame.add(insertFrame);
         ActionListener a = e -> {
             InsertButton insertChoice = (InsertButton) e.getSource();
             try {
                 notifyInsert(insertChoice.getIndex());
+                mainFrame.remove(insertFrame);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             } catch (NotEnoughSpaceChoiceException ex) {
