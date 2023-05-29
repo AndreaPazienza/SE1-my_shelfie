@@ -3,6 +3,8 @@ package MODEL;
 import java.io.Serializable;
 import java.util.Observable;
 
+
+
 public class PersonalGoal implements Serializable {
     private Target[] goal;
     private static final int N_GOALS = 6;
@@ -10,6 +12,7 @@ public class PersonalGoal implements Serializable {
     public int assignPoint(PersonalShelf shelf) {
         int counter = 0;
         int points = 0;
+
         for (int i = 0; i < N_GOALS; i++) {            //in the for loop I make the comparisons; the counter keeps track of the number.
             int x = goal[i].getPosX();           //of past comparisons
             int y = goal[i].getPosY();
@@ -18,6 +21,7 @@ public class PersonalGoal implements Serializable {
                 counter++;
             }
         }
+
         switch (counter) {           //The switch is used to assign points; being a void, it updates directly.
             case 0:                  //score player attribute
                 return 0;
@@ -40,6 +44,7 @@ public class PersonalGoal implements Serializable {
                 points += 12;
                 return points;
         }
+
         return points;
     }
     public Target getSingleTarget(int i){
