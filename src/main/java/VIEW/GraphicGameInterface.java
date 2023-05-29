@@ -8,6 +8,7 @@ import Listeners.OrderListener;
 import Listeners.viewListeners;
 import MODEL.Dashboard;
 import MODEL.GameView;
+import MODEL.PersonalShelf;
 import VIEW.GraphicObjects.*;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicGameInterface implements Runnable, viewListeners {
+public class GraphicGameInterface implements Runnable, viewListeners, UserInterface {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     private JFrame mainFrame;
@@ -75,10 +76,10 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     public void playing(GameView gameView) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         playerMoveSelection(gameView);
-        playerInsert();
+        playerInsert(gameView);
     }
 
-    private void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+    public void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         SelectionFrame selectionFrame = new SelectionFrame(gameView);
         mainFrame.add(selectionFrame);
         final boolean[] didSelection = {false};
@@ -101,6 +102,17 @@ public class GraphicGameInterface implements Runnable, viewListeners {
                     nChoices[0] = i+1;
                     selectionFrame.remove(nTiles);
                 }
+            }
+            try {
+                notifyChoices(nChoices[0]);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
             }
         };
         for(Component component : nTiles.getRootPane().getComponents()){
@@ -181,6 +193,7 @@ public class GraphicGameInterface implements Runnable, viewListeners {
                     OrderChoice order = new OrderChoice(1,1,1);
                     try {
                         notifyOrder(order);
+                        mainFrame.remove(selectionFrame);
                     } catch (RemoteException e) {
                         throw new RuntimeException(e);
                     } catch (NotEnoughSpaceChoiceException e) {
@@ -195,7 +208,29 @@ public class GraphicGameInterface implements Runnable, viewListeners {
         };
     }
 
-    private void playerInsert() {
+    public void playerInsert(GameView gameView){
+        InsertFrame insertFrame = new InsertFrame(gameView);
+        mainFrame.add(insertFrame);
+        ActionListener a = e -> {
+            InsertButton insertChoice = (InsertButton) e.getSource();
+            try {
+                notifyInsert(insertChoice.getIndex());
+                mainFrame.remove(insertFrame);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
+            }
+        };
+        for(Component component : insertFrame.getShelfWithB().getRootPane().getComponents()){
+            if(component instanceof InsertButton){
+                ((InsertButton) component).addActionListener(a);
+            }
+        }
     }
 
 
@@ -208,36 +243,120 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     @Override
     public void addviewEventListener(viewListeners listener) {
-
+        listeners.add(listener);
+        JDialog info = new JDialog(mainFrame, "Creato bond client / view");
     }
 
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifySelectedCoordinates(SC);
+        }
     }
 
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            try {
+                listener.notifyOrder(o);
+            } catch (RemoteException e) {
+                System.out.println("ciao");
+            } catch (NotEnoughSpaceChoiceException e) {
+                throw new RuntimeException(e);
+            } catch (NotAdjacentSlotsException e) {
+                throw new RuntimeException(e);
+            } catch (NotCatchableException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyInsert(column);
+        }
     }
 
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyOneMoreTime();
+        }
     }
 
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyChoices(number);
+        }
     }
 
     @Override
     public void run() {
 
     }
-}
+
+    public void startTurn(){
+        JDialog info = new JDialog(mainFrame, "Inizio del nuovo turno!");
+    }
+
+    public void onWait(GameView gameView){
+        NotPlayingPlayer onWait = new NotPlayingPlayer(gameView);
+    }
+
+    public void errorNotCatchable() {
+        ErrorPane error = new ErrorPane("La tessera selezionata non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorOneNotCatchable() {
+        ErrorPane error = new ErrorPane("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorNotAdjacent() {
+        ErrorPane error = new ErrorPane("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorSpaceChoicesError() {
+        ErrorPane error = new ErrorPane("Non c'è abbastanza spazio nella shelf per così tante tessere!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorInsert() {
+        ErrorPane error = new ErrorPane("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void endgame(){
+        JDialog info = new JDialog(mainFrame, "Il gioco è finito! ");
+    }
+
+    public void denyAcess() {
+       JDialog info = new JDialog(mainFrame, "La partita è già iniziata, troppo tardi :/ ");
+    }
+
+    public void playerCrash() {
+        JOptionPane.showMessageDialog(mainFrame, "E' crashato un player!", "CRASH", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void gameCancelled() {
+        JDialog info = new JDialog(mainFrame, "E' crashato un player in pregame, chiusura della partita, scusate! ");}
+
+    public void waitingForPlayers() {
+        JOptionPane.showMessageDialog(mainFrame, "Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ", "ATTENZIONE!", JOptionPane.WARNING_MESSAGE);
+        }
+
+    public void errorNick(String message) throws SameNicknameException, RemoteException{
+
+    }
+    }
+
+
