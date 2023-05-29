@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, Aggiunta delle notify varie">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/UserInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/PersonalGoalDeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PersonalGoalDeckTest.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -55,7 +56,6 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/AppData/Local/Temp/Temp1_PoliceStation.zip/PoliceStation/src/main/java/it/polimi/ingegneriaDelSoftware/provaFinale/PoliceMainFrame.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/pom.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -115,79 +115,82 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingegneriaDelSoftware.provaFinale.App" />
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="it.polimi.ingegneriaDelSoftware.provaFinale.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
+    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="ing-sw-2023-ronchieri-proverbio-tagab-pazienza" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaitingRoomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalGoalDeckTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.GraphicObjects.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW.GraphicObjects" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GraphicObjects.WaitingRoomTest" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaitingRoomTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PersonalGoalDeckTest.testExtraction2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="VIEW.GraphicObjects.*" />
+          <option name="PATTERN" value="MODEL.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="VIEW.GraphicObjects" />
-      <option name="MAIN_CLASS_NAME" value="VIEW.GraphicObjects.WaitingRoomTest" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testExtraction2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalDeckTest.testPersonalGoalDeck" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalDeckTest" />
+      <option name="METHOD_NAME" value="testPersonalGoalDeck" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
-      <item itemvalue="JUnit.WaitingRoomTest" />
-      <item itemvalue="JUnit.WaitingRoomTest.test" />
+      <item itemvalue="JUnit.PersonalGoalDeckTest" />
+      <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
+      <item itemvalue="JUnit.PersonalGoalDeckTest.testPersonalGoalDeck" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.WaitingRoomTest" />
-        <item itemvalue="JUnit.WaitingRoomTest.test" />
-        <item itemvalue="Application.AppServer" />
         <item itemvalue="Application.AppClient" />
+        <item itemvalue="Application.AppServer" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testExtraction2" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest.testPersonalGoalDeck" />
+        <item itemvalue="JUnit.PersonalGoalDeckTest" />
       </list>
     </recent_temporary>
   </component>
