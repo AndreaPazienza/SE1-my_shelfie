@@ -1,6 +1,8 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Six groups each containing at least
 //2 tiles of the same type (not necessarily in the depicted shape).
 //The tiles of one group can be different from those of another group.
@@ -11,6 +13,8 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
 
     public CGSixGroupsTwoTiles(int players){
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/4.jpg");
+        super.setImage(image);
     }
     @Override
     public void control(Player player) {
