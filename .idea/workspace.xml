@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, schermata di attesa durante il gioco">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertButton.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TurnFrame.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Proseguimento GUI, aggiunta l'immagine ai commonGoal">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/SelectionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/SelectionFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +218,7 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
       <workItem from="1684842431500" duration="17908000" />
-      <workItem from="1684945521232" duration="15807000" />
+      <workItem from="1684945521232" duration="18386000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -470,7 +465,21 @@
       <option name="project" value="LOCAL" />
       <updated>1685119545376</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Proseguimento GUI, schermata inserimento">
+      <created>1685199551441</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1685199551441</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Proseguimento GUI, aggiunta l'immagine ai commonGoal">
+      <created>1685368855301</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1685368855301</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -516,8 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
-    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
@@ -541,7 +548,9 @@
     <MESSAGE value="Proseguimento GUI, selectedFrame" />
     <MESSAGE value="Proseguimento GUI, terminata la schermata di selezione" />
     <MESSAGE value="Proseguimento GUI, schermata di attesa durante il gioco" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proseguimento GUI, schermata di attesa durante il gioco" />
+    <MESSAGE value="Proseguimento GUI, schermata inserimento" />
+    <MESSAGE value="Proseguimento GUI, aggiunta l'immagine ai commonGoal" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proseguimento GUI, aggiunta l'immagine ai commonGoal" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
