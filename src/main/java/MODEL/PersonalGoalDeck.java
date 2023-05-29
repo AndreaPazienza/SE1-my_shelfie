@@ -16,7 +16,7 @@ public class PersonalGoalDeck {
     private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
 
     public PersonalGoalDeck() {
-        // Leggi il file JSON
+        // file JSON read
         FileReader reader;
 
         {
@@ -27,7 +27,7 @@ public class PersonalGoalDeck {
             }
         }
 
-        // Parsa il contenuto JSON
+        // Parsing JSON file
         JSONParser parser = new JSONParser();
         Object obj;
 
@@ -43,18 +43,17 @@ public class PersonalGoalDeck {
 
         JSONObject jsonObject = (JSONObject) obj;
 
-        // Ora hai l'oggetto JSON che rappresenta il contenuto del file
-        // Puoi estrarre i dati necessari da questo oggetto
+        //Now I have the JSON object representing the file content.
+        //Extraction of the necessary data from this object.
 
         JSONArray goalsArray = (JSONArray) jsonObject.get("goal");
 
 
         for (Object goalObj : goalsArray) {
             JSONObject goalJson = (JSONObject) goalObj;
-
             JSONArray targetArray = (JSONArray) goalJson.get("target");
 
-            // Creare un oggetto PersonalGoal e aggiungere i target
+            // Creating PersonalGoal object and adding the targets.
             PersonalGoal personalGoal = new PersonalGoal();
 
             for (Object targetObj : targetArray) {
@@ -69,7 +68,7 @@ public class PersonalGoalDeck {
                 int intPosX = posX.intValue();
                 int intPosY = posY.intValue();
 
-                // Creare un oggetto Target e aggiungerlo all'oggetto PersonalGoal
+                // Creating a Target object and adding it to the PersonalGoal object
                 Target target = new Target(color1, intPosX, intPosY);
                 personalGoal.addTarget(target);
             }

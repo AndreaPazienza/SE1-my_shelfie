@@ -63,7 +63,7 @@ public class PersonalGoal implements Serializable {
             }
         }
     }
-
+    /*
     public void setPGoal1(){
         goal[0] = new Target(Color.PINK, 0, 0);
         goal[1] = new Target(Color.BLUE, 0, 2);
@@ -161,4 +161,6 @@ public class PersonalGoal implements Serializable {
         goal[4] = new Target(Color.YELLOW,4,4);
         goal[5] = new Target(Color.GREEN, 5,0);
     }
+
+     */
 }
