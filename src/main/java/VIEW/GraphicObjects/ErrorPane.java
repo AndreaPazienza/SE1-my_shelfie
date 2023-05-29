@@ -8,7 +8,7 @@ public class ErrorPane extends JOptionPane {
         JOptionPane.showMessageDialog(null,
                 error,
                 "ERRORE!",
-                JOptionPane.WARNING_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
     }
 
 }

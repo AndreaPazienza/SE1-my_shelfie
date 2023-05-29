@@ -360,8 +360,8 @@ public class GameInterface implements Runnable, viewListeners {
     public void notifyAlmostOver(){
         System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!! \n");
     }
-    public void arrived() {
-        System.out.println("A new player as signed");
+    public void waitingRoom(int enrolledPlayers, int nPlayers) {
+        System.out.println("Si sono iscritti "+enrolledPlayers+"su "+nPlayers);
     }
     public void startTurn() {
         System.out.print("-- Inizio del nuovo turno -- \n");

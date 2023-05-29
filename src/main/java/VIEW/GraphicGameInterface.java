@@ -103,6 +103,17 @@ public class GraphicGameInterface implements Runnable, viewListeners {
                     selectionFrame.remove(nTiles);
                 }
             }
+            try {
+                notifyChoices(nChoices[0]);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
+            }
         };
         for(Component component : nTiles.getRootPane().getComponents()){
             if(component instanceof JButton){
@@ -230,37 +241,66 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     @Override
     public void addviewEventListener(viewListeners listener) {
-
+        listeners.add(listener);
+        JDialog info = new JDialog(mainFrame, "Creato bond client / view");
     }
 
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifySelectedCoordinates(SC);
+        }
     }
 
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            try {
+                listener.notifyOrder(o);
+            } catch (RemoteException e) {
+                System.out.println("ciao");
+            } catch (NotEnoughSpaceChoiceException e) {
+                throw new RuntimeException(e);
+            } catch (NotAdjacentSlotsException e) {
+                throw new RuntimeException(e);
+            } catch (NotCatchableException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyInsert(column);
+        }
     }
 
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyOneMoreTime();
+        }
     }
 
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyChoices(number);
+        }
     }
 
     @Override
     public void run() {
 
+    }
+
+    public void startTurn(){
+        JDialog info = new JDialog(mainFrame, "Inizio del nuovo turno!");
+    }
+
+    public void onWait(GameView gameView){
+        NotPlayingPlayer onWait = new NotPlayingPlayer(gameView);
     }
 
     public void errorNotCatchable() {
@@ -292,4 +332,29 @@ public class GraphicGameInterface implements Runnable, viewListeners {
         mainFrame.add(error);
         error.setVisible(true);
     }
-}
+
+    public void endgame(){
+        JDialog info = new JDialog(mainFrame, "Il gioco è finito! ");
+    }
+
+    public void denyAcess() {
+       JDialog info = new JDialog(mainFrame, "La partita è già iniziata, troppo tardi :/ ");
+    }
+
+    public void playerCrash() {
+        JOptionPane.showMessageDialog(mainFrame, "E' crashato un player!", "CRASH", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void gameCancelled() {
+        JDialog info = new JDialog(mainFrame, "E' crashato un player in pregame, chiusura della partita, scusate! ");}
+
+    public void waitingForPlayers() {
+        JOptionPane.showMessageDialog(mainFrame, "Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ", "ATTENZIONE!", JOptionPane.WARNING_MESSAGE);
+        }
+
+    public void errorNick(String message) throws SameNicknameException, RemoteException{
+
+    }
+    }
+
+
