@@ -34,4 +34,27 @@ public enum Color {
             return false;
         }
     }
+
+    public static Color colorToString(String color) {
+        switch (color.toLowerCase()) {
+            case "green":
+                return GREEN;
+            case "pink":
+                return PINK;
+            case "blue":
+                return BLUE;
+            case "lblue":
+                return LBLUE;
+            case "white":
+                return WHITE;
+            case "yellow":
+                return YELLOW;
+            case "grey":
+                return GREY;
+            case "black":
+                return BLACK;
+            default:
+                throw new IllegalArgumentException("Invalid color string: " + color);
+        }
+    }
 }
