@@ -1,12 +1,16 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Two columns each formed by 6 different types of tiles.
 
 public class CGTwoColumnsSixTiles extends CGOnColumn {
 
     public CGTwoColumnsSixTiles(int players){
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/2.jpg");
+        super.setImage(image);
     }
     public boolean controlColumn(Player current, Color[] column, int found) {
 

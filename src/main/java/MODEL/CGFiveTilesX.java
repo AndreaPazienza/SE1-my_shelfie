@@ -1,12 +1,16 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Five tiles of the same type forming an X.
 
 
 public class CGFiveTilesX extends CommonGoalAbs {
     public CGFiveTilesX(int players) {
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/10.jpg");
+        super.setImage(image);
     }
 
     @Override

@@ -2,12 +2,16 @@ package MODEL;
 
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Five tiles of the same type forming a diagonal.
 
 
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
     public CGFiveTilesDiagonal(int players){
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/11.jpg");
+        super.setImage(image);
     }
     @Override
     public void control(Player player) {

@@ -1,6 +1,8 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Three columns each formed by 6 tiles
 //of maximum three different types. One column can show the same or a different combination of another column
 
@@ -9,6 +11,8 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
 
     public CGThreeColumnsSixTiles(int players){
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/5.jpg");
+        super.setImage(image);
     }
     public boolean controlColumn(Player player, Color[] column, int found) {
 

@@ -4,22 +4,22 @@ import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
+import Listeners.OrderListener;
 import Listeners.viewListeners;
 import MODEL.Dashboard;
 import MODEL.GameView;
-import MODEL.Player;
+import MODEL.PersonalShelf;
 import VIEW.GraphicObjects.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicGameInterface implements Runnable, viewListeners {
+public class GraphicGameInterface implements Runnable, viewListeners, UserInterface {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     private JFrame mainFrame;
@@ -76,16 +76,20 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     public void playing(GameView gameView) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         playerMoveSelection(gameView);
-        playerInsert();
+        playerInsert(gameView);
     }
 
-    private void playerMoveSelection(GameView gameView) {
+    public void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         SelectionFrame selectionFrame = new SelectionFrame(gameView);
         mainFrame.add(selectionFrame);
+        final boolean[] didSelection = {false};
         final int[] nChoices = {0};
         Object[] options = {1,2,3};
         final int[] k = {0};
-        //CREO OPTIONPANE e SALVO LA SCELTA USANDO IL LISTENER, rimuovendolo una volta ottenuto nChoices
+        final int[] pos1 = {1};
+        final int[] pos2 = {2};
+        final int[] pos3 = {3};
+        //CREO OPTIONPANE per il numero di scelte e SALVO LA SCELTA USANDO IL LISTENER, rimuovendolo una volta ottenuto nChoices
         JOptionPane nTiles = new JOptionPane();
         nChoices[0] = nTiles.showOptionDialog(null,"Scegliere il numero di tessere da selezionare: ",
                 "Inserimento Numero Scelte", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
@@ -99,6 +103,17 @@ public class GraphicGameInterface implements Runnable, viewListeners {
                     selectionFrame.remove(nTiles);
                 }
             }
+            try {
+                notifyChoices(nChoices[0]);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
+            }
         };
         for(Component component : nTiles.getRootPane().getComponents()){
             if(component instanceof JButton){
@@ -106,21 +121,25 @@ public class GraphicGameInterface implements Runnable, viewListeners {
             }
         }
         //CREO "L'ARRAY" DA RIEMPIRE CON LE TILES CON IL BOTTONE CONFERMA
-        JLabel[] slot = new JLabel[nChoices[0]];
+        TilesToOrder[] slot = new TilesToOrder[nChoices[0]];
         SlotChoice[] slotChoices = new SlotChoice[nChoices[0]];
         JPanel selection = new JPanel(new FlowLayout());
+        JButton confirm = new JButton("CONFERMA LA TUA SCELTA");
         for(int i = 0; i < nChoices[0]; i++){
-            slot[i] = new JLabel();
-            selection.add(slot[i]);
+            slot[i] = new TilesToOrder(i+1);
+            selection.add(slot[i].getLabel());
         }
-        selection.add(new JButton("CONFERMA LA TUA SCELTA!"));
+        selection.add(confirm);
         selectionFrame.add(selection, BorderLayout.NORTH);
         //EFFETTIVA SCELTA: IMPLEMENTAZIONE DEL ACTIONLISTENER CHE CREA LA SLOTCHOICE E LA INSERISCE NELL'ARRAY
         ActionListener choice = e -> {
             TileButton button = (TileButton)e.getSource();
             slotChoices[k[0]] = new SlotChoice(button.getX(), button.getY());
-            slot[k[0]].setIcon(selectionFrame.getSingleButton(button.getX(), button.getY()).getButton().getIcon());
+            slot[k[0]].getLabel().setIcon(selectionFrame.getSingleButton(button.getX(), button.getY()).getButton().getIcon());
             k[0]++;
+            if(k[0] == nChoices[0]){
+                didSelection[0]=true;
+            }
         };
         for(int i = 0; i < Dashboard.getSide();i++){
             for(int j = 0; j < Dashboard.getSide();j++){
@@ -128,27 +147,90 @@ public class GraphicGameInterface implements Runnable, viewListeners {
             }
         }
         //una volta selezionate tutte le tessere, non voglio aggiornamenti dalla dashboard
-        if(k[0]==nChoices[0]){
+        if(didSelection[0]){
             for(int i = 0; i < Dashboard.getSide();i++){
                 for(int j = 0; j < Dashboard.getSide();j++){
                     selectionFrame.getSingleButton(i,j).getButton().removeActionListener(choice);
                 }
             }
+            k[0] = 0;
+            notifySelectedCoordinates(slotChoices);
         }
-        k[0] = 0;
+
         //GESTIONE DELL'ORDINAMENTO DRAG&DROP MOUSE LISTENER
-
+        for(int i = 0; i < nChoices[0]; i++){
+            slot[i].getLabel().addMouseListener(new OrderListener());
+            slot[i].getLabel().addMouseMotionListener(new OrderListener());
+            slot[i].getLabel().setTransferHandler(new TransferHandler("tile"));
+        }
         //BUTTON SUBMIT CHE ATTIVA LA NOTIFY
+        ActionListener confirmOrder = submit ->{
+            if(nChoices[0] == 3) {
+                if (slot[0].getPosition() != pos1[0]) {
+                    pos1[0] = slot[0].getPosition();
+                }
+                if (slot[1].getPosition() != pos2[0]) {
+                    pos2[0] = slot[1].getPosition();
+                }
+                if (slot[2].getPosition() != pos3[0]) {
+                    pos3[0] = slot[2].getPosition();
+                }
+                OrderChoice order = new OrderChoice(pos1[0], pos2[0], pos3[0]);
+                try {
+                    notifyOrder(order);
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                } catch (NotEnoughSpaceChoiceException e) {
+                    throw new RuntimeException(e);
+                } catch (NotAdjacentSlotsException e) {
+                    throw new RuntimeException(e);
+                } catch (NotCatchableException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if(nChoices[0] == 2){
+                if(slot[0].getPosition() != pos1[0]){
+                    OrderChoice order = new OrderChoice(1,1,1);
+                    try {
+                        notifyOrder(order);
+                        mainFrame.remove(selectionFrame);
+                    } catch (RemoteException e) {
+                        throw new RuntimeException(e);
+                    } catch (NotEnoughSpaceChoiceException e) {
+                        throw new RuntimeException(e);
+                    } catch (NotAdjacentSlotsException e) {
+                        throw new RuntimeException(e);
+                    } catch (NotCatchableException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+        };
     }
 
-    private void playerInsert() {
-    }
-
-    private void endGame(Player ranking[]) {
-        EndGame endGame = new EndGame();
-        endGame.setTexts(ranking);
-        mainFrame.add(endGame);
-        mainFrame.setVisible(true);
+    public void playerInsert(GameView gameView){
+        InsertFrame insertFrame = new InsertFrame(gameView);
+        mainFrame.add(insertFrame);
+        ActionListener a = e -> {
+            InsertButton insertChoice = (InsertButton) e.getSource();
+            try {
+                notifyInsert(insertChoice.getIndex());
+                mainFrame.remove(insertFrame);
+            } catch (RemoteException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotEnoughSpaceChoiceException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotAdjacentSlotsException ex) {
+                throw new RuntimeException(ex);
+            } catch (NotCatchableException ex) {
+                throw new RuntimeException(ex);
+            }
+        };
+        for(Component component : insertFrame.getShelfWithB().getRootPane().getComponents()){
+            if(component instanceof InsertButton){
+                ((InsertButton) component).addActionListener(a);
+            }
+        }
     }
 
 
@@ -161,36 +243,120 @@ public class GraphicGameInterface implements Runnable, viewListeners {
 
     @Override
     public void addviewEventListener(viewListeners listener) {
-
+        listeners.add(listener);
+        JDialog info = new JDialog(mainFrame, "Creato bond client / view");
     }
 
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifySelectedCoordinates(SC);
+        }
     }
 
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            try {
+                listener.notifyOrder(o);
+            } catch (RemoteException e) {
+                System.out.println("ciao");
+            } catch (NotEnoughSpaceChoiceException e) {
+                throw new RuntimeException(e);
+            } catch (NotAdjacentSlotsException e) {
+                throw new RuntimeException(e);
+            } catch (NotCatchableException e) {
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyInsert(column);
+        }
     }
 
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyOneMoreTime();
+        }
     }
 
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-
+        for( viewListeners listener : listeners  ) {
+            listener.notifyChoices(number);
+        }
     }
 
     @Override
     public void run() {
 
     }
-}
+
+    public void startTurn(){
+        JDialog info = new JDialog(mainFrame, "Inizio del nuovo turno!");
+    }
+
+    public void onWait(GameView gameView){
+        NotPlayingPlayer onWait = new NotPlayingPlayer(gameView);
+    }
+
+    public void errorNotCatchable() {
+        ErrorPane error = new ErrorPane("La tessera selezionata non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorOneNotCatchable() {
+        ErrorPane error = new ErrorPane("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorNotAdjacent() {
+        ErrorPane error = new ErrorPane("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorSpaceChoicesError() {
+        ErrorPane error = new ErrorPane("Non c'è abbastanza spazio nella shelf per così tante tessere!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void errorInsert() {
+        ErrorPane error = new ErrorPane("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+        mainFrame.add(error);
+        error.setVisible(true);
+    }
+
+    public void endgame(){
+        JDialog info = new JDialog(mainFrame, "Il gioco è finito! ");
+    }
+
+    public void denyAcess() {
+       JDialog info = new JDialog(mainFrame, "La partita è già iniziata, troppo tardi :/ ");
+    }
+
+    public void playerCrash() {
+        JOptionPane.showMessageDialog(mainFrame, "E' crashato un player!", "CRASH", JOptionPane.WARNING_MESSAGE);
+    }
+
+    public void gameCancelled() {
+        JDialog info = new JDialog(mainFrame, "E' crashato un player in pregame, chiusura della partita, scusate! ");}
+
+    public void waitingForPlayers() {
+        JOptionPane.showMessageDialog(mainFrame, "Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ", "ATTENZIONE!", JOptionPane.WARNING_MESSAGE);
+        }
+
+    public void errorNick(String message) throws SameNicknameException, RemoteException{
+
+    }
+    }
+
+

@@ -1,6 +1,8 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Four groups each containing at least
 //4 tiles of the same type (not necessarily in the depicted shape).
 //The tiles of one group can be different from those of another group.
@@ -11,6 +13,8 @@ import VIEW.Image;
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
     public CGFourGroupsFourTiles(int players){
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/3.jpg");
+        super.setImage(image);
     }
     @Override
     public void control(Player player) {

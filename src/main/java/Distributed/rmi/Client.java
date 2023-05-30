@@ -161,8 +161,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: when a new client registers, those already logged in are notified.
     @Override
-    public void newPlayerAdded() throws RemoteException {
-        view.arrived();
+    public void newPlayerAdded(int enrolledPlayers, int nPlayers) throws RemoteException {
+        view.waitingRoom(enrolledPlayers, nPlayers);
     }
 
     //Remote method: to notify the client that they still have to wait for their turn.

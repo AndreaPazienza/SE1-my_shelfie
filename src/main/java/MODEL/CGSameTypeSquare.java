@@ -1,12 +1,16 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
+import javax.swing.*;
 //Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square.
 
 public class CGSameTypeSquare extends CommonGoalAbs {
 
     public CGSameTypeSquare(int players) {
         super(players);
+        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/1.jpg");
+        super.setImage(image);
     }
 
     @Override
