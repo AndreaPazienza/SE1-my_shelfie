@@ -36,11 +36,11 @@ public class EndGame extends JFrame {
         String rankingText = "";
         String winnerText = "";
 
-        for(int i = 0; i < ranking.length; i ++) {
-            rankingText = rankingText + i+1 + ": " + ranking[i].getNickname() + " \n punti totalizzati: " + ranking[i].getScore() + " \n ordine nel giro: " + ranking[i].getOrderInTurn() + "\n\n";
+        for(int i = 1; i <= ranking.length; i ++) {
+            rankingText = rankingText + i + "°: " + ranking[i-1].getNickname() + " \n    punti totalizzati: " + ranking[i-1].getScore() + " \n    ordine nel giro: " + ranking[i-1].getOrderInTurn() + "\n\n";
         }
 
-        winnerText = "Congratulazioni " + ranking[0].getNickname() + "hai vinto questa partita!";
+        winnerText = "Congratulazioni " + ranking[0].getNickname() + " hai vinto questa partita!";
 
         textArea1.setText(rankingText);
         textArea2.setText(winnerText);
