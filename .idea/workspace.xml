@@ -4,15 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Creazione schermata di EndGame nell'interfaccia grafica e Test delle stampe">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/ErrorNickPane.java" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Exit in caso di non inserimento di nuovo nickanme">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameError.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Type.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerEndGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerEndGameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +124,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="JUnit.WaitingRoomTest.test">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="it.polimi.ingegneriaDelSoftware.provaFinale.App" />
       <module name="MyShelfie_RPPT" />
@@ -183,9 +192,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.WaitingRoomTest.test" />
         <item itemvalue="Application.App" />
         <item itemvalue="JUnit.WaitingRoomTest" />
-        <item itemvalue="JUnit.WaitingRoomTest.test" />
         <item itemvalue="Application.AppServer" />
         <item itemvalue="Application.AppClient" />
       </list>
@@ -225,7 +234,12 @@
       <workItem from="1684842431500" duration="17908000" />
       <workItem from="1684945521232" duration="1707000" />
       <workItem from="1685110399873" duration="6449000" />
-      <workItem from="1685445623578" duration="2225000" />
+      <workItem from="1685445623578" duration="5265000" />
+      <workItem from="1685453292906" duration="3248000" />
+      <workItem from="1685537683764" duration="6296000" />
+      <workItem from="1686267787994" duration="145000" />
+      <workItem from="1686405063719" duration="1312000" />
+      <workItem from="1686649327289" duration="21525000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -444,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684533735512</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Exit in caso di non inserimento di nuovo nickanme">
+      <created>1685447903490</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1685447903490</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -490,7 +511,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
@@ -515,7 +535,8 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Controller to fix" />
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
+    <MESSAGE value="Exit in caso di non inserimento di nuovo nickanme" />
+    <option name="LAST_COMMIT_MESSAGE" value="Exit in caso di non inserimento di nuovo nickanme" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

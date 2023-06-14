@@ -402,7 +402,7 @@ public class DashboardTest {
 
 
         System.out.print("MODEL.Slot estratto: " + x +";"+ y + "\n");
-        System.out.print ("Il numero delle adiacenze è " + dashboard.adjaciencies(x,y));
+        System.out.print ("Il numero delle adiacenze è " + dashboard.adjacencies(x,y));
     }
 }
 
