@@ -1,4 +1,5 @@
 package MODEL;
+
 import java.io.Serializable;
 
 /**
@@ -181,12 +182,6 @@ public class Dashboard implements Serializable {
 
         return numberOfAdjacencies;
     }
-
-    /*
-    public Slot[][] getInDashboard() {
-        return inDashboard;
-    }
-    */
 
     /**
      * Gets the slot in the selected position of the dashboard according to the coordinates.

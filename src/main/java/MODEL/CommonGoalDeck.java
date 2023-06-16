@@ -1,4 +1,5 @@
 package MODEL;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -7,7 +8,6 @@ import java.util.Random;
  */
 public class CommonGoalDeck{
 
-    //private CommonGoalAbs goal;
     /**
      * The list of common goal still in the deck.
      */

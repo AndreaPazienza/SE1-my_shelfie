@@ -1,4 +1,5 @@
 package MODEL;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -93,10 +94,4 @@ public class Bag{
         inBag.remove(randomIndex);
         return returningSlot;
     }
-
-    /*
-    public int getBagSize(){
-        return this.inBag.size();
-    }
-    */
 }
