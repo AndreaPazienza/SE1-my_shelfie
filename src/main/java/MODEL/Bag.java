@@ -48,7 +48,6 @@ public class Bag{
                 toAdd6.setCatchable(false);
                 inBag.add(toAdd6);
             }
-
         }
     }
 
