@@ -9,7 +9,7 @@ import javax.swing.*;
 
 public class TurnFrame extends JFrame{
 
-    public TurnFrame(){
+    /*public TurnFrame(){
         super("STAI GIOCANDO! FAI LE TUE MOSSE!");
     }
 
@@ -209,4 +209,5 @@ public class TurnFrame extends JFrame{
             }
         }
     }
+     */
 }

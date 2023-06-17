@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NickChoice extends JFrame{
+    /*
 
     private JTextField nickField;
 
@@ -36,5 +37,7 @@ public class NickChoice extends JFrame{
     public JTextField getNickField() {
         return nickField;
     }
+
+     */
 
 }

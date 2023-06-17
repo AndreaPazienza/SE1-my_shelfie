@@ -3,6 +3,7 @@ package VIEW.GraphicObjects;
 import javax.swing.*;
 
 public class NumberOfPlayerChoice extends JFrame{
+    /*
 
     JOptionPane nPlayersChoice;
     Object[] options = {2, 3, 4};
@@ -27,4 +28,5 @@ public class NumberOfPlayerChoice extends JFrame{
     public void setChoice(int choice) {
         this.choice = choice;
     }
+     */
 }

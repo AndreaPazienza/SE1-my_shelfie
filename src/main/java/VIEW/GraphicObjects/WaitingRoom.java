@@ -11,6 +11,7 @@ import java.io.IOException;
 
 
 public class WaitingRoom extends JFrame{
+    /*
 
     private JScrollPane scrollPane1, scrollPane2;
     private JLabel rulebook1, rulebook2;
@@ -19,7 +20,7 @@ public class WaitingRoom extends JFrame{
     public WaitingRoom() throws IOException {
         super("IN ATTESA CHE ARRIVINO TUTTI I GIOCATORI");
         BufferedImage[] images = new BufferedImage[3];
-        images[0] = ImageIO.read(new File("src/main/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg"));
+        /*images[0] = ImageIO.read(new File("src/main/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg"));
         images[1] = ImageIO.read(new File("src/main/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg"));
         images[2] = ImageIO.read(new File("src/main/GraphicResources/Publisher material/Title 2000x618px.png"));
         this.rulebook1 = new JLabel((Icon) images[0]);
@@ -50,7 +51,7 @@ public class WaitingRoom extends JFrame{
     public JProgressBar getEnrolledPlayer(){
         return enrolledPlayer;
     }
-
+     */
 }
 
 

@@ -13,8 +13,8 @@ import javax.swing.*;
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
     public CGFourGroupsFourTiles(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/3.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/3.jpg");
+        //super.setImage(image);
     }
     @Override
     public void control(Player player) {

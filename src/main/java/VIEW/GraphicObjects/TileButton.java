@@ -3,6 +3,7 @@ package VIEW.GraphicObjects;
 import javax.swing.*;
 
 public class TileButton {
+    /*
     private JButton button;
     private int x;
     private int y;
@@ -24,5 +25,6 @@ public class TileButton {
     public int getY() {
         return y;
     }
+     */
 
 }

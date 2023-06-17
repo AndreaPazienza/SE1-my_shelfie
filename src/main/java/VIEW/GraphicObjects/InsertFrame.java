@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class InsertFrame extends TurnFrame {
 
+    /*
     private JLabel backgroudDashLabel, backgroundInsertLabel, backgroundPGoalLabel, backgroundCGoal1Label, backgroundCGoal2Label;
 
     private ImageIcon backgroundDash, backgroundInsert, backgroundPGoal, backgroundCGoal1, backgroundCGoal2;
@@ -20,9 +21,9 @@ public class InsertFrame extends TurnFrame {
 
         setLayout(new BorderLayout());
         //creazione sfondo
-        this.backgroundDash = new ImageIcon("src/main/GraphicResources/boards/livingroom.png");
+        this.backgroundDash = new ImageIcon("src/main/graphic_elements/GraphicResources/boards/bookshelf.png");
         this.backgroudDashLabel = new JLabel(backgroundDash);
-        this.backgroundInsert = new ImageIcon("src/main/GraphicResources/boards/bookshelf.png");
+        this.backgroundInsert = new ImageIcon("src/main/graphic_elements/GraphicResources/boards/bookshelf.png");
         this.backgroundInsertLabel = new JLabel(backgroundInsert);
         this.backgroundPGoal = new ImageIcon();
         this.backgroundPGoalLabel = new JLabel(backgroundPGoal);
@@ -97,5 +98,6 @@ public class InsertFrame extends TurnFrame {
     public JPanel getShelfWithB(){
         return shelfWithB;
     }
+     */
 
 }
