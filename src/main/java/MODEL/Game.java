@@ -149,28 +149,19 @@ public class Game implements GameEventListener {
 
 
     //The winner is declared (searches for the maximum)
-    public Player finalScore() {
+    public void finalScore() {
 
-        Player winner;
-        String winnerNickname = null;
-        int winnerScore = 0;
-        int winnerOrderInTurn = 0;
+        Player provvisoryPlayer = null;
 
-        for (int i = 0; i < player.length; i ++) {
-            if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
-                winnerScore = player[i].getScore();
-                winnerOrderInTurn = player[i].getOrderInTurn();
-                winnerNickname = player[i].getNickname();
+        for (int i = 0; i < player.length - 1; i ++) {
+            for (int j = i + 1; j < player.length; j ++) {
+                if ((player[j].getScore() > player[i].getScore()) || (player[j].getScore() == player[i].getScore() && player[j].getOrderInTurn() > player[i].getOrderInTurn())) {
+                    provvisoryPlayer = player[i];
+                    player[i] = player[j];
+                    player[j] = provvisoryPlayer;
+                }
             }
         }
-
-        //Creation of the winning player.
-        winner = new Player(winnerNickname);
-        winner.setScore(winnerScore);
-        winner.setOrderInTurn(winnerOrderInTurn);
-
-        return winner;
-
     }
 
 

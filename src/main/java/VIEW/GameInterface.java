@@ -446,6 +446,9 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
             if(response.equals("si")){
                 notifyOneMoreTime();
+            } else {
+                System.out.println("Uscita dalla partita in corso");
+                System.exit(0);
             }
     }
 
