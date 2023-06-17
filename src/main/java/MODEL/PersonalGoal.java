@@ -1,5 +1,7 @@
 package MODEL;
 
+import VIEW.Image;
+
 import java.io.Serializable;
 import java.util.Observable;
 
@@ -8,6 +10,8 @@ import java.util.Observable;
 public class PersonalGoal implements Serializable {
     private Target[] goal;
     private static final int N_GOALS = 6;
+
+    private Image image;
 
     public int assignPoint(PersonalShelf shelf) {
         int counter = 0;
@@ -67,6 +71,14 @@ public class PersonalGoal implements Serializable {
                 break; // Esci dal ciclo dopo aver aggiunto il target
             }
         }
+    }
+
+    public void setImage(Image image){
+        this.image=image;
+    }
+
+    public Image getImage() {
+        return this.image;
     }
 
     public void setPGoal1(){

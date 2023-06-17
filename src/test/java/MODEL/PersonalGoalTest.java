@@ -12,13 +12,15 @@ public class PersonalGoalTest{
 
     @Test
      void testMethod0(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tShelf = new PersonalShelf();
         assertEquals(0, pgoal.assignPoint(tShelf));
     }
     @Test
     void testMethod1(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
         Color c = pgoal.getSingleTarget(0).getTile();
         int x = pgoal.getSingleTarget(0).getPosX();
@@ -28,7 +30,8 @@ public class PersonalGoalTest{
     }
     @Test
     void testMethod2(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 2; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -40,7 +43,8 @@ public class PersonalGoalTest{
     }
     @Test
     void testMethod3(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 3; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -52,7 +56,8 @@ public class PersonalGoalTest{
     }
     @Test
     void testMethod4(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 4; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -64,7 +69,8 @@ public class PersonalGoalTest{
     }
     @Test
     void testMethod5(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
         for(int i = 0; i < 5; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();
@@ -76,7 +82,8 @@ public class PersonalGoalTest{
     }
     @Test
     void testMethod6(){
-        PersonalGoal pgoal = new PersonalGoal();
+        PersonalGoalDeck deck = new PersonalGoalDeck();
+        PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tShelf = new PersonalShelf();
         for(int i = 0; i < 6; i++) {
             Color c = pgoal.getSingleTarget(i).getTile();

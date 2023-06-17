@@ -1,10 +1,9 @@
+
 package VIEW.GraphicObjects;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.color.ColorSpace;
-import java.util.Objects;
-import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -53,3 +52,6 @@ public class WaitingRoom extends JFrame{
     }
 
 }
+
+
+

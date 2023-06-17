@@ -1,28 +1,17 @@
 package VIEW;
 
-import Errors.NotAdjacentSlotsException;
-import Errors.NotCatchableException;
-import Errors.NotEnoughSpaceChoiceException;
-import Errors.SameNicknameException;
-import Listeners.OrderListener;
 import Listeners.viewListeners;
-import MODEL.Dashboard;
-import MODEL.GameView;
-import MODEL.PersonalShelf;
-import VIEW.GraphicObjects.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicGameInterface implements Runnable, viewListeners, UserInterface {
+
+public class GraphicGameInterface/* UserInterface */{
 
     private final List<viewListeners> listeners = new ArrayList<>();
-    private JFrame mainFrame;
+    /*private JFrame mainFrame;
+
+
 
     public String firstRun(){
         NickChoice nickChoice = new NickChoice();
@@ -355,8 +344,7 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
         }
 
     public void errorNick(String message) throws SameNicknameException, RemoteException{
-
-    }
+*/
     }
 
 

@@ -1,14 +1,16 @@
 package MODEL;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Random;
+import VIEW.Image;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Random;
 
 
 public class PersonalGoalDeck {
@@ -63,6 +65,7 @@ public class PersonalGoalDeck {
                 Long posY = (Long) targetJson.get("posY");
 
                 String color = (String) targetJson.get("color");
+                Image image = (Image) targetJson.get("image");
                 Color color1 = Color.colorToString(color);
 
                 int intPosX = posX.intValue();
@@ -71,6 +74,7 @@ public class PersonalGoalDeck {
                 // Creating a Target object and adding it to the PersonalGoal object
                 Target target = new Target(color1, intPosX, intPosY);
                 personalGoal.addTarget(target);
+                personalGoal.setImage(image);
             }
             this.personalGoalDeck.add(personalGoal);
         }

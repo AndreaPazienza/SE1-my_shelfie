@@ -1,9 +1,4 @@
 package VIEW;
-import java.awt.*;
-import java.rmi.RemoteException;
-import java.util.*;
-import java.util.List;
-
 
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
@@ -11,11 +6,11 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
-import MODEL.Color;
 
-import javax.swing.*;
+import java.rmi.RemoteException;
+import java.util.*;
 
-public class GameInterface implements Runnable, viewListeners, UserInterface {
+public class GameInterface implements Runnable, viewListeners/*, UserInterface*/ {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard;
