@@ -19,6 +19,8 @@ public class Dashboard implements Serializable {
 
     /**
      * Constructor for Dashboard class.
+     *
+     * @param numberOfPlayers The number of players in the match.
      */
     public Dashboard (int numberOfPlayers) {
 

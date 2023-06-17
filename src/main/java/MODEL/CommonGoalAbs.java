@@ -3,19 +3,52 @@ package MODEL;
 import javax.swing.*;
 import java.io.Serializable;
 
+/**
+ * Class that represents a generic common goal card that each player can achieve.
+ */
 public abstract class CommonGoalAbs implements Serializable {
 
+    /**
+     * The index that marks the current player.
+     */
     protected int playing = 0;
+
+    /**
+     * The current maximum number of points achievable associated to the common goal card.
+     */
     private int maxPoint = 8;
+
+    /**
+     * The list of values that mark if a player achieved the common goal.
+     */
     protected Boolean[] playerAchived;
 
+    /**
+     * The graphic image associated to the common goal card.
+     */
     private ImageIcon image;
+
     CommonGoalAbs goal;
 
+    /**
+     * Checks if a player's shelf comply with the requirements of the common goal card.
+     * The method is overridden to allow each class that extends this to check following its specific conditions.
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     public abstract void control(Player player);
 
+    /**
+     * Shows the textual representation of the common goal card.
+     * The method is overridden to allow each class that extends this to show its particular textual representation.
+     */
     public abstract void show();
 
+    /**
+     * Constructor for CommonGoalAbs class.
+     *
+     * @param totalPlayer The number of players in the match.
+     */
     public CommonGoalAbs(int totalPlayer) {
 
         playerAchived = new Boolean[totalPlayer];
@@ -24,10 +57,11 @@ public abstract class CommonGoalAbs implements Serializable {
         }
     }
 
-    public int getMaxPoint() {
-        return maxPoint;
-    }
-
+    /**
+     * Retrieves
+     *
+     * @return
+     */
     public CommonGoalAbs getGoal() {
         return goal;
     }

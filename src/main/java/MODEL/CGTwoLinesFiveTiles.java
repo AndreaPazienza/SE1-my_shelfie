@@ -34,6 +34,9 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
         }
         return true;}
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Due righe formate ciascuna da 5 diversi tipi di tessere.");

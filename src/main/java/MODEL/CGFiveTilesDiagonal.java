@@ -13,6 +13,12 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
         ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/11.jpg");
         super.setImage(image);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
 
@@ -64,6 +70,9 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
     return true;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Cinque tessere dello stesso tipo che formano una diagonale.");

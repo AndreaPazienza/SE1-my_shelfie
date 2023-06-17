@@ -11,6 +11,12 @@ public class CGEightTilesSameType extends CommonGoalAbs {
         ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/9.jpg");
         super.setImage(image);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     public void control(Player player) {
 
   if(!playerAchived[playing]) {
@@ -41,6 +47,9 @@ public class CGEightTilesSameType extends CommonGoalAbs {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere.");

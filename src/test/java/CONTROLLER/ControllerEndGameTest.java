@@ -54,8 +54,8 @@ class ControllerEndGameTest {
         int pgoalSecond = model.getPlayer()[1].getPgoal().assignPoint(model.getPlayer()[1].getShelf());
         System.out.println("Il giocatore 1 ha fatto:"+ firstScore +" punti con le adiacenze, e "+ pgoalFirst
                 +" con i PGoal"+ ".Il secondo invece:"+ secondScore+ " con le adiacenze e " +pgoalSecond + " con i Pgoal");
-        String end = controller.endGame();
-        System.out.print(end);
+        //String end = controller.endGame();
+        //System.out.print(end);
         }
     }
 

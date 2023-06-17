@@ -16,6 +16,12 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
         ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/4.jpg");
         super.setImage(image);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
 
@@ -46,6 +52,9 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
        }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo (non necessariamente come mostrato in figura). Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.");

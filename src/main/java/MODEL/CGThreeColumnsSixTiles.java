@@ -42,6 +42,9 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
 
         return true;}
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Tre colonne formate ciascuna da 6 tessere di uno, due o tre tipi differenti. Colonne diverse possono avere combinazioni diverse di tipi di tessere.");
