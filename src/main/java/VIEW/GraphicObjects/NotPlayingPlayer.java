@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class NotPlayingPlayer extends JFrame {
+    /*
 
     private JLabel backgroudDashLabel, backgroundInsertLabel, backgroundPGoalLabel, backgroundCGoal1Label, backgroundCGoal2Label;
     private ImageIcon backgroundDash, backgroundInsert, backgroundPGoal, backgroundCGoal1, backgroundCGoal2;
@@ -271,4 +272,5 @@ public class NotPlayingPlayer extends JFrame {
             }
         }
     }
+     */
 }

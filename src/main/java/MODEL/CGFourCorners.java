@@ -11,8 +11,8 @@ public class CGFourCorners extends CommonGoalAbs {
 
     public CGFourCorners(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/8.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/8.jpg");
+        //super.setImage(image);
     }
     public void control(Player player) {
 

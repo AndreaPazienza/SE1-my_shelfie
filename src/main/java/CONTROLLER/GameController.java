@@ -149,14 +149,14 @@ public class GameController{
         for(int i = 0; i < game.getPlayer().length; i++){
             game.getPlayer()[i].checkScore();
         }
-        winner = game.finalScore();
+        game.finalScore();
         StringBuilder endGameString = new StringBuilder();
         game.setGameOn(false);
 
         for(int i=0; i < game.getNplayers(); i++){
             endGameString.append("\n").append(game.getPlayer()[i].getNickname()).append(" ha totalizzato: ").append(game.getPlayer()[i].getScore()).append(" punti ");
         }
-        endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
+        //endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
 
         return endGameString.toString();
     }

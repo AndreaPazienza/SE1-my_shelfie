@@ -9,8 +9,8 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
     public CGTwoLinesFiveTiles(int players){
 
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/6.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/6.jpg");
+        //super.setImage(image);
     }
 
     public boolean controlRows(Player current, Color[] rows, int found) {

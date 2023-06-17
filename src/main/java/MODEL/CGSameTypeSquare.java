@@ -9,8 +9,8 @@ public class CGSameTypeSquare extends CommonGoalAbs {
 
     public CGSameTypeSquare(int players) {
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/1.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/1.jpg");
+        //super.setImage(image);
     }
 
     /**

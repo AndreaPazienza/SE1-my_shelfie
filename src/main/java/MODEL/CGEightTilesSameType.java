@@ -8,8 +8,8 @@ import javax.swing.*;
 public class CGEightTilesSameType extends CommonGoalAbs {
     public CGEightTilesSameType(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/9.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/9.jpg");
+        //super.setImage(image);
     }
 
     /**

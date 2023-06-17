@@ -13,8 +13,8 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
 
     public CGSixGroupsTwoTiles(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/4.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/4.jpg");
+        //super.setImage(image);
     }
 
     /**

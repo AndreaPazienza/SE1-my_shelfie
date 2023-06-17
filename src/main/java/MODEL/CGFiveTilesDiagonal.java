@@ -10,8 +10,8 @@ import javax.swing.*;
 public class CGFiveTilesDiagonal extends CommonGoalAbs{
     public CGFiveTilesDiagonal(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/11.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/11.jpg");
+        //super.setImage(image);
     }
 
     /**
