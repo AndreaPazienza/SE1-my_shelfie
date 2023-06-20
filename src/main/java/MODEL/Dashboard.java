@@ -186,7 +186,7 @@ public class Dashboard implements Serializable {
     }
 
     /**
-     * Gets the slot in the selected position of the dashboard according to the coordinates.
+     * Retrieves the slot in the selected position of the dashboard according to the coordinates.
      *
      * @param x The index of the dashboard's slot's row to get.
      * @param y The index of the dashboard's slot's column to get.
