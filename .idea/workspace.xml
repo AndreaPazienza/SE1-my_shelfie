@@ -4,30 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Exit in caso di non inserimento di nuovo nickanme">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini">
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/NotPlayingScene.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayers.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/SelectionFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/SelectionFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TurnFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TurnFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,24 +77,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "/Users/alessiotagab/ing-sw-2023-ronchieri-proverbio-tagab-pazienza",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="VIEW.GraphicObjects" />
@@ -117,6 +108,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
       <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -129,7 +122,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
+  <component name="RunManager" selected="Application.App">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="MyShelfie_RPPT" />
@@ -190,10 +183,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
         <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.AppClient" />
+        <item itemvalue="Application.AppServer" />
         <item itemvalue="JUnit.WaitingRoomTest.test" />
       </list>
     </recent_temporary>
@@ -201,7 +194,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
+      <changelist id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -238,6 +231,9 @@
       <workItem from="1686267787994" duration="145000" />
       <workItem from="1686405063719" duration="1312000" />
       <workItem from="1686649327289" duration="21525000" />
+      <workItem from="1687378689182" duration="376000" />
+      <workItem from="1687379116453" duration="113000" />
+      <workItem from="1687379247458" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -463,7 +459,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685447903490</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Risoluzione immagini">
+      <created>1687020348916</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1687020348916</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,7 +512,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
@@ -534,7 +536,8 @@
     <MESSAGE value="Controller to fix" />
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
     <MESSAGE value="Exit in caso di non inserimento di nuovo nickanme" />
-    <option name="LAST_COMMIT_MESSAGE" value="Exit in caso di non inserimento di nuovo nickanme" />
+    <MESSAGE value="Risoluzione immagini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione immagini" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
