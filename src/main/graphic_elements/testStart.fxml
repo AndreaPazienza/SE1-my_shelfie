@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<TitledPane id="StartFrame" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="MY_SHELFIE" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.ControllerGraphic">
+<TitledPane id="StartFrame" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="MY_SHELFIE" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
@@ -24,12 +24,12 @@
                   <Image url="@/GraphicResources/Publisher material/Publisher.png" />
                </image>
             </ImageView>
-            <Button fx:id="ConfirmButton" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" onAction="#ConfermaScelta" prefHeight="29.0" prefWidth="74.0" text="Conferma">
+            <Button fx:id="confirmNickButton" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" onAction="#confirmNick" prefHeight="29.0" prefWidth="74.0" text="Conferma">
                <font>
                   <Font name="Noteworthy Light" size="12.0" />
                </font>
             </Button>
-            <TextField fx:id="TextField" layoutX="80.0" layoutY="143.0" onAction="#GetText" prefHeight="33.0" prefWidth="438.0" style="-fx-background-color: white;">
+            <TextField fx:id="nickField" layoutX="80.0" layoutY="143.0" prefHeight="33.0" prefWidth="438.0" style="-fx-background-color: white;">
                <font>
                   <Font name="Ravie" size="12.0" />
                </font>
