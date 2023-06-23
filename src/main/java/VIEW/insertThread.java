@@ -9,9 +9,9 @@ import java.rmi.RemoteException;
 public class insertThread extends Thread{
 
     public volatile boolean valid = true;
-    private GameInterface view;
+    private GraphicGameInterface view;
 
-    public insertThread(GameInterface view){
+    public insertThread(GraphicGameInterface view){
         this.view = view;
     }
 
@@ -29,7 +29,7 @@ public class insertThread extends Thread{
           System.err.println("--non ho più nulla da fare, insert--");
           stopThread();
          }
-      }
+    }
 
 
     public void stopThread(){

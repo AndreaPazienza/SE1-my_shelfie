@@ -14,10 +14,10 @@ public interface UserInterface {
     public String firstRun();
     public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException;
     public int numberOfPlayers();
-    public void playing(GameView gameView) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
-    public void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException;
+    public void playing() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
+    public void playerMoveSelection() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException;
     public void startTurn();
-    public void onWait(GameView gameView);
+    public void onWait();
     public void errorNotCatchable();
     public void errorOneNotCatchable();
     public void errorNotAdjacent();

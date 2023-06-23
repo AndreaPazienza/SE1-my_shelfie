@@ -4,15 +4,15 @@ import java.io.Serializable;
 
 public class Target implements Serializable {
     private Color tile;
-    private int PosX;
-    private int PosY;
+    private int posX;
+    private int posY;
 
     public int getPosX() {
-        return PosX;
+        return posX;
     }
 
     public int getPosY() {
-        return PosY;
+        return posY;
     }
 
     public Color getTile() {
@@ -20,11 +20,11 @@ public class Target implements Serializable {
     }
 
     public void setPosX(int x) {
-        this.PosX = x;
+        this.posX = x;
     }
 
     public void setPosY(int y) {
-        this.PosY = y;
+        this.posY = y;
     }
 
     public void setTile(Color color) {
@@ -32,8 +32,8 @@ public class Target implements Serializable {
     }
 
     public Target (Color c, int x, int y){
-        this.PosX = x;
-        this.PosY = y;
+        this.posX = x;
+        this.posY = y;
         this.tile = c;
     }
 }

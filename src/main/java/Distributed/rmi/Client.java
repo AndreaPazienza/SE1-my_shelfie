@@ -12,6 +12,7 @@ import MODEL.GameView;
 import VIEW.*;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
@@ -20,22 +21,21 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
-    private final GameInterface view = new GameInterface();
-    private final GraphicGameInterface graphicView = new GraphicGameInterface();
+    //private final GameInterface view = new GameInterface();
+    private final GraphicGameInterface view = new GraphicGameInterface();
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
     private boolean endGame;
 
-    public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
+    public Client(ServerRMIInterface server) throws RemoteException, IOException, SameNicknameException {
         super();
         connectedTo = server;
         nickname = view.firstRun();
         view.addviewEventListener(this);
         initialize(server);
-
     }
 
-    public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
+    public Client(ServerRMIInterface server, int port) throws RemoteException, IOException,SameNicknameException {
         super(port);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -43,7 +43,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         connectedTo = server;
     }
 
-    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, SameNicknameException {
+    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, IOException,SameNicknameException {
         super(port, csf, ssf);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -52,11 +52,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
 
-    public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException {
+    public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException, IOException {
         try {
             server.register(this);
         } catch (SameNicknameException e) {
-            sameNickFound(e.getMessage());
+            //sameNickFound(e.getMessage());
         } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
             throw new RuntimeException(e);
         } catch (RemoteException e) {
@@ -65,9 +65,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
-    public void sameNickFound(String errorMessage) throws SameNicknameException, RemoteException {
+    /*public void sameNickFound(String errorMessage) throws SameNicknameException, RemoteException {
         view.errorNick(errorMessage);
-    }
+    }*/
 
 
     public void run() {
@@ -101,13 +101,13 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
+    public void notifyOneMoreTime() throws SameNicknameException, IOException,RemoteException {
         nickname = view.firstRun();
         try {
             connectedTo.register(this);
         } catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
                  NotCatchableException e) {
-            sameNickFound(e.getMessage());
+            //sameNickFound(e.getMessage());
         }
     }
 
@@ -121,8 +121,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     public void updateClientFirst(GameView modelView) {
         gameState = modelView.getGameState();
         view.displayCommonGoal(modelView);
-        view.displayPersonalGoal(modelView.getPgoal());
-        view.displayDashboard(modelView.getTable());
+        view.displayPersonalGoal(modelView);
+        view.displayDashboard(modelView);
 
         // view.onWait();
     }
@@ -134,15 +134,15 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         /*for(int i = 0; i < 6; i++){
             view.displayTarget(i, modelView);
         }*/
-        view.displayDashboard(modelView.getTable());
-        view.displayPersonalShelf(modelView.getShelf());
+        view.displayDashboard(modelView);
+        view.displayPersonalShelf(modelView);
     }
 
     //Manda a tutti i client la nuova board
     @Override
     public void updateClientRound(GameView model) throws RemoteException {
         gameState = model.getGameState();
-        view.displayDashboard(model.getTable());
+        view.displayDashboard(model);
     }
 
 
@@ -161,7 +161,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: when a new client registers, those already logged in are notified.
     @Override
-    public void newPlayerAdded(int enrolledPlayers, int nPlayers) throws RemoteException {
+    public void newPlayerAdded(int enrolledPlayers, int nPlayers) throws RemoteException, IOException {
         view.waitingRoom(enrolledPlayers, nPlayers);
     }
 
@@ -191,7 +191,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     @Override
     public void winnerInterface(String winner) throws RemoteException {
         gameState = false;
-        view.displayWin(winner);
+        //view.displayWin(winner);
     }
 
     @Override

@@ -2,10 +2,11 @@ package VIEW.GraphicObjects;
 
 import javax.swing.*;
 
-public class TileButton {
+public class TileButton extends JButton {
     private JButton button;
     private int x;
     private int y;
+
 
     public TileButton(JButton button, int i, int j){
         this.button = button;

@@ -1,10 +1,13 @@
 package MODEL;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Observable;
 
 public class PersonalGoal implements Serializable {
     private Target[] goal;
+
+    private ImageIcon image;
     private static final int N_GOALS = 6;
 
     public int assignPoint(PersonalShelf shelf) {
@@ -150,5 +153,9 @@ public class PersonalGoal implements Serializable {
         goal[3] = new Target(Color.LBLUE,3,3);
         goal[4] = new Target(Color.YELLOW,4,4);
         goal[5] = new Target(Color.GREEN, 5,0);
+    }
+
+    public ImageIcon getImage() {
+        return image;
     }
 }

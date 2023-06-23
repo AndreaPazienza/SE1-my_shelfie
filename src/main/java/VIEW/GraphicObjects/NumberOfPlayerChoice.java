@@ -2,18 +2,18 @@ package VIEW.GraphicObjects;
 
 import javax.swing.*;
 
-public class NumberOfPlayerChoice extends JFrame{
+public class NumberOfPlayerChoice extends JPanel{
 
     JOptionPane nPlayersChoice;
     Object[] options = {2, 3, 4};
     private int choice;
 
     public NumberOfPlayerChoice(){
-        super("SCELTA NUMERO DI GIOCATORI");
+        super(/*"SCELTA NUMERO DI GIOCATORI"*/);
         this.choice = JOptionPane.showOptionDialog(this,"Scegliere il numero di giocatori: ",
                 "Inserimento Numero Di Giocatori", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, options, options[0]);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
     public int getChoice() {
