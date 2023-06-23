@@ -40,17 +40,17 @@
       </AnchorPane>
       <AnchorPane prefHeight="437.0" prefWidth="309.0" GridPane.columnIndex="1">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="301.0">
+            <ImageView fitHeight="400.0" fitWidth="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@/GraphicResources/misc/base_pagina2.jpg" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="312.0" prefWidth="302.0" text="#textArea2" textAlignment="CENTER" textFill="#efd393" textOverrun="CLIP" wrapText="true">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="312.0" prefWidth="302.0" text="#textArea2" textAlignment="CENTER" textFill="#efd393" textOverrun="CLIP" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="Ravie" size="24.0" />
                </font>
             </Label>
-            <ImageView fitHeight="104.0" fitWidth="302.0" layoutY="312.0" preserveRatio="true">
+            <ImageView fitHeight="104.0" fitWidth="302.0" layoutY="312.0" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@/GraphicResources/Publisher material/banner 1386x400px.png" />
                </image>

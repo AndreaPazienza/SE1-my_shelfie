@@ -3,36 +3,36 @@ package VIEW;
 import Errors.SameNicknameException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 
 public class ControllerGraphic {
-    TextField inserimentoNick;
-
     @FXML
-    public void ConfermaScelta(javafx.event.ActionEvent actionEvent) {
+    TextField inserimentoNick;
+    Button confirmNick;
 
 
+    public String  ConfermaScelta(javafx.event.ActionEvent actionEvent) {
+        String nick = inserimentoNick.getText();
+        return nick;
     }
 
     public void GetText(ActionEvent actionEvent) {
-        try {
-            TextField inserimentoNick;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
-    public void Return2(ActionEvent actionEvent) {
-
+    public int Return2(ActionEvent actionEvent) {
+        int nPlayers = 2;
+        return nPlayers;
     }
 
-    public void Return3(ActionEvent actionEvent) {
+    public int Return3(ActionEvent actionEvent) {
+        int nPlayers = 3;
+        return nPlayers;
     }
 
-    public void Return4(ActionEvent actionEvent) {
+    public int Return4(ActionEvent actionEvent) {
+        int nPlayers = 4;
+        return nPlayers;
     }
-
-
-
 }

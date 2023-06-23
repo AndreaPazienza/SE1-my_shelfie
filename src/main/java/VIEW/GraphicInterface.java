@@ -25,7 +25,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
@@ -45,7 +45,6 @@ public class GraphicInterface extends Application implements viewListeners{
 
     @FXML
     GridPane tableGrid;
-
     @FXML
     GridPane shelfGrid;
 
@@ -68,6 +67,8 @@ public class GraphicInterface extends Application implements viewListeners{
     public void fistRun(String[] arg) {
         launch(arg);
     }
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -134,7 +135,21 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.show();
     }
 
-    public void displayUpdate(GameView gameView) {
+    public void displayUpdate(GameView gameView){
+        ImageView sfondo = new ImageView ("GraphicResources/boards/livingroom.png");
+
+        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
+        BackgroundImage backgroundImage = new BackgroundImage(sfondo.getImage(), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
+        Background background = new Background(backgroundImage);
+        tableGrid.setBackground(background);
+
+
+
+        /*sfondo.setPreserveRatio(true);
+        sfondo.fitWidthProperty().bind(tableGrid.widthProperty());
+        sfondo.fitHeightProperty().bind(tableGrid.heightProperty());
+        StackPane stackPane = new StackPane();
+        stackPane.getChildren().addAll(sfondo,tableGrid);*/
 
         for(int i = 0; i < Dashboard.getSide(); i ++) {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
@@ -143,9 +158,15 @@ public class GraphicInterface extends Application implements viewListeners{
 
                 if (!gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
                     tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType());
-                    GridPane.setRowIndex(tile, i);
-                    GridPane.setColumnIndex(tile, j);
-                    tableGrid.getChildren().add(tile);
+                    //GridPane.setRowIndex(tile, i);
+                    //GridPane.setColumnIndex(tile, j);
+                    tile.setPreserveRatio(true);
+                    tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
+                    tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
+
+                    //tile.setFitHeight(20.0);
+                    //tile.setFitWidth(20.0);
+                      tableGrid.add(tile,i,j);
                 }
             }
         }
@@ -157,9 +178,12 @@ public class GraphicInterface extends Application implements viewListeners{
 
                 if (!gameView.getShelf().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
                     tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType());
-                    GridPane.setRowIndex(tile, i);
-                    GridPane.setColumnIndex(tile, j);
-                    shelfGrid.getChildren().add(tile);
+                    //GridPane.setRowIndex(tile, i);
+                    //GridPane.setColumnIndex(tile, j);
+                    //shelfGrid.getChildren().add(tile);
+                    tile.setFitHeight(25.0);
+                    tile.setFitWidth(25.0);
+                    shelfGrid.add(tile,i,j);
                 }
             }
         }
@@ -194,7 +218,7 @@ public class GraphicInterface extends Application implements viewListeners{
                 switch (type) {
                     case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.1.png");
                     case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Cornici.3.png");
+                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.3.png");
                 }
             }
             case LBLUE -> {

@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini">
-      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayers.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,8 +181,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
         <item itemvalue="JUnit.WaitingRoomTest.test" />
@@ -539,8 +542,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
