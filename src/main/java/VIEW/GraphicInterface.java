@@ -35,6 +35,9 @@ public class GraphicInterface extends Application implements viewListeners{
 
     Stage stage;
 
+    private String nick = null;
+    private int number = 0;
+
     @FXML
     TextField nickField;
     @FXML
@@ -64,8 +67,12 @@ public class GraphicInterface extends Application implements viewListeners{
     Label textArea2;
 
 
-    public void fistRun(String[] arg) {
+    public String fistRun(String[] arg) {
         launch(arg);
+        while (nick == null) {
+
+        }
+        return nick;
     }
 
 
@@ -78,35 +85,34 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.show();
     }
 
-    public void numberOfPlayers() throws Exception {
+    public int numberOfPlayers() throws Exception {
         Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
         stage.setScene(new Scene(numberOfPlayersScene));
         stage.show();
-    }
+        while (number == 0) {
 
-    public void playing ()throws Exception{
-
+        }
+        return number;
     }
 
     public void confirmNick() {
 
-        String nick = nickField.getText();
-        notifyNick(nick);
+        nick = nickField.getText();
     }
 
-    public void return2() {
+    public void setNumber2 () {
 
-        notifyNumberOfPlayers(2);
+        number = 2;
     }
 
-    public void return3() {
+    public void setNumber3 () {
 
-        notifyNumberOfPlayers(3);
+        number = 3;
     }
 
-    public void return4() {
+    public void setNumber4 () {
 
-        notifyNumberOfPlayers(4);
+        number = 4;
     }
 
     /*

@@ -16,9 +16,9 @@
             </ImageView>
             <ButtonBar fx:id="numberOfPlayersButtons" layoutX="174.0" layoutY="162.0">
                <buttons>
-                  <Button fx:id="twoPlayersButton" mnemonicParsing="false" onAction="#return2" text="2" />
-                  <Button fx:id="threePlayersButton" mnemonicParsing="false" onAction="#return3" text="3" />
-                  <Button fx:id="fourPlayersButton" mnemonicParsing="false" onAction="#return4" text="4" />
+                  <Button fx:id="twoPlayersButton" mnemonicParsing="false" onAction="#setNumber2" text="2" />
+                  <Button fx:id="threePlayersButton" mnemonicParsing="false" onAction="#setNumber3" text="3" />
+                  <Button fx:id="fourPlayersButton" mnemonicParsing="false" onAction="#setNumber4" text="4" />
                </buttons>
             </ButtonBar>
             <Text fx:id="BoxText" fill="#4a3a10" layoutX="171.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCEGLI IL NUMERO DI GIOCATORI">
