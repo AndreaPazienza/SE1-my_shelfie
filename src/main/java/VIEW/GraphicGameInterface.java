@@ -1,79 +1,46 @@
 package VIEW;
 
-import Errors.NotAdjacentSlotsException;
-import Errors.NotCatchableException;
-import Errors.NotEnoughSpaceChoiceException;
-import Errors.SameNicknameException;
-import Listeners.OrderListener;
 import Listeners.viewListeners;
-import MODEL.Color;
-import MODEL.Dashboard;
-import MODEL.GameView;
-import MODEL.PersonalGoal;
-import MODEL.PersonalShelf;
-import VIEW.GraphicObjects.*;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GraphicGameInterface implements Runnable, viewListeners, UserInterface{
+
+public class GraphicGameInterface/* UserInterface */{
 
     private final List<viewListeners> listeners = new ArrayList<>();
-    private JFrame mainFrame;
+    /*private JFrame mainFrame;
 
-    private WaitingRoom waitingRoom = new WaitingRoom();
 
-    private JPanel goals = new JPanel(new FlowLayout());
-    private GameView lastGameview;
+
     public String firstRun(){
         NickChoice nickChoice = new NickChoice();
-        nickChoice.setPreferredSize(new Dimension(100,100));
-        JOptionPane.showMessageDialog(mainFrame, nickChoice, "Inserire il Nickname: ", JOptionPane.PLAIN_MESSAGE);
-        /*mainFrame.getContentPane().add(nickChoice);
-        mainFrame.revalidate();
-        mainFrame.pack();*/
-        String nick = nickChoice.getNick();
-        if(nick.isBlank()) {
-                    JOptionPane.showMessageDialog(mainFrame,
-                            "Il nickname inserito è vuoto o formato solo da spazi! Sceglierne un'altro!",
-                            "ERRORE!",
-                            JOptionPane.WARNING_MESSAGE);
-                    //mainFrame.remove(nickChoice);
-                    return firstRun();
-                }
-        //mainFrame.remove(nickChoice);
-        return nick;
+        mainFrame.add(nickChoice);
+        final String[] nick = {null};
+        nickChoice.getConfirm().addActionListener(e -> {
+            nick[0] = nickChoice.getNickField().getText();
+            if(nick[0].isBlank()){
+                JOptionPane.showMessageDialog(this.mainFrame,
+                        "Il nickname inserito è vuoto o formato solo da spazi! Sceglierne un'altro!",
+                        "ERRORE!",
+                        JOptionPane.WARNING_MESSAGE);
+                mainFrame.remove(nickChoice);
+                firstRun();
+            }
+        });
+        mainFrame.remove(nickChoice);
+        return nick[0];
     }
 
-
     public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException {
-        JFrame tmp = mainFrame;
-        if(mainFrame.getContentPane().getComponentCount() == 0) {
-            setMainFrame(waitingRoom);
-            waitingRoom.getEnrolledPlayer().setMaximum(nPlayers);
-            waitingRoom.getEnrolledPlayer().setValue(enrolledPlayers);
-            waitingRoom.getEnrolledPlayer().setString("Si sono iscritti "+waitingRoom.getEnrolledPlayer().getValue()+" su "+waitingRoom.getEnrolledPlayer().getMaximum());
-        } else {
-            waitingRoom.getEnrolledPlayer().setValue(enrolledPlayers);
-            waitingRoom.getEnrolledPlayer().setString("Si sono iscritti "+waitingRoom.getEnrolledPlayer().getValue()+" su "+waitingRoom.getEnrolledPlayer().getMaximum());
-        }
-        if(enrolledPlayers == nPlayers){
-            waitingRoom = null;
-            setMainFrame(new JFrame());
-            mainFrame.setLayout(new BorderLayout());
-            mainFrame.add(goals, BorderLayout.SOUTH);
-        }
-        //mainFrame.pack();
-        //waitingRoom.getEnrolledPlayer().setMaximum(nPlayers);
+        WaitingRoom wRoom = new WaitingRoom();
+        mainFrame.add(wRoom);
+        wRoom.getEnrolledPlayer().setMaximum(nPlayers);
+        wRoom.getEnrolledPlayer().setValue(enrolledPlayers);
+        wRoom.getEnrolledPlayer().setString("Si sono iscritti "+wRoom.getEnrolledPlayer().getValue()+" su "+wRoom.getEnrolledPlayer().getMaximum());
     }
 
     public int numberOfPlayers(){
-
         NumberOfPlayerChoice nPlayersChoice = new NumberOfPlayerChoice();
         mainFrame.add(nPlayersChoice);
 
@@ -92,18 +59,18 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
                 ((JButton) component).addActionListener(a);
             }
         }
-        mainFrame.remove(nPlayersChoice);
+
         return nPlayersChoice.getChoice()+2;
     }
 
-    public void playing() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-        playerMoveSelection();
-        playerInsert();
+    public void playing(GameView gameView) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+        playerMoveSelection(gameView);
+        playerInsert(gameView);
     }
 
-    public void playerMoveSelection() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
-        //SelectionFrame selectionFrame = new SelectionFrame(lastGameview);
-        //mainFrame = selectionFrame;
+    public void playerMoveSelection(GameView gameView) throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+        SelectionFrame selectionFrame = new SelectionFrame(gameView);
+        mainFrame.add(selectionFrame);
         final boolean[] didSelection = {false};
         final int[] nChoices = {0};
         Object[] options = {1,2,3};
@@ -116,13 +83,13 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
         nChoices[0] = nTiles.showOptionDialog(null,"Scegliere il numero di tessere da selezionare: ",
                 "Inserimento Numero Scelte", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, options, options[0]);
-        mainFrame.add(nTiles, BorderLayout.NORTH);
+        selectionFrame.add(nTiles, BorderLayout.NORTH);
         ActionListener a = e -> {
             String selectedOption = e.getActionCommand();
             for(int i = 0; i < options.length; i++){
                 if(options[i].equals(selectedOption)){
                     nChoices[0] = i+1;
-                    mainFrame.remove(nTiles);
+                    selectionFrame.remove(nTiles);
                 }
             }
             try {
@@ -152,28 +119,27 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
             selection.add(slot[i].getLabel());
         }
         selection.add(confirm);
-        mainFrame.add(selection, BorderLayout.NORTH);
+        selectionFrame.add(selection, BorderLayout.NORTH);
         //EFFETTIVA SCELTA: IMPLEMENTAZIONE DEL ACTIONLISTENER CHE CREA LA SLOTCHOICE E LA INSERISCE NELL'ARRAY
         ActionListener choice = e -> {
             TileButton button = (TileButton)e.getSource();
             slotChoices[k[0]] = new SlotChoice(button.getX(), button.getY());
-            slot[k[0]].getLabel().setIcon(button.getButton().getIcon());
+            slot[k[0]].getLabel().setIcon(selectionFrame.getSingleButton(button.getX(), button.getY()).getButton().getIcon());
             k[0]++;
             if(k[0] == nChoices[0]){
                 didSelection[0]=true;
             }
         };
-        //for(com)
-        for(Component component : mainFrame.getComponents()){
-            if(component instanceof TileButton){
-                ((TileButton) component).getButton().addActionListener(choice);
+        for(int i = 0; i < Dashboard.getSide();i++){
+            for(int j = 0; j < Dashboard.getSide();j++){
+                selectionFrame.getSingleButton(i,j).getButton().addActionListener(choice);
             }
         }
         //una volta selezionate tutte le tessere, non voglio aggiornamenti dalla dashboard
         if(didSelection[0]){
-            for(Component component : mainFrame.getComponents()){
-                if(component instanceof TileButton){
-                    ((TileButton) component).getButton().removeActionListener(choice);
+            for(int i = 0; i < Dashboard.getSide();i++){
+                for(int j = 0; j < Dashboard.getSide();j++){
+                    selectionFrame.getSingleButton(i,j).getButton().removeActionListener(choice);
                 }
             }
             k[0] = 0;
@@ -216,6 +182,7 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
                     OrderChoice order = new OrderChoice(1,1,1);
                     try {
                         notifyOrder(order);
+                        mainFrame.remove(selectionFrame);
                     } catch (RemoteException e) {
                         throw new RuntimeException(e);
                     } catch (NotEnoughSpaceChoiceException e) {
@@ -230,14 +197,14 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
         };
     }
 
-    public void playerInsert() throws RemoteException, NotCatchableException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException{
-        /*InsertFrame insertFrame = new InsertFrame(lastGameview);
-        mainFrame = insertFrame;*/
+    public void playerInsert(GameView gameView){
+        InsertFrame insertFrame = new InsertFrame(gameView);
+        mainFrame.add(insertFrame);
         ActionListener a = e -> {
             InsertButton insertChoice = (InsertButton) e.getSource();
             try {
                 notifyInsert(insertChoice.getIndex());
-                //mainFrame.remove(insertFrame);
+                mainFrame.remove(insertFrame);
             } catch (RemoteException ex) {
                 throw new RuntimeException(ex);
             } catch (NotEnoughSpaceChoiceException ex) {
@@ -248,7 +215,7 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
                 throw new RuntimeException(ex);
             }
         };
-        for(Component component : mainFrame.getComponents()){
+        for(Component component : insertFrame.getShelfWithB().getRootPane().getComponents()){
             if(component instanceof InsertButton){
                 ((InsertButton) component).addActionListener(a);
             }
@@ -301,7 +268,7 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
     }
 
     @Override
-    public void notifyOneMoreTime() throws SameNicknameException, IOException {
+    public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
@@ -323,8 +290,8 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
         JDialog info = new JDialog(mainFrame, "Inizio del nuovo turno!");
     }
 
-    public void onWait(){
-        NotPlayingPlayer onWait = new NotPlayingPlayer(lastGameview);
+    public void onWait(GameView gameView){
+        NotPlayingPlayer onWait = new NotPlayingPlayer(gameView);
     }
 
     public void errorNotCatchable() {
@@ -377,280 +344,7 @@ public class GraphicGameInterface implements Runnable, viewListeners, UserInterf
         }
 
     public void errorNick(String message) throws SameNicknameException, RemoteException{
-
+*/
     }
-
-    public void notifyAlmostOver(){}
-    public void displayWin(){
-    }
-
-    public void displayDashboard(GameView gameView){
-        TileButton[][] tiles = new TileButton[Dashboard.getSide()][Dashboard.getSide()];
-        ImageIcon backgroundDash = new ImageIcon("src/main/GraphicResources/boards/livingroom.png");
-        JLabel backgroudDashLabel = new JLabel(backgroundDash);
-
-        JPanel board = new JPanel(new GridLayout(Dashboard.getSide(), Dashboard.getSide()));
-        tiles = new TileButton[Dashboard.getSide()][Dashboard.getSide()];
-
-        for (int i = 0; i < Dashboard.getSide(); i++) {
-            for (int j = 0; j < Dashboard.getSide(); j++) {
-                tiles[i][j] = new TileButton(new JButton(),i,j);
-                tiles[i][j].getButton().setPreferredSize(new Dimension(50, 50));
-                board.add(tiles[i][j].getButton());
-            }
-        }
-        createDashoard(gameView,tiles);
-        backgroudDashLabel.setLayout(new GridBagLayout());
-        backgroudDashLabel.add(board);
-        mainFrame.add(backgroudDashLabel, BorderLayout.CENTER);
-    }
-
-    public void displayPersonalShelf(GameView gameView){
-        ImageIcon backgroundInsert = new ImageIcon("src/main/GraphicResources/boards/bookshelf.png");
-        JLabel backgroundInsertLabel = new JLabel(backgroundInsert);
-
-        JPanel shelf = new JPanel(new GridLayout(PersonalShelf.N_ROWS, PersonalShelf.N_COLUMN));
-        JLabel[][] shelfHole = new JLabel[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
-        JPanel columnButtons = new JPanel(new FlowLayout());
-        JPanel shelfWithB = new JPanel();
-        shelfWithB.setLayout(new BoxLayout(shelfWithB, BoxLayout.Y_AXIS));
-
-        for(int i = 0; i < PersonalShelf.N_COLUMN; i++){
-            InsertButton colButton = new InsertButton();
-            colButton.setIndex(i);
-            columnButtons.add(colButton);
-        }
-
-        shelfWithB.add(columnButtons);
-
-        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
-            for(int j = 0; j < PersonalShelf.N_COLUMN;j++){
-                shelfHole[i][j] = new JLabel();
-                shelfHole[i][j].setPreferredSize(new Dimension(50,50));
-                shelf.add(shelfHole[i][j]);
-            }
-        }
-        createShelf(gameView, shelfHole);
-        backgroundInsertLabel.setLayout(new GridBagLayout());
-        backgroundInsertLabel.add(shelf);
-        shelfWithB.add(backgroundInsertLabel);
-        mainFrame.add(shelfWithB, BorderLayout.WEST);
-    }
-
-    public void displayCommonGoal(GameView gameView){
-        ImageIcon backgroundCGoal1 = gameView.getCommonGoal1().getImage();
-        JLabel backgroundCGoal1Label = new JLabel(backgroundCGoal1);
-        ImageIcon backgroundCGoal2 = gameView.getCommonGoal2().getImage();
-        JLabel backgroundCGoal2Label = new JLabel(backgroundCGoal2);
-        goals.add(backgroundCGoal1Label);
-        goals.add(backgroundCGoal2Label);
-    }
-
-    public void displayPersonalGoal(GameView gameView){
-        ImageIcon backgroundPGoal = gameView.getPgoal().getImage();
-        JLabel backgroundPGoalLabel = new JLabel(backgroundPGoal);
-        goals.add(backgroundPGoalLabel);
-    }
-
-    public void createDashoard(GameView gameView, TileButton[][] buttons) {
-        for (int i = 0; i < Dashboard.getSide(); i++) {
-            for (int j = 0; j < Dashboard.getSide(); j++) {
-                puttingTiles(gameView, buttons, i, j);
-            }
-        }
-    }
-
-    private void puttingTiles(GameView gameView, TileButton[][] tiles, int i, int j) {
-        if (!gameView.getTable().getSingleSlot(i, j).getColor().Equals(MODEL.Color.BLACK) &&
-                !gameView.getTable().getSingleSlot(i, j).getColor().Equals(Color.GREY)) {
-            if (gameView.getTable().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE1)) {
-                switch (gameView.getTable().getSingleSlot(i, j).getColor()) {
-                    case PINK -> {
-                        ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.1.png");
-                        tiles[i][j].getButton().setIcon(pink);
-                    }
-                    case GREEN -> {
-                        ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.1.png");
-                        tiles[i][j].getButton().setIcon(green);
-                    }
-                    case YELLOW -> {
-                        ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.1.png");
-                        tiles[i][j].getButton().setIcon(yellow);
-                    }
-                    case WHITE -> {
-                        ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.1.png");
-                        tiles[i][j].getButton().setIcon(white);
-                    }
-                    case LBLUE -> {
-                        ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.1.png");
-                        tiles[i][j].getButton().setIcon(lBlue);
-                    }
-                    case BLUE -> {
-                        ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.1.png");
-                        tiles[i][j].getButton().setIcon(blue);
-                    }
-                }
-            }
-        }
-        if (gameView.getTable().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE2)) {
-            switch (gameView.getTable().getSingleSlot(i, j).getColor()) {
-                case PINK -> {
-                    ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.2.png");
-                    tiles[i][j].getButton().setIcon(pink);
-                }
-                case GREEN -> {
-                    ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.2.png");
-                    tiles[i][j].getButton().setIcon(green);
-                }
-                case YELLOW -> {
-                    ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.2.png");
-                    tiles[i][j].getButton().setIcon(yellow);
-                }
-                case WHITE -> {
-                    ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.2.png");
-                    tiles[i][j].getButton().setIcon(white);
-                }
-                case LBLUE -> {
-                    ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.2.png");
-                    tiles[i][j].getButton().setIcon(lBlue);
-                }
-                case BLUE -> {
-                    ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.2.png");
-                    tiles[i][j].getButton().setIcon(blue);
-                }
-            }
-        }
-        if (gameView.getTable().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE3)) {
-            switch (gameView.getTable().getSingleSlot(i, j).getColor()) {
-                case PINK -> {
-                    ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.3.png");
-                    tiles[i][j].getButton().setIcon(pink);
-                }
-                case GREEN -> {
-                    ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.3.png");
-                    tiles[i][j].getButton().setIcon(green);
-                }
-                case YELLOW -> {
-                    ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.3.png");
-                    tiles[i][j].getButton().setIcon(yellow);
-                }
-                case WHITE -> {
-                    ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.3.png");
-                    tiles[i][j].getButton().setIcon(white);
-                }
-                case LBLUE -> {
-                    ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.3.png");
-                    tiles[i][j].getButton().setIcon(lBlue);
-                }
-                case BLUE -> {
-                    ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.3.png");
-                    tiles[i][j].getButton().setIcon(blue);
-                }
-            }
-        }
-    }
-
-    public void createShelf(GameView gameView, JLabel[][] shelfHole) {
-        for(int i = 0; i < PersonalShelf.N_ROWS; i++){
-            for(int j = 0; j < PersonalShelf.N_COLUMN; j++){
-                puttingTiles(gameView, shelfHole, i, j);
-            }
-        }
-    }
-
-    private void puttingTiles(GameView gameView, JLabel[][] tiles, int i, int j) {
-        if (!gameView.getShelf().getSingleSlot(i, j).getColor().Equals(MODEL.Color.BLACK) &&
-                !gameView.getShelf().getSingleSlot(i, j).getColor().Equals(MODEL.Color.GREY)) {
-            if (gameView.getShelf().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE1)) {
-                switch (gameView.getShelf().getSingleSlot(i, j).getColor()) {
-                    case PINK -> {
-                        ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.1.png");
-                        tiles[i][j].setIcon(pink);
-                    }
-                    case GREEN -> {
-                        ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.1.png");
-                        tiles[i][j].setIcon(green);
-                    }
-                    case YELLOW -> {
-                        ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.1.png");
-                        tiles[i][j].setIcon(yellow);
-                    }
-                    case WHITE -> {
-                        ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.1.png");
-                        tiles[i][j].setIcon(white);
-                    }
-                    case LBLUE -> {
-                        ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.1.png");
-                        tiles[i][j].setIcon(lBlue);
-                    }
-                    case BLUE -> {
-                        ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.1.png");
-                        tiles[i][j].setIcon(blue);
-                    }
-                }
-            }
-        }
-        if (gameView.getShelf().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE2)) {
-            switch (gameView.getShelf().getSingleSlot(i, j).getColor()) {
-                case PINK -> {
-                    ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.2.png");
-                    tiles[i][j].setIcon(pink);
-                }
-                case GREEN -> {
-                    ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.2.png");
-                    tiles[i][j].setIcon(green);
-                }
-                case YELLOW -> {
-                    ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.2.png");
-                    tiles[i][j].setIcon(yellow);
-                }
-                case WHITE -> {
-                    ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.2.png");
-                    tiles[i][j].setIcon(white);
-                }
-                case LBLUE -> {
-                    ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.2.png");
-                    tiles[i][j].setIcon(lBlue);
-                }
-                case BLUE -> {
-                    ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.2.png");
-                    tiles[i][j].setIcon(blue);
-                }
-            }
-        }
-        if (gameView.getShelf().getSingleSlot(i, j).getType().equals(MODEL.Type.TYPE3)) {
-            switch (gameView.getShelf().getSingleSlot(i, j).getColor()) {
-                case PINK -> {
-                    ImageIcon pink = new ImageIcon("src/main/GraphicResources/item tiles/Piante1.3.png");
-                    tiles[i][j].setIcon(pink);
-                }
-                case GREEN -> {
-                    ImageIcon green = new ImageIcon("src/main/GraphicResources/item tiles/Gatti1.3.png");
-                    tiles[i][j].setIcon(green);
-                }
-                case YELLOW -> {
-                    ImageIcon yellow = new ImageIcon("src/main/GraphicResources/item tiles/Giochi1.3.png");
-                    tiles[i][j].setIcon(yellow);
-                }
-                case WHITE -> {
-                    ImageIcon white = new ImageIcon("src/main/GraphicResources/item tiles/Libri1.3.png");
-                    tiles[i][j].setIcon(white);
-                }
-                case LBLUE -> {
-                    ImageIcon lBlue = new ImageIcon("src/main/GraphicResources/item tiles/Trofei1.3.png");
-                    tiles[i][j].setIcon(lBlue);
-                }
-                case BLUE -> {
-                    ImageIcon blue = new ImageIcon("src/main/GraphicResources/item tiles/Cornici1.3.png");
-                    tiles[i][j].setIcon(blue);
-                }
-            }
-        }
-    }
-
-    public void setMainFrame(JFrame mainFrame) {
-        this.mainFrame = mainFrame;
-    }
-}
 
 

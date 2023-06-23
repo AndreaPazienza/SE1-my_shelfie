@@ -5,6 +5,12 @@ public abstract class CGOnColumn extends CommonGoalAbs{
     public CGOnColumn(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {

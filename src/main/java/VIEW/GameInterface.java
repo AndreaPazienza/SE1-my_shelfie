@@ -1,10 +1,4 @@
 package VIEW;
-import java.awt.*;
-import java.io.IOException;
-import java.rmi.RemoteException;
-import java.util.*;
-import java.util.List;
-
 
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
@@ -12,9 +6,9 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
-import MODEL.Color;
 
-import javax.swing.*;
+import java.rmi.RemoteException;
+import java.util.*;
 
 public class GameInterface implements Runnable, viewListeners/*, UserInterface*/ {
 
@@ -416,7 +410,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
     }
 
     @Override
-    public void notifyOneMoreTime() throws IOException, SameNicknameException {
+    public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
@@ -434,7 +428,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
         }
-    public void errorNick(String message) throws SameNicknameException, IOException {
+    public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
            String yes = "si";
@@ -452,6 +446,9 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
             if(response.equals("si")){
                 notifyOneMoreTime();
+            } else {
+                System.out.println("Uscita dalla partita in corso");
+                System.exit(0);
             }
     }
 

@@ -2,11 +2,11 @@ package VIEW.GraphicObjects;
 
 import javax.swing.*;
 
-public class TileButton extends JButton {
+public class TileButton {
+    /*
     private JButton button;
     private int x;
     private int y;
-
 
     public TileButton(JButton button, int i, int j){
         this.button = button;
@@ -25,5 +25,6 @@ public class TileButton extends JButton {
     public int getY() {
         return y;
     }
+     */
 
 }

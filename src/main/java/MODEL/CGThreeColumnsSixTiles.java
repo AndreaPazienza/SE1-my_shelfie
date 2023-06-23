@@ -11,8 +11,8 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
 
     public CGThreeColumnsSixTiles(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/5.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/5.jpg");
+        //super.setImage(image);
     }
     public boolean controlColumn(Player player, Color[] column, int found) {
 
@@ -42,6 +42,9 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
 
         return true;}
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Tre colonne formate ciascuna da 6 tessere di uno, due o tre tipi differenti. Colonne diverse possono avere combinazioni diverse di tipi di tessere.");

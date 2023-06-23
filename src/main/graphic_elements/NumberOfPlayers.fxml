@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane fx:id="BackFrame" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="MY_SHELFIE" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
+  <content>
+    <AnchorPane fx:id="GeneralPane" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="BackgroundImage" fitHeight="374.0" fitWidth="600.0">
+               <image>
+                  <Image url="@/GraphicResources/misc/sfondo parquet.jpg" />
+               </image>
+            </ImageView>
+            <ButtonBar fx:id="numberOfPlayersButtons" layoutX="174.0" layoutY="162.0">
+               <buttons>
+                  <Button fx:id="twoPlayersButton" mnemonicParsing="false" onAction="#return2" text="2" />
+                  <Button fx:id="threePlayersButton" mnemonicParsing="false" onAction="#return3" text="3" />
+                  <Button fx:id="fourPlayersButton" mnemonicParsing="false" onAction="#return4" text="4" />
+               </buttons>
+            </ButtonBar>
+            <Text fx:id="BoxText" fill="#4a3a10" layoutX="171.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCEGLI IL NUMERO DI GIOCATORI">
+               <font>
+                  <Font name="Noteworthy Light" size="18.0" />
+               </font>
+            </Text>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

@@ -13,9 +13,15 @@ import javax.swing.*;
 public class CGFourGroupsFourTiles extends CommonGoalAbs {
     public CGFourGroupsFourTiles(int players){
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/3.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/3.jpg");
+        //super.setImage(image);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
         if(!commonGoalAchived()) {
@@ -59,6 +65,9 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
         return count;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Quattro gruppi separati formati ciascuno da quattro tessere adiacenti dello stesso tipo (non necessariamente come mostrato in figura). Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.");

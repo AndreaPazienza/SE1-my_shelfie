@@ -4,29 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Creazione interfaccia view, sistemato metodo lato client">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Target.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
-    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,9 +23,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -103,6 +90,10 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -115,6 +106,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
       <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -127,10 +120,18 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="it.polimi.ingegneriaDelSoftware.provaFinale.App" />
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
       <module name="MyShelfie_RPPT" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="App" />
+      <module name="MyShelfie_RPPT" />
+      <option name="VM_PARAMETERS" value="--module-path $MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17/javafx-fxml-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17/javafx-controls-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17/javafx-graphics-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17/javafx-base-17-mac.jar --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="it.polimi.ingegneriaDelSoftware.provaFinale.*" />
@@ -155,7 +156,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaitingRoomTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WaitingRoomTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -165,50 +166,33 @@
       </extension>
       <option name="PACKAGE_NAME" value="VIEW.GraphicObjects" />
       <option name="MAIN_CLASS_NAME" value="VIEW.GraphicObjects.WaitingRoomTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PersonalGoalTest.testMethod0" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalTest" />
-      <option name="METHOD_NAME" value="testMethod0" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.App" />
       <item itemvalue="Application.AppClient" />
+      <item itemvalue="Application.App (1)" />
+      <item itemvalue="Application.App" />
       <item itemvalue="Application.AppServer" />
-      <item itemvalue="JUnit.WaitingRoomTest" />
-      <item itemvalue="TestNG.PersonalGoalTest.testMethod0" />
+      <item itemvalue="JUnit.WaitingRoomTest.test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
-        <item itemvalue="TestNG.PersonalGoalTest.testMethod0" />
-        <item itemvalue="Application.App" />
-        <item itemvalue="JUnit.WaitingRoomTest" />
+        <item itemvalue="JUnit.WaitingRoomTest.test" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Aggiunta della classe immagine e modifica dei display, aggiunta di set e get in Game (per i test) e test dei display" />
+      <changelist id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini" />
       <created>1679345204323</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -237,9 +221,19 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
       <workItem from="1684842431500" duration="17908000" />
-      <workItem from="1684945521232" duration="52174000" />
-      <workItem from="1687275669716" duration="552000" />
-      <workItem from="1687346888946" duration="833000" />
+      <workItem from="1684945521232" duration="1707000" />
+      <workItem from="1685110399873" duration="6449000" />
+      <workItem from="1685445623578" duration="5265000" />
+      <workItem from="1685453292906" duration="3248000" />
+      <workItem from="1685537683764" duration="6296000" />
+      <workItem from="1686267787994" duration="145000" />
+      <workItem from="1686405063719" duration="1312000" />
+      <workItem from="1686649327289" duration="21525000" />
+      <workItem from="1687378689182" duration="376000" />
+      <workItem from="1687379116453" duration="113000" />
+      <workItem from="1687379247458" duration="605000" />
+      <workItem from="1687437591091" duration="437000" />
+      <workItem from="1687451699921" duration="787000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -458,84 +452,21 @@
       <option name="project" value="LOCAL" />
       <updated>1684533735512</updated>
     </task>
-    <task id="LOCAL-00032" summary="Proseguimento GUI">
-      <created>1684947293102</created>
+    <task id="LOCAL-00032" summary="Exit in caso di non inserimento di nuovo nickanme">
+      <created>1685447903490</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1684947293102</updated>
+      <updated>1685447903490</updated>
     </task>
-    <task id="LOCAL-00033" summary="Proseguimento GUI, selectedFrame">
-      <created>1684947364963</created>
+    <task id="LOCAL-00033" summary="Risoluzione immagini">
+      <created>1687020348916</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1684947364963</updated>
+      <updated>1687020348916</updated>
     </task>
-    <task id="LOCAL-00034" summary="Proseguimento GUI, terminata la schermata di selezione">
-      <created>1685115060059</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1685115060059</updated>
-    </task>
-    <task id="LOCAL-00035" summary="Proseguimento GUI, schermata di attesa durante il gioco">
-      <created>1685119545376</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1685119545376</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Proseguimento GUI, schermata inserimento">
-      <created>1685199551441</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1685199551441</updated>
-    </task>
-    <task id="LOCAL-00037" summary="Proseguimento GUI, aggiunta l'immagine ai commonGoal">
-      <created>1685368855301</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1685368855301</updated>
-    </task>
-    <task id="LOCAL-00038" summary="Proseguimento GUI, sistemata gameView">
-      <created>1685369705209</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1685369705209</updated>
-    </task>
-    <task id="LOCAL-00039" summary="Proseguimento GUI, sistemata gameView">
-      <created>1685369883341</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1685369883341</updated>
-    </task>
-    <task id="LOCAL-00040" summary="Proseguimento GUI, Gestione errori di gioco">
-      <created>1685370590112</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1685370590112</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Proseguimento GUI, Aggiunta delle notify varie">
-      <created>1685372383207</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1685372383207</updated>
-    </task>
-    <task id="LOCAL-00042" summary="Creazione interfaccia view, sistemato metodo lato client">
-      <created>1685375149673</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1685375149673</updated>
-    </task>
-    <option name="localTasksCounter" value="43" />
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -581,6 +512,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
+    <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
+    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
+    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
+    <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
+    <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
+    <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
+    <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
@@ -596,37 +535,11 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Controller to fix" />
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
-    <MESSAGE value="Proseguimento GUI" />
-    <MESSAGE value="Proseguimento GUI, selectedFrame" />
-    <MESSAGE value="Proseguimento GUI, terminata la schermata di selezione" />
-    <MESSAGE value="Proseguimento GUI, schermata di attesa durante il gioco" />
-    <MESSAGE value="Proseguimento GUI, schermata inserimento" />
-    <MESSAGE value="Proseguimento GUI, aggiunta l'immagine ai commonGoal" />
-    <MESSAGE value="Proseguimento GUI, sistemata gameView" />
-    <MESSAGE value="Proseguimento GUI, Gestione errori di gioco" />
-    <MESSAGE value="Proseguimento GUI, Aggiunta delle notify varie" />
-    <MESSAGE value="Creazione interfaccia view, sistemato metodo lato client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creazione interfaccia view, sistemato metodo lato client" />
+    <MESSAGE value="Exit in caso di non inserimento di nuovo nickanme" />
+    <MESSAGE value="Risoluzione immagini" />
+    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione immagini" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>194</line>
-          <properties class="Distributed.rmi.ServerImpl">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java</url>
-          <line>145</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />

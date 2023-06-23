@@ -3,7 +3,8 @@ package VIEW.GraphicObjects;
 import javax.swing.*;
 import java.awt.*;
 
-public class NickChoice extends JPanel{
+public class NickChoice extends JFrame{
+    /*
 
     private JTextField nickField;
 
@@ -13,25 +14,22 @@ public class NickChoice extends JPanel{
 
 
     public NickChoice(){
-        super();
-        this.nickField = new JTextField();
+        super(" INSERIMENTO NICKNAME");
         this.label = new JLabel("Inserire il nickname: ");
-        this.confirm = new JButton("Conferma!");
-        confirm.addActionListener(e -> {
-            String nickname = nickField.getText();
-            JOptionPane.showMessageDialog(this, "Nickname scelto: "+nickname);
-        });
-        this.nickField.setEnabled(true);
-        setLayout(new GridLayout(3,1));
-        add(label);
-        add(nickField);
-        add(confirm);
+        this.nickField = new JTextField();
+        this.confirm = new JButton("INVIA");
+
+        setLayout(new BorderLayout());
+        add(label, BorderLayout.NORTH);
+        add(nickField, BorderLayout.CENTER);
+        add(confirm, BorderLayout.SOUTH);
+
+        pack();
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
     }
 
-    public String getNick(){
-        return nickField.getText();
-    }
     public JButton getConfirm() {
         return confirm;
     }
@@ -39,5 +37,7 @@ public class NickChoice extends JPanel{
     public JTextField getNickField() {
         return nickField;
     }
+
+     */
 
 }

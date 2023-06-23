@@ -9,10 +9,15 @@ public class CGSameTypeSquare extends CommonGoalAbs {
 
     public CGSameTypeSquare(int players) {
         super(players);
-        ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/1.jpg");
-        super.setImage(image);
+        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/1.jpg");
+        //super.setImage(image);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {
@@ -48,6 +53,9 @@ public class CGSameTypeSquare extends CommonGoalAbs {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato 2x2. Le tessere dei due gruppi devono essere dello stesso tipo");

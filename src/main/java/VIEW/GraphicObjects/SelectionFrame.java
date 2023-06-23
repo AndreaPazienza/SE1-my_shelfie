@@ -8,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class SelectionFrame extends TurnFrame{
+    /*
 
     private TileButton[][] tiles;
     private JLabel backgroudDashLabel, backgroundInsertLabel, backgroundPGoalLabel, backgroundCGoal1Label, backgroundCGoal2Label;
@@ -46,4 +47,5 @@ public class SelectionFrame extends TurnFrame{
     public TileButton getSingleButton(int x, int y){
         return tiles[x][y];
     }
+     */
 }
