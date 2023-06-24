@@ -20,7 +20,7 @@
       </ImageView>
       <ImageView fitHeight="72.0" fitWidth="83.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fitHeight="76.0" fitWidth="124.0" layoutX="452.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <GridPane layoutX="40.0" layoutY="328.0" prefHeight="47.0" prefWidth="158.0">
+      <GridPane fx:id="selected" layoutX="40.0" layoutY="328.0" prefHeight="47.0" prefWidth="158.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -33,12 +33,12 @@
             <BoxBlur />
          </effect>
          <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0" />
+            <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="0"/>
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="1" />
             <StackPane prefHeight="150.0" prefWidth="200.0" GridPane.columnIndex="2" />
          </children>
       </GridPane>
-      <Button layoutX="227.0" layoutY="339.0" mnemonicParsing="false" text="Conferma" textFill="#358627">
+      <Button fx:id="confirmButton" layoutX="227.0" layoutY="339.0" mnemonicParsing="false" onAction="#confirmSelection" text="Conferma" textFill="#358627">
          <font>
             <Font name="Noteworthy Light" size="17.0" />
          </font>

@@ -19,6 +19,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
@@ -47,9 +48,16 @@ public class GraphicInterface extends Application implements viewListeners{
     ButtonBar numberOfPlayersButtons;
 
     @FXML
+    GridPane selectedGrid;
+
+    @FXML
     GridPane tableGrid;
+
     @FXML
     GridPane shelfGrid;
+
+    @FXML
+    Button confirmButton;
 
     @FXML
     ImageView commonGoal1Image;
@@ -128,12 +136,72 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.show();
     }
 
+    public void tileSelected(Tile selectedTile) {
+
+        selectedTile.setOnMouseClicked(null);
+        tableGrid.getChildren().remove(selectedTile);
+
+        int targetColumn = 0;
+        boolean spaceFound = false;
+
+        while (!spaceFound && targetColumn < selectedGrid.getColumnCount()) {
+            final int column = targetColumn;
+            if (selectedGrid.getChildren().stream().noneMatch(node -> GridPane.getColumnIndex(node) == column)) {
+                spaceFound = true;
+            } else {
+                targetColumn++;
+            }
+        }
+
+        selectedGrid.add(selectedTile, targetColumn, 0);
+        selectedTile.setOnMouseClicked(event -> tileDeselected(selectedTile));
+    }
+
+    public void tileDeselected(Tile deselectedTile) {
+
+        int column = GridPane.getColumnIndex(deselectedTile);
+
+        deselectedTile.setOnMouseClicked(null);
+        selectedGrid.getChildren().remove(deselectedTile);
+
+        selectedGrid.getChildren().forEach(child -> {
+            int childColumn = GridPane.getColumnIndex(child);
+            if (childColumn > column) {
+                GridPane.setColumnIndex(child, childColumn - 1);
+            }
+        });
+
+        tableGrid.add(deselectedTile, deselectedTile.getTileX(), deselectedTile.getTileY());
+        deselectedTile.setOnMouseClicked(event -> tileDeselected(deselectedTile));
+    }
+
+    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException{
+
+        int nChoices = (int) selectedGrid.getChildren().stream()
+                .filter(node -> node instanceof Tile)
+                .count();
+
+        notifyChoices(nChoices);
+
+        SlotChoice[] selection = new SlotChoice[nChoices];
+        notifySelectedCoordinates(selection);
+
+        for (int i = 0; i < nChoices; i ++) {
+            Node node = selectedGrid.getChildren().get(i);
+            Tile tile = (Tile) node;
+            selection[i] = new SlotChoice(tile.getTileX(), tile.getTileY());
+        }
+
+        notifySelectedCoordinates(selection);
+    }
+
     public void notPlaying(GameView gameView) throws Exception{
         displayUpdate(gameView);
         Parent notPlayingScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NotPlayingScene.fxml")));
         stage.setScene(new Scene(notPlayingScene));
         stage.show();
     }
+
     public void endgame(GameView gameView) throws Exception{
         setTexts(gameView.getRanking(), textArea1, textArea2);
         Parent endgameScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndgameScene.fxml")));
@@ -160,10 +228,11 @@ public class GraphicInterface extends Application implements viewListeners{
         for(int i = 0; i < Dashboard.getSide(); i ++) {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
 
-                ImageView tile;
+                Tile tile;
 
                 if (!gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType());
+                    tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType(), i, j);
+                    tile.setOnMouseClicked(event -> tileSelected(tile));
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     tile.setPreserveRatio(true);
@@ -172,7 +241,7 @@ public class GraphicInterface extends Application implements viewListeners{
 
                     //tile.setFitHeight(20.0);
                     //tile.setFitWidth(20.0);
-                      tableGrid.add(tile,i,j);
+                    tableGrid.add(tile,i,j);
                 }
             }
         }
@@ -180,10 +249,10 @@ public class GraphicInterface extends Application implements viewListeners{
         for(int i = 0; i < PersonalShelf.N_ROWS; i ++) {
             for(int j = 0; j < PersonalShelf.N_COLUMN; j ++) {
 
-                ImageView tile;
+                Tile tile;
 
                 if (!gameView.getShelf().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType());
+                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     //shelfGrid.getChildren().add(tile);
@@ -201,51 +270,51 @@ public class GraphicInterface extends Application implements viewListeners{
         //personalGoalImage = new ImageView(gameView.getPgoal().getImage());
     }
 
-    public ImageView setTile(Color color, Type type) {
+    public Tile setTile(Color color, Type type, int x, int y) {
 
-        ImageView tile = null;
+        Tile tile = null;
 
         switch(color) {
             case GREEN -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Gatti1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Gatti1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Gatti1.3.png", x, y);
                 }
             }
             case PINK -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Piante1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Piante1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Piante1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Piante1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Piante1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Piante1.3.png", x, y);
                 }
             }
             case BLUE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Cornici1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Cornici1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Cornici1.3.png", x, y);
                 }
             }
             case LBLUE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Trofei1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Trofei1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Trofei1.3.png", x, y);
                 }
             }
             case WHITE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Libri1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Libri1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Libri1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Libri1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Libri1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Libri1.3.png", x, y);
                 }
             }
             case YELLOW -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Giochi1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Giochi1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Giochi1.3.png", x, y);
                 }
             }
         }

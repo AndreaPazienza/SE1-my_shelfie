@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Risoluzione immagini">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Idea modifica firstRun e numberOfPlayers nella GUI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayers.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayers.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,6 +230,7 @@
       <workItem from="1687379247458" duration="605000" />
       <workItem from="1687437591091" duration="437000" />
       <workItem from="1687451699921" duration="787000" />
+      <workItem from="1687570533349" duration="7321000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -461,7 +463,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687020348916</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Idea modifica firstRun e numberOfPlayers nella GUI">
+      <created>1687539857356</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1687539857356</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -507,7 +516,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
@@ -532,7 +540,8 @@
     <MESSAGE value="Aggiunta risorse grafiche al progetto, proseguimento GUI, scrittura metodi e oggetti per la fase di pregame" />
     <MESSAGE value="Exit in caso di non inserimento di nuovo nickanme" />
     <MESSAGE value="Risoluzione immagini" />
-    <option name="LAST_COMMIT_MESSAGE" value="Risoluzione immagini" />
+    <MESSAGE value="Idea modifica firstRun e numberOfPlayers nella GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Idea modifica firstRun e numberOfPlayers nella GUI" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
