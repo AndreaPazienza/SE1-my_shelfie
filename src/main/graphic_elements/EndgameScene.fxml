@@ -40,7 +40,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="437.0" prefWidth="309.0" GridPane.columnIndex="1">
          <children>
-            <ImageView fitHeight="400.0" fitWidth="" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="400.0" fitWidth="300.00" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <image>
                   <Image url="@/GraphicResources/misc/base_pagina2.jpg" />
                </image>

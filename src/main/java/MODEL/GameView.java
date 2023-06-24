@@ -100,4 +100,16 @@ public class GameView implements Serializable {
     public Player[] getRanking() {
         return ranking;
     }
+    public GameView(PersonalShelf s, Dashboard t){
+        table = t;
+        shelf = s;
+        pgoal = null;
+        commonGoal1 = null;
+        gameState = true;
+        commonGoal2 = null;
+        gameError = null;
+        state = null;
+        ranking = null;
+    }
+
 }
