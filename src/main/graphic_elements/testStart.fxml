@@ -24,7 +24,7 @@
                   <Image url="@/GraphicResources/Publisher material/Publisher.png" />
                </image>
             </ImageView>
-            <Button fx:id="confirmNickButton" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" onAction="#confirmNick" prefHeight="29.0" prefWidth="74.0" text="Conferma">
+            <Button fx:id="confirmNickButton" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="74.0" text="Conferma">
                <font>
                   <Font name="Noteworthy Light" size="12.0" />
                </font>
