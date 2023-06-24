@@ -38,6 +38,7 @@ public class GraphicInterface extends Application implements viewListeners{
 
     private String nick = null;
     private int number = 0;
+    private int column = -1;
 
     @FXML
     TextField nickField;
@@ -57,7 +58,10 @@ public class GraphicInterface extends Application implements viewListeners{
     GridPane shelfGrid;
 
     @FXML
-    Button confirmButton;
+    Button confirmSelectionButton;
+
+    @FXML
+    Button confirmInsertButton;
 
     @FXML
     ImageView commonGoal1Image;
@@ -172,10 +176,10 @@ public class GraphicInterface extends Application implements viewListeners{
         });
 
         tableGrid.add(deselectedTile, deselectedTile.getTileX(), deselectedTile.getTileY());
-        deselectedTile.setOnMouseClicked(event -> tileDeselected(deselectedTile));
+        deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
 
-    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException{
+    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
@@ -184,7 +188,6 @@ public class GraphicInterface extends Application implements viewListeners{
         notifyChoices(nChoices);
 
         SlotChoice[] selection = new SlotChoice[nChoices];
-        notifySelectedCoordinates(selection);
 
         for (int i = 0; i < nChoices; i ++) {
             Node node = selectedGrid.getChildren().get(i);
@@ -193,6 +196,41 @@ public class GraphicInterface extends Application implements viewListeners{
         }
 
         notifySelectedCoordinates(selection);
+    }
+
+    public void setColumn0() {
+
+        column = 0;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn1() {
+
+        column = 1;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn2() {
+
+        column = 2;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn3() {
+
+        column = 3;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn4() {
+
+        column = 4;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void confirmInsert() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+
+        notifyInsert(column);
     }
 
     public void notPlaying(GameView gameView) throws Exception{
