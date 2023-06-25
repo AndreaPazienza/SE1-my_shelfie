@@ -9,14 +9,12 @@ import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
 import java.rmi.RemoteException;
-import java.security.cert.PolicyNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import MODEL.Color;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -26,6 +24,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -196,7 +198,7 @@ public class GraphicInterface extends Application implements viewListeners{
         deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
 
-    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    /*public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
@@ -214,6 +216,83 @@ public class GraphicInterface extends Application implements viewListeners{
 
         notifySelectedCoordinates(selection);
     }
+     */
+
+    public void confirmSelection() {
+        int check = findFirstEmptyColumn(selectedGrid);
+        //if I have less than 1 column free
+        if (check <= 1) {
+            //abilito drag and drop delle immagini (Istanze Tile) su selectedGrid
+            for (Node node : selectedGrid.getChildren()) {
+                if (node instanceof Tile) {
+                    Tile tile = (Tile) node;
+                    enableDragandDrop(tile);
+                }
+            }
+        }
+    }
+
+    private void enableDragandDrop(Tile tile){
+        //start of drag and drop
+        tile.setOnDragDetected(event -> {
+            Dragboard dragboard = tile.startDragAndDrop(TransferMode.MOVE);
+            ClipboardContent content = new ClipboardContent();
+            //get the image of Tile
+            ImageView card = new ImageView(tile.getImage());
+            card.setFitWidth(80.0);
+            card.setFitHeight(80.0);
+            content.putImage(card.snapshot(null,null));
+            dragboard.setContent(content);
+            event.consume();
+        });
+        tile.setOnDragOver(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                //accept the transfer mode for the drag over event
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+        tile.setOnDragEntered(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                tile.setOpacity(0.7);
+            }
+            event.consume();
+        });
+        tile.setOnDragExited(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                tile.setOpacity(1.0);
+            }
+            event.consume();
+        });
+
+        tile.setOnDragDropped(event -> {
+            Dragboard dragboard = event.getDragboard();
+            boolean success = false;
+
+            if (dragboard.hasImage()) {
+                ImageView sourceImageView = (ImageView) event.getGestureSource();
+                ImageView targetImageView = (ImageView) event.getSource();
+
+                // Scambia le immagini tra le due ImageView
+                Image sourceImage = sourceImageView.getImage();
+                sourceImageView.setImage(targetImageView.getImage());
+                targetImageView.setImage(sourceImage);
+
+                success = true;
+            }
+
+            event.setDropCompleted(success);
+            event.consume();
+        });
+        //reset opacity
+        tile.setOnDragDone(event -> {
+            if (event.getTransferMode() == TransferMode.MOVE) {
+                tile.setOpacity(1.0);
+            }
+            event.consume();
+        });
+    }
+
 
     public void setColumn0() {
 

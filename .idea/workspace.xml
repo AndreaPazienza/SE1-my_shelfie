@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Fase di selezione da GUI ed aggiunta classe Tile">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="fix schermate e metodi">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
@@ -93,7 +90,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -182,9 +179,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="JUnit.WaitingRoomTest.test" />
       </list>
     </recent_temporary>
@@ -236,6 +233,7 @@
       <workItem from="1687451699921" duration="787000" />
       <workItem from="1687570533349" duration="7637000" />
       <workItem from="1687610752571" duration="3809000" />
+      <workItem from="1687706146974" duration="13372000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -482,7 +480,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687578176731</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix schermate e metodi">
+      <created>1687623211667</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687623211667</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +533,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
@@ -553,7 +557,8 @@
     <MESSAGE value="Risoluzione immagini" />
     <MESSAGE value="Idea modifica firstRun e numberOfPlayers nella GUI" />
     <MESSAGE value="Fase di selezione da GUI ed aggiunta classe Tile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fase di selezione da GUI ed aggiunta classe Tile" />
+    <MESSAGE value="fix schermate e metodi" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix schermate e metodi" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
