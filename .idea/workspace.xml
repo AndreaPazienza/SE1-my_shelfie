@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Fase di selezione da GUI ed aggiunta classe Tile">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Fase di inserimento da GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +232,7 @@
       <workItem from="1687451699921" duration="787000" />
       <workItem from="1687570533349" duration="7637000" />
       <workItem from="1687610752571" duration="3809000" />
+      <workItem from="1687658318063" duration="2539000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -558,8 +555,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

@@ -61,6 +61,21 @@ public class GraphicInterface extends Application implements viewListeners{
     Button confirmSelectionButton;
 
     @FXML
+    Button insertIn0;
+
+    @FXML
+    Button insertIn1;
+
+    @FXML
+    Button insertIn2;
+
+    @FXML
+    Button insertIn3;
+
+    @FXML
+    Button insertIn4;
+
+    @FXML
     Button confirmInsertButton;
 
     @FXML
@@ -213,6 +228,62 @@ public class GraphicInterface extends Application implements viewListeners{
         }
 
         notifySelectedCoordinates(selection);
+
+        if (nChoices > 1) {
+            for (int i = 0; i < nChoices; i++) {
+                Node node = selectedGrid.getChildren().get(i);
+                Tile tile = (Tile) node;
+                tile.setOrder(i + 1);
+            }
+
+            //Setting del drag and drop sul selectedGrid da implementare
+            confirmSelectionButton.setText("Conferma");
+            confirmSelectionButton.setOnMouseClicked(event -> confirmOrder(nChoices));
+        } else {
+            insertIn0.setVisible(true);
+            insertIn1.setVisible(true);
+            insertIn2.setVisible(true);
+            insertIn3.setVisible(true);
+            insertIn4.setVisible(true);
+        }
+    }
+
+    public void confirmOrder(int nChoices) throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+
+        Node node;
+        Tile tile;
+
+        if(nChoices == 2) {
+            node = selectedGrid.getChildren().get(0);
+            tile = (Tile) node;
+
+            if(tile.getOrder() == 2) {
+                OrderChoice order = new OrderChoice(1, 1, 1);
+                notifyOrder(order);
+            }
+        }
+
+        if(nChoices == 3) {
+
+            node = selectedGrid.getChildren().get(0);
+            tile = (Tile) node;
+            int pos1 = tile.getOrder();
+            node = selectedGrid.getChildren().get(1);
+            tile = (Tile) node;
+            int pos2 = tile.getOrder();
+            node = selectedGrid.getChildren().get(2);
+            tile = (Tile) node;
+            int pos3 = tile.getOrder();
+
+            OrderChoice order = new OrderChoice(pos1, pos2, pos3);
+            notifyOrder(order);
+        }
+
+        insertIn0.setVisible(true);
+        insertIn1.setVisible(true);
+        insertIn2.setVisible(true);
+        insertIn3.setVisible(true);
+        insertIn4.setVisible(true);
     }
 
     public void setColumn0() {
