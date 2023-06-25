@@ -148,8 +148,8 @@ public class GraphicInterface extends Application implements viewListeners{
         if (nextColumn != -1 && nextColumn <= 2) {
             selectedTile.setOnMouseClicked(null);
             tableGrid.getChildren().remove(selectedTile);
-            selectedTile.setFitHeight(50.0);
-            selectedTile.setFitWidth(50.0);
+            selectedTile.setFitHeight(90.0);
+            selectedTile.setFitWidth(90.0);
             selectedGrid.add(selectedTile, nextColumn, 0);
             selectedTile.setOnMouseClicked(event -> tileDeselected(selectedTile));
         }
@@ -192,8 +192,8 @@ public class GraphicInterface extends Application implements viewListeners{
         });
 
 */
-        deselectedTile.setFitHeight(20.0);
-        deselectedTile.setFitWidth(20.0);
+        deselectedTile.setFitHeight(50.0);
+        deselectedTile.setFitWidth(50.0);
         tableGrid.add(deselectedTile, deselectedTile.getTileY(), deselectedTile.getTileX());
         deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
@@ -239,8 +239,8 @@ public class GraphicInterface extends Application implements viewListeners{
             ClipboardContent content = new ClipboardContent();
             //get the image of Tile
             ImageView card = new ImageView(tile.getImage());
-            card.setFitWidth(80.0);
-            card.setFitHeight(80.0);
+            card.setFitWidth(100.0);
+            card.setFitHeight(100.0);
             content.putImage(card.snapshot(null,null));
             dragboard.setContent(content);
             event.consume();
@@ -369,8 +369,8 @@ public class GraphicInterface extends Application implements viewListeners{
                     //tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
                     //tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
 
-                    tile.setFitHeight(20.0);
-                    tile.setFitWidth(20.0);
+                    tile.setFitHeight(50.0);
+                    tile.setFitWidth(50.0);
                     tableGrid.add(tile,j,i);
                 }
             }
@@ -386,8 +386,8 @@ public class GraphicInterface extends Application implements viewListeners{
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     //shelfGrid.getChildren().add(tile);
-                    tile.setFitHeight(25.0);
-                    tile.setFitWidth(25.0);
+                    tile.setFitHeight(59.0);
+                    tile.setFitWidth(59.0);
                     shelfGrid.add(tile,j,i);
                 }
             }
