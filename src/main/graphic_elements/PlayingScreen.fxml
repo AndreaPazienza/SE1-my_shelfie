@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<Pane fx:id="PlayingScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
+<Pane fx:id="PlayingScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
    <children>
-      <ImageView fitHeight="604.0" fitWidth="611.0" layoutY="-179.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="823.0" fitWidth="1309.0" layoutX="-9.0" layoutY="-4.0">
          <image>
             <Image url="@/GraphicResources/misc/sfondo parquet.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="47.0" fitWidth="168.0" layoutX="218.0" layoutY="1.0">
+      <ImageView fitHeight="162.0" fitWidth="140.0" layoutX="660.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@/GraphicResources/Publisher material/Title 2000x618px.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="72.0" fitWidth="83.0" layoutX="21.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="76.0" fitWidth="124.0" layoutX="452.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
-      <GridPane fx:id="selectedGrid" gridLinesVisible="true" layoutX="40.0" layoutY="328.0" prefHeight="47.0" prefWidth="158.0">
+            <Image url="@GraphicResources/personal goal cards/Personal_Goals6.png" />
+         </image></ImageView>
+      <GridPane fx:id="selectedGrid" gridLinesVisible="true" layoutX="41.0" layoutY="649.0" prefHeight="90.0" prefWidth="270.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -30,24 +31,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <Button fx:id="confirmSelectionButton" layoutX="227.0" layoutY="339.0" mnemonicParsing="false" onAction="#confirmSelection" text="Conferma" textFill="#358627">
+      <Button fx:id="confirmSelectionButton" layoutX="362.0" layoutY="657.0" mnemonicParsing="false" onAction="#confirmSelection" prefHeight="76.0" prefWidth="146.0" text="Conferma" textFill="#358627">
          <font>
-            <Font name="Noteworthy Light" size="17.0" />
+            <Font name="Noteworthy Light" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="confirmInsertButton" layoutX="441.0" layoutY="360.0" minHeight="21.0" minWidth="42.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="21.0" onAction="#confirmInsert" text="Ok" visible="false">
+      <Button fx:id="confirmInsertButton" layoutX="953.0" layoutY="711.0" minHeight="21.0" minWidth="42.0" mnemonicParsing="false" onAction="#confirmInsert" prefHeight="59.0" prefWidth="97.0" text="Ok" visible="false">
          <font>
-            <Font name="Noteworthy Light" size="14.0" />
+            <Font name="Noteworthy Light" size="8.0" />
          </font>
       </Button>
-      <AnchorPane layoutX="359.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane layoutX="767.0" layoutY="106.0" prefHeight="500.0" prefWidth="444.0">
          <children>
-            <ImageView fitHeight="187.0" fitWidth="179.0" layoutX="11.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="516.0" fitWidth="465.0" layoutX="4.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@GraphicResources/boards/bookshelf.png" />
                </image>
             </ImageView>
-            <GridPane fx:id="shelfGrid" layoutX="33.0" layoutY="19.0" prefHeight="145.0" prefWidth="135.0">
+            <GridPane fx:id="shelfGrid" layoutX="59.0" layoutY="72.0" prefHeight="377.0" prefWidth="360.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
@@ -64,16 +65,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
               </rowConstraints>
             </GridPane>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="40.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0">
+         </children></AnchorPane>
+      <AnchorPane layoutX="44.0" layoutY="130.0" prefHeight="512.0" prefWidth="485.0">
          <children>
-            <ImageView fitHeight="200.0" fitWidth="200.0">
+            <ImageView fitHeight="500.0" fitWidth="500.0" layoutX="-6.0" layoutY="-11.0">
                <image>
                   <Image url="@GraphicResources/boards/livingroom.png" />
                </image>
             </ImageView>
-            <GridPane fx:id="tableGrid" layoutX="8.0" layoutY="8.0" prefHeight="184.0" prefWidth="182.0">
+            <GridPane fx:id="tableGrid" layoutX="11.0" layoutY="7.0" prefHeight="461.0" prefWidth="459.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -99,11 +99,43 @@
             </GridPane>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="72.0" fitWidth="83.0" layoutX="113.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="380.0" layoutY="300.0" mnemonicParsing="false" text="0" />
-      <Button layoutX="414.0" layoutY="300.0" mnemonicParsing="false" text="1" />
-      <Button layoutX="446.0" layoutY="300.0" mnemonicParsing="false" text="2" />
-      <Button layoutX="480.0" layoutY="300.0" mnemonicParsing="false" text="3" />
-      <Button layoutX="514.0" layoutY="300.0" mnemonicParsing="false" text="4" />
+      <ImageView fitHeight="90.0" fitWidth="136.0" layoutX="1062.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GraphicResources/common%20goal%20cards/10.jpg" />
+         </image></ImageView>
+      <Button layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="0">
+         <font>
+            <Font size="25.0" />
+         </font></Button>
+       <Button layoutX="899.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="1">
+           <font>
+               <Font size="25.0" />
+           </font>
+       </Button>
+       <Button layoutX="975.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="2">
+           <font>
+               <Font size="25.0" />
+           </font>
+       </Button>
+       <Button layoutX="1048.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="3">
+           <font>
+               <Font size="25.0" />
+           </font>
+       </Button>
+       <Button layoutX="1123.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="4">
+           <font>
+               <Font size="25.0" />
+           </font>
+       </Button>
+      <ImageView fitHeight="90.0" fitWidth="136.0" layoutX="885.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GraphicResources/common%20goal%20cards/6.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="126.0" fitWidth="499.0" layoutX="6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@GraphicResources/Publisher%20material/Title%202000x618px.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Fase di selezione da GUI ed aggiunta classe Tile">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="fix ridimensionamento schermate">
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/FinePartita.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/FlussoGioco.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
@@ -93,7 +94,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -106,6 +107,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
       <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
@@ -182,9 +184,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="JUnit.WaitingRoomTest.test" />
       </list>
     </recent_temporary>
@@ -236,6 +238,9 @@
       <workItem from="1687451699921" duration="787000" />
       <workItem from="1687570533349" duration="7637000" />
       <workItem from="1687610752571" duration="3809000" />
+      <workItem from="1687706146974" duration="19668000" />
+      <workItem from="1687769033498" duration="68000" />
+      <workItem from="1687769748316" duration="7366000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -482,7 +487,35 @@
       <option name="project" value="LOCAL" />
       <updated>1687578176731</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="fix schermate e metodi">
+      <created>1687623211667</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1687623211667</updated>
+    </task>
+    <task id="LOCAL-00037" summary="aggiunta drag and drop ordinamento">
+      <created>1687728682247</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1687728682247</updated>
+    </task>
+    <task id="LOCAL-00038" summary="fix dimensione scheramta play">
+      <created>1687736324894</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1687736324894</updated>
+    </task>
+    <task id="LOCAL-00039" summary="fix ridimensionamento schermate">
+      <created>1687769094866</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1687769094866</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,10 +561,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
-    <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
-    <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
-    <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
     <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
@@ -553,7 +582,11 @@
     <MESSAGE value="Risoluzione immagini" />
     <MESSAGE value="Idea modifica firstRun e numberOfPlayers nella GUI" />
     <MESSAGE value="Fase di selezione da GUI ed aggiunta classe Tile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fase di selezione da GUI ed aggiunta classe Tile" />
+    <MESSAGE value="fix schermate e metodi" />
+    <MESSAGE value="aggiunta drag and drop ordinamento" />
+    <MESSAGE value="fix dimensione scheramta play" />
+    <MESSAGE value="fix ridimensionamento schermate" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix ridimensionamento schermate" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

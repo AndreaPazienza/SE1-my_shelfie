@@ -8,23 +8,30 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
+import java.io.IOException;
 import java.rmi.RemoteException;
-import java.security.cert.PolicyNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import MODEL.Color;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -33,12 +40,13 @@ public class GraphicInterface extends Application implements viewListeners{
 
     private final List<viewListeners> listeners = new ArrayList<>();
 
-    private String nickname;
-    private CountDownLatch latch;
-
-    private int nPlayers;
-
     Stage stage;
+
+    private String nick = null;
+    private int number = 0;
+    private int column = -1;
+
+    private int nPlayers = 0;
 
     @FXML
     TextField nickField;
@@ -47,18 +55,6 @@ public class GraphicInterface extends Application implements viewListeners{
 
     @FXML
     ButtonBar numberOfPlayersButtons;
-
-    @FXML
-    Button twoPlayersButton;
-
-    @FXML
-    Button threePlayersButton;
-
-    @FXML
-    Button fourPlayersButton;
-
-    @FXML
-    ProgressBar EnrolledBar;
 
     @FXML
     GridPane selectedGrid;
@@ -90,20 +86,25 @@ public class GraphicInterface extends Application implements viewListeners{
     @FXML
     Label textArea2;
 
+    @FXML
+    ProgressBar enrolledbar;
 
-    public String firstRun(/*String[] arg*/) throws InterruptedException {
-        //launch(arg);
-        confirmNickButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                nickname = nickField.getText();
-                if(nickname.isBlank()){
-                    ERRORE DA GESTIRE;
-                }
-                stage.close();
-            }
-        });
-        return nickname;
+    @FXML
+    Button twoPlayersButton;
+
+    @FXML
+    Button threePlayersButton;
+
+    @FXML
+    Button fourPlayersButton;
+
+
+    public String fistRun(String[] arg) {
+        launch(arg);
+        while (nick == null) {
+
+        }
+        return nick;
     }
 
 
@@ -113,63 +114,37 @@ public class GraphicInterface extends Application implements viewListeners{
         this.stage = primaryStage;
         Parent nickScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("testStart.fxml")));
         stage.setScene(new Scene(nickScene));
-        stage.showAndWait();
+        stage.show();
     }
 
-    public int numberOfPlayers() throws Exception {
+    /*public int numberOfPlayers() throws Exception {
         Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
         stage.setScene(new Scene(numberOfPlayersScene));
-        stage.showAndWait();
-        twoPlayersButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                nPlayers = Integer.parseInt(twoPlayersButton.getText());
-                stage.close();
-            }
-        });
-        threePlayersButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                nPlayers = Integer.parseInt(threePlayersButton.getText());
-                stage.close();
-            }
-        });
-        fourPlayersButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-                nPlayers = Integer.parseInt(fourPlayersButton.getText());
-                stage.close();
-            }
-        });
-        return nPlayers;
-    }
+        stage.show();
+        while (number == 0) {
 
-    public void playing ()throws Exception{
-
-    }
+        }
+        return number;
+    }*/
 
     public void confirmNick() {
 
-        String nick = nickField.getText();
-        notifyNick(nick);
+        nick = nickField.getText();
     }
 
-    public void return2() {
+    public void setNumber2 () {
 
-        notifyNumberOfPlayers(2);
+        number = 2;
     }
 
-    public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException {
-        Parent waitingRoomScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WaitingRoom.fxml")));
-        stage.setScene(new Scene(waitingRoomScene));
-        stage.showAndWait();
-        double progress = (double)enrolledPlayers/nPlayers;
-        EnrolledBar.setProgress(progress);
+    public void setNumber3 () {
+
+        number = 3;
     }
 
-    public void return4() {
+    public void setNumber4 () {
 
-        notifyNumberOfPlayers(4);
+        number = 4;
     }
 
     /*
@@ -191,8 +166,8 @@ public class GraphicInterface extends Application implements viewListeners{
         if (nextColumn != -1 && nextColumn <= 2) {
             selectedTile.setOnMouseClicked(null);
             tableGrid.getChildren().remove(selectedTile);
-            selectedTile.setFitHeight(50.0);
-            selectedTile.setFitWidth(50.0);
+            selectedTile.setFitHeight(90.0);
+            selectedTile.setFitWidth(90.0);
             selectedGrid.add(selectedTile, nextColumn, 0);
             selectedTile.setOnMouseClicked(event -> tileDeselected(selectedTile));
         }
@@ -235,13 +210,13 @@ public class GraphicInterface extends Application implements viewListeners{
         });
 
 */
-        deselectedTile.setFitHeight(20.0);
-        deselectedTile.setFitWidth(20.0);
+        deselectedTile.setFitHeight(50.0);
+        deselectedTile.setFitWidth(50.0);
         tableGrid.add(deselectedTile, deselectedTile.getTileY(), deselectedTile.getTileX());
         deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
 
-    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    /*public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
@@ -259,6 +234,83 @@ public class GraphicInterface extends Application implements viewListeners{
 
         notifySelectedCoordinates(selection);
     }
+     */
+
+    public void confirmSelection() {
+        int check = findFirstEmptyColumn(selectedGrid);
+        //if I have less than 1 column free
+        if (check <= 1) {
+            //abilito drag and drop delle immagini (Istanze Tile) su selectedGrid
+            for (Node node : selectedGrid.getChildren()) {
+                if (node instanceof Tile) {
+                    Tile tile = (Tile) node;
+                    enableDragandDrop(tile);
+                }
+            }
+        }
+    }
+
+    private void enableDragandDrop(Tile tile){
+        //start of drag and drop
+        tile.setOnDragDetected(event -> {
+            Dragboard dragboard = tile.startDragAndDrop(TransferMode.MOVE);
+            ClipboardContent content = new ClipboardContent();
+            //get the image of Tile
+            ImageView card = new ImageView(tile.getImage());
+            card.setFitWidth(100.0);
+            card.setFitHeight(100.0);
+            content.putImage(card.snapshot(null,null));
+            dragboard.setContent(content);
+            event.consume();
+        });
+        tile.setOnDragOver(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                //accept the transfer mode for the drag over event
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+        tile.setOnDragEntered(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                tile.setOpacity(0.7);
+            }
+            event.consume();
+        });
+        tile.setOnDragExited(event -> {
+            if (event.getGestureSource() != tile && event.getDragboard().hasImage()) {
+                tile.setOpacity(1.0);
+            }
+            event.consume();
+        });
+
+        tile.setOnDragDropped(event -> {
+            Dragboard dragboard = event.getDragboard();
+            boolean success = false;
+
+            if (dragboard.hasImage()) {
+                ImageView sourceImageView = (ImageView) event.getGestureSource();
+                ImageView targetImageView = (ImageView) event.getSource();
+
+                // Scambia le immagini tra le due ImageView
+                Image sourceImage = sourceImageView.getImage();
+                sourceImageView.setImage(targetImageView.getImage());
+                targetImageView.setImage(sourceImage);
+
+                success = true;
+            }
+
+            event.setDropCompleted(success);
+            event.consume();
+        });
+        //reset opacity
+        tile.setOnDragDone(event -> {
+            if (event.getTransferMode() == TransferMode.MOVE) {
+                tile.setOpacity(1.0);
+            }
+            event.consume();
+        });
+    }
+
 
     public void setColumn0() {
 
@@ -301,11 +353,55 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.setScene(new Scene(notPlayingScene));
         stage.show();
     }
+
     public void endgame(GameView gameView) throws Exception{
         setTexts(gameView.getRanking(), textArea1, textArea2);
         Parent endgameScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndgameScene.fxml")));
         stage.setScene(new Scene(endgameScene));
         stage.show();
+    }
+
+    public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException {
+        Parent waitingRoomScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WaitingRoom.fxml")));
+        stage.setScene(new Scene(waitingRoomScene));
+        stage.showAndWait();
+        double progress = (double)enrolledPlayers/nPlayers;
+        enrolledbar.setProgress(progress);
+    }
+    public String firstRun(String[] arg) throws InterruptedException {
+        //launch(arg);
+        confirmNickButton.setOnAction(event -> {
+            {
+                nick = nickField.getText();
+                if(nick.isBlank()){
+                    //ERRORE DA GESTIRE;
+                }
+                stage.close();
+            }
+        });
+        return nick;
+    }
+
+    public int numberOfPlayers() throws Exception {
+        Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
+        stage.setScene(new Scene(numberOfPlayersScene));
+        stage.showAndWait();
+        twoPlayersButton.setOnAction(event -> {{
+                nPlayers = Integer.parseInt(twoPlayersButton.getText());
+                stage.close();
+            }
+        });
+        threePlayersButton.setOnAction(event -> {
+             {
+                nPlayers = Integer.parseInt(threePlayersButton.getText());
+                stage.close();
+            }
+        });
+        fourPlayersButton.setOnAction(event -> {
+                nPlayers = Integer.parseInt(fourPlayersButton.getText());
+                stage.close();
+        });
+        return nPlayers;
     }
 
     public void displayUpdate(GameView gameView){
@@ -334,8 +430,8 @@ public class GraphicInterface extends Application implements viewListeners{
                     //tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
                     //tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
 
-                    tile.setFitHeight(20.0);
-                    tile.setFitWidth(20.0);
+                    tile.setFitHeight(50.0);
+                    tile.setFitWidth(50.0);
                     tableGrid.add(tile,j,i);
                 }
             }
@@ -351,8 +447,8 @@ public class GraphicInterface extends Application implements viewListeners{
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     //shelfGrid.getChildren().add(tile);
-                    tile.setFitHeight(25.0);
-                    tile.setFitWidth(25.0);
+                    tile.setFitHeight(59.0);
+                    tile.setFitWidth(59.0);
                     shelfGrid.add(tile,j,i);
                 }
             }
