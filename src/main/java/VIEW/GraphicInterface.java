@@ -96,6 +96,9 @@ public class GraphicInterface extends Application implements viewListeners{
     ImageView personalGoalImage;
 
     @FXML
+    TextArea errorTextArea;
+
+    @FXML
     TextArea textArea1;
 
     @FXML

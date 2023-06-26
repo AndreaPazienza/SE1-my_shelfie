@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="workspace">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -589,8 +587,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
