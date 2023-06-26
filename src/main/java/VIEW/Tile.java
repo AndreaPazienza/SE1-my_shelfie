@@ -7,12 +7,14 @@ public class Tile extends ImageView{
 
     private final int x;
     private final int y;
+    private int order;
 
     public Tile (String imageUrl, int x, int y) {
 
         super(new Image(imageUrl));
         this.x = x;
         this.y = y;
+        order = 0;
     }
 
     public int getTileX() {
@@ -21,5 +23,13 @@ public class Tile extends ImageView{
 
     public int getTileY() {
         return y;
+    }
+
+    public int getOrder() {
+        return this.order;
+    }
+
+    public void setOrder(int order) {
+        this.order = order;
     }
 }

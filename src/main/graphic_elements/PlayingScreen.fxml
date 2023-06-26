@@ -103,26 +103,26 @@
          <image>
             <Image url="@GraphicResources/common%20goal%20cards/10.jpg" />
          </image></ImageView>
-      <Button layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="0">
+      <Button fx:id="insertIn0" layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn0" text="0">
          <font>
             <Font size="25.0" />
          </font></Button>
-       <Button layoutX="899.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="1">
+       <Button fx:id="insertIn1" layoutX="899.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn1" text="1">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button layoutX="975.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="2">
+       <Button fx:id="insertIn2" layoutX="975.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn2" text="2">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button layoutX="1048.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="3">
+       <Button fx:id="insertIn3" layoutX="1048.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn3" text="3">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button layoutX="1123.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" text="4">
+       <Button fx:id="insertIn4" layoutX="1123.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn4" text="4">
            <font>
                <Font size="25.0" />
            </font>

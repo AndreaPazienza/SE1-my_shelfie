@@ -1,7 +1,7 @@
 package MODEL;
 
 /**
- * Enum that represents the current state of the game.
+ * Enum that represents the current stage of the game (and the turn).
  */
 public enum GameState{
 
