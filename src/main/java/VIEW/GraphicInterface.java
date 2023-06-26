@@ -8,27 +8,23 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
-import java.awt.TextArea;
-import java.io.IOException;
 import java.rmi.RemoteException;
 import java.security.cert.PolicyNode;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.CountDownLatch;
 
 import MODEL.Color;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -65,9 +61,19 @@ public class GraphicInterface extends Application implements viewListeners{
     ProgressBar EnrolledBar;
 
     @FXML
+    GridPane selectedGrid;
+
+    @FXML
     GridPane tableGrid;
+
     @FXML
     GridPane shelfGrid;
+
+    @FXML
+    Button confirmSelectionButton;
+
+    @FXML
+    Button confirmInsertButton;
 
     @FXML
     ImageView commonGoal1Image;
@@ -99,11 +105,6 @@ public class GraphicInterface extends Application implements viewListeners{
         });
         return nickname;
     }
-
-    /*public void confirmButton(){
-      nickname = nickField.getText();
-      latch.countDown();
-    }*/
 
 
 
@@ -147,18 +148,16 @@ public class GraphicInterface extends Application implements viewListeners{
 
     }
 
-    /*public String confirmNick() {
+    public void confirmNick() {
 
         String nick = nickField.getText();
-        return nick;
-        //notifyNick(nick);
-    }*/
+        notifyNick(nick);
+    }
 
-    /*public void nPlayersButtons(ActionEvent event) {
-        Button numberChoice = (Button) event.getSource();
-        nPlayers = Integer.parseInt(numberChoice.getText());
-    }*/
+    public void return2() {
 
+        notifyNumberOfPlayers(2);
+    }
 
     public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException {
         Parent waitingRoomScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WaitingRoom.fxml")));
@@ -168,11 +167,132 @@ public class GraphicInterface extends Application implements viewListeners{
         EnrolledBar.setProgress(progress);
     }
 
+    public void return4() {
+
+        notifyNumberOfPlayers(4);
+    }
+
+    /*
+
+    Gestione waiting room
+
+     */
+
     public void playing(GameView gameView) throws Exception {
         displayUpdate(gameView);
         Parent playingScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayingScreen.fxml")));
         stage.setScene(new Scene(playingScene));
         stage.show();
+    }
+
+    public void tileSelected(Tile selectedTile) {
+        int nextColumn = findFirstEmptyColumn(selectedGrid);
+
+        if (nextColumn != -1 && nextColumn <= 2) {
+            selectedTile.setOnMouseClicked(null);
+            tableGrid.getChildren().remove(selectedTile);
+            selectedTile.setFitHeight(50.0);
+            selectedTile.setFitWidth(50.0);
+            selectedGrid.add(selectedTile, nextColumn, 0);
+            selectedTile.setOnMouseClicked(event -> tileDeselected(selectedTile));
+        }
+    }
+
+    private int findFirstEmptyColumn(GridPane gridPane) {
+        int columnCount = gridPane.getColumnCount();
+
+        for (int column = 0; column < columnCount; column++) {
+            boolean isEmpty = true;
+            boolean found = false;
+            for (Node node : gridPane.getChildren()) {
+                if (found==false) {
+                    if (GridPane.getColumnIndex(node) != null && GridPane.getColumnIndex(node) == column) {
+                        isEmpty = false;
+                        found = true;
+                        break;
+                    }
+                }
+            }
+            if (isEmpty) {
+                return column;
+            }
+        }
+        return -1; // Se non viene trovata una colonna libera
+    }
+
+    public void tileDeselected(Tile deselectedTile) {
+
+        int column = selectedGrid.getColumnIndex(deselectedTile);
+
+        deselectedTile.setOnMouseClicked(null);
+        selectedGrid.getChildren().remove(deselectedTile);
+/*
+        selectedGrid.getChildren().forEach(child -> {
+            int childColumn = selectedGrid.getColumnIndex(child);
+            if (childColumn > column) {
+                selectedGrid.setColumnIndex(child, childColumn - 1);
+            }
+        });
+
+*/
+        deselectedTile.setFitHeight(20.0);
+        deselectedTile.setFitWidth(20.0);
+        tableGrid.add(deselectedTile, deselectedTile.getTileY(), deselectedTile.getTileX());
+        deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
+    }
+
+    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+
+        int nChoices = (int) selectedGrid.getChildren().stream()
+                .filter(node -> node instanceof Tile)
+                .count();
+
+        notifyChoices(nChoices);
+
+        SlotChoice[] selection = new SlotChoice[nChoices];
+
+        for (int i = 0; i < nChoices; i ++) {
+            Node node = selectedGrid.getChildren().get(i);
+            Tile tile = (Tile) node;
+            selection[i] = new SlotChoice(tile.getTileX(), tile.getTileY());
+        }
+
+        notifySelectedCoordinates(selection);
+    }
+
+    public void setColumn0() {
+
+        column = 0;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn1() {
+
+        column = 1;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn2() {
+
+        column = 2;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn3() {
+
+        column = 3;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void setColumn4() {
+
+        column = 4;
+        confirmInsertButton.setVisible(true);
+    }
+
+    public void confirmInsert() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+
+        notifyInsert(column);
     }
 
     public void notPlaying(GameView gameView) throws Exception{
@@ -189,15 +309,11 @@ public class GraphicInterface extends Application implements viewListeners{
     }
 
     public void displayUpdate(GameView gameView){
-        ImageView sfondo = new ImageView ("GraphicResources/boards/livingroom.png");
-
+        /*ImageView sfondo = new ImageView ("GraphicResources/boards/livingroom.png");
         BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
         BackgroundImage backgroundImage = new BackgroundImage(sfondo.getImage(), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
         Background background = new Background(backgroundImage);
-        tableGrid.setBackground(background);
-
-
-
+        tableGrid.setBackground(background);*/
         /*sfondo.setPreserveRatio(true);
         sfondo.fitWidthProperty().bind(tableGrid.widthProperty());
         sfondo.fitHeightProperty().bind(tableGrid.heightProperty());
@@ -207,19 +323,20 @@ public class GraphicInterface extends Application implements viewListeners{
         for(int i = 0; i < Dashboard.getSide(); i ++) {
             for(int j = 0; j < Dashboard.getSide(); j ++) {
 
-                ImageView tile;
+                Tile tile;
 
                 if (!gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType());
+                    tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType(), i, j);
+                    tile.setOnMouseClicked(event -> tileSelected(tile));
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     tile.setPreserveRatio(true);
-                    tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
-                    tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
+                    //tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
+                    //tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
 
-                    //tile.setFitHeight(20.0);
-                    //tile.setFitWidth(20.0);
-                      tableGrid.add(tile,i,j);
+                    tile.setFitHeight(20.0);
+                    tile.setFitWidth(20.0);
+                    tableGrid.add(tile,j,i);
                 }
             }
         }
@@ -227,16 +344,16 @@ public class GraphicInterface extends Application implements viewListeners{
         for(int i = 0; i < PersonalShelf.N_ROWS; i ++) {
             for(int j = 0; j < PersonalShelf.N_COLUMN; j ++) {
 
-                ImageView tile;
+                Tile tile;
 
                 if (!gameView.getShelf().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType());
+                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
                     //GridPane.setRowIndex(tile, i);
                     //GridPane.setColumnIndex(tile, j);
                     //shelfGrid.getChildren().add(tile);
                     tile.setFitHeight(25.0);
                     tile.setFitWidth(25.0);
-                    shelfGrid.add(tile,i,j);
+                    shelfGrid.add(tile,j,i);
                 }
             }
         }
@@ -248,51 +365,51 @@ public class GraphicInterface extends Application implements viewListeners{
         //personalGoalImage = new ImageView(gameView.getPgoal().getImage());
     }
 
-    public ImageView setTile(Color color, Type type) {
+    public Tile setTile(Color color, Type type, int x, int y) {
 
-        ImageView tile = null;
+        Tile tile = null;
 
         switch(color) {
             case GREEN -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Gatti1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Gatti1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Gatti1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Gatti1.3.png", x, y);
                 }
             }
             case PINK -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Piante1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Piante1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Piante1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Piante1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Piante1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Piante1.3.png", x, y);
                 }
             }
             case BLUE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Cornici1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Cornici1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Cornici1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Cornici1.3.png", x, y);
                 }
             }
             case LBLUE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Trofei1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Trofei1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Trofei1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Trofei1.3.png", x, y);
                 }
             }
             case WHITE -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Libri1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Libri1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Libri1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Libri1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Libri1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Libri1.3.png", x, y);
                 }
             }
             case YELLOW -> {
                 switch (type) {
-                    case TYPE1 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.1.png");
-                    case TYPE2 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.2.png");
-                    case TYPE3 -> tile = new ImageView("GraphicResources/item tiles/Giochi1.3.png");
+                    case TYPE1 -> tile = new Tile("GraphicResources/item tiles/Giochi1.1.png", x, y);
+                    case TYPE2 -> tile = new Tile("GraphicResources/item tiles/Giochi1.2.png", x, y);
+                    case TYPE3 -> tile = new Tile("GraphicResources/item tiles/Giochi1.3.png", x, y);
                 }
             }
         }
@@ -368,7 +485,7 @@ public class GraphicInterface extends Application implements viewListeners{
     }
 
     @Override
-    public void notifyOneMoreTime() throws IOException, SameNicknameException {
+    public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
