@@ -13,7 +13,7 @@ public class Dashboard implements Serializable {
     private final Slot[][] inDashboard;
 
     /**
-     * The side of the matrix that represents the dashboard.
+     * The side of the matrix that represents a dashboard.
      */
     private static final int side = 9;
 
@@ -166,22 +166,22 @@ public class Dashboard implements Serializable {
 
         int numberOfAdjacencies = 0;
 
-        //Check on the left slot (if it exists)
-        if (x != 0 && !inDashboard[x-1][y].getColor().equals(Color.GREY) && !inDashboard[x-1][y].getColor().equals(Color.BLACK))
-            numberOfAdjacencies ++;
-
-        //Check on the right slot (if it exists)
-        if (x != side-1 && !inDashboard[x+1][y].getColor().equals(Color.GREY) && !inDashboard[x+1][y].getColor().equals(Color.BLACK))
-            numberOfAdjacencies ++;
-
-        //Check on the top slot (if it exists)
-        if (y != 0 && !inDashboard[x][y-1].getColor().equals(Color.GREY) && !inDashboard[x][y-1].getColor().equals(Color.BLACK))
-            numberOfAdjacencies ++;
-
         //Check on the bottom slot (if it exists)
-        if (y != side-1 && !inDashboard[x][y+1].getColor().equals(Color.GREY) && !inDashboard[x][y+1].getColor().equals(Color.BLACK))
-            numberOfAdjacencies ++;
-
+        if (x != 0 && !inDashboard[x - 1][y].getColor().equals(Color.GREY) && !inDashboard[x - 1][y].getColor().equals(Color.BLACK)) {
+            numberOfAdjacencies++;
+        }
+        //Check on the top slot (if it exists)
+        if (x != side - 1 && !inDashboard[x + 1][y].getColor().equals(Color.GREY) && !inDashboard[x + 1][y].getColor().equals(Color.BLACK)) {
+            numberOfAdjacencies++;
+        }
+        //Check on the left slot (if it exists)
+        if (y != 0 && !inDashboard[x][y-1].getColor().equals(Color.GREY) && !inDashboard[x][y-1].getColor().equals(Color.BLACK)) {
+            numberOfAdjacencies++;
+        }
+        //Check on the right slot (if it exists)
+        if (y != side-1 && !inDashboard[x][y+1].getColor().equals(Color.GREY) && !inDashboard[x][y+1].getColor().equals(Color.BLACK)) {
+            numberOfAdjacencies++;
+        }
         return numberOfAdjacencies;
     }
 

@@ -69,6 +69,21 @@ public class GraphicInterface extends Application implements viewListeners{
     Button confirmSelectionButton;
 
     @FXML
+    Button insertIn0;
+
+    @FXML
+    Button insertIn1;
+
+    @FXML
+    Button insertIn2;
+
+    @FXML
+    Button insertIn3;
+
+    @FXML
+    Button insertIn4;
+
+    @FXML
     Button confirmInsertButton;
 
     @FXML
@@ -201,7 +216,16 @@ public class GraphicInterface extends Application implements viewListeners{
 
         deselectedTile.setOnMouseClicked(null);
         selectedGrid.getChildren().remove(deselectedTile);
-/*
+
+        if (column < 3 && selectedGrid.getChildren().size() != 0) {
+            for (int i = column + 1; i < selectedGrid.getColumnCount(); i++) {
+                Node tileToMove = selectedGrid.getChildren().get(i);
+                selectedGrid.getChildren().remove(tileToMove);
+                selectedGrid.add(tileToMove, i - 1, 0);
+            }
+        }
+
+        /*
         selectedGrid.getChildren().forEach(child -> {
             int childColumn = selectedGrid.getColumnIndex(child);
             if (childColumn > column) {
@@ -216,7 +240,7 @@ public class GraphicInterface extends Application implements viewListeners{
         deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
 
-    /*public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
@@ -233,10 +257,75 @@ public class GraphicInterface extends Application implements viewListeners{
         }
 
         notifySelectedCoordinates(selection);
-    }
-     */
 
-    public void confirmSelection() {
+        if (nChoices > 1) {
+            for (int i = 0; i < nChoices; i++) {
+                Node node = selectedGrid.getChildren().get(i);
+                Tile tile = (Tile) node;
+                tile.setOrder(i + 1);
+            }
+
+            setDragAndDrop();
+            confirmSelectionButton.setText("Conferma");
+            confirmSelectionButton.setOnMouseClicked(event -> {
+                try {
+                    confirmOrder(nChoices);
+                } catch (NotAdjacentSlotsException e) {
+                    throw new RuntimeException(e);
+                } catch (NotCatchableException e) {
+                    throw new RuntimeException(e);
+                } catch (NotEnoughSpaceChoiceException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        } else {
+            insertIn0.setVisible(true);
+            insertIn1.setVisible(true);
+            insertIn2.setVisible(true);
+            insertIn3.setVisible(true);
+            insertIn4.setVisible(true);
+        }
+    }
+
+    public void confirmOrder(int nChoices) throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+
+        Node node;
+        Tile tile;
+
+        if(nChoices == 2) {
+            node = selectedGrid.getChildren().get(0);
+            tile = (Tile) node;
+
+            if(tile.getOrder() == 2) {
+                OrderChoice order = new OrderChoice(1, 1, 1);
+                notifyOrder(order);
+            }
+        }
+
+        if(nChoices == 3) {
+
+            node = selectedGrid.getChildren().get(0);
+            tile = (Tile) node;
+            int pos1 = tile.getOrder();
+            node = selectedGrid.getChildren().get(1);
+            tile = (Tile) node;
+            int pos2 = tile.getOrder();
+            node = selectedGrid.getChildren().get(2);
+            tile = (Tile) node;
+            int pos3 = tile.getOrder();
+
+            OrderChoice order = new OrderChoice(pos1, pos2, pos3);
+            notifyOrder(order);
+        }
+        //Unsetting del drag and drop da implementare
+        insertIn0.setVisible(true);
+        insertIn1.setVisible(true);
+        insertIn2.setVisible(true);
+        insertIn3.setVisible(true);
+        insertIn4.setVisible(true);
+    }
+
+    public void setDragAndDrop() {
         int check = findFirstEmptyColumn(selectedGrid);
         //if I have less than 1 column free
         if (check <= 1) {

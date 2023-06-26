@@ -81,4 +81,34 @@ public enum Color {
                 throw new IllegalArgumentException("Invalid color string: " + color);
         }
     }
+
+    /**
+     *
+     *
+     * @param color The color to convert.
+     * @return The image on the input color slot.
+     */
+    public static String colorToImage(Color color) {
+        switch (color) {
+            case GREEN -> {
+                return "  CAT  ";
+            }
+            case PINK -> {
+                return " PLANT ";
+            }
+            case BLUE -> {
+                return " FRAME ";
+            }
+            case LBLUE -> {
+                return "TROPHY ";
+            }
+            case WHITE -> {
+                return " BOOK  ";
+            }
+            case YELLOW -> {
+                return " GAME  ";
+            }
+        }
+        return null;
+    }
 }
