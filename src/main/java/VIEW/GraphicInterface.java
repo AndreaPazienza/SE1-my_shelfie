@@ -216,7 +216,16 @@ public class GraphicInterface extends Application implements viewListeners{
 
         deselectedTile.setOnMouseClicked(null);
         selectedGrid.getChildren().remove(deselectedTile);
-/*
+
+        if (column < 3 && selectedGrid.getChildren().size() != 0) {
+            for (int i = column + 1; i < selectedGrid.getColumnCount(); i++) {
+                Node tileToMove = selectedGrid.getChildren().get(i);
+                selectedGrid.getChildren().remove(tileToMove);
+                selectedGrid.add(tileToMove, i - 1, 0);
+            }
+        }
+
+        /*
         selectedGrid.getChildren().forEach(child -> {
             int childColumn = selectedGrid.getColumnIndex(child);
             if (childColumn > column) {
@@ -231,7 +240,7 @@ public class GraphicInterface extends Application implements viewListeners{
         deselectedTile.setOnMouseClicked(event -> tileSelected(deselectedTile));
     }
 
-    /*public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
+    public void confirmSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
@@ -256,9 +265,19 @@ public class GraphicInterface extends Application implements viewListeners{
                 tile.setOrder(i + 1);
             }
 
-            //Setting del drag and drop sul selectedGrid da implementare
+            setDragAndDrop();
             confirmSelectionButton.setText("Conferma");
-            confirmSelectionButton.setOnMouseClicked(event -> confirmOrder(nChoices));
+            confirmSelectionButton.setOnMouseClicked(event -> {
+                try {
+                    confirmOrder(nChoices);
+                } catch (NotAdjacentSlotsException e) {
+                    throw new RuntimeException(e);
+                } catch (NotCatchableException e) {
+                    throw new RuntimeException(e);
+                } catch (NotEnoughSpaceChoiceException e) {
+                    throw new RuntimeException(e);
+                }
+            });
         } else {
             insertIn0.setVisible(true);
             insertIn1.setVisible(true);
@@ -298,16 +317,15 @@ public class GraphicInterface extends Application implements viewListeners{
             OrderChoice order = new OrderChoice(pos1, pos2, pos3);
             notifyOrder(order);
         }
-
+        //Unsetting del drag and drop da implementare
         insertIn0.setVisible(true);
         insertIn1.setVisible(true);
         insertIn2.setVisible(true);
         insertIn3.setVisible(true);
         insertIn4.setVisible(true);
     }
-     */
 
-    public void confirmSelection() {
+    public void setDragAndDrop() {
         int check = findFirstEmptyColumn(selectedGrid);
         //if I have less than 1 column free
         if (check <= 1) {
