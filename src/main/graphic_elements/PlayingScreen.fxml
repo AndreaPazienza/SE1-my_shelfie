@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane fx:id="PlayingScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
+<Pane fx:id="PlayingScreen" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
    <children>
       <ImageView fitHeight="823.0" fitWidth="1309.0" layoutX="-9.0" layoutY="-4.0">
          <image>
@@ -103,26 +99,26 @@
          <image>
             <Image url="@GraphicResources/common%20goal%20cards/10.jpg" />
          </image></ImageView>
-      <Button fx:id="insertIn0" layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn0" text="0" visible="false">
+      <Button fx:id="insertIn0" layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn0" prefHeight="53.0" prefWidth="53.0" text="0" visible="false">
          <font>
             <Font size="25.0" />
          </font></Button>
-       <Button fx:id="insertIn1" layoutX="899.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn1" text="1" visible="false">
+       <Button fx:id="insertIn1" layoutX="899.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn1" prefHeight="53.0" prefWidth="53.0" text="1" visible="false">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button fx:id="insertIn2" layoutX="975.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn2" text="2" visible="false">
+       <Button fx:id="insertIn2" layoutX="975.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn2" prefHeight="53.0" prefWidth="53.0" text="2" visible="false">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button fx:id="insertIn3" layoutX="1048.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn3" text="3" visible="false">
+       <Button fx:id="insertIn3" layoutX="1048.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn3" prefHeight="53.0" prefWidth="53.0" text="3" visible="false">
            <font>
                <Font size="25.0" />
            </font>
        </Button>
-       <Button fx:id="insertIn4" layoutX="1123.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="53.0" onAction="#setColumn4" text="4" visible="false">
+       <Button fx:id="insertIn4" layoutX="1123.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn4" prefHeight="53.0" prefWidth="53.0" text="4" visible="false">
            <font>
                <Font size="25.0" />
            </font>
@@ -137,5 +133,10 @@
             <Image url="@GraphicResources/Publisher%20material/Title%202000x618px.png" />
          </image>
       </ImageView>
+      <TextArea fx:id="errorTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0">
+         <effect>
+            <ColorInput />
+         </effect>
+      </TextArea>
    </children>
 </Pane>
