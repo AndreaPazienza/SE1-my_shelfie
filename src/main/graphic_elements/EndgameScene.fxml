@@ -31,7 +31,7 @@
                   <Image url="@/GraphicResources/Publisher material/Title 2000x618px.png" />
                </image>
             </ImageView>
-            <TextArea blendMode="MULTIPLY" editable="false" layoutY="154.0" prefHeight="647.0" prefWidth="636.0" promptText="Ranking" text="#textArea2">
+            <TextArea fx:id="textArea1" blendMode="MULTIPLY" editable="false" layoutY="154.0" prefHeight="647.0" prefWidth="636.0" promptText="Ranking" text="#textArea1">
                <font>
                   <Font size="60.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Image url="@/GraphicResources/misc/base_pagina2.jpg" />
                </image>
             </ImageView>
-            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="312.0" prefWidth="302.0" text="#textArea2" textAlignment="CENTER" textFill="#efd393" textOverrun="CLIP" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label fx:id="textArea2" alignment="CENTER" contentDisplay="CENTER" prefHeight="312.0" prefWidth="302.0" text="#textArea2" textAlignment="CENTER" textFill="#efd393" textOverrun="CLIP" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font size="50.0" />
                </font>

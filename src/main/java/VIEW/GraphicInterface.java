@@ -216,14 +216,18 @@ public class GraphicInterface extends Application implements viewListeners{
 
         deselectedTile.setOnMouseClicked(null);
         selectedGrid.getChildren().remove(deselectedTile);
-
+/*
         if (column < 3 && selectedGrid.getChildren().size() != 0) {
             for (int i = column + 1; i < selectedGrid.getColumnCount(); i++) {
-                Node tileToMove = selectedGrid.getChildren().get(i);
+                Node nodeToMove = selectedGrid.getChildren().get(i);
+                Tile tileToMove = (Tile) nodeToMove;
+                tileToMove.setOnMouseClicked(null);
                 selectedGrid.getChildren().remove(tileToMove);
                 selectedGrid.add(tileToMove, i - 1, 0);
+                tileToMove.setOnMouseClicked(event -> tileDeselected(tileToMove));
             }
         }
+        */
 
         /*
         selectedGrid.getChildren().forEach(child -> {
@@ -245,29 +249,45 @@ public class GraphicInterface extends Application implements viewListeners{
         int nChoices = (int) selectedGrid.getChildren().stream()
                 .filter(node -> node instanceof Tile)
                 .count();
-
-        notifyChoices(nChoices);
+        System.out.println(nChoices);
+        //notifyChoices(nChoices);
 
         SlotChoice[] selection = new SlotChoice[nChoices];
+        int i=0;
 
-        for (int i = 0; i < nChoices; i ++) {
-            Node node = selectedGrid.getChildren().get(i);
-            Tile tile = (Tile) node;
-            selection[i] = new SlotChoice(tile.getTileX(), tile.getTileY());
-        }
+            for (Node node : selectedGrid.getChildren()) {
+                if (node instanceof Tile) {
+                    Tile tile = (Tile) node;
+                    System.out.println(i);
+                    selection[i] = new SlotChoice(tile.getTileX(), tile.getTileY());
+                    i++;
+                }
+            }
 
-        notifySelectedCoordinates(selection);
-
-        if (nChoices > 1) {
-            for (int i = 0; i < nChoices; i++) {
-                Node node = selectedGrid.getChildren().get(i);
+           /* Node node = selectedGrid.getChildren().get(i);
+            if(node instanceof Tile) {
                 Tile tile = (Tile) node;
-                tile.setOrder(i + 1);
+                selection[i] = new SlotChoice(tile.getTileX(), tile.getTileY());
+                System.out.println(i);
+            }*/
+
+
+        //notifySelectedCoordinates(selection);
+
+        if (nChoices> 1) {
+            for (Node node : selectedGrid.getChildren()) {
+                if (node instanceof Tile) {
+                    Tile tile = (Tile) node;
+                    System.out.println(i);
+                    tile.setOrder(i + 1);
+                    tile.setOnMouseClicked(null);
+                    System.out.println(tile.getOrder());
+                }
             }
 
             setDragAndDrop();
             confirmSelectionButton.setText("Conferma");
-            confirmSelectionButton.setOnMouseClicked(event -> {
+            confirmSelectionButton.setOnAction(event -> {
                 try {
                     confirmOrder(nChoices);
                 } catch (NotAdjacentSlotsException e) {
@@ -278,6 +298,7 @@ public class GraphicInterface extends Application implements viewListeners{
                     throw new RuntimeException(e);
                 }
             });
+
         } else {
             insertIn0.setVisible(true);
             insertIn1.setVisible(true);
@@ -288,31 +309,46 @@ public class GraphicInterface extends Application implements viewListeners{
     }
 
     public void confirmOrder(int nChoices) throws NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
-
-        Node node;
-        Tile tile;
+        for (Node node : selectedGrid.getChildren()) {
+            if (node instanceof Tile) {
+                Tile tile = (Tile) node;
+                disableDragandDrop(tile);
+            }
+        }
 
         if(nChoices == 2) {
-            node = selectedGrid.getChildren().get(0);
-            tile = (Tile) node;
-
-            if(tile.getOrder() == 2) {
-                OrderChoice order = new OrderChoice(1, 1, 1);
-                notifyOrder(order);
+            for (Node node : selectedGrid.getChildren()) {
+                if (node instanceof Tile) {
+                    Tile tile = (Tile) node;
+                    if (tile.getOrder() == 2) {
+                        OrderChoice order = new OrderChoice(1, 1, 1);
+                        //notifyOrder(order);
+                    }
+                }
             }
         }
 
         if(nChoices == 3) {
-
+            int pos1=0;
+            int pos2=0;
+            int pos3=0;
+            Node node;
+            Tile tile;
             node = selectedGrid.getChildren().get(0);
-            tile = (Tile) node;
-            int pos1 = tile.getOrder();
+            if(node instanceof Tile) {
+                tile = (Tile) node;
+                pos1 = tile.getOrder();
+            }
             node = selectedGrid.getChildren().get(1);
-            tile = (Tile) node;
-            int pos2 = tile.getOrder();
+            if(node instanceof Tile) {
+                tile = (Tile) node;
+                pos2 = tile.getOrder();
+            }
             node = selectedGrid.getChildren().get(2);
-            tile = (Tile) node;
-            int pos3 = tile.getOrder();
+            if(node instanceof Tile) {
+                tile = (Tile) node;
+                pos3 = tile.getOrder();
+            }
 
             OrderChoice order = new OrderChoice(pos1, pos2, pos3);
             notifyOrder(order);
@@ -326,9 +362,8 @@ public class GraphicInterface extends Application implements viewListeners{
     }
 
     public void setDragAndDrop() {
-        int check = findFirstEmptyColumn(selectedGrid);
+        System.out.print("sdsfsfs");
         //if I have less than 1 column free
-        if (check <= 1) {
             //abilito drag and drop delle immagini (Istanze Tile) su selectedGrid
             for (Node node : selectedGrid.getChildren()) {
                 if (node instanceof Tile) {
@@ -337,7 +372,7 @@ public class GraphicInterface extends Application implements viewListeners{
                 }
             }
         }
-    }
+
 
     private void enableDragandDrop(Tile tile){
         //start of drag and drop
@@ -398,6 +433,14 @@ public class GraphicInterface extends Application implements viewListeners{
             }
             event.consume();
         });
+    }
+    private void disableDragandDrop(Tile tile){
+        tile.setOnDragDetected(null);
+        tile.setOnDragOver(null);
+        tile.setOnDragEntered(null);
+        tile.setOnDragExited(null);
+        tile.setOnDragDropped(null);
+        tile.setOnDragDone(null);
     }
 
 
