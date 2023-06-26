@@ -8,6 +8,10 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +24,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
@@ -41,6 +45,8 @@ public class GraphicInterface extends Application implements viewListeners{
     private String nick = null;
     private int number = 0;
     private int column = -1;
+
+    private int nPlayers = 0;
 
     @FXML
     TextField nickField;
@@ -80,6 +86,18 @@ public class GraphicInterface extends Application implements viewListeners{
     @FXML
     Label textArea2;
 
+    @FXML
+    ProgressBar enrolledbar;
+
+    @FXML
+    Button twoPlayersButton;
+
+    @FXML
+    Button threePlayersButton;
+
+    @FXML
+    Button fourPlayersButton;
+
 
     public String fistRun(String[] arg) {
         launch(arg);
@@ -99,7 +117,7 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.show();
     }
 
-    public int numberOfPlayers() throws Exception {
+    /*public int numberOfPlayers() throws Exception {
         Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
         stage.setScene(new Scene(numberOfPlayersScene));
         stage.show();
@@ -107,7 +125,7 @@ public class GraphicInterface extends Application implements viewListeners{
 
         }
         return number;
-    }
+    }*/
 
     public void confirmNick() {
 
@@ -341,6 +359,49 @@ public class GraphicInterface extends Application implements viewListeners{
         Parent endgameScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndgameScene.fxml")));
         stage.setScene(new Scene(endgameScene));
         stage.show();
+    }
+
+    public void waitingRoom(int enrolledPlayers, int nPlayers) throws IOException {
+        Parent waitingRoomScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("WaitingRoom.fxml")));
+        stage.setScene(new Scene(waitingRoomScene));
+        stage.showAndWait();
+        double progress = (double)enrolledPlayers/nPlayers;
+        enrolledbar.setProgress(progress);
+    }
+    public String firstRun(String[] arg) throws InterruptedException {
+        //launch(arg);
+        confirmNickButton.setOnAction(event -> {
+            {
+                nick = nickField.getText();
+                if(nick.isBlank()){
+                    //ERRORE DA GESTIRE;
+                }
+                stage.close();
+            }
+        });
+        return nick;
+    }
+
+    public int numberOfPlayers() throws Exception {
+        Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
+        stage.setScene(new Scene(numberOfPlayersScene));
+        stage.showAndWait();
+        twoPlayersButton.setOnAction(event -> {{
+                nPlayers = Integer.parseInt(twoPlayersButton.getText());
+                stage.close();
+            }
+        });
+        threePlayersButton.setOnAction(event -> {
+             {
+                nPlayers = Integer.parseInt(threePlayersButton.getText());
+                stage.close();
+            }
+        });
+        fourPlayersButton.setOnAction(event -> {
+                nPlayers = Integer.parseInt(fourPlayersButton.getText());
+                stage.close();
+        });
+        return nPlayers;
     }
 
     public void displayUpdate(GameView gameView){
