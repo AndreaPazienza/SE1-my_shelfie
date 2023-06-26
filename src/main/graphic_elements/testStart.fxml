@@ -1,48 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<TitledPane id="StartFrame" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" text="MY_SHELFIE" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
+<TitledPane id="StartFrame" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" text="MY_SHELFIE" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
   <content>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
          <children>
-            <ImageView fx:id="BackgroundImage" fitHeight="382.0" fitWidth="600.0" layoutX="-1.0" layoutY="-2.0">
+            <ImageView fx:id="BackgroundImage" fitHeight="772.0" fitWidth="1293.0" layoutX="-1.0" layoutY="-2.0">
                <image>
-                  <Image url="@/GraphicResources/misc/sfondo parquet.jpg" />
+                  <Image url="@/GraphicResources/Publisher material/Display_5.jpg" />
                </image>
             </ImageView>
-            <ImageView fx:id="TitleImage" fitHeight="127.0" fitWidth="314.0" layoutX="138.0" layoutY="-9.0">
+            <ImageView fx:id="TitleImage" fitHeight="150.0" fitWidth="482.0" layoutX="403.0" layoutY="9.0">
                <image>
                   <Image url="@/GraphicResources/Publisher material/Title 2000x618px.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="102.0" fitWidth="119.0" layoutY="258.0">
+            <ImageView fitHeight="240.0" fitWidth="240.0" layoutX="2.0" layoutY="550.0">
                <image>
                   <Image url="@/GraphicResources/Publisher material/Publisher.png" />
                </image>
             </ImageView>
-            <Button fx:id="confirmNickButton" layoutX="258.0" layoutY="176.0" mnemonicParsing="false" onAction="#confirmNick" prefHeight="29.0" prefWidth="74.0" text="Conferma">
+            <Button fx:id="confirmNickButton" layoutX="571.0" layoutY="424.0" mnemonicParsing="false" onAction="#confirmNick" prefHeight="61.0" prefWidth="146.0" text="Conferma">
                <font>
-                  <Font name="Noteworthy Light" size="12.0" />
+                  <Font name="Noteworthy Light" size="21.0" />
                </font>
             </Button>
-            <TextField fx:id="nickField" layoutX="80.0" layoutY="143.0" prefHeight="33.0" prefWidth="438.0" style="-fx-background-color: white;">
+            <TextField fx:id="nickField" layoutX="408.0" layoutY="308.0" prefHeight="60.0" prefWidth="474.0" style="-fx-background-color: white;">
                <font>
                   <Font name="Ravie" size="12.0" />
                </font>
             </TextField>
-            <AnchorPane layoutX="80.0" layoutY="118.0" prefHeight="23.0" prefWidth="451.0">
-               <children>
-                  <Text fill="#750505" layoutX="143.0" layoutY="11.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-origin: CENTER;" text="INSERISCI IL TUO NICKNAME" wrappingWidth="184.84500122070312">
-                     <font>
-                        <Font name="Noteworthy Light" size="12.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
+            <AnchorPane layoutX="80.0" layoutY="118.0" prefHeight="482.0" prefWidth="1151.0" />
+            <Text fill="#750505" layoutX="406.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-origin: CENTER;" text="INSERISCI IL TUO NICKNAME" textAlignment="CENTER" wrappingWidth="480.3389587402344">
+               <font>
+                  <Font name="Noteworthy Light" size="36.0" />
+               </font>
+            </Text>
          </children></AnchorPane>
   </content>
 </TitledPane>
