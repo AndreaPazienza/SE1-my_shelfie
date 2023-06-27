@@ -6,22 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Update GUI errorTextArea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -607,8 +593,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

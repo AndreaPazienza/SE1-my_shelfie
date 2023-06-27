@@ -572,56 +572,52 @@ public class GraphicInterface extends Application implements viewListeners{
         return nPlayers;
     }
 
-    public void displayUpdate(GameView gameView){
-        /*ImageView sfondo = new ImageView ("GraphicResources/boards/livingroom.png");
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
-        BackgroundImage backgroundImage = new BackgroundImage(sfondo.getImage(), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
-        Background background = new Background(backgroundImage);
-        tableGrid.setBackground(background);*/
-        /*sfondo.setPreserveRatio(true);
-        sfondo.fitWidthProperty().bind(tableGrid.widthProperty());
-        sfondo.fitHeightProperty().bind(tableGrid.heightProperty());
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(sfondo,tableGrid);*/
 
-        for(int i = 0; i < Dashboard.getSide(); i ++) {
-            for(int j = 0; j < Dashboard.getSide(); j ++) {
+    public void displayDashboard(GameView gameView) {
+        for (int i = 0; i < Dashboard.getSide(); i++) {
+            for (int j = 0; j < Dashboard.getSide(); j++) {
 
                 Tile tile;
 
-                if (!gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
+                if (!gameView.getTable().getSingleSlot(i, j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i, j).getColor().equals(Color.GREY)) {
                     tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType(), i, j);
                     tile.setOnMouseClicked(event -> tileSelected(tile));
-                    //GridPane.setRowIndex(tile, i);
-                    //GridPane.setColumnIndex(tile, j);
                     tile.setPreserveRatio(true);
-                    //tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
-                    //tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
-
                     tile.setFitHeight(50.0);
                     tile.setFitWidth(50.0);
-                    tableGrid.add(tile,j,i);
-                }
-            }
-        }
-
-        for(int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            for(int j = 0; j < PersonalShelf.N_COLUMN; j ++) {
-
-                Tile tile;
-
-                if (!gameView.getShelf().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
-                    //GridPane.setRowIndex(tile, i);
-                    //GridPane.setColumnIndex(tile, j);
-                    //shelfGrid.getChildren().add(tile);
-                    tile.setFitHeight(59.0);
-                    tile.setFitWidth(59.0);
-                    shelfGrid.add(tile,j,i);
+                    tableGrid.add(tile, j, i);
                 }
             }
         }
     }
+
+    public void displayPersonalShelf(GameView gameView) {
+
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                Tile tile;
+                if (!gameView.getShelf().getSingleSlot(i, j).getColor().equals(Color.GREY)) {
+                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
+                    tile.setFitHeight(59.0);
+                    tile.setFitWidth(59.0);
+                    shelfGrid.add(tile, j, i);
+                }
+            }
+        }
+    }
+
+    public void displayCommonGoal (GameView gameView){
+        commonGoal1Image = new ImageView(gameView.getCommonGoal1().getImage());
+        commonGoal2Image = new ImageView(gameView.getCommonGoal1().getImage());
+    }
+
+    public void displatPersonalGoal (GameView gameView){
+        personalGoalImage = new ImageView(gameView.getPgoal().getImage());
+    }
+
+
+
+
 
     public void displayGoals (GameView gameView) {
         commonGoal1Image = new ImageView(gameView.getCommonGoal1().getImage());
