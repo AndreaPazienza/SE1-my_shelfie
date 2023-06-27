@@ -97,7 +97,7 @@
       </AnchorPane>
       <ImageView fitHeight="90.0" fitWidth="136.0" layoutX="1062.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@GraphicResources/common%20goal%20cards/10.jpg" />
+            <Image url="@GraphicResources/common goal cards/10.jpg" />
          </image></ImageView>
       <Button fx:id="insertIn0" layoutX="831.0" layoutY="631.0" minWidth="53.0" mnemonicParsing="false" onAction="#setColumn0" prefHeight="53.0" prefWidth="53.0" text="0" visible="false">
          <font>
@@ -125,12 +125,12 @@
        </Button>
       <ImageView fitHeight="90.0" fitWidth="136.0" layoutX="885.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@GraphicResources/common%20goal%20cards/6.jpg" />
+            <Image url="@GraphicResources/common goal cards/6.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="126.0" fitWidth="499.0" layoutX="6.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@GraphicResources/Publisher%20material/Title%202000x618px.png" />
+            <Image url="@GraphicResources/Publisher material/Title 2000x618px.png" />
          </image>
       </ImageView>
       <TextArea fx:id="errorTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0">
