@@ -1,5 +1,6 @@
 package VIEW;
 
+import Distributed.rmi.Client;
 import Errors.SameNicknameException;
 import MODEL.*;
 import Listeners.viewListeners;
@@ -8,16 +9,18 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.beans.EventHandler;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.concurrent.CountDownLatch;
 
 import MODEL.Color;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,11 +38,15 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
-public class GraphicInterface extends Application implements viewListeners{
+public class GraphicInterface implements viewListeners{
 
     private final List<viewListeners> listeners = new ArrayList<>();
 
+    private CountDownLatch latch;
+
+    private Client client;
     Stage stage;
 
     private String nick = null;
@@ -48,8 +55,10 @@ public class GraphicInterface extends Application implements viewListeners{
 
     private int nPlayers = 0;
 
+    private boolean buttonPressed = false;
+
     @FXML
-    TextField nickField;
+    TextArea nickField;
     @FXML
     Button confirmNickButton;
 
@@ -125,13 +134,14 @@ public class GraphicInterface extends Application implements viewListeners{
     Button fourPlayersButton;
 
 
-    @Override
+
+    /*@Override
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
         Parent nickScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("testStart.fxml")));
         stage.setScene(new Scene(nickScene));
         stage.show();
-    }
+    }*/
 
     /*public int numberOfPlayers() throws Exception {
         Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
@@ -143,10 +153,17 @@ public class GraphicInterface extends Application implements viewListeners{
         return number;
     }*/
 
-    public void confirmNick() {
-
-        nick = nickField.getText();
+    /*public void confirmNick() {
+        if(nickField.getText().isBlank()){
+            String blanknick = "Il messaggio è vuoto";
+            nickErrorArea.setText(blanknick);
+        }
+        else {
+            buttonPressed = true;
+        }
     }
+
+     */
 
     public void setNumber2 () {
 
@@ -513,30 +530,56 @@ public class GraphicInterface extends Application implements viewListeners{
         double progress = (double)enrolledPlayers/nPlayers;
         enrolledbar.setProgress(progress);
     }
-    public String firstRun() throws InterruptedException {
-        confirmNickButton.setOnAction(event -> {
-            {
-                nick = nickField.getText();
-                if(nick.isBlank()){
-                    //ERRORE DA GESTIRE;
-                    String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
-                    nickErrorArea.setText(blankNick);
-                    try {
-                        firstRun();
-                    } catch (InterruptedException e) {
-                        throw new RuntimeException(e);
+    public String firstRun(Stage stage) throws InterruptedException, IOException {
+        Platform.runLater(() -> {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/testStart.fxml"));
+            Parent root = null;
+            try {
+                root = loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            GraphicInterface.setClient(client);
+            Scene scene = new Scene(root);
+            this.stage = stage;
+            stage.setScene(scene);
+            stage.show();
+            confirmNickButton.setOnAction(event -> {
+                {
+                    nick = nickField.getText();
+                    if(nick.isBlank()){
+                        //ERRORE DA GESTIRE;
+                        String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
+                        nickErrorArea.setText(blankNick);
                     }
                 }
-                stage.close();
-            }
+            });
+
         });
         return nick;
     }
 
+
+    public void confirmNick(){
+        nick = nickField.getText();
+        if(nick.isBlank()){
+            //ERRORE DA GESTIRE;
+            String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
+            nickErrorArea.setText(blankNick);
+        }
+    }
+
     public int numberOfPlayers() throws Exception {
-        Parent numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NumberOfPlayers.fxml")));
+        Platform.runLater(() -> {
+            Parent numberOfPlayersScene = null;
+            try {
+                numberOfPlayersScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/NumberOfPlayersScreen.fxml")));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            stage.close();
         stage.setScene(new Scene(numberOfPlayersScene));
-        stage.showAndWait();
+        stage.show();
         twoPlayersButton.setOnAction(event -> {{
                 nPlayers = Integer.parseInt(twoPlayersButton.getText());
                 stage.close();
@@ -552,6 +595,8 @@ public class GraphicInterface extends Application implements viewListeners{
                 nPlayers = Integer.parseInt(fourPlayersButton.getText());
                 stage.close();
         });
+
+    });
         return nPlayers;
     }
 
@@ -819,5 +864,9 @@ public class GraphicInterface extends Application implements viewListeners{
         errorTextArea.setText(endgame);
         errorTextArea.setEditable(false);
         notPlayingTextArea.setEditable(false);
+    }
+
+    public static void setClient(Client client) {
+        client = client;
     }
 }
