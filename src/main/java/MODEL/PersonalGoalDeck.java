@@ -1,6 +1,4 @@
 package MODEL;
-
-import VIEW.Image;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import javafx.scene.image.Image;
 
 
 public class PersonalGoalDeck {

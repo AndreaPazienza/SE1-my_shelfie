@@ -8,7 +8,6 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
-//import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.beans.EventHandler;
 import java.io.IOException;
@@ -27,8 +26,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
@@ -54,6 +53,8 @@ public class GraphicInterface extends Application implements viewListeners{
     @FXML
     Button confirmNickButton;
 
+    @FXML
+    TextArea nickErrorArea;
     @FXML
     ButtonBar numberOfPlayersButtons;
 
@@ -100,6 +101,9 @@ public class GraphicInterface extends Application implements viewListeners{
     TextArea errorTextArea;
 
     @FXML
+    TextArea notPlayingTextArea;
+
+    @FXML
     TextArea textArea1;
 
     @FXML
@@ -109,6 +113,9 @@ public class GraphicInterface extends Application implements viewListeners{
     ProgressBar enrolledbar;
 
     @FXML
+    TextArea waitingTextArea;
+
+    @FXML
     Button twoPlayersButton;
 
     @FXML
@@ -116,16 +123,6 @@ public class GraphicInterface extends Application implements viewListeners{
 
     @FXML
     Button fourPlayersButton;
-
-
-    public String fistRun(String[] arg) {
-        launch(arg);
-        while (nick == null) {
-
-        }
-        return nick;
-    }
-
 
 
     @Override
@@ -172,8 +169,7 @@ public class GraphicInterface extends Application implements viewListeners{
 
      */
 
-    public void playing(GameView gameView) throws Exception {
-        displayUpdate(gameView);
+    public void playing() throws Exception {
         Parent playingScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayingScreen.fxml")));
         stage.setScene(new Scene(playingScene));
         stage.show();
@@ -303,12 +299,6 @@ public class GraphicInterface extends Application implements viewListeners{
                 }
             });
 
-        } else {
-            insertIn0.setVisible(true);
-            insertIn1.setVisible(true);
-            insertIn2.setVisible(true);
-            insertIn3.setVisible(true);
-            insertIn4.setVisible(true);
         }
     }
 
@@ -357,12 +347,6 @@ public class GraphicInterface extends Application implements viewListeners{
             OrderChoice order = new OrderChoice(pos1, pos2, pos3);
             notifyOrder(order);
         }
-        //Unsetting del drag and drop da implementare
-        insertIn0.setVisible(true);
-        insertIn1.setVisible(true);
-        insertIn2.setVisible(true);
-        insertIn3.setVisible(true);
-        insertIn4.setVisible(true);
     }
 
     public void setDragAndDrop() {
@@ -478,6 +462,13 @@ public class GraphicInterface extends Application implements viewListeners{
         confirmInsertButton.setVisible(true);
     }
 
+    public void playerInsert(){
+        insertIn0.setVisible(true);
+        insertIn1.setVisible(true);
+        insertIn2.setVisible(true);
+        insertIn3.setVisible(true);
+        insertIn4.setVisible(true);
+    }
     public void confirmInsert() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         notifyInsert(column);
@@ -502,14 +493,13 @@ public class GraphicInterface extends Application implements viewListeners{
 
     }
 
-    public void notPlaying(GameView gameView) throws Exception{
-        displayUpdate(gameView);
+    public void onWait() throws Exception{
         Parent notPlayingScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("NotPlayingScene.fxml")));
         stage.setScene(new Scene(notPlayingScene));
         stage.show();
     }
 
-    public void endgame(GameView gameView) throws Exception{
+    public void displayWin(GameView gameView) throws Exception{
         setTexts(gameView.getRanking(), textArea1, textArea2);
         Parent endgameScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndgameScene.fxml")));
         stage.setScene(new Scene(endgameScene));
@@ -523,13 +513,19 @@ public class GraphicInterface extends Application implements viewListeners{
         double progress = (double)enrolledPlayers/nPlayers;
         enrolledbar.setProgress(progress);
     }
-    public String firstRun(String[] arg) throws InterruptedException {
-        //launch(arg);
+    public String firstRun() throws InterruptedException {
         confirmNickButton.setOnAction(event -> {
             {
                 nick = nickField.getText();
                 if(nick.isBlank()){
                     //ERRORE DA GESTIRE;
+                    String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
+                    nickErrorArea.setText(blankNick);
+                    try {
+                        firstRun();
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
                 stage.close();
             }
@@ -559,61 +555,49 @@ public class GraphicInterface extends Application implements viewListeners{
         return nPlayers;
     }
 
-    public void displayUpdate(GameView gameView){
-        /*ImageView sfondo = new ImageView ("GraphicResources/boards/livingroom.png");
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
-        BackgroundImage backgroundImage = new BackgroundImage(sfondo.getImage(), BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, backgroundSize);
-        Background background = new Background(backgroundImage);
-        tableGrid.setBackground(background);*/
-        /*sfondo.setPreserveRatio(true);
-        sfondo.fitWidthProperty().bind(tableGrid.widthProperty());
-        sfondo.fitHeightProperty().bind(tableGrid.heightProperty());
-        StackPane stackPane = new StackPane();
-        stackPane.getChildren().addAll(sfondo,tableGrid);*/
 
-        for(int i = 0; i < Dashboard.getSide(); i ++) {
-            for(int j = 0; j < Dashboard.getSide(); j ++) {
+
+
+    public void displayDashboard(GameView gameView) {
+        for (int i = 0; i < Dashboard.getSide(); i++) {
+            for (int j = 0; j < Dashboard.getSide(); j++) {
 
                 Tile tile;
 
-                if (!gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
+                if (!gameView.getTable().getSingleSlot(i, j).getColor().equals(Color.BLACK) && !gameView.getTable().getSingleSlot(i, j).getColor().equals(Color.GREY)) {
                     tile = setTile(gameView.getTable().getSingleSlot(i, j).getColor(), gameView.getTable().getSingleSlot(i, j).getType(), i, j);
                     tile.setOnMouseClicked(event -> tileSelected(tile));
-                    //GridPane.setRowIndex(tile, i);
-                    //GridPane.setColumnIndex(tile, j);
                     tile.setPreserveRatio(true);
-                    //tile.setFitHeight(tableGrid.getColumnConstraints().get(i).getPrefWidth());
-                    //tile.setFitWidth(tableGrid.getRowConstraints().get(j).getPrefHeight());
-
                     tile.setFitHeight(50.0);
                     tile.setFitWidth(50.0);
-                    tableGrid.add(tile,j,i);
-                }
-            }
-        }
-
-        for(int i = 0; i < PersonalShelf.N_ROWS; i ++) {
-            for(int j = 0; j < PersonalShelf.N_COLUMN; j ++) {
-
-                Tile tile;
-
-                if (!gameView.getShelf().getSingleSlot(i,j).getColor().equals(Color.GREY)) {
-                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
-                    //GridPane.setRowIndex(tile, i);
-                    //GridPane.setColumnIndex(tile, j);
-                    //shelfGrid.getChildren().add(tile);
-                    tile.setFitHeight(59.0);
-                    tile.setFitWidth(59.0);
-                    shelfGrid.add(tile,j,i);
+                    tableGrid.add(tile, j, i);
                 }
             }
         }
     }
 
-    public void displayGoals (GameView gameView) {
+    public void displayPersonalShelf(GameView gameView) {
+
+        for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+            for (int j = 0; j < PersonalShelf.N_COLUMN; j++) {
+                Tile tile;
+                if (!gameView.getShelf().getSingleSlot(i, j).getColor().equals(Color.GREY)) {
+                    tile = setTile(gameView.getShelf().getSingleSlot(i, j).getColor(), gameView.getShelf().getSingleSlot(i, j).getType(), -1, -1);
+                    tile.setFitHeight(59.0);
+                    tile.setFitWidth(59.0);
+                    shelfGrid.add(tile, j, i);
+                }
+            }
+        }
+    }
+
+    public void displayCommonGoal (GameView gameView){
         commonGoal1Image = new ImageView(gameView.getCommonGoal1().getImage());
         commonGoal2Image = new ImageView(gameView.getCommonGoal1().getImage());
-        //personalGoalImage = new ImageView(gameView.getPgoal().getImage());
+    }
+
+    public void displayPersonalGoal (GameView gameView){
+        personalGoalImage = new ImageView(gameView.getPgoal().getImage());
     }
 
     public Tile setTile(Color color, Type type, int x, int y) {
@@ -689,18 +673,6 @@ public class GraphicInterface extends Application implements viewListeners{
         System.out.println("Creato bond client / view \n");
     }
 
-    public void notifyNick(String nick) {
-        for( viewListeners listener : listeners  ) {
-            //listener.notifyNick(nick);
-        }
-    }
-
-    public void notifyNumberOfPlayers(int number) {
-        for (viewListeners listener : listeners) {
-            //listener.notifyNumberOfPlayers(number);
-        }
-    }
-
 
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
@@ -736,7 +708,7 @@ public class GraphicInterface extends Application implements viewListeners{
     }
 
     @Override
-    public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
+    public void notifyOneMoreTime() throws IOException, SameNicknameException, InterruptedException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
@@ -749,4 +721,103 @@ public class GraphicInterface extends Application implements viewListeners{
         }
     }
 
+    public void errorNotCatchable() {
+        errorTextArea.setEditable(true);
+        String errorMessage = "La tessera selezionata non è prendibile! Ripetere la selezione!";
+        errorTextArea.setText(errorMessage);
+        errorTextArea.setEditable(false);
+    }
+
+    public void errorOneNotCatchable() {
+        errorTextArea.setEditable(true);
+        String errorMessage = "Una delle tessere selezionate non è prendibile! Ripetere la selezione!";
+        errorTextArea.setText(errorMessage);
+        errorTextArea.setEditable(false);
+    }
+
+    public void errorNotAdjacent() {
+        errorTextArea.setEditable(true);
+        String errorMessage = "Le tessere selezionate non sono adiacenti! Ripetere la selezione!";
+        errorTextArea.setText(errorMessage);
+        errorTextArea.setEditable(false);
+    }
+
+    public void errorSpaceChoicesError() {
+        errorTextArea.setEditable(true);
+        String errorMessage = "Non c'è abbastanza spazio nella shelf per così tante tessere!";
+        errorTextArea.setText(errorMessage);
+        errorTextArea.setEditable(false);
+    }
+
+    public void errorInsert() {
+        errorTextArea.setEditable(true);
+        String errorMessage = "La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!";
+        errorTextArea.setText(errorMessage);
+        errorTextArea.setEditable(false);
+    }
+
+    public void errorNick(String message){
+        errorTextArea.setEditable(true);
+        String nickError = message+"se vuoi giocare prova ad inserirne un altro!";
+        nickErrorArea.setText(nickError);
+        errorTextArea.setEditable(false);
+    }
+
+    public void denyAcess() {
+        nickErrorArea.setEditable(true);
+        String alreadyStarted = "La partita è già iniziata, troppo tardi :/ ";
+        nickErrorArea.setText(alreadyStarted);
+        nickErrorArea.setEditable(false);
+    }
+
+    public void notifyAlmostOver(){
+        notPlayingTextArea.setEditable(true);
+        String almostOver = "Alla fine del giro il gioco terminerà!\n";
+        notPlayingTextArea.setText(almostOver);
+        notPlayingTextArea.setEditable(false);
+    }
+
+    public void startTurn() {
+        notPlayingTextArea.setEditable(true);
+        String newTurn = "-- Inizio del nuovo turno -- \n";
+        notPlayingTextArea.setText(newTurn);
+        notPlayingTextArea.setEditable(false);
+    }
+
+    public void playerCrash() {
+        errorTextArea.setEditable(true);
+        notPlayingTextArea.setEditable(true);
+        String playerCrash = "E' crashato un player ";
+        errorTextArea.setText(playerCrash);
+        notPlayingTextArea.setText(playerCrash);
+        errorTextArea.setEditable(false);
+        notPlayingTextArea.setEditable(false);
+    }
+
+    public void gameCancelled() {
+        waitingTextArea.setEditable(true);
+        String stopGame = "E' crashato un player in pregame, chiusura della partita, scusate! ";
+        waitingTextArea.setText(stopGame);
+        waitingTextArea.setEditable(false);
+    }
+
+    public void waitingForPlayers() {
+        errorTextArea.setEditable(true);
+        notPlayingTextArea.setEditable(true);
+        String waitingFor = "Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ";
+        notPlayingTextArea.setText(waitingFor);
+        errorTextArea.setText(waitingFor);
+        errorTextArea.setEditable(false);
+        notPlayingTextArea.setEditable(false);
+    }
+
+    public void endgame() {
+        errorTextArea.setEditable(true);
+        notPlayingTextArea.setEditable(true);
+        String endgame = " Il gioco è finito! ";
+        notPlayingTextArea.setText(endgame);
+        errorTextArea.setText(endgame);
+        errorTextArea.setEditable(false);
+        notPlayingTextArea.setEditable(false);
+    }
 }
