@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Update GUI errorTextArea">
-      <change afterPath="$PROJECT_DIR$/src/main/graphic_elements/NotPlayingScreen.fxml" afterDir="false" />
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Update inserimento GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/NotPlayingScene.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,8 +102,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material" />
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
       <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
     </key>
@@ -183,9 +179,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.App (1)" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
+        <item itemvalue="Application.App (1)" />
         <item itemvalue="JUnit.WaitingRoomTest.test" />
       </list>
     </recent_temporary>
@@ -240,7 +236,8 @@
       <workItem from="1687706146974" duration="19668000" />
       <workItem from="1687769033498" duration="68000" />
       <workItem from="1687769748316" duration="7366000" />
-      <workItem from="1687853624663" duration="1246000" />
+      <workItem from="1687853791499" duration="347000" />
+      <workItem from="1687854160343" duration="737000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -522,7 +519,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687811489628</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Update GUI nickErrorArea">
+      <created>1687813032632</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1687813032632</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Commenti in Javadoc">
+      <created>1687833952650</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1687833952650</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update inserimento GUI">
+      <created>1687853884275</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1687853884275</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -568,9 +586,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
-    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
-    <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
     <MESSAGE value="Aggiornamento common goal" />
@@ -593,7 +608,10 @@
     <MESSAGE value="fix dimensione scheramta play" />
     <MESSAGE value="fix ridimensionamento schermate" />
     <MESSAGE value="Update GUI errorTextArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update GUI errorTextArea" />
+    <MESSAGE value="Update GUI nickErrorArea" />
+    <MESSAGE value="Commenti in Javadoc" />
+    <MESSAGE value="Update inserimento GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update inserimento GUI" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
