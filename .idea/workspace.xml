@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Update GUI nickErrorArea">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="Commenti in Javadoc">
       <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/OrderChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/OrderChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/SlotChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/SlotChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -528,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687813032632</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Commenti in Javadoc">
+      <created>1687833952650</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1687833952650</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -574,7 +576,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
@@ -599,7 +600,8 @@
     <MESSAGE value="fix ridimensionamento schermate" />
     <MESSAGE value="Update GUI errorTextArea" />
     <MESSAGE value="Update GUI nickErrorArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update GUI nickErrorArea" />
+    <MESSAGE value="Commenti in Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenti in Javadoc" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
