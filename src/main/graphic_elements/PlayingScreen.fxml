@@ -133,7 +133,7 @@
             <Image url="@GraphicResources/Publisher material/Title 2000x618px.png" />
          </image>
       </ImageView>
-      <TextArea fx:id="errorTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0">
+      <TextArea fx:id="errorTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0" editable="false">
          <effect>
             <ColorInput />
          </effect>
