@@ -104,4 +104,9 @@ public class CGFiveTilesDiagonal extends CommonGoalAbs{
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni tessere dello stesso tipo che formano una diagonale. ";
+    }
 }

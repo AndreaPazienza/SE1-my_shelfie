@@ -94,4 +94,9 @@ public class CGDecreaseTiles extends CommonGoalAbs {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni una scala nella tua Shelf, partendo da altezza 5 e finendo nella 1. ";
+    }
 }

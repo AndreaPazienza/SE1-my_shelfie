@@ -110,4 +110,9 @@ public class CGFourGroupsFourTiles extends CommonGoalAbs {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni quattro gruppi sepratati composti da 4 tessere dello stesso tipo ";
+    }
 }

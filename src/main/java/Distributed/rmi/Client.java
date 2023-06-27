@@ -123,16 +123,17 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.displayPersonalGoal(modelView.getPgoal());
         view.displayDashboard(modelView.getTable());
 
-        // view.onWait();
     }
 
     //Manda al giocaente la situazione attuale e la propria personal shelf
     @Override
     public void updateClientPlaying(GameView modelView) {
         gameState = modelView.getGameState();
-
-        view.displayDashboard(modelView.getTable());
         view.displayPersonalShelf(modelView.getShelf());
+        view.displayDashboard(modelView.getTable());
+        view.displayPersonalGoal2(modelView.getPgoal());
+        view.commonGoalReminder(modelView.getCommonGoal1());
+        view.commonGoalReminder(modelView.getCommonGoal2());
     }
 
     //Manda a tutti i client la nuova board

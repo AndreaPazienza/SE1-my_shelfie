@@ -90,4 +90,9 @@ public class CGSameTypeSquare extends CommonGoalAbs {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni due quadrati composti da 4 tessere uguali. ";
+    }
 }

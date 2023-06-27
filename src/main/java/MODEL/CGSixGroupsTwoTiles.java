@@ -93,4 +93,9 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni sei gruppi separati composti da due tessere adiacenti ";
+    }
 }

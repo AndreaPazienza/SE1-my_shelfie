@@ -60,4 +60,9 @@ public class CGFourCorners extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    @Override
+    public String description() {
+        return "Ottieni tessere dello stesso tipo negli angoli della tua Shelf! ";
+    }
+
 }

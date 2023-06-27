@@ -76,6 +76,11 @@ public class CGFiveTilesX extends CommonGoalAbs {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni 5 tessere dello stesso tipo in modo che formino una X. ";
+    }
 }
 
 

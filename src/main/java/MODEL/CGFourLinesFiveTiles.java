@@ -92,4 +92,9 @@ public class CGFourLinesFiveTiles extends CGOnLines {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni quattro righe da 5 tessere in cui, in ognuna, si presentano al più 3 colori.";
+    }
 }

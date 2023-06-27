@@ -66,9 +66,9 @@ public class GameView implements Serializable {
         table = game.getTable();
         shelf = game.getPlayer()[game.getPlayerInGame()].getShelf();
         gameState = game.isGameOn();
-        pgoal = null;
-        commonGoal1 = null;
-        commonGoal2 = null;
+        pgoal = game.getPlayer()[game.getPlayerInGame()].getPgoal();
+        commonGoal1 = game.getCommonGoal1();
+        commonGoal2 = game.getCommonGoal2();
         gameError = null;
         ranking = null;
         state = game.getCurrentState();

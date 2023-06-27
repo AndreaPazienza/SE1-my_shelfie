@@ -391,12 +391,8 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             try {
                 listener.notifyOrder(o);
             } catch (RemoteException e) {
-                System.out.println("ciao");
-            } catch (NotEnoughSpaceChoiceException e) {
-                throw new RuntimeException(e);
-            } catch (NotAdjacentSlotsException e) {
-                throw new RuntimeException(e);
-            } catch (NotCatchableException e) {
+                System.out.println("RemoteExcpetion throw this. ");
+            } catch (NotEnoughSpaceChoiceException | NotAdjacentSlotsException | NotCatchableException e) {
                 throw new RuntimeException(e);
             }
         }
@@ -467,9 +463,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
 
-    public void displayTarget(int i, GameView gameView) {
-        System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
-    }
     public void errorNotCatchable() {
         System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
     }
@@ -488,6 +481,18 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
     public void errorInsert() {
         System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+    }
+
+    public void displayPersonalGoal2(PersonalGoal pgoal) {
+        System.out.print("Il tuo Personal Goal è il seguente, non dimenticarlo!! \n");
+        for(int i=0; i < pgoal.getGoal().length; i++){
+            System.out.println("X:"+ pgoal.getSingleTarget(i).getPosX()+" Y:" +
+                    pgoal.getSingleTarget(i).getPosY() + " Color:"+ pgoal.getSingleTarget(i).getTile());
+        }
+    }
+
+    public void commonGoalReminder(CommonGoalAbs CG) {
+        System.out.println("Common Goal attivo: " + CG.description());
     }
 }
 

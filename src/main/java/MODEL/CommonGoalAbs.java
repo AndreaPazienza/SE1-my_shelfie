@@ -43,6 +43,7 @@ public abstract class CommonGoalAbs implements Serializable {
      * The method is overridden to allow each class that extends this to show its particular textual representation.
      */
     public abstract void show();
+    public abstract String description();
 
     /**
      * Constructor for CommonGoalAbs class.

@@ -91,4 +91,9 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Ottieni due colonne da 6 tessere in cui, in ognuna, si presentano al più 3 colori. ";
+    }
 }

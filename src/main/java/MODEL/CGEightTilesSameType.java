@@ -86,4 +86,9 @@ public class CGEightTilesSameType extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    @Override
+    public String description() {
+        return "Ottieni 8 tessere dello stesso tipo in tutta la shelf, senza limite di posizioni. ";
+    }
+
 }

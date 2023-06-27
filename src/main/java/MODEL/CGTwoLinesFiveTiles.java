@@ -74,4 +74,9 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Devi fare due linee composte da tutte tessere diverse ";
+    }
 }

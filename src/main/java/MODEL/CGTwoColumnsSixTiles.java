@@ -67,4 +67,9 @@ public class CGTwoColumnsSixTiles extends CGOnColumn {
         System.out.print("\n");
         System.out.print("\n");
     }
+
+    @Override
+    public String description() {
+        return "Devi creare due colonne formate tutte da tessere diverse ";
+    }
 }
