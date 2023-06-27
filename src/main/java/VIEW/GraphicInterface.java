@@ -8,7 +8,7 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
 import java.awt.*;
-import java.awt.TextArea;
+//import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.beans.EventHandler;
 import java.io.IOException;
@@ -28,6 +28,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
@@ -94,6 +95,9 @@ public class GraphicInterface extends Application implements viewListeners{
 
     @FXML
     ImageView personalGoalImage;
+
+    @FXML
+    TextArea errorTextArea;
 
     @FXML
     TextArea textArea1;
@@ -477,6 +481,8 @@ public class GraphicInterface extends Application implements viewListeners{
     public void confirmInsert() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         notifyInsert(column);
+
+
     }
 
     public void notPlaying(GameView gameView) throws Exception{
