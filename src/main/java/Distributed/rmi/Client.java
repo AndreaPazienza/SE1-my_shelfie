@@ -10,8 +10,10 @@ import Listeners.viewListeners;
 import MODEL.GameError;
 import MODEL.GameView;
 import VIEW.*;
+import javafx.stage.Stage;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
@@ -20,24 +22,35 @@ import java.rmi.server.UnicastRemoteObject;
 
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
-    private final GameInterface view = new GameInterface();
-    private final GraphicGameInterface graphicView = new GraphicGameInterface();
+    //private final GameInterface view = new GameInterface();
+    private final GraphicInterface view = new GraphicInterface();
+
+    private Stage stage;
+
+    private String[] arg;
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
     private boolean endGame;
 
-    public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
+    public Client(ServerRMIInterface server,Stage stage) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super();
         connectedTo = server;
-        nickname = view.firstRun();
+        this.stage= stage;
+        nickname = view.firstRun(stage);
         view.addviewEventListener(this);
         initialize(server);
-
+    }
+    public Client(ServerRMIInterface server) throws RemoteException, IOException, SameNicknameException, InterruptedException {
+        super();
+        connectedTo = server;
+        nickname = view.firstRun(stage);
+        view.addviewEventListener(this);
+        initialize(server);
     }
 
-    public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
+    public Client(ServerRMIInterface server, int port) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super(port);
-        nickname = view.firstRun();
+        nickname = view.firstRun(stage);
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
@@ -45,7 +58,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super(port, csf, ssf);
-        nickname = view.firstRun();
+        nickname = view.firstRun(stage);
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
         initialize(server);
         connectedTo = server;
@@ -74,9 +87,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.run();
     }*/
 
-    public void start(Stage stage) throws Exception {
+   /* public void start(Stage stage) throws Exception {
         view.start(new Stage());
-    }
+    }*/
 
     //Observer:
     @Override
@@ -106,7 +119,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, IOException, RemoteException, InterruptedException {
-        nickname = view.firstRun();
+        nickname = view.firstRun(stage);
         try {
             connectedTo.register(this);
         } catch (Exception e) {
@@ -192,9 +205,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void winnerInterface(GameView finalGameView) throws RemoteException {
+    public void winnerInterface(String winner) throws RemoteException {
         gameState = false;
-        view.displayWin(finalGameView);
+        //view.displayWin(winner);
     }
 
     @Override

@@ -6,20 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Complete GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/insertThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +67,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -114,8 +109,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements" />
+      <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material" />
       <recent name="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources" />
       <recent name="C:\Users\gabry\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\src\main" />
     </key>
@@ -129,7 +124,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
+  <component name="RunManager" selected="Application.AppServer">
     <configuration name="App (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="MyShelfie_RPPT" />
@@ -154,6 +149,7 @@
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
+      <option name="VM_PARAMETERS" value="--module-path $MAVEN_REPOSITORY$/org/openjfx/javafx-fxml/17/javafx-fxml-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-controls/17/javafx-controls-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-graphics/17/javafx-graphics-17-mac.jar:$MAVEN_REPOSITORY$/org/openjfx/javafx-base/17/javafx-base-17-mac.jar --add-modules javafx.controls,javafx.fxml,javafx.graphics,javafx.base" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -612,8 +608,8 @@
   <component name="XDebuggerManager">
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
