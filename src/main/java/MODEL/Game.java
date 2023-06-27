@@ -127,7 +127,8 @@ public class Game implements GameEventListener {
                 notifyEndGame();
             }
             if (firstPlayerFinished && player[playerInGame].getOrderInTurn() == Nplayers) {
-                notifyGameFinished();
+                finalScore();
+                notifyGameFinished(new GameView(player, this));
             }
 
         //Chiamata a refill (se necessario)
@@ -253,9 +254,9 @@ public class Game implements GameEventListener {
     }
 
     @Override
-    public void notifyGameFinished() throws RemoteException {
+    public void notifyGameFinished(GameView finalGameView) throws RemoteException {
         for(GameEventListener listener: listeners){
-            listener.notifyGameFinished();
+            listener.notifyGameFinished(finalGameView);
         }
     }
 

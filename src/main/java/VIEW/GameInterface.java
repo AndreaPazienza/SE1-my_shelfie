@@ -6,6 +6,8 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 
 import java.rmi.RemoteException;
 import java.util.*;
@@ -349,9 +351,25 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
         System.out.print("\n");
     }
 
-    public void displayWin(String winner){
-        System.out.println("Il gioco è finito!! \n " + winner);
+    public void setTexts(Player[] ranking, String rankingText, String winnerText) {
+
+        for(int i = 1; i <= ranking.length; i ++) {
+            rankingText = rankingText + i + "°: " + ranking[i-1].getNickname() + " \n    punti totalizzati: " + ranking[i-1].getScore() + " \n    ordine nel giro: " + ranking[i-1].getOrderInTurn() + "\n\n";
+        }
+
+        winnerText = "Congratulazioni " + ranking[0].getNickname() + " hai vinto questa partita!";
     }
+
+    public void displayWin(GameView finalGameView){
+
+        String rankingText = "";
+        String winnerText = "";
+
+        setTexts(finalGameView.getRanking(), rankingText, winnerText);
+        System.out.println(rankingText + "\n\n");
+        System.out.println(winnerText + "\n");
+    }
+
     public void notifyAlmostOver(){
         System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!! \n");
     }

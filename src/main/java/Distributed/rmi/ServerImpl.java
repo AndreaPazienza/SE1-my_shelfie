@@ -206,8 +206,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void notifyGameFinished() throws RemoteException {
-        winnerInterface(controller.endGame());
+    public void notifyGameFinished(GameView finalGameView) throws RemoteException {
+        winnerInterface(finalGameView);
     }
 
     @Override
@@ -297,10 +297,10 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
 
-    public void winnerInterface(String s) throws RemoteException {
+    public void winnerInterface(GameView finalGameView) throws RemoteException {
         for (ClientRMIInterface client : effectiveLogged) {
             if(client!=null) {
-                client.winnerInterface(s);
+                client.winnerInterface(finalGameView);
             }
         }
     }

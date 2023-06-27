@@ -14,7 +14,7 @@ public interface GameEventListener {
  //   public void notifyTurnIsOver(GameView view);
     void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyEndGame() throws RemoteException;
-    void notifyGameFinished() throws RemoteException;
+    void notifyGameFinished(GameView finalGameView) throws RemoteException;
     void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyLastError() throws RemoteException;
 }

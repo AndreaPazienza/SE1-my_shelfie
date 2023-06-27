@@ -189,9 +189,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void winnerInterface(String winner) throws RemoteException {
+    public void winnerInterface(GameView finalGameView) throws RemoteException {
         gameState = false;
-        view.displayWin(winner);
+        view.displayWin(finalGameView);
     }
 
     @Override
