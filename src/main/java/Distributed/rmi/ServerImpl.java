@@ -50,7 +50,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Metodo remoto usato dal client per registrarsi al model
     @Override
-    public void register(ClientRMIInterface client) throws IOException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void register(ClientRMIInterface client) throws Exception {
 
         System.out.println("Ricevuto un tentativo di connessione");
         //Primo controllo alla prima richiesta di connessione, nel caso in cui sia la prima volta
@@ -141,6 +141,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             this.turnUpdate();
         } catch (NotEnoughSpaceChoiceException e) {
             throw new NotEnoughSpaceChoiceException(e.getMessage());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -177,7 +179,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Notifica al client la nuova view dopo che un client ha finito il proprio turno, con la PersonalShelf
     @Override
-    public void turnIsOver() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void turnIsOver() throws Exception {
         pingGameOn();
         for (ClientRMIInterface client : effectiveLogged) {
             if (client != null) {
@@ -196,7 +198,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Notifica al client che abbiamo iniziato la partita
     @Override
-    public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void readyToStart() throws Exception {
         this.newTurn();
     }
 
@@ -212,7 +214,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     @Override
-    public void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void notifySkipTurn() throws Exception {
         if(playingCrashedPlayer(controller.getOnStage())){
             System.err.println("Il giocatore selezionato non è valido, passo al prossimo");
             controller.skipTurn();
@@ -237,7 +239,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Rispetto a tutti i client iscritti manda la notifica di "via libera" al client di turno.
     //Ad ogni nuovo turno si va a verificare che tutti gli utenti iscritti non siano andati in crash.
-    public void newTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void newTurn() throws Exception {
         System.out.println("Chiamata a nuovo turno, puntando al giocatore: "+controller.getOnStage());
     if(model.isGameOn()) {
         if (!playingCrashedPlayer(controller.getOnStage())) {
@@ -257,7 +259,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     }
 
-    public void resumeGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void resumeGame() throws Exception {
         System.out.println("Riprendo il gioco puntando al giocatore: "+controller.getOnStage());
                 gameStateChanged();
                 for (ClientRMIInterface client : effectiveLogged) {
@@ -308,7 +310,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Una volta giunto al numero giusto di giocatori fa partire la partita, salvando in modo finale i nick e il numero massimo
     //Di disconnessioni ammissinbili
-    private void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    private void startGame() throws Exception {
         dudesInGame = new String[model.getNplayers()];
         dudesCrashed = new String[model.getNplayers()];
         effectiveLogged = logged.toArray(new ClientRMIInterface[model.getNplayers()]);
@@ -317,7 +319,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     //A ogni turn update viene controllato che nessuno sia crashato, che non sia il player che doveva giocare come prossimo
-    private void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    private void turnUpdate() throws Exception {
         controller.turnUpdate();
     }
 
@@ -352,7 +354,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
 
     }
-    private void pingGameOn() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
+    private void pingGameOn() throws Exception {
         boolean crash = false;
         boolean inTurn = false;
         //Viene fatto un ciclo per contattare tutti i client
@@ -482,6 +484,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 } catch (RemoteException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
                          NotCatchableException e) {
                     System.out.println("Il giocante è down ");
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
             }
         };

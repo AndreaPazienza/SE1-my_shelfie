@@ -125,16 +125,6 @@ public class GraphicInterface extends Application implements viewListeners{
     Button fourPlayersButton;
 
 
-    public String fistRun(String[] arg) {
-        launch(arg);
-        while (nick == null) {
-
-        }
-        return nick;
-    }
-
-
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.stage = primaryStage;
@@ -179,8 +169,7 @@ public class GraphicInterface extends Application implements viewListeners{
 
      */
 
-    public void playing(GameView gameView) throws Exception {
-        displayUpdate(gameView);
+    public void playing() throws Exception {
         Parent playingScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("PlayingScreen.fxml")));
         stage.setScene(new Scene(playingScene));
         stage.show();
@@ -310,12 +299,6 @@ public class GraphicInterface extends Application implements viewListeners{
                 }
             });
 
-        } else {
-            insertIn0.setVisible(true);
-            insertIn1.setVisible(true);
-            insertIn2.setVisible(true);
-            insertIn3.setVisible(true);
-            insertIn4.setVisible(true);
         }
     }
 
@@ -364,12 +347,6 @@ public class GraphicInterface extends Application implements viewListeners{
             OrderChoice order = new OrderChoice(pos1, pos2, pos3);
             notifyOrder(order);
         }
-        //Unsetting del drag and drop da implementare
-        insertIn0.setVisible(true);
-        insertIn1.setVisible(true);
-        insertIn2.setVisible(true);
-        insertIn3.setVisible(true);
-        insertIn4.setVisible(true);
     }
 
     public void setDragAndDrop() {
@@ -485,6 +462,13 @@ public class GraphicInterface extends Application implements viewListeners{
         confirmInsertButton.setVisible(true);
     }
 
+    public void playerInsert(){
+        insertIn0.setVisible(true);
+        insertIn1.setVisible(true);
+        insertIn2.setVisible(true);
+        insertIn3.setVisible(true);
+        insertIn4.setVisible(true);
+    }
     public void confirmInsert() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         notifyInsert(column);
@@ -515,7 +499,7 @@ public class GraphicInterface extends Application implements viewListeners{
         stage.show();
     }
 
-    public void endgame(GameView gameView) throws Exception{
+    public void displayWin(GameView gameView) throws Exception{
         setTexts(gameView.getRanking(), textArea1, textArea2);
         Parent endgameScene = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("EndgameScene.fxml")));
         stage.setScene(new Scene(endgameScene));
@@ -529,8 +513,7 @@ public class GraphicInterface extends Application implements viewListeners{
         double progress = (double)enrolledPlayers/nPlayers;
         enrolledbar.setProgress(progress);
     }
-    public String firstRun(String[] arg) throws InterruptedException {
-        launch(arg);
+    public String firstRun() throws InterruptedException {
         confirmNickButton.setOnAction(event -> {
             {
                 nick = nickField.getText();
@@ -539,7 +522,7 @@ public class GraphicInterface extends Application implements viewListeners{
                     String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
                     nickErrorArea.setText(blankNick);
                     try {
-                        firstRun(arg);
+                        firstRun();
                     } catch (InterruptedException e) {
                         throw new RuntimeException(e);
                     }
@@ -571,6 +554,8 @@ public class GraphicInterface extends Application implements viewListeners{
         });
         return nPlayers;
     }
+
+
 
 
     public void displayDashboard(GameView gameView) {
@@ -611,17 +596,7 @@ public class GraphicInterface extends Application implements viewListeners{
         commonGoal2Image = new ImageView(gameView.getCommonGoal1().getImage());
     }
 
-    public void displatPersonalGoal (GameView gameView){
-        personalGoalImage = new ImageView(gameView.getPgoal().getImage());
-    }
-
-
-
-
-
-    public void displayGoals (GameView gameView) {
-        commonGoal1Image = new ImageView(gameView.getCommonGoal1().getImage());
-        commonGoal2Image = new ImageView(gameView.getCommonGoal1().getImage());
+    public void displayPersonalGoal (GameView gameView){
         personalGoalImage = new ImageView(gameView.getPgoal().getImage());
     }
 
@@ -832,6 +807,16 @@ public class GraphicInterface extends Application implements viewListeners{
         String waitingFor = "Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ";
         notPlayingTextArea.setText(waitingFor);
         errorTextArea.setText(waitingFor);
+        errorTextArea.setEditable(false);
+        notPlayingTextArea.setEditable(false);
+    }
+
+    public void endgame() {
+        errorTextArea.setEditable(true);
+        notPlayingTextArea.setEditable(true);
+        String endgame = " Il gioco è finito! ";
+        notPlayingTextArea.setText(endgame);
+        errorTextArea.setText(endgame);
         errorTextArea.setEditable(false);
         notPlayingTextArea.setEditable(false);
     }

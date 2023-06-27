@@ -10,6 +10,7 @@ import Listeners.viewListeners;
 import MODEL.GameError;
 import MODEL.GameView;
 import VIEW.*;
+import javafx.stage.Stage;
 
 
 import java.io.IOException;
@@ -22,12 +23,14 @@ import java.rmi.server.UnicastRemoteObject;
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
     //private final GameInterface view = new GameInterface();
-    private final GraphicGameInterface view = new GraphicGameInterface();
+    private final GraphicInterface view = new GraphicInterface();
+
+    private String[] arg;
     private final ServerRMIInterface connectedTo;
     private boolean gameState = false;
     private boolean endGame;
 
-    public Client(ServerRMIInterface server) throws RemoteException, IOException, SameNicknameException {
+    public Client(ServerRMIInterface server) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super();
         connectedTo = server;
         nickname = view.firstRun();
@@ -35,7 +38,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         initialize(server);
     }
 
-    public Client(ServerRMIInterface server, int port) throws RemoteException, IOException,SameNicknameException {
+    public Client(ServerRMIInterface server, int port) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super(port);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -43,7 +46,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         connectedTo = server;
     }
 
-    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, IOException,SameNicknameException {
+    public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super(port, csf, ssf);
         nickname = view.firstRun();
         System.out.println("Inserimento nick corretto, provo a connettermi al server:");
@@ -59,7 +62,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
             //sameNickFound(e.getMessage());
         } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
             throw new RuntimeException(e);
-        } catch (RemoteException e) {
+        } catch (Exception e) {
             e.printStackTrace();
          System.err.println("Non riesco a chiamare il server ");
         }
@@ -70,8 +73,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }*/
 
 
-    public void run() {
+    /*public void run() {
         view.run();
+    }*/
+
+    public void start(Stage stage) throws Exception {
+        view.start(new Stage());
     }
 
     //Observer:
@@ -101,12 +108,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     @Override
-    public void notifyOneMoreTime() throws SameNicknameException, IOException,RemoteException {
+    public void notifyOneMoreTime() throws SameNicknameException, IOException, RemoteException, InterruptedException {
         nickname = view.firstRun();
         try {
             connectedTo.register(this);
-        } catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
-                 NotCatchableException e) {
+        } catch (Exception e) {
             //sameNickFound(e.getMessage());
         }
     }
@@ -155,7 +161,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: used to notify the first client that the number of players is missing
     @Override
-    public int startGame() throws RemoteException {
+    public int startGame() throws Exception {
         return view.numberOfPlayers();
     }
 
@@ -166,7 +172,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     //Remote method: to notify the client that they still have to wait for their turn.
-    public void onWait() throws RemoteException {
+    public void onWait() throws Exception {
         view.onWait();
     }
 
@@ -182,7 +188,7 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     //Remote method:: end turn
-    public void endTurn() {
+    public void endTurn() throws Exception {
        // if (gameState) {
             view.onWait();
        // }

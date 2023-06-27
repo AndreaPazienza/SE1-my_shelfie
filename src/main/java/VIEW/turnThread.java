@@ -12,9 +12,9 @@ import java.rmi.RemoteException;
 public class turnThread extends Thread{
 
     public volatile boolean valid = true;
-    private GraphicGameInterface view;
+    private GraphicInterface view;
 
-    public turnThread(GraphicGameInterface view){
+    public turnThread(GraphicInterface view){
         this.view = view;
     }
 
@@ -24,8 +24,7 @@ public class turnThread extends Thread{
       while(valid) {
           try {
               view.playing();
-          } catch (RemoteException | NotEnoughSpaceChoiceException | NotCatchableException |
-                   NotAdjacentSlotsException | RuntimeException e) {
+          } catch (Exception e) {
               stopThread();
            }
           System.err.println("--non ho più nulla da fare--");
