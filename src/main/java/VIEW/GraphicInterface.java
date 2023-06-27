@@ -482,6 +482,23 @@ public class GraphicInterface extends Application implements viewListeners{
 
         notifyInsert(column);
 
+        int firstSpot = 5;
+
+        for(Node node : shelfGrid.getChildren()) {
+            if (shelfGrid.getColumnIndex(node) == column && shelfGrid.getColumnIndex(node) == firstSpot && node instanceof Tile) {
+                firstSpot--;
+            }
+        }
+
+        for(Node node : selectedGrid.getChildren()) {
+            if(node instanceof Tile) {
+                Tile tileToInsert = (Tile) node;
+                shelfGrid.add(tileToInsert, firstSpot ,column);
+                tileToInsert.setFitHeight(59.0);
+                tileToInsert.setFitWidth(59.0);
+                firstSpot++;
+            }
+        }
 
     }
 
