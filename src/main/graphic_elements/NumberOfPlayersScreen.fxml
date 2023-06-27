@@ -13,9 +13,9 @@
   <content>
     <AnchorPane fx:id="GeneralPane" minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="1280.0">
          <children>
-            <ImageView fx:id="BackgroundImage" fitHeight="788.0" fitWidth="1286.0">
+            <ImageView fx:id="BackgroundImage" fitHeight="788.0" fitWidth="1286.0" opacity="0.55">
                <image>
-                  <Image url="@/GraphicResources/misc/sfondo parquet.jpg" />
+                  <Image url="@GraphicResources/Publisher material/Display_1.jpg" />
                </image>
             </ImageView>
             <ButtonBar fx:id="numberOfPlayersButtons" layoutX="450.0" layoutY="282.0" prefHeight="146.0" prefWidth="297.0">
@@ -25,7 +25,7 @@
                   <Button fx:id="fourPlayersButton" mnemonicParsing="false" onAction="#setNumber4" prefHeight="65.0" prefWidth="65.0" text="4" />
                </buttons>
             </ButtonBar>
-            <Text fx:id="BoxText" fill="#4a3a10" layoutX="424.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCEGLI IL NUMERO DI GIOCATORI" textAlignment="CENTER">
+            <Text fx:id="BoxText" fill="#4a3a10" layoutX="424.0" layoutY="248.0" stroke="#cccc2b" strokeType="OUTSIDE" strokeWidth="2.0" text="SCEGLI IL NUMERO DI GIOCATORI" textAlignment="CENTER">
                <font>
                   <Font name="Noteworthy Light" size="29.0" />
                </font>
