@@ -8,21 +8,21 @@ import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 
-import java.awt.*;
-import java.beans.EventHandler;
 import java.io.IOException;
+import java.net.URL;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
-import java.util.Timer;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Semaphore;
 
 import MODEL.Color;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -30,7 +30,6 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
@@ -38,9 +37,8 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import javafx.event.ActionEvent;
 
-public class GraphicInterface implements viewListeners{
+public class GraphicInterface implements viewListeners  {
 
     private final List<viewListeners> listeners = new ArrayList<>();
 
@@ -57,21 +55,30 @@ public class GraphicInterface implements viewListeners{
 
     private boolean buttonPressed = false;
 
-    @FXML
-    TextArea nickField;
-    @FXML
-    Button confirmNickButton;
+    public TextArea getNickField() {
+        return nickField;
+    }
 
     @FXML
-    TextArea nickErrorArea;
-    @FXML
-    ButtonBar numberOfPlayersButtons;
+    private TextArea nickField;
+
+    public Button getConfirmNickButton() {
+        return confirmNickButton;
+    }
 
     @FXML
-    GridPane selectedGrid;
+    private Button confirmNickButton;
 
     @FXML
-    GridPane tableGrid;
+    private TextArea nickErrorArea;
+    @FXML
+    private ButtonBar numberOfPlayersButtons;
+
+    @FXML
+    private GridPane selectedGrid;
+
+    @FXML
+    private GridPane tableGrid;
 
     @FXML
     GridPane shelfGrid;
@@ -134,6 +141,11 @@ public class GraphicInterface implements viewListeners{
     Button fourPlayersButton;
 
 
+  /*  public void initialize(URL location, ResourceBundle resources){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/testStart.fxml"));
+
+    }
+*/
 
     /*@Override
     public void start(Stage primaryStage) throws Exception {
@@ -531,37 +543,39 @@ public class GraphicInterface implements viewListeners{
         enrolledbar.setProgress(progress);
     }
     public String firstRun(Stage stage) throws InterruptedException, IOException {
-        Platform.runLater(() -> {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/testStart.fxml"));
-            Parent root = null;
-            try {
-                root = loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-            GraphicInterface.setClient(client);
-            Scene scene = new Scene(root);
-            this.stage = stage;
-            stage.setScene(scene);
-            stage.show();
-            confirmNickButton.setOnAction(event -> {
-                {
-                    nick = nickField.getText();
-                    if(nick.isBlank()){
-                        //ERRORE DA GESTIRE;
-                        String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
-                        nickErrorArea.setText(blankNick);
-                    }
-                }
-            });
+        Semaphore semaphore = new Semaphore(0);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/testStart.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+        GraphicInterface.setClient(client);
+        Scene scene = new Scene(root);
+        this.stage = stage;
+        stage.setScene(scene);
+        stage.show();
+
+
+        confirmNickButton.setOnAction(event -> {
+            String nick = String.valueOf(nickField.getText());
+            if (nick.isBlank()) {
+                String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
+                //controller.setNickError(blankNick);
+            } else {
+            }
+            semaphore.release();
         });
+        semaphore.acquire();
         return nick;
     }
 
 
     public void confirmNick(){
         nick = nickField.getText();
+        System.out.print(nick);
         if(nick.isBlank()){
             //ERRORE DA GESTIRE;
             String blankNick = "Il nickname inserito è nullo o formato solo da spazi! Sceglierne un altro!";
