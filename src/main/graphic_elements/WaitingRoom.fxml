@@ -38,7 +38,7 @@
                   <Font name="Noteworthy Light" size="33.0" />
                </font>
             </Text>
-            <TextArea editable="false" layoutX="644.0" layoutY="413.0" prefHeight="141.0" prefWidth="374.0">
+            <TextArea fx:id="waitingTextArea" editable="false" layoutX="644.0" layoutY="413.0" prefHeight="141.0" prefWidth="374.0">
                <effect>
                   <ColorInput />
                </effect>

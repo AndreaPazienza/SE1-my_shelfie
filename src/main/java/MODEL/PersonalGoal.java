@@ -1,9 +1,9 @@
 package MODEL;
 
-import VIEW.Image;
 
 import java.io.Serializable;
 import java.util.Observable;
+import javafx.scene.image.*;
 
 
 

@@ -411,7 +411,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
     }
 
     @Override
-    public void notifyOneMoreTime() throws IOException, SameNicknameException {
+    public void notifyOneMoreTime() throws IOException, SameNicknameException, InterruptedException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
@@ -429,7 +429,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
         }
-    public void errorNick(String message) throws SameNicknameException, IOException {
+    public void errorNick(String message) throws SameNicknameException, IOException, InterruptedException {
            System.out.println(message);
            System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
            String yes = "si";

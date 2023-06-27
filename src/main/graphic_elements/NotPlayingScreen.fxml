@@ -87,7 +87,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-       <TextArea fx:id="errorTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0">
+       <TextArea fx:id="notPlayingTextArea" layoutX="4.0" layoutY="751.0" prefHeight="46.0" prefWidth="736.0">
            <effect>
                <ColorInput />
            </effect>
