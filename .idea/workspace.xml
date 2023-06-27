@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="workspace">
+    <list default="true" id="3f7340c8-4c1d-475d-ad87-27bb226cb280" name="Changes" comment="fix di errori gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -513,7 +511,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687769094866</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="fix di errori gui">
+      <created>1687801265225</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1687801265225</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -559,7 +564,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
@@ -584,7 +588,8 @@
     <MESSAGE value="aggiunta drag and drop ordinamento" />
     <MESSAGE value="fix dimensione scheramta play" />
     <MESSAGE value="fix ridimensionamento schermate" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix ridimensionamento schermate" />
+    <MESSAGE value="fix di errori gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix di errori gui" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
