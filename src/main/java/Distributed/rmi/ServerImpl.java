@@ -31,8 +31,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private Game model;
     private final ArrayList<ClientRMIInterface> logged = new ArrayList<>();
     private ClientRMIInterface[] effectiveLogged;
-    private String[] dudesCrashed ;
-    private String[] dudesInGame ;
+    private String[] dudesCrashed;
+    private String[] dudesInGame;
     private Timer timerCrash = new Timer();
     private final Timer timerTurn = new Timer();
 

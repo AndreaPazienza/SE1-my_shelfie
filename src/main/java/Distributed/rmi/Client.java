@@ -38,7 +38,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         this.stage= stage;
         nickname = view.firstRun(stage);
         view.addviewEventListener(this);
-        initialize(server);
+        if (nickname!=null) {
+            initialize(server);
+        }
     }
     public Client(ServerRMIInterface server) throws RemoteException, IOException, SameNicknameException, InterruptedException {
         super();
