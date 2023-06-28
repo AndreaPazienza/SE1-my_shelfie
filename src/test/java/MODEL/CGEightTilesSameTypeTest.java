@@ -255,7 +255,7 @@ class CGEightTilesSameTypeTest {
         assertEquals(6, current3.getScore());
         testingCommonGoal.incrementCG();
         testingCommonGoal.control(current4);
-        assertEquals(0, current4.getScore());
+        assertEquals(4, current4.getScore());
 
 
     }

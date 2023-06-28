@@ -118,8 +118,10 @@ class CGDecreaseTilesTest {
         current2.getShelf().getSingleSlot(5,4).setColor(Color.YELLOW);
         testingCommonGoal.control(current1);
         assertEquals(8, current1.getScore());
+        testingCommonGoal.incrementCG();
         testingCommonGoal.control(current2);
         assertEquals(6, current2.getScore());
+        testingCommonGoal.incrementCG();
         testingCommonGoal.control(current3);
         assertEquals(4, current3.getScore());
 
