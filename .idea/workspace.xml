@@ -4,193 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Beta v1.07: Modifica della stampa di inzio turno: vengono visualizzati i PG e CG ad ogni nuovo turno">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_02_04_2023_01_51__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_04_2023_14_37__Changes_by_alessiotagab_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_09_05_2023_14_14__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_15_04_2023_18_43__Changes_by_rubinronchieribyrd_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_06_2023_17_51__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2023_22_46__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2023_22_48__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_21_06_2023_22_48__Changes_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_03_2023_12_25__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_23_06_2023_18_13__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_06_2023_18_13__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_06_2023_17_33__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_06_2023_19_41__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_14_16__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_17_59__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_06_2023_22_53__Changes_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyShelfie_RPPT.iml" afterDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Complete GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/deliverables/UMLtotal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/EndgameScene.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Box 280x280px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Box noshadow 280x280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Display_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Display_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Display_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Display_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Display_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/FinePartita.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/FlussoGioco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Icon 50x50px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Publisher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Title 2000x2000px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/Title 2000x618px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/Publisher material/banner 1386x400px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/boards/bookshelf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/boards/bookshelf_orth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/boards/livingroom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/common goal cards/back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Cornici1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Cornici1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Cornici1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Gatti1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Gatti1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Gatti1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Giochi1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Giochi1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Giochi1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Libri1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Libri1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Libri1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Piante1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Piante1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Piante1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Trofei1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Trofei1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/item tiles/Trofei1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/misc/Sacchetto Aperto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/misc/Sacchetto Chiuso.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/misc/base_pagina2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/misc/firstplayertoken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/misc/sfondo parquet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/Personal_Goals9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/front_EMPTY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/personal goal cards/old/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/end game.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/GraphicResources/scoring tokens/scoring_back_example.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/NotPlayingScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/NumberOfPlayersScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/PlayingScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/WaitingRoom.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/graphic_elements/testStart.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/AlreadyTakenException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/AlreadyTakenException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotAdjacentSlotsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotAdjacentSlotsException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotCatchableException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotCatchableException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotCorrectOrderException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotCorrectOrderException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotEnoughSpaceChoiceException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotPlayableException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotPlayableException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/NotPlayablePositionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/NotPlayablePositionException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/RefillException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/RefillException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/SameNicknameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/SameNicknameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/SameNumberException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/SameNumberException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Errors/ShelfFullException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Errors/ShelfFullException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/File/PersonalGoals.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/OrderListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Color.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CommonGoalDeck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameError.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameError.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Type.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Type.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/ColorPrint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/ControllerGraphic.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicGameInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicInterface.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/EndGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/ErrorPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/InsertFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NickChoice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NotPlayingPlayer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/NumberOfPlayerChoice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/SelectionFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TileButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TilesToOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/TurnFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GraphicObjects/WaitingRoom.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/OrderChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/OrderChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/SlotChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/SlotChoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/turnThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerEndGameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/CONTROLLER/ControllerEndGameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/DashboardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MODEL/PersonalGoalDeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MODEL/PersonalGoalDeckTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/EndGameTextTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/VIEW/GraphicObjects/WaitingRoomTest.java" beforeDir="false" />
     </list>
-    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="Changes by alessiotagab">
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
-    </list>
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -286,7 +106,7 @@
   <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="softeng-gc38" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -624,17 +444,6 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.History.Properties">
-    <option name="COLUMN_ID_ORDER">
-      <list>
-        <option value="Default.Root" />
-        <option value="Default.Author" />
-        <option value="Default.Date" />
-        <option value="Default.Subject" />
-        <option value="Space.CommitStatus" />
-      </list>
-    </option>
-  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -705,18 +514,17 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$All_in_MyShelfie_RPPT.ic" NAME="All in MyShelfie_RPPT Coverage Results" MODIFIED="1687955399441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$ControllerEndGameTest.ic" NAME="ControllerEndGameTest Coverage Results" MODIFIED="1685351470048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>CONTROLLER.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
