@@ -19,6 +19,29 @@ public enum Color {
 
     }
 
+    public static Color colorToString(String color) throws IllegalArgumentException {
+        switch (color) {
+            case "GREEN":
+                return GREEN;
+            case "PINK":
+                return PINK;
+            case "BLUE":
+                return BLUE;
+            case "LBLUE":
+                return LBLUE;
+            case "WHITE":
+                return WHITE;
+            case "YELLOW":
+                return YELLOW;
+            case "GREY":
+                return GREY;
+            case "BLACK":
+                return BLACK;
+            default:
+                throw new IllegalArgumentException("Non c'è un colore: " + color);
+        }
+    }
+
     public boolean Equals(Object obj) {
         if (obj == this) {
             return true;

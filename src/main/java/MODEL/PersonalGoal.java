@@ -54,6 +54,16 @@ public class PersonalGoal implements Serializable {
         this.goal = new Target[N_GOALS];
     }
 
+    public void addTarget(Target target) {
+        boolean found = false;
+        for (int i = 0; i < N_GOALS && !found; i++) {
+            if (goal[i] == null) {
+                goal[i] =target;
+                found = true;
+            }
+        }
+    }
+
     public void setPGoal1(){
         goal[0] = new Target(Color.PINK, 0, 0);
         goal[1] = new Target(Color.BLUE, 0, 2);

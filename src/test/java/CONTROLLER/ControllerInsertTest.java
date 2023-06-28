@@ -92,9 +92,15 @@ class ControllerInsertTest {
         System.out.println(model.getTable().getSingleSlot(5,2).getColor()+"\n");
         controller.checkSelect(slotChoice2);
         controller.checkInsert(0);
-        for(int i = PersonalShelf.N_ROWS-1; i >= 0; i--){
-            System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(i,0).getColor());
-        }
+        /*for(int i = PersonalShelf.N_ROWS-1; i >= 0; i--){
+            System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(4,0).getColor());
+        }*/
+        System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(5,0).getColor());
+        System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(4,0).getColor());
+        System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(3,0).getColor());
+        System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(2,0).getColor());
+        System.out.println(model.getPlayer()[model.getPlayerInGame()].getShelf().getSingleSlot(1,0).getColor());
+
     }
 
     @Test
