@@ -7,7 +7,6 @@ import Errors.SameNicknameException;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
 
-import java.io.IOException;
 import java.rmi.RemoteException;
 
 
@@ -16,7 +15,7 @@ public interface viewListeners {
     void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException;
     void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
-    void notifyOneMoreTime() throws SameNicknameException, IOException, InterruptedException;
+    void notifyOneMoreTime() throws SameNicknameException, RemoteException;
     void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 
 }

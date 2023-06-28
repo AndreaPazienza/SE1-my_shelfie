@@ -5,12 +5,6 @@ public abstract class CGOnLines extends CommonGoalAbs{
     public CGOnLines(int players){
         super(players);
     }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param player The player whose shelf has to be checked.
-     */
     public void control(Player player) {
 
         if (!commonGoalAchived()) {

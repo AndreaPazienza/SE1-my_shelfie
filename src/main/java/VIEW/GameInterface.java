@@ -1,19 +1,16 @@
 package VIEW;
-
+import java.rmi.RemoteException;
+import java.util.*;
+import java.util.List;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import Listeners.viewListeners;
 import MODEL.*;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import MODEL.Color;
 
-import java.io.IOException;
-import java.rmi.RemoteException;
-import java.util.*;
-
-public class GameInterface implements Runnable, viewListeners/*, UserInterface*/ {
+public class GameInterface implements Runnable, viewListeners {
 
     private final List<viewListeners> listeners = new ArrayList<>();
     public Scanner keyboard;
@@ -65,7 +62,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             nChoices = getCorrectInt();
             //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
             //tessere selezionate dall'utente.
-            System.out.println("chiamata al server ");
             notifyChoices(nChoices);
             if (nChoices < 1)
                 System.out.print("Scegliere almeno una tessera: ");
@@ -107,9 +103,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
         }
 
         notifySelectedCoordinates(selection);
-
-
-        System.out.println("Le tessere sono state selezionate! \n");
 
         if (nChoices != 1) {
             if (playerOrder()) {
@@ -204,13 +197,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
         do {
             notifyInsert(column);
-            // try {
-            //---------------------------Notifica con column
             ok = true;
-           /* } catch (NotEnoughSpaceChoiceException e) {
-                System.out.println("La colonna inserita non ha abbastanza spazio disponibile");
-                ok = false;
-            }*/
         } while (!ok);
     }
 
@@ -219,7 +206,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
         keyboard = new Scanner(System.in);
         int val = 0;
         boolean ok;
-
         do {
             try {
                 val = keyboard.nextInt();
@@ -241,7 +227,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             }
 
         } while (!ok);
-
         return val;
     }
 
@@ -250,7 +235,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
         keyboard = new Scanner(System.in);
         String string = "";
         boolean ok;
-
         do {
             try {
                 string = keyboard.nextLine();
@@ -264,9 +248,7 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
                 keyboard.nextLine();
                 ok = false;
             }
-
         } while (!ok);
-
         return string;
     }
 
@@ -290,8 +272,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             System.out.print("\n");
         }
         System.out.print("=======================================================================================================================================================\n");
-        System.out.print("\n");
-        System.out.print("\n");
     }
 
     //Printing the personal shelf on screen.
@@ -313,8 +293,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             System.out.print("\n");
         }
         System.out.print("=======================================================================================================================================================\n");
-        System.out.print("\n");
-        System.out.print("\n");
     }
 
     //Printing the Personal Goal on screen.
@@ -348,50 +326,30 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             System.out.print("\n");
         }
         System.out.print("=======================================================================================================================================================\n");
-        System.out.print("\n");
-        System.out.print("\n");
     }
 
-    public void setTexts(Player[] ranking, String rankingText, String winnerText) {
-
-        for(int i = 1; i <= ranking.length; i ++) {
-            rankingText = rankingText + i + "°: " + ranking[i-1].getNickname() + " \n    punti totalizzati: " + ranking[i-1].getScore() + " \n    ordine nel giro: " + ranking[i-1].getOrderInTurn() + "\n\n";
-        }
-
-        winnerText = "Congratulazioni " + ranking[0].getNickname() + " hai vinto questa partita!";
+    public void displayWin(String winner){
+        System.out.println("Il gioco è finito!! Il vincitore è: " + winner);
     }
-
-    public void displayWin(GameView finalGameView){
-
-        String rankingText = "";
-        String winnerText = "";
-
-        setTexts(finalGameView.getRanking(), rankingText, winnerText);
-        System.out.println(rankingText + "\n\n");
-        System.out.println(winnerText + "\n");
-    }
-
     public void notifyAlmostOver(){
-        System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!! \n");
+        System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!!");
     }
-    public void waitingRoom(int enrolledPlayers, int nPlayers) {
-        System.out.println("Si sono iscritti "+enrolledPlayers+"su "+nPlayers);
+    public void arrived() {
+        System.out.println("E' entrato un nuovo player");
     }
     public void startTurn() {
         System.out.print("-- Inizio del nuovo turno -- \n");
     }
-
     public void onWait() {
-        System.out.print("-- Non è il tuo turno -- \n");
+        System.out.print("-- Non è il tuo turno --");
     }
     public void run() {
-        System.out.println("waiting...");
+        System.out.print("");
     }
     //Adding listener
     @Override
     public void addviewEventListener(viewListeners listener) {
             listeners.add(listener);
-            System.out.println("Creato bond client / view \n");
     }
 
     //Notification to all listeners (Clients) of the completed selection.
@@ -401,7 +359,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             listener.notifySelectedCoordinates(SC);
         }
     }
-
     //Notify all listeners (Clients) of the successful notification.
     @Override
     public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
@@ -409,47 +366,40 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             try {
                 listener.notifyOrder(o);
             } catch (RemoteException e) {
-                System.out.println("ciao");
-            } catch (NotEnoughSpaceChoiceException e) {
-                throw new RuntimeException(e);
-            } catch (NotAdjacentSlotsException e) {
-                throw new RuntimeException(e);
-            } catch (NotCatchableException e) {
+                System.out.println("RemoteExcpetion throw this. ");
+            } catch (NotEnoughSpaceChoiceException | NotAdjacentSlotsException | NotCatchableException e) {
                 throw new RuntimeException(e);
             }
         }
         }
-
-    //Notification to all listeners (clients) of the successful insertion.
+     //Notification to all listeners (clients) of the successful insertion.
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyInsert(column);
         }
     }
-
     @Override
-    public void notifyOneMoreTime() throws IOException, SameNicknameException, InterruptedException {
+    public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
     }
-
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyChoices(number);
         }
     }
-
     public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
         }
-    public void errorNick(String message) throws SameNicknameException, IOException, InterruptedException {
+
+    public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
-           System.out.println("\nVuoi provare ad entrare nella partita con un nuovo nickname? ");
+           System.out.println("\n Vuoi provare ad entrare nella partita con un nuovo nickname? ");
            String yes = "si";
            String no = "no";
            String response = keyboard.nextLine();
@@ -460,14 +410,9 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
             }
 
         } while (!response.equals(yes) && !response.equals(no));
-
         System.out.print("\n");
-
             if(response.equals("si")){
                 notifyOneMoreTime();
-            } else {
-                System.out.println("Uscita dalla partita in corso");
-                System.exit(0);
             }
     }
 
@@ -485,9 +430,6 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
 
-    public void displayTarget(int i, GameView gameView) {
-        System.out.println("Colore: "+gameView.getPgoal().getSingleTarget(i).getTile()+'\t'+"X: "+gameView.getPgoal().getSingleTarget(i).getPosX()+'\t'+"Y: "+gameView.getPgoal().getSingleTarget(i).getPosY());
-    }
     public void errorNotCatchable() {
         System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
     }
@@ -506,6 +448,19 @@ public class GameInterface implements Runnable, viewListeners/*, UserInterface*/
 
     public void errorInsert() {
         System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
+    }
+
+    public void displayPersonalGoal2(PersonalGoal pgoal) {
+        System.out.println("Il tuo Personal Goal è il seguente, non dimenticarlo!");
+        for(int i=0; i < pgoal.getGoal().length; i++){
+            System.out.print("["+ pgoal.getSingleTarget(i).getPosX()+"," +
+                    pgoal.getSingleTarget(i).getPosY() + ","+ pgoal.getSingleTarget(i).getTile()+"]. ");
+        }
+        System.out.print("\n");
+    }
+
+    public void commonGoalReminder(CommonGoalAbs CG) {
+        System.out.println("Common Goal attivo: " + CG.description());
     }
 }
 
