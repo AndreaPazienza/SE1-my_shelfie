@@ -1,0 +1,87 @@
+Index: src/main/java/AppServer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nimport Distributed.*;\r\nimport Distributed.rmi.*;\r\n\r\nimport java.rmi.AlreadyBoundException;\r\nimport java.rmi.RemoteException;\r\nimport java.rmi.registry.LocateRegistry;\r\nimport java.rmi.registry.Registry;\r\n\r\npublic class AppServer {\r\n    public static void main(String[] args) throws RemoteException, AlreadyBoundException {\r\n\r\n        ServerRMIInterface server = new ServerImpl();\r\n        String Ip = \"192.168.22.176\";\r\n        Registry registry = LocateRegistry.createRegistry( 1066);\r\n     try{\r\n            registry.bind(\"server\",server);}catch (AlreadyBoundException e){\r\n            registry.rebind(\"server\", server);\r\n      }\r\n\r\n\r\n    }\r\n\r\n}\r\n\r\n//Gestire richiesta di connessione a partita iniziata
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AppServer.java b/src/main/java/AppServer.java
+--- a/src/main/java/AppServer.java	(revision 120d11a7af9ad761980786c2b0a2d3a6c47cba17)
++++ b/src/main/java/AppServer.java	(date 1683362143593)
+@@ -13,14 +13,13 @@
+         ServerRMIInterface server = new ServerImpl();
+         String Ip = "192.168.22.176";
+         Registry registry = LocateRegistry.createRegistry( 1066);
+-     try{
+-            registry.bind("server",server);}catch (AlreadyBoundException e){
++
++        try {
++            registry.bind("server",server);
++        } catch (AlreadyBoundException e) {
+             registry.rebind("server", server);
+-      }
+-
+-
++        }
+     }
+-
+ }
+ 
+ //Gestire richiesta di connessione a partita iniziata
+\ No newline at end of file
+Index: src/main/java/AppClient.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Distributed.rmi.Client;\r\nimport Distributed.ServerRMIInterface;\r\nimport Errors.SameNicknameException;\r\n\r\nimport java.rmi.NotBoundException;\r\nimport java.rmi.RemoteException;\r\nimport java.rmi.registry.LocateRegistry;\r\nimport java.rmi.registry.Registry;\r\n\r\npublic class AppClient {\r\n\r\n    public static void main(String[] args) throws RemoteException, NotBoundException, SameNicknameException {\r\n       // Registry registry = LocateRegistry.getRegistry(10.169.232.254, 1066)\r\n        // Per implementazione del online.\r\n       // Registry registry = LocateRegistry.getRegistry(\"192.168.22.176\",1066);\r\n        Registry registry = LocateRegistry.getRegistry(1066);\r\n        ServerRMIInterface server = (ServerRMIInterface) registry.lookup(\"server\");\r\n\r\n        Client client = new Client(server);\r\n        client.run();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/AppClient.java b/src/main/java/AppClient.java
+--- a/src/main/java/AppClient.java	(revision 120d11a7af9ad761980786c2b0a2d3a6c47cba17)
++++ b/src/main/java/AppClient.java	(date 1683362143569)
+@@ -10,9 +10,9 @@
+ public class AppClient {
+ 
+     public static void main(String[] args) throws RemoteException, NotBoundException, SameNicknameException {
+-       // Registry registry = LocateRegistry.getRegistry(10.169.232.254, 1066)
++        // Registry registry = LocateRegistry.getRegistry(10.169.232.254, 1066)
+         // Per implementazione del online.
+-       // Registry registry = LocateRegistry.getRegistry("192.168.22.176",1066);
++        // Registry registry = LocateRegistry.getRegistry("192.168.22.176",1066);
+         Registry registry = LocateRegistry.getRegistry(1066);
+         ServerRMIInterface server = (ServerRMIInterface) registry.lookup("server");
+ 
+Index: src/main/java/MODEL/CGOnLines.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package MODEL;\r\n\r\npublic abstract class CGOnLines extends CommonGoalAbs{\r\n\r\n    public CGOnLines(int players){\r\n        super(players);\r\n    }\r\n    public void control(Player player) {\r\n\r\n        if (!commonGoalAchived()) {\r\n\r\n            boolean validRows =true, lastRow=false;\r\n            Color[] rows = new Color[PersonalShelf.N_COLUMN ];\r\n            int rowsLines = 0;\r\n\r\n            //Ciclo per controllare\r\n            for (int i = 0; i < PersonalShelf.N_ROWS; i++) {\r\n                validRows = true;\r\n                rows[0] = Color.GREY;\r\n                if(i == PersonalShelf.N_ROWS-1) lastRow=true;\r\n                //Acquisizione dell'array della riga\r\n                for (int j = 0; j < PersonalShelf.N_COLUMN && validRows; j++) {\r\n                    Color colorOfSlot = player.getShelf().getSingleSlot(i, j).getColor();\r\n                    if (colorOfSlot.equals(Color.GREY)) {\r\n                        validRows = false;\r\n                    }\r\n                    rows[j] = colorOfSlot;\r\n\r\n                }\r\n                if (controlRows(player, rows,rowsLines)) {\r\n                    rowsLines++;\r\n                }\r\n\r\n            }\r\n            if(lastRow && !commonGoalAchived()){\r\n                controlRows(player, rows, rowsLines);\r\n            }\r\n        }\r\n    }\r\n\r\n    protected abstract boolean controlRows(Player player, Color[] rows, int alreadyFound);\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/MODEL/CGOnLines.java b/src/main/java/MODEL/CGOnLines.java
+--- a/src/main/java/MODEL/CGOnLines.java	(revision 120d11a7af9ad761980786c2b0a2d3a6c47cba17)
++++ b/src/main/java/MODEL/CGOnLines.java	(date 1683370245771)
+@@ -17,7 +17,7 @@
+             for (int i = 0; i < PersonalShelf.N_ROWS; i++) {
+                 validRows = true;
+                 rows[0] = Color.GREY;
+-                if(i == PersonalShelf.N_ROWS-1) lastRow=true;
++                if(i == PersonalShelf.N_ROWS - 1) lastRow = true;
+                 //Acquisizione dell'array della riga
+                 for (int j = 0; j < PersonalShelf.N_COLUMN && validRows; j++) {
+                     Color colorOfSlot = player.getShelf().getSingleSlot(i, j).getColor();
+@@ -25,12 +25,11 @@
+                         validRows = false;
+                     }
+                     rows[j] = colorOfSlot;
+-
+                 }
+-                if (controlRows(player, rows,rowsLines)) {
++
++                if (controlRows(player, rows, rowsLines)) {
+                     rowsLines++;
+                 }
+-
+             }
+             if(lastRow && !commonGoalAchived()){
+                 controlRows(player, rows, rowsLines);
