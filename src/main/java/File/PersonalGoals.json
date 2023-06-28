@@ -32,8 +32,7 @@
           "posY": 2,
           "color": "LBLUE"
         }
-      ],
-      "image": "src/main/GraphicResources/personal goal cards/Personal_Goals.png"
+      ]
     },
     {
       "target": [
@@ -67,8 +66,7 @@
           "posY": 4,
           "color": "BLUE"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals2.png"
+      ]
     },
     {
       "target": [
@@ -102,8 +100,8 @@
           "posY": 0,
           "color": "WHITE"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals3.png"
+      ]
+
     },
     {
       "target": [
@@ -137,8 +135,7 @@
           "posY": 2,
           "color": "GREEN"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals4.png"
+      ]
     },
     {
       "target": [
@@ -172,8 +169,7 @@
           "posY": 3,
           "color": "GREEN"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals5.png"
+      ]
     },
     {
       "target": [
@@ -207,8 +203,7 @@
           "posY": 0,
           "color": "PINK"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals6.png"
+      ]
     },
     {
       "target": [
@@ -242,8 +237,7 @@
           "posY": 2,
           "color": "WHITE"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals7.png"
+      ]
     },
     {
       "target": [
@@ -277,8 +271,7 @@
           "posY": 3,
           "color": "YELLOW"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals8.png"
+      ]
     },
     {
       "target": [
@@ -312,8 +305,7 @@
           "posY": 0,
           "color": "BLUE"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals9.png"
+      ]
     },
     {
       "target": [
@@ -347,8 +339,7 @@
           "posY": 3,
           "color": "PINK"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals10.png"
+      ]
     },
     {
       "target": [
@@ -382,8 +373,7 @@
           "posY": 3,
           "color": "LBLUE"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals11.png"
+      ]
     },
     {
       "target": [
@@ -417,8 +407,7 @@
           "posY": 0,
           "color": "GREEN"
         }
-      ],
-      "image":"src/main/GraphicResources/personal goal cards/Personal_Goals12.png"
+      ]
     }
   ]
 }

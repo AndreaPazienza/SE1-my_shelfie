@@ -140,7 +140,7 @@ public class PersonalShelf implements Serializable {
         //Finds the first empty slot in the selected column
         int i = N_ROWS-1;
         while (!(shelf[i][column].getColor().Equals(Color.GREY))) {
-                }
+                i--;}
         //Actual insertion
         for (int j = 0; j < actualLength; j++) {
             this.shelf[i][column].setColor(slots[j].getColor());
