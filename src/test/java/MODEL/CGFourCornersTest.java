@@ -67,7 +67,6 @@ class CGFourCornersTest {
 
     @Test
     void twoPlayersCGAchived(){
-        Player current2 = new Player("Mike");
         current1.getShelf().getSingleSlot(0,0).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1,0).setColor(Color.GREEN);
         current1.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1,PersonalShelf.N_COLUMN-1).setColor(Color.GREEN);
@@ -77,6 +76,8 @@ class CGFourCornersTest {
         //assertEquals(0);
         assertEquals(8, points);
 
+        Player current2 = new Player("Mike");
+        testingCommonGoal.incrementCG();
         current2.getShelf().getSingleSlot(0,0).setColor(Color.GREEN);
         current2.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1,0).setColor(Color.GREEN);
         current2.getShelf().getSingleSlot(PersonalShelf.N_ROWS-1,PersonalShelf.N_COLUMN-1).setColor(Color.GREEN);

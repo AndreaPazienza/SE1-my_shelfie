@@ -141,7 +141,4 @@ public class PersonalShelf implements Serializable {
         this.itsFull = false;
     }
 
-    public int getMaxChoices(){
-        return this.maxChoices;
-    }
 }

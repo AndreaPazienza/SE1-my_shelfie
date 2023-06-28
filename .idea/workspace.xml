@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Beta v1.10.2: File POM aggiornato">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Complete GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CONTROLLER/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/GameState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +60,9 @@
     </option>
   </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -105,10 +103,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppServer">
+  <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
-      <module name="softeng-gc38" />
+      <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -440,14 +438,7 @@
       <option name="project" value="LOCAL" />
       <updated>1687871927484</updated>
     </task>
-    <task id="LOCAL-00031" summary="Beta v1.09: Rollback completo pre GUI after merge.">
-      <created>1687961042641</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1687961042641</updated>
-    </task>
-    <option name="localTasksCounter" value="32" />
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,6 +471,8 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
+    <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
@@ -503,9 +496,7 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
-    <MESSAGE value="Beta v1.09: Rollback completo pre GUI after merge." />
-    <MESSAGE value="Beta v1.10.2: File POM aggiornato" />
-    <option name="LAST_COMMIT_MESSAGE" value="Beta v1.10.2: File POM aggiornato" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -523,17 +514,17 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$ControllerEndGameTest.ic" NAME="ControllerEndGameTest Coverage Results" MODIFIED="1685351470048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>CONTROLLER.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
