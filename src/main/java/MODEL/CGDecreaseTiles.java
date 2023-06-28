@@ -2,8 +2,6 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-import javax.swing.*;
-
 //Five columns of increasing or decreasing height.
 // Starting from the first column on the left or on the right, each next column must be made of exactly one more tile.
 // Tiles can be of any type.
@@ -11,8 +9,6 @@ public class CGDecreaseTiles extends CommonGoalAbs {
 
     public CGDecreaseTiles(int players){
         super(players);
-        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/12.jpg");
-        //super.setImage(image);
     }
 
     public void control(Player player) {
@@ -93,5 +89,10 @@ public class CGDecreaseTiles extends CommonGoalAbs {
         System.out.print("=======================================================================================================================================================\n");
         System.out.print("\n");
         System.out.print("\n");
+    }
+
+    @Override
+    public String description() {
+        return "Ottieni una scala nella tua Shelf, partendo da altezza 5 e finendo nella 1. ";
     }
 }

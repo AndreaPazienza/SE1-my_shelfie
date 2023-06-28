@@ -1,6 +1,7 @@
 package Errors;
 
-//Class that represents a customized exception thrown when inserts more times the same number in the ordering phase
+// Nell'ordinamento vengono selezionate delle posizioni uguali
+
 public class SameNumberException extends Exception {
     public SameNumberException(String message) {
         super(message);

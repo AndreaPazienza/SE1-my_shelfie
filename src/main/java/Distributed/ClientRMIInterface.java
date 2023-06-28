@@ -5,7 +5,6 @@ import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import MODEL.GameView;
 
-import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
@@ -16,11 +15,11 @@ public interface ClientRMIInterface extends Remote {
     void updateClientRound(GameView model) throws RemoteException;
     void updateClientPlaying(GameView model) throws RemoteException;
     String getNickname() throws RemoteException;
-    int startGame() throws Exception;
-    void onWait() throws Exception;
-    void newPlayerAdded(int enrolledPlayers, int nPlayers) throws IOException;
+    int startGame() throws RemoteException;
+    void onWait() throws RemoteException;
+    void newPlayerAdded() throws RemoteException;
     void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
-    void endTurn() throws Exception;
+    void endTurn() throws RemoteException;
     void winnerInterface(String winner) throws RemoteException;
     void notifyCompleted() throws RemoteException;
     void notifyGameStarted() throws RemoteException;

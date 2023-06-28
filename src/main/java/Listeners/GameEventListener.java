@@ -10,11 +10,12 @@ public interface GameEventListener {
 
     void addGameEventListener(GameEventListener listener);
     void gameStateChanged() throws RemoteException;
-    void turnIsOver() throws Exception; //Sends the new GameView when the turn is finished
+    void turnIsOver() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException; //Sends the new GameView when the turn is finished
  //   public void notifyTurnIsOver(GameView view);
-    void readyToStart() throws Exception;
+    void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyEndGame() throws RemoteException;
     void notifyGameFinished() throws RemoteException;
-    void notifySkipTurn() throws Exception;
+    void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
     void notifyLastError() throws RemoteException;
+    void notifyForcedTurnEnding() throws NotEnoughSpaceChoiceException, RemoteException;
 }

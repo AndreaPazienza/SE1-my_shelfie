@@ -1,51 +1,24 @@
 package MODEL;
 
+
 import java.io.Serializable;
 
-/**
- * Class that represents the personal shelf of a player.
- */
 public class PersonalShelf implements Serializable {
 
-    /**
-     * The matrix of slots that compose the personal shelf.
-     */
-    private final Slot[][] shelf;
-
-    /**
-     * The value that marks if the personal shelf is full.
-     */
+    private Slot[][] shelf;
     private boolean itsFull;
-    //private int maxChoices;
-
-    /**
-     * The number of rows of a personal shelf.
-     */
+    private int maxChoices;
     public static final int N_ROWS = 6;
-
-    /**
-     * The number of column of a personal shelf.
-     */
     public static final int N_COLUMN = 5;
 
-    /**
-     * Retrieves he number of rows of a personal shelf.
-     *
-     * @return True if the shelf is true, false otherwise.
-     */
     public boolean isItsFull() {
         return itsFull;
     }
 
-    /**
-     * Retrieves the points earned by positioning adjacent slots with the same color.
-     *
-     * @return The number of points earned by the player.
-     */
-    public int calculatePoints(){
+    public int calculatePoints(){ //metodo vero e proprio del calcolo dei punti: qui viene chiamato il metodo che conta le adiacenze e poi quello che assegna concretamente i punti
         int tPoints = 0;
         int adiacentSlot = 0;
-        boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //The boolean mask that marks the matrix's positions that are already visited.
+        boolean[][] visited = new boolean[N_ROWS][N_COLUMN]; //matrice di boolean (corrispondenza biunivoca con la shelf) per markare le tessere da visitare
         for(int i = 0; i < N_ROWS; i++){
             for(int j = 0; j < N_COLUMN; j++){
                 if(!this.shelf[i][j].getColor().equals(Color.GREY) && !visited[i][j]){
@@ -60,57 +33,31 @@ public class PersonalShelf implements Serializable {
         return tPoints;
     }
 
-    /**
-     * Retrieves the slot in the selected position of the shelf according to the coordinates.
-     *
-     * @param x The index of the shelf's slot's row to get.
-     * @param y The index of the shelf's slot's column to get.
-     * @return The slot of the shelf to get.
-     */
     public Slot getSingleSlot(int x, int y){
         return shelf[x][y];
     }
 
-    /**
-     * Retrieves the number of the adjacent slots with the same color of the selected one according to its coordinates in the shelf.
-     *
-     * @param visited The boolean mask that marks the matrix's positions that are already visited.
-     * @param x The index of the shelf's slot's row to check.
-     * @param y The index of the shelf's slot's column to check.
-     * @return The number of the adjacent slots with the same color.
-     */
-    public int checkAdjacentSlot(boolean[][] visited, int x, int y){
-        visited[x][y] = true; //Mark on the tile that has been visited
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //counts the effective adjacencies
+        visited[x][y] = true; //I mark the tile I have visited
         int count = 1;
-        Color color = this.shelf[x][y].getColor(); //Save the color of the tile to check
+        Color color = this.shelf[x][y].getColor(); //I save the color of the tile I have to check
+//I check the adjacent tiles: if they have the same color and are not marked, I increment count.
 
-        //Check on the adjacent tiles: if they have the same color and are not marked, the count is incremented
-
-        //Check on the bottom slot (if it exists)
-        if(x > 0 && this.shelf[x-1][y] != null && color != Color.GREY && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) {
+        if(x > 0 && this.shelf[x-1][y] != null && color != Color.GREY && color == this.shelf[x-1][y].getColor()&&!visited[x-1][y]) { //controllo cella sopra e sotto della shelf
             count += checkAdjacentSlot(visited, x-1, y);
         }
-        //Check on the top slot (if it exists)
         if(x < N_ROWS-1 && this.shelf[x+1][y] != null && color != Color.GREY && color == this.shelf[x+1][y].getColor()&&!visited[x+1][y]){
             count += checkAdjacentSlot(visited, x+1, y);
         }
-        //Check on the left slot (if it exists)
-        if(y > 0 && this.shelf[x][y-1] != null && color != Color.GREY && color == this.shelf[x][y-1].getColor()&&!visited[x][y-1]){
+        if(y > 0 && this.shelf[x][y-1] != null && color != Color.GREY && color == this.shelf[x][y-1].getColor()&&!visited[x][y-1]){ //controllo cella a sx e a dx della shelf
             count += checkAdjacentSlot(visited, x, y-1);
         }
-        //Check on the right slot (if it exists)
         if(y < N_COLUMN-1 && this.shelf[x][y+1] != null && color != Color.GREY && color == this.shelf[x][y+1].getColor()&&!visited[x][y+1]){
             count += checkAdjacentSlot(visited, x, y+1);
         }
         return count;
     }
 
-    /**
-     * Converts the number of adjacent slots with the same color with the corresponding number of points.
-     *
-     * @param adiacentSlot The number of adjacent slots.
-     * @return The number of points earned according to the input number.
-     */
     private int calculatePointsForAdiacentSlot(int adiacentSlot ){
         switch(adiacentSlot){
             case 3:
@@ -124,50 +71,32 @@ public class PersonalShelf implements Serializable {
         }
     }
 
-    /**
-     * Inserts the slot selected (and ordered) by the player from the dashboard into a column of the personal shelf.
-     *
-     * @param slots The slots to insert in the shelf.
-     * @param column The column to insert into the slots.
-     */
-    public void insert(Slot[] slots, int column){
-        int actualLength = 0;
+    public void insert(Slot[] slots, int column){      //qui viene datto un arra di slot già ordinato (OrderSlot) in ingresso quindi viene chiesto al giocatore la colonna dove inserire le slot
+        int lunghezzaReale = 0;
         for(int i = 0;i < slots.length;i++){
             if(!(slots[i].getColor().Equals(Color.GREY))){
-                actualLength++;
-            }
+                lunghezzaReale++;        //lunghezzaReale serve perchè in ingressi sarà dato un array di 3 slot
+            }                            //che non sempre sarà pieno;
         }
-        //Finds the first empty slot in the selected column
         int i = N_ROWS-1;
-        while (!(shelf[i][column].getColor().Equals(Color.GREY))) {
-                i--;}
-        //Actual insertion
-        for (int j = 0; j < actualLength; j++) {
+        while (!(shelf[i][column].getColor().Equals(Color.GREY))) {   //trovo la prima posizione vuota della colonna scelta dall'utente
+                i--;
+                }
+        for (int j = 0; j < lunghezzaReale; j++) {    //inserimento effettivo
             this.shelf[i][column].setColor(slots[j].getColor());
             this.shelf[i][column].setType(slots[j].getType());
             i--;
         }
-        /*notify*/
-        //notifyObservers(this.shelf);
     }
 
-    /**
-     * Checks if the last line of the shelf is full.
-     *
-     * @return True if there are no grey (empty) slots in the upper line of the shelf, False otherwise.
-     */
     public boolean checkLastLine(){
         for(int i = 0; i < N_COLUMN; i++){
-            if(this.shelf[0][i].getColor().equals(Color.GREY)) {
+            if(this.shelf[0][i].getColor().equals(Color.GREY)){ //come sono colorate le slot "vuote" della shelf?
                 return false;
             }
         }
        return true;
     }
-
-    /**
-     * Constructor for PersonalShelf class.
-     */
     public PersonalShelf(){
         this.shelf = new Slot[N_ROWS][N_COLUMN];
         for(int i = 0; i < N_ROWS; i++){
@@ -178,7 +107,6 @@ public class PersonalShelf implements Serializable {
         this.itsFull = false;
     }
 
-    /*
     public void setMaxChoices(){
         int max = 0;
         for(int i = 0; i < N_COLUMN; i++) {
@@ -198,9 +126,8 @@ public class PersonalShelf implements Serializable {
             }
         }
     }
-    */
 
-    //Constructor that permit us to go faster to the endgame (only used to test)
+    //builder per velocizzare endgame
    public PersonalShelf(int i){
         this.shelf = new Slot[N_ROWS][N_COLUMN];
         for(int k = 0; k < N_ROWS; k++){
@@ -214,9 +141,7 @@ public class PersonalShelf implements Serializable {
         this.itsFull = false;
     }
 
-   /*
     public int getMaxChoices(){
         return this.maxChoices;
     }
-    */
 }

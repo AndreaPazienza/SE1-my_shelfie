@@ -150,19 +150,16 @@ public class GameTest {
          game.signPlayer("nome2");
          game.signPlayer("nome3");
          game.signPlayer("nome4");
-         game.getPlayer()[0].setScore(1);
-         game.getPlayer()[1].setScore(6);
-         game.getPlayer()[2].setScore(6);
-         game.getPlayer()[3].setScore(6);
+         game.getPlayer()[0].setScore(6);
+         game.getPlayer()[0].setScore(6);
+         game.getPlayer()[0].setScore(4);
+         game.getPlayer()[0].setScore(3);
          game.getPlayer()[0].setOrderInTurn(0);
-         game.getPlayer()[1].setOrderInTurn(1);
-         game.getPlayer()[2].setOrderInTurn(2);
-         game.getPlayer()[3].setOrderInTurn(3);
+         game.getPlayer()[0].setOrderInTurn(1);
+         game.getPlayer()[0].setOrderInTurn(2);
+         game.getPlayer()[0].setOrderInTurn(3);
 
          game.finalScore();
-
-         for (int i = 0; i < game.getPlayer().length; i ++)
-             System.out.println(i + 1 + ": " + game.getPlayer()[i].nickname + ", punti: " + game.getPlayer()[i].getScore() + ", ordine: " + game.getPlayer()[i].getOrderInTurn());
 
      }
 

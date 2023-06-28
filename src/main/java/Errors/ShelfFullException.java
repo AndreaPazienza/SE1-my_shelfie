@@ -1,6 +1,7 @@
 package Errors;
 
-//Class that represents a customized exception thrown when a player tries to insert a slot (or more) in a full shelf
+//quando un giocatore tenta di effettuare inserimento ma ha la shelf piena
+
 public class ShelfFullException extends Exception{
     public ShelfFullException(String message) {
         super(message);
