@@ -1,8 +1,6 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-
-import javax.swing.*;
 //Six groups each containing at least
 //2 tiles of the same type (not necessarily in the depicted shape).
 //The tiles of one group can be different from those of another group.
@@ -13,15 +11,7 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
 
     public CGSixGroupsTwoTiles(int players){
         super(players);
-        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/4.jpg");
-        //super.setImage(image);
     }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param player The player whose shelf has to be checked.
-     */
     @Override
     public void control(Player player) {
 
@@ -52,9 +42,6 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
        }
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void show() {
         System.out.println("Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo (non necessariamente come mostrato in figura). Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.");

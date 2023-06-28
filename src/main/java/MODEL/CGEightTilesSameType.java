@@ -2,21 +2,11 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-import javax.swing.*;
-
 //Eight tiles of the same type. There’s no restriction about the position of these tiles.
 public class CGEightTilesSameType extends CommonGoalAbs {
     public CGEightTilesSameType(int players){
         super(players);
-        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/9.jpg");
-        //super.setImage(image);
     }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @param player The player whose shelf has to be checked.
-     */
     public void control(Player player) {
 
   if(!playerAchived[playing]) {
@@ -47,9 +37,6 @@ public class CGEightTilesSameType extends CommonGoalAbs {
 
     }
 
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public void show() {
         System.out.println("Otto tessere dello stesso tipo. Non ci sono restrizioni sulla posizione di queste tessere.");

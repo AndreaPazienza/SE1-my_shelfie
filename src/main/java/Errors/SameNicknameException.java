@@ -1,15 +1,8 @@
 package Errors;
 
-/**
- * Class that represents a customized exception thrown when a player choices a nickname already in use.
- */
-public class SameNicknameException extends Exception{
+//quando il giocatore tenta di iscriversi con un nome già preso
 
-    /**
-     * Retrieves the message associated to the instance of SameNicknameException.
-     *
-     * @param message The error message.
-     */
+public class SameNicknameException extends Exception{
     public SameNicknameException(String message) {
         super(message);
     }

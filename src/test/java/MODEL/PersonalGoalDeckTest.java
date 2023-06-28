@@ -14,9 +14,9 @@ public class PersonalGoalDeckTest {
         personalGoalDeck = new PersonalGoalDeck();
         pGoal = new PersonalGoal();
 
-        for (int i = 0; i < personalGoalDeck.getPersonalGoalDeck().size(); i++) {
+        for (int i = 0; i < personalGoalDeck.getPersonalGoalDeck().size(); i ++) {
             pGoal = personalGoalDeck.getPersonalGoalDeck().get(i);
-            for (int j = 0; j < 6; j++) {
+            for(int j = 0; j < 6; j ++) {
                 System.out.print("Colore: " + pGoal.getSingleTarget(j).getTile() + "\n");
                 System.out.print("Coordinate: " + pGoal.getSingleTarget(j).getPosX() + ";" + pGoal.getSingleTarget(j).getPosY() + "\n");
             }
@@ -35,15 +35,15 @@ public class PersonalGoalDeckTest {
 
         pGoal = personalGoalDeck.extractionPGoal();
 
-        for (int j = 0; j < 6; j++) {
+        for(int j = 0; j < 6; j ++) {
             System.out.print("Colore: " + pGoal.getSingleTarget(j).getTile() + "\n");
             System.out.print("Coordinate: " + pGoal.getSingleTarget(j).getPosX() + ";" + pGoal.getSingleTarget(j).getPosY() + "\n");
         }
         System.out.print("\n");
 
-        for (int i = 0; i < personalGoalDeck.getPersonalGoalDeck().size(); i++) {
+        for (int i = 0; i < personalGoalDeck.getPersonalGoalDeck().size(); i ++) {
             pGoal = personalGoalDeck.getPersonalGoalDeck().get(i);
-            for (int j = 0; j < 6; j++) {
+            for(int j = 0; j < 6; j ++) {
                 System.out.print("Colore: " + pGoal.getSingleTarget(j).getTile() + "\n");
                 System.out.print("Coordinate: " + pGoal.getSingleTarget(j).getPosX() + ";" + pGoal.getSingleTarget(j).getPosY() + "\n");
             }
@@ -60,7 +60,7 @@ public class PersonalGoalDeckTest {
         personalGoalDeck = new PersonalGoalDeck();
         pGoal = new PersonalGoal();
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 4; i++)  {
 
             pGoal = personalGoalDeck.extractionPGoal();
 
@@ -68,7 +68,7 @@ public class PersonalGoalDeckTest {
                 System.out.print("Colore: " + pGoal.getSingleTarget(j).getTile() + "\n");
                 System.out.print("Coordinate: " + pGoal.getSingleTarget(j).getPosX() + ";" + pGoal.getSingleTarget(j).getPosY() + "\n");
             }
-            System.out.print("\n");
+        System.out.print("\n");
         }
     }
 }

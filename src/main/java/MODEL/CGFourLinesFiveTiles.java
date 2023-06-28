@@ -1,16 +1,12 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-
-import javax.swing.*;
 //Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line.
 
 public class CGFourLinesFiveTiles extends CGOnLines {
 
     public CGFourLinesFiveTiles(int players){
         super(players);
-        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/7.jpg");
-        //super.setImage(image);
     }
     public boolean controlRows(Player current, Color[] rows, int found) {
 

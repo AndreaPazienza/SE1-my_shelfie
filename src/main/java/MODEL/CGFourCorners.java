@@ -2,8 +2,6 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-import javax.swing.*;
-
 //Four tiles of the same type in the four corners of the bookshelf.
 
 
@@ -11,8 +9,6 @@ public class CGFourCorners extends CommonGoalAbs {
 
     public CGFourCorners(int players){
         super(players);
-        //ImageIcon image = new ImageIcon("src/main/GraphicResources/common goal cards/8.jpg");
-        //super.setImage(image);
     }
     public void control(Player player) {
 
