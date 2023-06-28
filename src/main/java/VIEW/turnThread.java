@@ -20,14 +20,12 @@ public class turnThread extends Thread{
 
     @Override
     public synchronized void run() {
-        System.out.println("Inizio del thread");
       while(valid) {
           try {
               view.playing();
           } catch (Exception e) {
               stopThread();
            }
-          System.err.println("--non ho più nulla da fare--");
           stopThread();
          }
     }

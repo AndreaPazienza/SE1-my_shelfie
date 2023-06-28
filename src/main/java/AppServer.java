@@ -11,10 +11,9 @@ import java.util.Scanner;
 public class AppServer {
     public static void main(String[] args) throws RemoteException{
 
-        System.out.println("Inserire l'indirizzo ip del server: ");
+        System.out.print("Inserire l'indirizzo ip del server: ");
         Scanner keyboard = new Scanner(System.in);
         String IP = keyboard.nextLine();
-
         ServerRMIInterface server = new ServerImpl();
         System.setProperty("java.rmi.server.hostname",IP);
         Registry registry = LocateRegistry.createRegistry( 1067);

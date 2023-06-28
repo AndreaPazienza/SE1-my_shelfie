@@ -19,17 +19,12 @@ public class GameController{
     public GameController(Game game){
         this.game=game;
     }
-
-
     public void startGame () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             game.setGameOn(true);
             game.startGame();
     }
     public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        System.err.println("ciao");
-        System.err.println("\n"+didSelection);
         if(didSelection){
-            System.err.println("Sto per fare l'undo!");
             undoSelection();
         }
         game.nextPlayerInGame();
@@ -164,7 +159,6 @@ public class GameController{
             didSelection = false;
         } else {
             game.setLastError(GameError.INSERT_ERROR);
-            System.err.println("Mando eccezione di non abbstanza spazio ");
             throw new NotEnoughSpaceChoiceException("La colonna scelta non può contenere così tante tessere!");
         }
     }
@@ -193,13 +187,12 @@ public class GameController{
 
     //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
     public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
-        System.out.println("Aggioramento del turno in corso.. \n");
+        System.out.println("Aggioramento del turno in corso..");
         game.updateTurn();
     }
 
     //Problemi in questa funzione quando crasha un player con 3 giocatori
     public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {
-
         int rows = PersonalShelf.N_ROWS;
         int column = PersonalShelf.N_COLUMN;
         int freeDashboardSpace1 = 0;
@@ -261,11 +254,8 @@ public class GameController{
             }
             freeColumnSpace = 0;
         }
-
         if (spaceDashboard && spaceShelf)
             return;
-
-
         //Entra comunque in questo IF, non va bene
         System.err.println("Nessuna posizione libera trovata ");
         game.setLastError(GameError.SPACE_CHOICES_ERROR);

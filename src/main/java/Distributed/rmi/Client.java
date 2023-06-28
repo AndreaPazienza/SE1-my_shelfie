@@ -22,8 +22,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     private String nickname;
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
-    private boolean gameState = false;
-    private boolean endGame;
 
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
@@ -73,7 +71,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.run();
     }
 
-    //Observer:
     @Override
     public void addviewEventListener(viewListeners listener) {
         System.out.println("\t Connessione Client/Server stabilita \n");
@@ -83,7 +80,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //Observer: when coordinates are taken from the view
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
-        System.out.println("Invio delle coordinate in corso; \n");
         connectedTo.updateServerSelection(this, SC);
     }
 
@@ -118,7 +114,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //When the server has a new update, it is sent and displayed by the client.
     @Override
     public void updateClientFirst(GameView modelView) {
-        gameState = modelView.getGameState();
         view.displayCommonGoal(modelView);
         view.displayPersonalGoal(modelView.getPgoal());
         view.displayDashboard(modelView.getTable());
@@ -128,7 +123,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //Manda al giocaente la situazione attuale e la propria personal shelf
     @Override
     public void updateClientPlaying(GameView modelView) {
-        gameState = modelView.getGameState();
         view.displayPersonalShelf(modelView.getShelf());
         view.displayDashboard(modelView.getTable());
         view.displayPersonalGoal2(modelView.getPgoal());
@@ -139,7 +133,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     //Manda a tutti i client la nuova board
     @Override
     public void updateClientRound(GameView model) throws RemoteException {
-        gameState = model.getGameState();
         view.displayDashboard(model.getTable());
     }
 
@@ -170,25 +163,19 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     //Remote method: begin of turn
     public void startTurn() throws RemoteException {
-        System.out.println("Avvio il turno per la n volta ");
         turnThread play = new turnThread(view);
         //thread non si chiude per la prima volta
-         //if (gameState) {
             view.startTurn();
             play.start();
-         //}
     }
 
     //Remote method:: end turn
     public void endTurn() {
-       // if (gameState) {
             view.onWait();
-       // }
     }
 
     @Override
     public void winnerInterface(String winner) throws RemoteException {
-        gameState = false;
         view.displayWin(winner);
     }
 
@@ -224,7 +211,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     @Override
     public void errorEndGameNoMorePlayers() throws RemoteException {
-        endGame = true;
         view.endgame();
     }
 
@@ -234,13 +220,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         printerErrors(error);
         switch (error) {
             case SELECT_ERROR_NOT_CATCHABLE, SELECT_ERROR_ONE_NOT_CATCHABLE, SELECT_ERROR_NOT_ADJACENT, SPACE_CHOICES_ERROR -> {
-                System.out.println("Avvio play 2 ");
                 turnThread play2 = new turnThread(view);
                 play2.start();
             }
 
             case INSERT_ERROR -> {
-                System.err.println("Avvio il 3");
                 insertThread play3 = new insertThread(view);
                 play3.start();
             }

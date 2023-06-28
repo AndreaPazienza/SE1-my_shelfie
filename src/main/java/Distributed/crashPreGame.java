@@ -10,7 +10,6 @@ import java.rmi.RemoteException;
 public class crashPreGame extends Thread{
     public volatile boolean valid = true;
     private ClientRMIInterface client;
-
     public crashPreGame(ClientRMIInterface client){
         this.client = client;
     }
@@ -23,7 +22,6 @@ public class crashPreGame extends Thread{
             } catch (RemoteException e) {
                 System.err.println("Client disconnesso ");
             }
-            System.err.println(" Chiudo il thread ");
             stopThread();
         }
     }

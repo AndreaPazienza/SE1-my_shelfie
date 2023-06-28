@@ -13,13 +13,13 @@ public class AppClient {
 
     public static void main(String[] args) throws RemoteException, NotBoundException, SameNicknameException {
 
-        /* System.out.println("Inserire l'indirizzo ip del server: ");
+        System.out.println("Inserire l'indirizzo ip del server: ");
         Scanner keyboard = new Scanner(System.in);
-        String IP = keyboard.nextLine(); */
+        String IP = keyboard.nextLine();
 
         // Per implementazione del online.
-        //Registry registry = LocateRegistry.getRegistry(IP,1067);
-         Registry registry = LocateRegistry.getRegistry(1067);
+       Registry registry = LocateRegistry.getRegistry(IP,1067);
+         //Registry registry = LocateRegistry.getRegistry(1067);
        ServerRMIInterface server = (ServerRMIInterface) registry.lookup("server");
 
         Client client = new Client(server);

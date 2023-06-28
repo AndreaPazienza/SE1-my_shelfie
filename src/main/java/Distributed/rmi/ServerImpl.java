@@ -182,12 +182,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             if (client != null) {
                 if (controller.getOnStage().equals(client.getNickname())) {
                     client.updateClientPlaying(new GameView(model));
-                    client.endTurn();
+                //    client.endTurn();
                 } else {
                     client.updateClientRound(new GameView(model));
                 }
             }else{
-                System.err.println("Discarding event for fallen client");
+                System.err.println("Discarding event");
             }
         }
         this.newTurn();
@@ -223,7 +223,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Se il modello ha notificato un errore, verrà segnalato al client di turno.
     @Override
     public void notifyLastError() throws RemoteException {
-        System.err.println("Ho generato un errore ");
         for (ClientRMIInterface client : effectiveLogged) {
            if(client!=null) {
                if (controller.getOnStage().equals(client.getNickname())) {
@@ -350,7 +349,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
            try {
                logged.get(i).ping();
            }catch (RemoteException e){
-               System.err.println("Crash in preGame :( ");
+               System.err.println("Crash in preGame :( . Il server si chiuderà. ");
                System.exit(0);
            }
         }
@@ -410,7 +409,6 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 dudesInGame[i]=null;
             }
         }
-      System.out.println("Swap completata, giocatori eliminati ");
     }
     //Generico metodo per stabilire le posizioni non nulle (dunque effettive) di un Array.
     private int realLength(Object[] o){
@@ -458,7 +456,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     //Timer di timerout alla partita
     private void startTimer() {
 
-        System.out.println("Ho avviato il timer per annullare la partita ");
+        System.out.println("Ho avviato il timer per annullare la partita, tra 30s verrà annullato ");
         TimerTask waitPlayers = new TimerTask() {
             @Override
             public void run() {
@@ -466,16 +464,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 try {
                     notifyNoMorePlayers();
                 } catch (RemoteException e) {
-                    System.err.println("Qualcosa è successo anche all'unico connesso");
+                    System.err.println("Qualcosa è successo anche all'unico connesso, chiusura del server");
+                    System.exit(-1);
                 }
             }
         };
-      timerCrash.schedule(waitPlayers, 8000); //metterci 30000
+      timerCrash.schedule(waitPlayers, 30000); //metterci 30000
     }
 
     //Avvia un timer per andare a controllare che i giocatori siano raggiungibili, se è quello di turno allo skippo.
     private void startTurnTimer() {
-        System.out.println("Ho avviato il timer per controllare lo stato dei client ");
+        System.out.println("Ho avviato il timer (30s) per controllare lo stato dei client ");
         TimerTask turnPlayer = new TimerTask() {
             @Override
             public void run() {
@@ -485,12 +484,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                     startTurnTimer();
                 } catch (RemoteException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
                          NotCatchableException e) {
-                    System.out.println("Il giocante è down ");
+                    System.out.println("Il giocante è andato down ");
                 }
             }
         };
         //Due minuti di timer
-        timerTurn.schedule(turnPlayer, 10000);
+        timerTurn.schedule(turnPlayer, 30000);
 
     }
     public void notifyForcedCrash() throws RemoteException {
@@ -527,7 +526,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             if(client!=null) {
                 client.errorMissingPlayers();
             }else{
-                System.err.println("Discarding event for fallen client");
+                System.err.println("Discarding event ");
             }
         }
     }

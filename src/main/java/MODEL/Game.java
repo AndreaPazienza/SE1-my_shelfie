@@ -101,8 +101,8 @@ public class Game implements GameEventListener {
         }
     }
 
-    public void startGame() throws Exception {
-        state = GameState.PLAYING_IN_ORDERING;
+    public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+        state = GameState.PLAYING;
         getTable().refill(getBag());
         getTable().catchAfterRefill();
         assignPGoal();
@@ -114,7 +114,7 @@ public class Game implements GameEventListener {
 
 
     //Call to refill if necessary and setting catchable, passing the turn to the next player.
-    public void updateTurn() throws Exception {
+    public void updateTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         //Controllo dei CommonGoal completati ed incremento
             this.commonGoal1.control(player[playerInGame]);
             this.commonGoal1.incrementCG();
@@ -149,19 +149,28 @@ public class Game implements GameEventListener {
 
 
     //The winner is declared (searches for the maximum)
-    public void finalScore() {
+    public Player finalScore() {
 
-        Player provvisoryPlayer = null;
+        Player winner;
+        String winnerNickname = null;
+        int winnerScore = 0;
+        int winnerOrderInTurn = 0;
 
-        for (int i = 0; i < player.length - 1; i ++) {
-            for (int j = i + 1; j < player.length; j ++) {
-                if ((player[j].getScore() > player[i].getScore()) || (player[j].getScore() == player[i].getScore() && player[j].getOrderInTurn() > player[i].getOrderInTurn())) {
-                    provvisoryPlayer = player[i];
-                    player[i] = player[j];
-                    player[j] = provvisoryPlayer;
-                }
+        for (int i = 0; i < player.length; i ++) {
+            if ((player[i].getScore() > winnerScore) || (player[i].getScore() == winnerScore && player[i].getOrderInTurn() > winnerOrderInTurn)) {
+                winnerScore = player[i].getScore();
+                winnerOrderInTurn = player[i].getOrderInTurn();
+                winnerNickname = player[i].getNickname();
             }
         }
+
+        //Creation of the winning player.
+        winner = new Player(winnerNickname);
+        winner.setScore(winnerScore);
+        winner.setOrderInTurn(winnerOrderInTurn);
+
+        return winner;
+
     }
 
 
@@ -211,7 +220,7 @@ public class Game implements GameEventListener {
     public PersonalGoalDeck getDeck() {
         return deck;
     }
-    public void nextPlayerInGame() throws Exception {
+    public void nextPlayerInGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         if (playerInGame == Nplayers-1) {
             playerInGame = 0;
         }else{
@@ -239,7 +248,7 @@ public class Game implements GameEventListener {
         }
     }
     //Notifies the start of the first player's turn.
-    public void readyToStart() throws Exception {
+    public void readyToStart() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for(GameEventListener listener: listeners){
             listener.readyToStart();
         }
@@ -260,7 +269,7 @@ public class Game implements GameEventListener {
     }
 
     @Override
-    public void notifySkipTurn() throws Exception {
+    public void notifySkipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for(GameEventListener listener: listeners){
             listener.notifySkipTurn();
         }
@@ -268,7 +277,7 @@ public class Game implements GameEventListener {
 
     //Notifies the transition to the next client during the game.
         @Override
-        public void turnIsOver () throws Exception {
+        public void turnIsOver () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             for (GameEventListener listener : listeners) {
                 listener.turnIsOver();
             }

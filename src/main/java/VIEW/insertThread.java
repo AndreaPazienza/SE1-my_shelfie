@@ -9,20 +9,25 @@ import java.rmi.RemoteException;
 public class insertThread extends Thread{
 
     public volatile boolean valid = true;
-    private GraphicInterface view;
+    private GameInterface view;
 
-    public insertThread(GraphicInterface view){
+    public insertThread(GameInterface view){
         this.view = view;
     }
 
     @Override
     public synchronized void run() {
       while(valid) {
-          view.playerInsert();
-          System.err.println("--non ho più nulla da fare, insert--");
+          try {
+              view.playerInsert();
+          } catch (RemoteException | NotEnoughSpaceChoiceException | NotCatchableException |
+                   NotAdjacentSlotsException e) {
+              System.err.println(e.getMessage());
+              stopThread();
+           }
           stopThread();
          }
-    }
+      }
 
 
     public void stopThread(){
