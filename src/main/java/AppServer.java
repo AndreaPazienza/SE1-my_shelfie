@@ -15,8 +15,8 @@ public class AppServer {
         Scanner keyboard = new Scanner(System.in);
         String IP = keyboard.nextLine();
         ServerRMIInterface server = new ServerImpl();
-        System.setProperty("java.rmi.server.hostname",IP);
-        Registry registry = LocateRegistry.createRegistry( 1067);
+        System.setProperty("java.rmi.server.hostname", IP);
+        Registry registry = LocateRegistry.createRegistry( 1068);
 
      try{
          registry.bind("server",server);

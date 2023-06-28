@@ -463,6 +463,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 System.err.println("Il timer è Scaduto");
                 try {
                     notifyNoMorePlayers();
+                    System.out.print("Procedo con la chiusura del server. ");
+                    System.exit(-1);
                 } catch (RemoteException e) {
                     System.err.println("Qualcosa è successo anche all'unico connesso, chiusura del server");
                     System.exit(-1);
