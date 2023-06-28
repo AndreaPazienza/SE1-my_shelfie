@@ -4,6 +4,9 @@ import java.util.Comparator;
 import java.util.Observable;
 import java.util.Random;
 
+/**
+ * Class that represents the bag of slots, ordered by color.
+ */
 public class Bag{
 
     private ArrayList<Slot> inBag = new ArrayList<>();
