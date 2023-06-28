@@ -9,6 +9,8 @@ import java.rmi.registry.Registry;
 import java.util.Scanner;
 
 public class AppServer {
+
+
     public static void main(String[] args) throws RemoteException{
 
         System.out.print("Inserire l'indirizzo ip del server: ");
