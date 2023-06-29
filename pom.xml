@@ -62,6 +62,7 @@
                                     <mainClass>AppClient</mainClass>
                                 </manifest>
                             </archive>
+                            <outputDirectory>Deliverables</outputDirectory>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
@@ -80,6 +81,7 @@
                                     <mainClass>AppServer</mainClass>
                                 </manifest>
                             </archive>
+                            <outputDirectory>Deliverables</outputDirectory>
                             <descriptorRefs>
                                 <descriptorRef>jar-with-dependencies</descriptorRef>
                             </descriptorRefs>
