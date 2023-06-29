@@ -1,12 +1,15 @@
 package MODEL;
 
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 public class PersonalGoalDeckTest {
 
     //Test del costruttore passato
     @Test
-    public void testPersonalGoalDeck() {
+    public void testPersonalGoalDeck() throws IOException, ParseException {
 
         PersonalGoalDeck personalGoalDeck;
         PersonalGoal pGoal;
@@ -25,7 +28,7 @@ public class PersonalGoalDeckTest {
 
     //Test dell'estrazione dal mazzo passato
     @Test
-    public void testExtraction() {
+    public void testExtraction() throws IOException, ParseException {
 
         PersonalGoalDeck personalGoalDeck;
         PersonalGoal pGoal;
@@ -52,7 +55,7 @@ public class PersonalGoalDeckTest {
 
     //Test dell'estrazione multipla passato
     @Test
-    public void testExtraction2() {
+    public void testExtraction2() throws IOException, ParseException {
 
         PersonalGoalDeck personalGoalDeck;
         PersonalGoal pGoal;

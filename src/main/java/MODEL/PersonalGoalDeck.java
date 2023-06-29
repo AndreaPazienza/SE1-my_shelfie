@@ -5,9 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,32 +13,16 @@ public class PersonalGoalDeck {
 
     private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
 
-    public PersonalGoalDeck() {
+    public PersonalGoalDeck() throws IOException, ParseException {
         // file JSON read
-        FileReader reader;
+        //FileReader reader;
 
-        {
-            try {
-                reader = new FileReader("src/main/java/File/PersonalGoals.json");
-            } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        }
+        //reader = new FileReader("PersonalGoals.json");
+        InputStream reader = getClass().getResourceAsStream("/PersonalGoals.json");
 
         // Parsing JSON file
         JSONParser parser = new JSONParser();
-        Object obj;
-
-        {
-            try {
-                obj = parser.parse(reader);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (ParseException e) {
-                throw new RuntimeException(e);
-            }
-        }
-
+        Object obj = parser.parse(new InputStreamReader(reader));
         JSONObject jsonObject = (JSONObject) obj;
 
         //Now I have the JSON object representing the file content.

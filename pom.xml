@@ -100,8 +100,7 @@
                     <target>18</target>
                 </configuration>
             </plugin>
-
-        </plugins>
+           </plugins>
     </build>
     <packaging>jar</packaging>
 </project>

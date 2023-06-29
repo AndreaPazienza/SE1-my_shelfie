@@ -1,9 +1,11 @@
 package VIEW;
 import MODEL.*;
+import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
 
 import org.junit.jupiter.api.RepeatedTest;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class GameInterfaceTest {
@@ -42,7 +44,7 @@ public class GameInterfaceTest {
 
     //Test stampa del personal goal passato
     @Test
-    public void displayPgoalTest() {
+    public void displayPgoalTest() throws IOException, ParseException {
 
         GameInterface display = new GameInterface();
         PersonalGoalDeck deck = new PersonalGoalDeck();
@@ -53,7 +55,7 @@ public class GameInterfaceTest {
 
     //Test stampa del common goal
     @Test
-    public void displayCgoalTest() {
+    public void displayCgoalTest() throws IOException, ParseException {
 
         GameInterface display = new GameInterface();
         Game game = new Game(4);
@@ -69,7 +71,7 @@ public class GameInterfaceTest {
 
     //Test stampa dei display assieme passato
     @Test
-    public void displayTest () {
+    public void displayTest () throws IOException, ParseException {
 
         GameInterface display = new GameInterface();
         Game game = new Game(4);

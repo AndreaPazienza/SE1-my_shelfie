@@ -7,9 +7,11 @@ import MODEL.Color;
 import MODEL.Game;
 import MODEL.PersonalShelf;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class CheckSpaceChoicesTest {
     private Game model = new Game(2);
     private GameController controller = new GameController(model);
+
+    CheckSpaceChoicesTest() throws IOException, ParseException {
+    }
 
     @BeforeEach
     void init() {
