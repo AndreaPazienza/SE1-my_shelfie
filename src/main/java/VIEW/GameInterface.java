@@ -560,12 +560,15 @@ public class GameInterface implements Runnable, viewListeners {
             }
     }
 
+    /**
+     * Prints a message on the standard output that informs that the game is finished.
+     */
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
     }
 
     /**
-     * Prints a message on the standard output that informs that the game is already started so the access is denied
+     * Prints a message on the standard output that informs that the game is already started so the access is denied.
      */
     public void denyAcess() {
         System.err.println("La partita è già iniziata, troppo tardi :/ ");

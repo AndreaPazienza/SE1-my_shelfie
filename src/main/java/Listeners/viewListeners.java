@@ -9,7 +9,9 @@ import VIEW.SlotChoice;
 
 import java.rmi.RemoteException;
 
-
+/**
+ * The interface that represents a listener of the events occurred in the view.
+ */
 public interface viewListeners {
 
     /**

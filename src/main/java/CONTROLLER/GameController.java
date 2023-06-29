@@ -44,11 +44,13 @@ public class GameController{
     }
 
     /**
+     * Starts the game in the model.
+     *
      *
      * @throws RemoteException If an error occurs while executing the remote operation.
      * @throws NotCatchableException If the user selects one (or more) not catchable slots.
      * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
-     * @throws RemoteException If an error occurs while executing the remote operation.
+     * @throws NotEnoughSpaceChoiceException If a player wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
      */
     public void startGame () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
             game.setGameOn(true);
@@ -71,7 +73,7 @@ public class GameController{
     }
 
     /**
-     * Disallows the selection.
+     * Disallows the selection of the current player and sets the model on his previous state.
      *
      * @throws NotEnoughSpaceChoiceException If a player wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
      * @throws RemoteException If an error occurs while executing the remote operation.
@@ -123,6 +125,7 @@ public class GameController{
      * @param y The index of the first dashboard's slot's column to check.
      * @param x1 The index of the second dashboard's slot's row to check.
      * @param y1 The index of the second dashboard's slot's column to check.
+     * @return True if the slots are adjacent, false otherwise.
      */
     public boolean checkAdjacent(int x, int y, int x1, int y1){
         if((x == x1 && (y == y1 + 1 || y == y1-1)) || (y == y1 && (x == x1+1 || x == x1-1))){
