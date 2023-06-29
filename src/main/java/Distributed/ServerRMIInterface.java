@@ -11,12 +11,69 @@ import VIEW.SlotChoice;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 
-
+/**
+ * This interface defines the server-side application methods that can be invoked on a remote object using RMI.
+ */
 public interface ServerRMIInterface extends Remote {
+
+    /**
+     * Executes the registration of the client to the game.
+     *
+     * @param client The client to register.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws SameNicknameException If the client choices a nickname already in use.
+     * @throws NotEnoughSpaceChoiceException
+     * @throws NotAdjacentSlotsException
+     * @throws NotCatchableException
+     */
     void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
-    void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException; //throws NotAdjacentSlotsException, NotCatchableException;
+
+    /**
+     * Updates the server with the slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param SC The slots selected by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the client selects not adjacent slots.
+     * @throws NotCatchableException If the client selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException
+     */
+    void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
+
+    /**
+     * Updates the server with the slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param C The order chosen by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotEnoughSpaceChoiceException
+     * @throws NotAdjacentSlotsException
+     * @throws NotCatchableException
+     */
     void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
+
+    /**
+     * Updates the server with the shelf column to perform the insertion chosen by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param column The column of the shelf chosen by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotEnoughSpaceChoiceException
+     * @throws NotAdjacentSlotsException
+     * @throws NotCatchableException
+     */
     void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
+
+    /**
+     * Updates the server with the number of slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param number The number of slots selected by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotEnoughSpaceChoiceException If the client wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     * @throws NotAdjacentSlotsException
+     * @throws NotCatchableException
+     */
     void updateServerChoices(ClientRMIInterface client, int number ) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
 }
 
