@@ -266,9 +266,9 @@ public class GameController{
     }
 
     /**
-     * Retrieves the string that announces the winner of the game with his score.
+     * Retrieves the ranking and the string that announces the winner of the game with his score.
      *
-     * @return The string that announces the winner of the game.
+     * @return The ranking and the string that announces the winner of the game.
      */
     public String endGame(){
 
