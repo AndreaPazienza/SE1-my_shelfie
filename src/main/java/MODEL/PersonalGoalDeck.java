@@ -11,8 +11,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Class that represents the deck that contains the personal goal cards.
+ */
 public class PersonalGoalDeck {
 
+    /**
+     * The list of personal goal still in the deck.
+     */
     private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
 
     public PersonalGoalDeck() {
@@ -77,6 +83,11 @@ public class PersonalGoalDeck {
     }
 
 
+    /**
+     * Retrieves a randomly chosen personal goal from the deck.
+     *
+     * @return The extracted personal goal.
+     */
     public PersonalGoal extractionPGoal(){
 
         int randomIndex = new Random().nextInt(personalGoalDeck.size());
@@ -85,6 +96,11 @@ public class PersonalGoalDeck {
         return returningPersonal;
     }
 
+    /**
+     * Retrieves the list of personal goal still in the deck.
+     *
+     * @return The list of personal goal still in the deck.
+     */
     public ArrayList<PersonalGoal> getPersonalGoalDeck() {
         return personalGoalDeck;
     }

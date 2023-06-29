@@ -10,12 +10,26 @@ import Listeners.viewListeners;
 import MODEL.*;
 import MODEL.Color;
 
+/**
+ * Class that represents the textual user interface.
+ */
 public class GameInterface implements Runnable, viewListeners {
 
+    /**
+     * The list of viewListener that take the notifies from the view.
+     */
     private final List<viewListeners> listeners = new ArrayList<>();
+
+    /**
+     * The standard input.
+     */
     public Scanner keyboard;
 
-    //inserimento nickname per la prima volta
+    /**
+     *
+     *
+     * @return The nickname insert by the user from the standard input.
+     */
     public String firstRun() {
     String nick = null;
     do{
@@ -45,6 +59,14 @@ public class GameInterface implements Runnable, viewListeners {
         return number;
     }
 
+    /**
+     *
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     public void playing() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
             playerMoveSelection();
             playerInsert();
@@ -60,8 +82,6 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("Inserire il numero di tessere da selezionare: ");
         do {
             nChoices = getCorrectInt();
-            //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
-            //tessere selezionate dall'utente.
             notifyChoices(nChoices);
             if (nChoices < 1)
                 System.out.print("Scegliere almeno una tessera: ");
@@ -80,7 +100,7 @@ public class GameInterface implements Runnable, viewListeners {
 
             System.out.println("Inserire le coordinate della tessera da prendere");
             do {
-                //Insertion of the single tile and insertion into the tiles array.//Inserimento della tessera songola e inserimento nell'array di tessere
+                //Insertion of the single tile and insertion into the tiles array
                 alreadySelected = false;
                 do {
                     System.out.print("X: ");
@@ -107,7 +127,7 @@ public class GameInterface implements Runnable, viewListeners {
         if (nChoices != 1) {
             if (playerOrder()) {
                 if (nChoices == 2) {
-                    //Creating an OrderChoice with conventionally chosen parameters.
+                    //Creating an OrderChoice with conventionally chosen parameters
                     OrderChoice order = new OrderChoice(1, 1, 1);
                     notifyOrder(order);
                 }
@@ -252,8 +272,11 @@ public class GameInterface implements Runnable, viewListeners {
         return string;
     }
 
-
-    //Printing the dashboard on screen.
+    /**
+     * Prints the dashboard on screen.
+     *
+     * @param board The dashboard to print.
+     */
     public void displayDashboard(Dashboard board) {
         System.out.print("\t");
         for (int k = 0; k < Dashboard.getSide(); k++) {
@@ -274,7 +297,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
-    //Printing the personal shelf on screen.
+    /**
+     * Prints the user's personal shelf on screen.
+     *
+     * @param shelf The personal shelf to print.
+     */
     public void displayPersonalShelf(PersonalShelf shelf) {
         System.out.print("\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
@@ -295,7 +322,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
-    //Printing the Personal Goal on screen.
+    /**
+     * Prints the user's personal goal on screen.
+     *
+     * @param pGoal The personal goal to print.
+     */
     public void displayPersonalGoal(PersonalGoal pGoal) {
 
         boolean[][] isTarget = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
@@ -391,6 +422,12 @@ public class GameInterface implements Runnable, viewListeners {
             listener.notifyChoices(number);
         }
     }
+
+    /**
+     * Prints the two common goals on screen.
+     *
+     * @param gameView The game view to obtain the common goals.
+     */
     public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
@@ -430,26 +467,46 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
 
+    /**
+     * Prints an error for the selection of a single slot not catchable.
+     */
     public void errorNotCatchable() {
         System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error for the selection of a slot not catchable in a multiple choice.
+     */
     public void errorOneNotCatchable() {
         System.out.println("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error for the selection of not adjacent tiles.
+     */
     public void errorNotAdjacent() {
         System.out.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error message for the number of choices from the dashboard.
+     */
     public void errorSpaceChoicesError() {
         System.out.println("Non c'è abbastanza spazio nella shelf per così tante tessere!");
     }
 
+    /**
+     * Prints an error message for the insert.
+     */
     public void errorInsert() {
         System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
     }
 
+    /**
+     * Prints a reduced personal goal on screen.
+     *
+     * @param pgoal The personal goal to print.
+     */
     public void displayPersonalGoal2(PersonalGoal pgoal) {
         System.out.println("Il tuo Personal Goal è il seguente, non dimenticarlo!");
         for(int i=0; i < pgoal.getGoal().length; i++){
@@ -459,6 +516,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
+    /**
+     * Prints a textual description of the input common goal on screen.
+     *
+     * @param CG The common goal to describe.
+     */
     public void commonGoalReminder(CommonGoalAbs CG) {
         System.out.println("Common Goal attivo: " + CG.description());
     }
