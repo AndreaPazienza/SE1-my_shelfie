@@ -24,7 +24,6 @@ public class Player {
      * The personal shelf associated to the player.
      */
     private PersonalShelf shelf;
-    private boolean chair;
 
     /**
      * The personal goal associated to the player.
@@ -65,18 +64,6 @@ public class Player {
      */
     public PersonalShelf getShelf() {
         return shelf;
-    }
-    public boolean isChair() {
-        return chair;
-    }
-    public void setNickname(String name) {
-        this.nickname = name;
-    }
-    public void setChair() {
-        if(this.orderInTurn == 1) {     //To set the chair, I check the order in turn.
-            this.chair = true;          // if the player plays first, set it to true.
-        }
-        else this.chair = false;
     }
 
     /**
@@ -200,7 +187,6 @@ public class Player {
         this.shelf = new PersonalShelf();
         this.pgoal = null;
         this.orderInTurn = 0;
-        this.chair = false;
     }
 
 }

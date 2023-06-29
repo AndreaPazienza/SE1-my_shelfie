@@ -1,196 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="softeng-gc38:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc package Game e GameEventListener">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Sistemati dei test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AppClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/AppServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/EndgameScene.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Box 280x280px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Box noshadow 280x280.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/FinePartita.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/FlussoGioco.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Icon 50x50px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Publisher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Title 2000x2000px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Title 2000x618px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/banner 1386x400px.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/bookshelf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/bookshelf_orth.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/livingroom.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/Sacchetto Aperto.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/Sacchetto Chiuso.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/base_pagina2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/firstplayertoken.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/sfondo parquet.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/back.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/front_EMPTY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/end game.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_back_example.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/GameEventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Listeners/GameEventListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/OrderListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/viewListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Listeners/viewListeners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Bag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGDecreaseTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGDecreaseTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGEightTilesSameType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGEightTilesSameType.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesDiagonal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesDiagonal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourCorners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourCorners.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourGroupsFourTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourGroupsFourTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourLinesFiveTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourLinesFiveTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGOnColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGOnColumn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGOnLines.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGOnLines.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGSameTypeSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGSameTypeSquare.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGSixGroupsTwoTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGSixGroupsTwoTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGThreeColumnsSixTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGThreeColumnsSixTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGTwoColumnsSixTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGTwoColumnsSixTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGTwoLinesFiveTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGTwoLinesFiveTiles.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Color$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Color.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalAbs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalAbs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoalDeck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalShelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalShelf.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Target.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/NotPlayingScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/NumberOfPlayersScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/PlayingScreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/ControllerGraphic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GameInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/GameInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicGameInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicInterface$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicInterface.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/EndGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/ErrorPane.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/InsertButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/InsertFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NickChoice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NotPlayingPlayer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NumberOfPlayerChoice.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/SelectionFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TileButton.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TilesToOrder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TurnFrame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/WaitingRoom.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Image$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/Image$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/Image.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Tile.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/insertThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/insertThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/turnThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/turnThread.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/WaitingRoom.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/testStart.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerEndGameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerEndGameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerInsertTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerInsertTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGDecreaseTilesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGDecreaseTilesTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGEightTilesSameTypeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGEightTilesSameTypeTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGFourCornersTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGFourCornersTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/DashboardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/DashboardTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/GameTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/VIEW/EndGameTextTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/VIEW/GraphicObjects/WaitingRoomTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classpath.index" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
-    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="Changes by alessiotagab" />
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -210,6 +33,11 @@
     <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="BugFix" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
   </component>
@@ -239,6 +67,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectId" id="2NIIWarkIn5NNAWD9xpo1siY1jT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -261,6 +92,9 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -272,6 +106,8 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Deliverables" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -283,7 +119,14 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn compile" />
+      <command value="mvn --builder" />
+      <command value="mvn package" />
+    </option>
+  </component>
+  <component name="RunManager" selected="TestNG.PersonalGoalTest">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
@@ -291,46 +134,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppServer" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="AppServer" />
-      <module name="softeng-gc38" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGFiveTilesDiagonalTest" />
-      <option name="METHOD_NAME" value="multipleRoundCorrectAssignment" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkWithGrey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkWithGrey" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CheckSpaceChoicesTest.CountInsert2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CONTROLLER in MyShelfie_RPPT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -339,40 +143,73 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="MAIN_CLASS_NAME" value="CONTROLLER.CheckSpaceChoicesTest" />
-      <option name="METHOD_NAME" value="CountInsert2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="softeng-gc38" />
+    <configuration name="MODEL in MyShelfie_RPPT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="softeng-gc38" />
-      <option name="filePath" />
+    <configuration name="GameTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.GameTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PersonalGoalTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="MyShelfie_RPPT" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MODEL.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MODEL" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.PersonalGoalTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.AppClient" />
-      <item itemvalue="Application.AppServer" />
-      <item itemvalue="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" />
-      <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
+      <item itemvalue="JUnit.CONTROLLER in MyShelfie_RPPT" />
+      <item itemvalue="JUnit.MODEL in MyShelfie_RPPT" />
+      <item itemvalue="TestNG.GameTest" />
+      <item itemvalue="TestNG.PersonalGoalTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" />
+        <item itemvalue="TestNG.PersonalGoalTest" />
+        <item itemvalue="JUnit.CONTROLLER in MyShelfie_RPPT" />
+        <item itemvalue="TestNG.GameTest" />
+        <item itemvalue="JUnit.MODEL in MyShelfie_RPPT" />
         <item itemvalue="Application.AppClient" />
-        <item itemvalue="Application.AppServer" />
-        <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
       </list>
     </recent_temporary>
   </component>
@@ -407,9 +244,11 @@
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
-      <workItem from="1688022519164" duration="3843000" />
-      <workItem from="1688030527503" duration="10070000" />
-      <workItem from="1688046122995" duration="8241000" />
+      <workItem from="1687979169655" duration="1349000" />
+      <workItem from="1687980605799" duration="45000" />
+      <workItem from="1687980760286" duration="2961000" />
+      <workItem from="1688041536745" duration="513000" />
+      <workItem from="1688042072610" duration="2646000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -621,56 +460,49 @@
       <option name="project" value="LOCAL" />
       <updated>1687871927484</updated>
     </task>
-    <task id="LOCAL-00031" summary="Commenti JavaDoc package Distributed (interfacce e thread)">
-      <created>1688002385383</created>
+    <task id="LOCAL-00031" summary="Beta v1.10.4: aggiunta dipendenze e modifica del pom per la creazione del .jar finale.">
+      <created>1687983128082</created>
       <option name="number" value="00031" />
       <option name="presentableId" value="LOCAL-00031" />
       <option name="project" value="LOCAL" />
-      <updated>1688002385383</updated>
+      <updated>1687983128082</updated>
     </task>
-    <task id="LOCAL-00032" summary="Commenti JavaDoc package Model (parte 1)">
-      <created>1688006660292</created>
+    <task id="LOCAL-00032" summary="Beta v1.10.6: cambio destinazione jar">
+      <created>1688042423994</created>
       <option name="number" value="00032" />
       <option name="presentableId" value="LOCAL-00032" />
       <option name="project" value="LOCAL" />
-      <updated>1688006660292</updated>
+      <updated>1688042423994</updated>
     </task>
-    <task id="LOCAL-00033" summary="Commenti JavaDoc package View (parte 1)">
-      <created>1688031007935</created>
+    <task id="LOCAL-00033" summary="Beta v.1.10.7: cambio posizione della PersonalGoal.json">
+      <created>1688042919069</created>
       <option name="number" value="00033" />
       <option name="presentableId" value="LOCAL-00033" />
       <option name="project" value="LOCAL" />
-      <updated>1688031007935</updated>
+      <updated>1688042919069</updated>
     </task>
-    <task id="LOCAL-00034" summary="Commenti JavaDoc package Model (parte 2)">
-      <created>1688042337012</created>
+    <task id="LOCAL-00034" summary="Beta v.1.10.7: modifica Pom">
+      <created>1688043162653</created>
       <option name="number" value="00034" />
       <option name="presentableId" value="LOCAL-00034" />
       <option name="project" value="LOCAL" />
-      <updated>1688042337012</updated>
+      <updated>1688043162653</updated>
     </task>
-    <task id="LOCAL-00035" summary="Commenti JavaDoc package Controller">
-      <created>1688046074149</created>
+    <task id="LOCAL-00035" summary="Codice ripulito da metodi in eccesso">
+      <created>1688049900919</created>
       <option name="number" value="00035" />
       <option name="presentableId" value="LOCAL-00035" />
       <option name="project" value="LOCAL" />
-      <updated>1688046074149</updated>
+      <updated>1688049900919</updated>
     </task>
-    <task id="LOCAL-00036" summary="Commenti JavaDoc package Controller">
-      <created>1688046208827</created>
+    <task id="LOCAL-00036" summary="Sistemati dei test">
+      <created>1688052609361</created>
       <option name="number" value="00036" />
       <option name="presentableId" value="LOCAL-00036" />
       <option name="project" value="LOCAL" />
-      <updated>1688046208827</updated>
+      <updated>1688052609361</updated>
     </task>
-    <task id="LOCAL-00037" summary="Commenti JavaDoc package Game e GameEventListener">
-      <created>1688051697656</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1688051697656</updated>
-    </task>
-    <option name="localTasksCounter" value="38" />
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -681,7 +513,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -691,6 +535,11 @@
         <entry key="Branch">
           <value>
             <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/main" />
+                </option>
+              </RecentGroup>
               <RecentGroup>
                 <option name="FILTER_VALUES">
                   <option value="HEAD" />
@@ -722,29 +571,53 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
-    <MESSAGE value="Commenti JavaDoc package Distributed (interfacce e thread)" />
-    <MESSAGE value="Commenti JavaDoc package Model (parte 1)" />
-    <MESSAGE value="Commenti JavaDoc package View (parte 1)" />
-    <MESSAGE value="Commenti JavaDoc package Model (parte 2)" />
-    <MESSAGE value="Commenti JavaDoc package Controller" />
-    <MESSAGE value="Commenti JavaDoc package Game e GameEventListener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc package Game e GameEventListener" />
+    <MESSAGE value="Beta v1.10.4: aggiunta dipendenze e modifica del pom per la creazione del .jar finale." />
+    <MESSAGE value="Beta v1.10.6: cambio destinazione jar" />
+    <MESSAGE value="Beta v.1.10.7: cambio posizione della PersonalGoal.json" />
+    <MESSAGE value="Beta v.1.10.7: modifica Pom" />
+    <MESSAGE value="Codice ripulito da metodi in eccesso" />
+    <MESSAGE value="Sistemati dei test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistemati dei test" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
+          <line>194</line>
+          <properties class="Distributed.rmi.ServerImpl">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Player" memberName="shelf" />
         <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
+        <PinnedItemInfo parentTag="Player" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$All_in_MyShelfie_RPPT.ic" NAME="All in MyShelfie_RPPT Coverage Results" MODIFIED="1687955399441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$ControllerEndGameTest.ic" NAME="ControllerEndGameTest Coverage Results" MODIFIED="1685351470048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>CONTROLLER.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$GameTest.ic" NAME="GameTest Coverage Results" MODIFIED="1688050607514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>MODEL.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CONTROLLER_in_MyShelfie_RPPT.ic" NAME="CONTROLLER in MyShelfie_RPPT Coverage Results" MODIFIED="1688050806146" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>CONTROLLER.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$PersonalGoalTest.ic" NAME="PersonalGoalTest Coverage Results" MODIFIED="1688052059931" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>MODEL.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$MODEL_in_MyShelfie_RPPT.ic" NAME="MODEL in MyShelfie_RPPT Coverage Results" MODIFIED="1688050575678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>MODEL.*</FILTER>
     </SUITE>
   </component>
 </project>

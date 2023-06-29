@@ -17,7 +17,6 @@ public class PersonalShelf implements Serializable {
      * The value that marks if the personal shelf is full.
      */
     private boolean itsFull;
-    private int maxChoices;
 
     /**
      * The number of rows of a personal shelf.
@@ -177,39 +176,4 @@ public class PersonalShelf implements Serializable {
         }
         this.itsFull = false;
     }
-
-    public void setMaxChoices(){
-        int max = 0;
-        for(int i = 0; i < N_COLUMN; i++) {
-            int count = 0;
-            boolean exit = false;
-
-            for(int j = 0;j < N_ROWS && exit==false; j++){
-                if (this.shelf[j][i].getColor().equals(Color.GREY)){
-                    count++;
-                }
-                else{
-                    exit = true;
-                }
-            }
-            if (count>maxChoices){
-                this.maxChoices=count;
-            }
-        }
-    }
-
-    //Constructor that permit us to go faster to the endgame (only used to test)
-   public PersonalShelf(int i){
-        this.shelf = new Slot[N_ROWS][N_COLUMN];
-        for(int k = 0; k < N_ROWS; k++){
-            for(int j = 0; j < N_COLUMN; j++){
-                this.shelf[k][j]  = new Slot(Color.GREEN);
-            }
-        }
-        this.shelf[0][0].setColor(Color.GREY);
-        this.shelf[1][0].setColor(Color.GREY);
-        this.shelf[2][0].setColor(Color.GREY);
-        this.itsFull = false;
-    }
-
 }

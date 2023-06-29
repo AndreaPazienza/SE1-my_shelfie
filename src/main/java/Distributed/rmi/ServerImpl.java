@@ -14,7 +14,9 @@ import MODEL.GameState;
 import MODEL.GameView;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
@@ -65,7 +67,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
      * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
      */
     @Override
-    public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void register(ClientRMIInterface client) throws IOException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException, ParseException {
 
         System.out.println("Ricevuto un tentativo di connessione");
         //If there's no client logged yet
@@ -531,6 +533,8 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
                 System.err.println("Il timer è Scaduto");
                 try {
                     notifyNoMorePlayers();
+                    System.out.print("Procedo con la chiusura del server. ");
+                    System.exit(-1);
                 } catch (RemoteException e) {
                     System.err.println("Qualcosa è successo anche all'unico connesso, chiusura del server");
                     System.exit(-1);

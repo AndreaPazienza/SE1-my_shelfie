@@ -5,7 +5,9 @@ import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,7 +112,7 @@ public class Game implements GameEventListener {
      *
      * @param numberOfPlayers The number of the players that are joining the match.
      */
-    public Game (int numberOfPlayers) {
+    public Game (int numberOfPlayers) throws IOException, ParseException {
         Nplayers = numberOfPlayers;
         playerInGame = 0;
         gameOn = false;
@@ -146,14 +148,6 @@ public class Game implements GameEventListener {
         return -1;
     }
 
-    public int getPlayerPosition(String name){
-        for (Player playing : player) {
-            if (playing.getNickname().equals(name))
-                return playing.getOrderInTurn()-1;
-        }
-        return -1;
-    }
-
     /**
      * Inserts the player in the next available spot of the set of players and increment the number of players.
      */
@@ -180,13 +174,6 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
-    public Player previousOnStage(){
-        if(playerInGame == 0){
-            return player[Nplayers-1];
-        } else {
-            return player[playerInGame - 1];
-        }
-    }
 
 
     /**
@@ -371,9 +358,6 @@ public class Game implements GameEventListener {
         return playerInGame;
     }
 
-    public boolean isFirstPlayerFinished() {
-        return firstPlayerFinished;
-    }
 
     /**
      * Retrieves the deck that contains all the personal goal cards.
@@ -511,11 +495,6 @@ public class Game implements GameEventListener {
         for(GameEventListener listener: listeners){
             listener.notifyLastError();
         }
-    }
-
-
-    public void forcedGameOver() {
-        this.setGameOn(false);
     }
 
     /**

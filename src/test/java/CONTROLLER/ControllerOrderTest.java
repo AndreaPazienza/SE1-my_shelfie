@@ -5,9 +5,11 @@ import Errors.NotCatchableException;
 import MODEL.Game;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +19,9 @@ class ControllerOrderTest {
 
     private Game model = new Game(2);
     private GameController controller = new GameController(model);
+
+    ControllerOrderTest() throws IOException, ParseException {
+    }
 
     @BeforeEach
     void init(){

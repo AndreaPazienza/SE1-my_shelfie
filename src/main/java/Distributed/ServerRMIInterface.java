@@ -7,7 +7,9 @@ import Errors.NotEnoughSpaceChoiceException;
 import Errors.SameNicknameException;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 

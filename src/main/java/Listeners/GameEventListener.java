@@ -2,6 +2,7 @@ package Listeners;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
+import MODEL.GameView;
 
 import java.rmi.RemoteException;
 

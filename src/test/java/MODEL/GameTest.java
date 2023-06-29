@@ -1,8 +1,10 @@
 package MODEL;
 
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 public class GameTest {
@@ -11,7 +13,7 @@ public class GameTest {
 
     //Test dei costruttori per ogi possbile parametro d'ingresso passato parzialmente (problemi a costruire i commonGoal)
     @Test
-    void testGame2 () {
+    void testGame2 () throws IOException, ParseException {
 
         game = new Game(4);
 
@@ -31,7 +33,7 @@ public class GameTest {
     }
 
     @Test
-    void testGame3 () {
+    void testGame3 () throws IOException, ParseException {
 
         game = new Game(4);
 
@@ -52,7 +54,7 @@ public class GameTest {
     }
 
     @Test
-    void testGame4 () {
+    void testGame4 () throws IOException, ParseException {
 
         game = new Game(4);
 
@@ -74,7 +76,7 @@ public class GameTest {
 
     //Test signPlayer passato
     @Test
-    void testSignPlayer () {
+    void testSignPlayer () throws IOException, ParseException {
 
         Game game = new Game(4);
 
@@ -92,7 +94,7 @@ public class GameTest {
 
     //Test updateTurn passato (non verificata la parte relativa ai commonGoal)
     @Test
-    void testUpdateTurn() throws RemoteException {
+    void testUpdateTurn() throws IOException, ParseException {
 
         Game game = new Game(4);
 
@@ -143,7 +145,7 @@ public class GameTest {
 
      //Test finalScore passato
      @Test
-     void testFinalScore() {
+     void testFinalScore() throws IOException, ParseException {
 
          Game game = new Game(4);
          game.signPlayer("nome1");
@@ -164,7 +166,7 @@ public class GameTest {
      }
 
      @Test
-     void testAssignPGoal(){
+     void testAssignPGoal() throws IOException, ParseException {
         Game game = new Game(4);
         game.signPlayer("Gabriele");
         game.signPlayer("Alessio");

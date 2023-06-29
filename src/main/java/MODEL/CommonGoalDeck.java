@@ -1,15 +1,12 @@
 package MODEL;
 
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.Random;
 
 /**
  * Class that represents the deck that contains the common goal cards.
  */
 public class CommonGoalDeck{
-
-    private CommonGoalAbs goal;
 
     /**
      * The list of common goal still in the deck.

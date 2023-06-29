@@ -1,7 +1,6 @@
 package MODEL;
 
 import java.io.Serializable;
-import java.util.Observable;
 
 /**
  * Class that represents the game dashboard.
@@ -188,9 +187,6 @@ public class Dashboard implements Serializable {
         return numberOfAdjacencies;
     }
 
-    public Slot[][] getInDashboard() {
-        return inDashboard;
-    }
 
     /**
      * Retrieves the slot in the selected position of the dashboard according to the coordinates.

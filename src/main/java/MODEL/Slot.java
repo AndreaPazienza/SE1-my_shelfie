@@ -88,10 +88,6 @@ public class Slot implements Serializable {
         this.color=Color.GREY;
     }
 
-    public void setBlack() {
-        this.color = Color.BLACK;
-    }
-
     /**
      * Retrieves the color of the slot.
      *

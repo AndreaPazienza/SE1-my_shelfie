@@ -318,7 +318,7 @@ public class GameInterface implements Runnable, viewListeners {
      * @param shelf The personal shelf to print.
      */
     public void displayPersonalShelf(PersonalShelf shelf) {
-        System.out.print("\t");
+        System.out.print("\n\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
             System.out.print("\t    " + k + "    \t");
         }
@@ -407,7 +407,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
     //Notify all listeners (Clients) of the successful notification.
     @Override
-    public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void notifyOrder(OrderChoice o){
         for( viewListeners listener : listeners  ) {
             try {
                 listener.notifyOrder(o);
@@ -487,7 +487,7 @@ public class GameInterface implements Runnable, viewListeners {
 
     public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
 
-    public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 10s ");}
+    public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 30s ");}
 
     /**
      * Prints an error for the selection of a single slot not catchable.

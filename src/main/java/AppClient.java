@@ -1,6 +1,5 @@
 import Distributed.rmi.Client;
 import Distributed.ServerRMIInterface;
-import Distributed.rmi.ServerImpl;
 import Errors.SameNicknameException;
 
 import java.rmi.NotBoundException;
@@ -18,8 +17,7 @@ public class AppClient {
         String IP = keyboard.nextLine();
 
         // Per implementazione del online.
-       Registry registry = LocateRegistry.getRegistry(IP,1067);
-         //Registry registry = LocateRegistry.getRegistry(1067);
+       Registry registry = LocateRegistry.getRegistry(IP,1068);
        ServerRMIInterface server = (ServerRMIInterface) registry.lookup("server");
 
         Client client = new Client(server);

@@ -77,8 +77,6 @@ public interface ClientRMIInterface extends Remote {
      */
     void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
 
-    void endTurn() throws RemoteException;
-
     /**
      * Notifies the user with the winner of the match.
      *

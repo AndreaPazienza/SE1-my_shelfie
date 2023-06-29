@@ -48,11 +48,6 @@ public class GameView implements Serializable {
     private final GameState state;
 
     /**
-     * The final ranking of the match.
-     */
-    private final Player[] ranking;
-
-    /**
      * The last error occurred in the game, if it occurred.
      */
     private final GameError gameError;
@@ -66,11 +61,10 @@ public class GameView implements Serializable {
         table = game.getTable();
         shelf = game.getPlayer()[game.getPlayerInGame()].getShelf();
         gameState = game.isGameOn();
-        pgoal = null;
-        commonGoal1 = null;
-        commonGoal2 = null;
+        pgoal = game.getPlayer()[game.getPlayerInGame()].getPgoal();
+        commonGoal1 = game.getCommonGoal1();
+        commonGoal2 = game.getCommonGoal2();
         gameError = null;
-        ranking = null;
         state = game.getCurrentState();
     }
 
@@ -88,7 +82,6 @@ public class GameView implements Serializable {
         state = game.getCurrentState();
         gameState = game.isGameOn();
         gameError = null;
-        ranking = null;
         pgoal = game.getPlayer()[index].getPgoal();
     }
 
@@ -106,25 +99,6 @@ public class GameView implements Serializable {
         commonGoal1 = null;
         commonGoal2 = null;
         gameError = game.getLastError();
-        ranking = null;
-        state = game.getCurrentState();
-    }
-
-    /**
-     * Constructor for GameView class used in the endgame phase.
-     *
-     * @param ranks The final ranking of the match.
-     * @param game  The current game situation.
-     */
-    public GameView(Player[] ranks, Game game) {
-        table = null;
-        shelf = null;
-        gameState = game.isGameOn();
-        pgoal = null;
-        commonGoal1 = null;
-        commonGoal2 = null;
-        gameError = null;
-        ranking = ranks;
         state = game.getCurrentState();
     }
 
@@ -173,8 +147,6 @@ public class GameView implements Serializable {
         return pgoal;
     }
 
-    //public GameState getState(){return state;}
-
     /**
      * Retrieves the last error occurred in the game, if it occurred.
      *
@@ -184,21 +156,5 @@ public class GameView implements Serializable {
         return gameError;
     }
 
-    /**
-     * Retrieves the current stage of the game (and the turn).
-     *
-     * @return The current stage of the game.
-     */
-    public boolean getGameState() {
-        return gameState;
-    }
 
-    /**
-     * Retrieves the final ranking of the match.
-     *
-     * @return The final ranking of the match.
-     */
-    public Player[] getRanking() {
-        return ranking;
-    }
 }

@@ -61,11 +61,6 @@ public abstract class CommonGoalAbs implements Serializable {
        }
     }
 
-
-    public CommonGoalAbs getGoal(){
-        return  goal;
-    }
-
     /**
      * Sets the current maximum number of points achievable associated to the common goal card.
      *
