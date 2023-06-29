@@ -31,12 +31,12 @@ import java.util.TimerTask;
 public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterface, GameEventListener {
 
     /**
-     *
+     * The controller of the game associated to the server.
      */
     private GameController controller;
 
     /**
-     *
+     * The model of the game associated to the server.
      */
     private Game model;
 

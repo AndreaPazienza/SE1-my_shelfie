@@ -12,7 +12,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc GameInterface">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc Client">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_10_0_M1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_10_0_M1.xml" beforeDir="false" />
@@ -32,12 +32,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyShelfie_RPPT.iml" beforeDir="false" afterPath="$PROJECT_DIR$/MyShelfie_RPPT.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Errors/RefillException.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Errors/ShelfFullException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AppClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppClient.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/AppServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppServer.class" afterDir="false" />
@@ -171,6 +167,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameError.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameError.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" afterDir="false" />
@@ -179,6 +176,7 @@
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Target.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/NotPlayingScreen.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/NumberOfPlayersScreen.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PlayingScreen.fxml" beforeDir="false" />
@@ -343,9 +341,16 @@
       <command value="mvn package" />
     </option>
   </component>
-  <component name="RunManager" selected="TestNG.PersonalGoalTest">
+  <component name="RunManager" selected="Application.AppClient">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
+      <module name="MyShelfie_RPPT" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="AppServer" />
       <module name="MyShelfie_RPPT" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -360,20 +365,6 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="CONTROLLER" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MODEL in MyShelfie_RPPT" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="MyShelfie_RPPT" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="MODEL.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="MODEL" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -414,19 +405,19 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.AppServer" />
       <item itemvalue="Application.AppClient" />
       <item itemvalue="JUnit.CONTROLLER in MyShelfie_RPPT" />
-      <item itemvalue="JUnit.MODEL in MyShelfie_RPPT" />
       <item itemvalue="TestNG.GameTest" />
       <item itemvalue="TestNG.PersonalGoalTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppClient" />
+        <item itemvalue="Application.AppServer" />
         <item itemvalue="TestNG.PersonalGoalTest" />
         <item itemvalue="JUnit.CONTROLLER in MyShelfie_RPPT" />
         <item itemvalue="TestNG.GameTest" />
-        <item itemvalue="JUnit.MODEL in MyShelfie_RPPT" />
-        <item itemvalue="Application.AppClient" />
       </list>
     </recent_temporary>
   </component>
@@ -754,7 +745,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688069930702</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Commenti JavaDoc Client e ServerImpl">
+      <created>1688078959351</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1688078959351</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Commenti JavaDoc Client">
+      <created>1688079003200</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1688079003200</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -809,8 +814,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
-    <MESSAGE value="Implementazione della View come runnable" />
     <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
     <MESSAGE value="Aggiornamento common goal" />
@@ -834,7 +837,9 @@
     <MESSAGE value="UML total" />
     <MESSAGE value="UML detailed" />
     <MESSAGE value="UML added" />
-    <option name="LAST_COMMIT_MESSAGE" value="UML added" />
+    <MESSAGE value="Commenti JavaDoc Client e ServerImpl" />
+    <MESSAGE value="Commenti JavaDoc Client" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc Client" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

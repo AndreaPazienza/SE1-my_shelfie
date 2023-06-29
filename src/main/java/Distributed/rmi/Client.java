@@ -305,11 +305,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         play.start();
     }
 
-
-    public void endTurn() {
-            view.onWait();
-    }
-
     /**
      * Notifies the user with the ranking and winner of the match.
      *
