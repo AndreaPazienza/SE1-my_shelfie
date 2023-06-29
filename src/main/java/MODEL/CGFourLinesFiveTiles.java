@@ -2,10 +2,8 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-//Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line.
-
 /**
- * Class that represents the common goal card achievable filling our lines each formed by 5 tiles of maximum three different colors.
+ * Class that represents the common goal card achievable filling our lines each formed by five tiles of maximum three different colors.
  */
 public class CGFourLinesFiveTiles extends CGOnLines {
 
@@ -24,17 +22,17 @@ public class CGFourLinesFiveTiles extends CGOnLines {
      * @param current The player whose shelf has to be checked.
      * @param rows The colors of the row's slots.
      * @param found The number of rows already found that respect the condition.
-     * @return
+     * @return True if the row is formed by five slots and there are no more than three colours in these rows and the others already checked, false otherwise.
      */
     @Override
     public boolean controlRows(Player current, Color[] rows, int found) {
 
-        //potrebbe presenatare un bug, siccome devo avere 4 righe con al più tre tipi
         if (found >= 4) {
             givePoints(current);
             return true;
         } else {
 
+            //Marks the colors already found
             boolean[] colorFound = new boolean[6];
             int differentColors = 0, index = 0;
             Color colorChecked;
@@ -42,10 +40,10 @@ public class CGFourLinesFiveTiles extends CGOnLines {
             for (int i=0; i<rows.length; i++) {
                 colorChecked = rows[i];
                 if (colorChecked.equals(Color.GREY)) return false;
-                //dovendo essere tutta la riga non serve che
+
 
                 index = colorChecked.ordinal();
-
+                //Counting the different colors
                 if (!colorFound[index]) {
                     colorFound[index] = true;
                     differentColors++;

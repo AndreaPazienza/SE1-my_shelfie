@@ -23,7 +23,7 @@ public class CGTwoColumnsSixTiles extends CGOnColumn {
      * @param current The player whose shelf has to be checked.
      * @param column The colors of the column's slots.
      * @param found The number of column already found that respect the condition.
-     * @return
+     * @return True if the column is formed by five slots of different colors or there were already found two of them, false otherwise.
      */
     @Override
     public boolean controlColumn(Player current, Color[] column, int found) {
@@ -34,6 +34,7 @@ public class CGTwoColumnsSixTiles extends CGOnColumn {
         }
         else {
             for(int i=0; i<column.length; i++){
+                //Checking if the column is composed of six different slots not grey
                 for(int j=i+1; j<column.length; j++ ){
                     if(column[i].equals(column[j]) || column[0].equals(Color.GREY)){
                         return false;

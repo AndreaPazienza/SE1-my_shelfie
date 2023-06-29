@@ -26,7 +26,7 @@ public class GameInterface implements Runnable, viewListeners {
     public Scanner keyboard;
 
     /**
-     *
+     * Retrieves the nickname insert by the player.
      *
      * @return The nickname insert by the user from the standard input.
      */
@@ -43,7 +43,11 @@ public class GameInterface implements Runnable, viewListeners {
     return nick;
     }
 
-    //insert of the players number
+    /**
+     * Retrieves the number of players that are playing insert by the first player.
+     *
+     * @return The number of players insert by the user from standard input.
+     */
     public int numberOfPlayers() {
         int number = 0;
 
@@ -60,7 +64,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     /**
-     *
+     * Starts the two main phases of the turn.
      *
      * @throws RemoteException If a communication error occurs during the remote operation.
      * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
@@ -73,7 +77,14 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
 
-    //Selection of the cards from dashboard
+    /**
+     * Manages the selection .
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     private void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = 0;
@@ -174,7 +185,11 @@ public class GameInterface implements Runnable, viewListeners {
         }
     }
 
-    //Richiesta di ordinamento
+    /**
+     *
+     *
+     * @return
+     */
     private boolean playerOrder() {
         keyboard = new Scanner(System.in);
         boolean reorder = false;
@@ -434,6 +449,13 @@ public class GameInterface implements Runnable, viewListeners {
             gameView.getCommonGoal2().show();
         }
 
+    /**
+     * Asks for the reinsertion of the nickname
+     *
+     * @param message
+     * @throws SameNicknameException
+     * @throws RemoteException
+     */
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\n Vuoi provare ad entrare nella partita con un nuovo nickname? ");

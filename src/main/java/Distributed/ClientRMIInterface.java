@@ -137,7 +137,7 @@ public interface ClientRMIInterface extends Remote {
     void errorEndGameNoMorePlayers() throws RemoteException;
 
     /**
-     * Sends to the user that is playing the game view containing the last error occurred.
+     * Resumes the user interface from the phase where the last error occurred.
      *
      * @param view The error game view.
      * @throws RemoteException If a communication error occurs during the remote operation.

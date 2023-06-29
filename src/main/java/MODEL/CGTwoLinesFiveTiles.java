@@ -3,7 +3,7 @@ import VIEW.ColorPrint;
 import VIEW.Image;
 
 /**
- * Class that represents the common goal card achievable filling two lines each formed by 5 different colors of tiles.
+ * Class that represents the common goal card achievable filling two rows each formed by 5 different colors of tiles.
  */
 public class CGTwoLinesFiveTiles extends CGOnLines {
 
@@ -22,7 +22,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
      * @param current The player whose shelf has to be checked.
      * @param rows The colors of the row's slots.
      * @param found The number of rows already found that respect the condition.
-     * @return
+     * @return True if the row is formed by five slots of different colors or there were already found two of them, false otherwise.
      */
     @Override
     public boolean controlRows(Player current, Color[] rows, int found) {
@@ -36,6 +36,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
             return true;
         }
         else {
+            //Checking if the row is composed of five different slots not grey
             for(int i=0; i<rows.length-1; i++){
                 for(int j=i+1; j<rows.length; j++ ){
                     if(rows[i].Equals(rows[j]) || rows[0].Equals(Color.GREY)){

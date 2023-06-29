@@ -5,6 +5,9 @@ import Errors.NotEnoughSpaceChoiceException;
 
 import java.rmi.RemoteException;
 
+/**
+ * The interface that re
+ */
 public interface GameEventListener {
 
     /**
@@ -57,7 +60,7 @@ public interface GameEventListener {
     void notifyGameFinished() throws RemoteException;
 
     /**
-     * Notifies the listeners the skip of the turn because in turn the player is disconnected.
+     * Notifies the listeners the skip of the turn because the player is disconnected.
      *
      * @throws RemoteException If an error occurs while executing the remote operation.
      * @throws NotEnoughSpaceChoiceException If a player wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).

@@ -22,7 +22,7 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
      * @param player The player whose shelf has to be checked.
      * @param column The color
      * @param found The number of column found with the same color.
-     * @return
+     * @return True if the column is formed by six slots and there are no more than three colours in these columns and the others already checked, false otherwise.
      */
     @Override
     public boolean controlColumn(Player player, Color[] column, int found) {
@@ -32,7 +32,7 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
             givePoints(player);
             return true;
         }
-
+            //Marks the colors already found
             boolean[] colorFound = new boolean[6];
             int differentColors=0, index=0;
 
@@ -40,6 +40,7 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
                 Color colorChecked = column[i];
                 if (colorChecked.equals(Color.GREY)) return false;
                 index = colorChecked.ordinal();
+            //Counting the different colors
             if ( !colorFound[index] ) {
                 colorFound[index] = true;
                 differentColors++;

@@ -4,29 +4,191 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc package View (parte 1)">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc package Game e GameEventListener">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ServerRMIInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/GameEventListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/App.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AppClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/AppServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/ServerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/EndgameScene.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Box 280x280px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Box noshadow 280x280.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Display_5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/FinePartita.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/FlussoGioco.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Icon 50x50px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Publisher.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Title 2000x2000px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/Title 2000x618px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/Publisher material/banner 1386x400px.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/bookshelf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/bookshelf_orth.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/boards/livingroom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/common goal cards/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Cornici1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Gatti1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Giochi1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Libri1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Piante1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/item tiles/Trofei1.3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/Sacchetto Aperto.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/Sacchetto Chiuso.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/base_pagina2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/firstplayertoken.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/misc/sfondo parquet.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/Personal_Goals9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/back.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/front_EMPTY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/10.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/11.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/12.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/5.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/personal goal cards/old/9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/rulebook/Rulebook_ITA_My-Shelfie-2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/end game.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_8.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_back_EMPTY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/GraphicResources/scoring tokens/scoring_back_example.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/GameEventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Listeners/GameEventListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/OrderListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Listeners/viewListeners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Listeners/viewListeners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Bag.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Bag.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGDecreaseTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGDecreaseTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGEightTilesSameType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGEightTilesSameType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesDiagonal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesDiagonal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFiveTilesX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourCorners.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourCorners.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourGroupsFourTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourGroupsFourTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGFourLinesFiveTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGFourLinesFiveTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGOnColumn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGOnColumn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGOnLines.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGOnLines.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGSameTypeSquare.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGSameTypeSquare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGSixGroupsTwoTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGSixGroupsTwoTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGThreeColumnsSixTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGThreeColumnsSixTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGTwoColumnsSixTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGTwoColumnsSixTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CGTwoLinesFiveTiles.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CGTwoLinesFiveTiles.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Color$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Color.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalAbs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalAbs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoalDeck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalShelf.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalShelf.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Target.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NotPlayingScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NumberOfPlayersScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PlayingScreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/ControllerGraphic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GameInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/GameInterface.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicGameInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicInterface$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicInterface.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/EndGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/ErrorPane.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/InsertButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/InsertFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NickChoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NotPlayingPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/NumberOfPlayerChoice.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/SelectionFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TileButton.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TilesToOrder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/TurnFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/GraphicObjects/WaitingRoom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Image$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/Image$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/Tile.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/insertThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/insertThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/VIEW/turnThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/VIEW/turnThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/WaitingRoom.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/classpath.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/testStart.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerEndGameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerEndGameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerInsertTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/CONTROLLER/ControllerInsertTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGDecreaseTilesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGDecreaseTilesTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGEightTilesSameTypeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGEightTilesSameTypeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/CGFourCornersTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/CGFourCornersTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/DashboardTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/DashboardTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MODEL/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/MODEL/GameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/VIEW/EndGameTextTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/VIEW/GraphicObjects/WaitingRoomTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/classpath.index" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/classpath.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" beforeDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="Changes by alessiotagab" />
     <option name="SHOW_DIALOG" value="false" />
@@ -246,7 +408,8 @@
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
       <workItem from="1688022519164" duration="3843000" />
-      <workItem from="1688030527503" duration="6265000" />
+      <workItem from="1688030527503" duration="10070000" />
+      <workItem from="1688046122995" duration="8241000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -479,7 +642,35 @@
       <option name="project" value="LOCAL" />
       <updated>1688031007935</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Commenti JavaDoc package Model (parte 2)">
+      <created>1688042337012</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1688042337012</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Commenti JavaDoc package Controller">
+      <created>1688046074149</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1688046074149</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Commenti JavaDoc package Controller">
+      <created>1688046208827</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1688046208827</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Commenti JavaDoc package Game e GameEventListener">
+      <created>1688051697656</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1688051697656</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,9 +703,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
-    <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
-    <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
     <MESSAGE value="Update dei test di Dashboard e test di Game (con correzione degli errori trovati)" />
     <MESSAGE value="Spostamento GameTest.java, Update Game.java&#10;(aggiunta metodo assignPGoal)" />
     <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
@@ -537,7 +725,10 @@
     <MESSAGE value="Commenti JavaDoc package Distributed (interfacce e thread)" />
     <MESSAGE value="Commenti JavaDoc package Model (parte 1)" />
     <MESSAGE value="Commenti JavaDoc package View (parte 1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc package View (parte 1)" />
+    <MESSAGE value="Commenti JavaDoc package Model (parte 2)" />
+    <MESSAGE value="Commenti JavaDoc package Controller" />
+    <MESSAGE value="Commenti JavaDoc package Game e GameEventListener" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc package Game e GameEventListener" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

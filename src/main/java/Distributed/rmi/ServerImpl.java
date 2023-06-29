@@ -23,7 +23,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+/**
+ * Class that represents a client that interacts with a remote server using RMI (Remote Method Invocation).
+ */
 public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterface, GameEventListener {
 
     private GameController controller;
@@ -35,6 +37,11 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     private Timer timerCrash = new Timer();
     private final Timer timerTurn = new Timer();
 
+    /**
+     * Constructor for ServerIml class.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     public ServerImpl() throws RemoteException {
         super();
     }
@@ -47,33 +54,40 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         super(port, csf, ssf);
     }
 
-    //Metodo remoto usato dal client per registrarsi al model
+    /**
+     * Executes the registration of the client to the game.
+     *
+     * @param client The client to register.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws SameNicknameException If the client choices a nickname already in use.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     @Override
     public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
 
         System.out.println("Ricevuto un tentativo di connessione");
-        //Primo controllo alla prima richiesta di connessione, nel caso in cui sia la prima volta
-        //Viene creato il nuovo model + controller
+        //If there's no client logged yet
         if (logged.size()==0) {
+            //Initialization of model and controller
             model = new Game(client.startGame());
             controller = new GameController(model);
             this.model.addGameEventListener(this);
             model.signPlayer(client.getNickname());
             this.logged.add(client);
             System.out.println("Primo client inserito correttamente ");
-            //Se il primo è già iscritto si passa a questa parte del codice in cui vengono distinti tre casi principali
+        //If there are other clients already logged
         } else {
             if(!model.isGameOn() && model.getCurrentState().equals(GameState.LOGIN)){
-            //Ramo try-catch per verificare un crash in fase di preparazione (forza la chiusura), controlla che ogni client iscritto
-            //Sia ancora attivo, in caso manda la partita in chiusura.
+            //Ping on the clients already logged to detect crash in pre game phase
             try {
                 this.pingInPreGame();
             } catch (RemoteException e) {
                 notifyCrashPregame();
                 client.subscriptionCancelled();
             }
-            //Tentativo d'iscrizione quando il game non è anora partito, accetta tutti i client a patto che non abbiano lo stesso nick
-                //Ogni client che vuole accedere se la partita è iniziata riceverà questo errore
+                //If the
                 if (controller.checkNick(client.getNickname())) {
                     model.signPlayer(client.getNickname());
                     this.logged.add(client);
@@ -102,8 +116,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
 
-
-    //Primo metodo di controllo del client, controlla che sia uno di quelli crashati e lo rimette in partita
+    /**
+     * Puts a client  that asks to reconnect after crashing back into the game.
+     *
+     * @param client The client that asked for a reconnection.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     private void backInGame(ClientRMIInterface client) throws RemoteException {
         //Manca controllo della posizione corretta, si fa con array presente in model
         int reenteringPosition = model.positionInGame(client.getNickname());
@@ -111,9 +129,17 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         effectiveLogged[reenteringPosition]=client;
     }
 
-    //Metodo remoto: usato dal client quando un utente ha selezionato delle coordinate
+    /**
+     * Updates the server with the slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param SC The slots selected by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the client selects not adjacent slots.
+     * @throws NotCatchableException If the client selects one (or more) not catchable slots.
+     */
     @Override
-    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException { //throws NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerSelection(ClientRMIInterface client, SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException {
         try {
             this.controller.checkSelect(SC);
             System.out.println("La selezione è andata a buon fine ");
@@ -122,16 +148,30 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         } catch (NotAdjacentSlotsException e) {
             throw new NotAdjacentSlotsException(e.getMessage());
         }
-
     }
 
-    //metodo remoto: usato dal client quando un utente ha scelto se riordinare le tessere
+    /**
+     * Updates the server with the slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param C The order chosen by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
-    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerReorder(ClientRMIInterface client, OrderChoice C) throws RemoteException {
         this.controller.checkOrder(C);
     }
 
-    //metodo remoto: usato dal client quando un utente ha la colonna dove inserire
+    /**
+     * Updates the server with the shelf column to perform the insertion chosen by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param column The column of the shelf chosen by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     @Override
     public void updateServerInsert(ClientRMIInterface client, int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         try {
@@ -143,8 +183,15 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
 
+    /**
+     * Updates the server with the number of slots selected by the input client.
+     *
+     * @param client The client that sent the update.
+     * @param number The number of slots selected by the client.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
-    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void updateServerChoices(ClientRMIInterface client, int number) throws RemoteException {
         try {
             this.controller.checkSpaceChoices(number);
         } catch (NotEnoughSpaceChoiceException e) {
@@ -156,13 +203,22 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
     }
 
-    //Viene aggiunto il Listener al gioco
+    /**
+     * Confirms the registration of the client.
+     *
+     * @param listener The listener to add.
+     */
     @Override
     public void addGameEventListener(GameEventListener listener) {
         System.out.println("Client registrato con successo! ");
     }
 
-    //Notifica al client l'avvenuta creazione (quindi inizio) del gioco, mandando la situazione della board
+
+    /**
+     * Notifies the clients the creation of the game.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void gameStateChanged() throws RemoteException {
         int i = 0;
@@ -260,23 +316,35 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
     }
 
+    /**
+     * Resume the game after it stopped due to one player had remained logged in.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     public void resumeGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         System.out.println("Riprendo il gioco puntando al giocatore: "+controller.getOnStage());
-                gameStateChanged();
-                for (ClientRMIInterface client : effectiveLogged) {
-                    if (client != null) {
-                        if (controller.getOnStage().equals(client.getNickname())) {
-                            client.startTurn();
-                            startTurnTimer();
-                        } else {
-                            client.onWait();
-                        }
-                    }
+        gameStateChanged();
+        for (ClientRMIInterface client : effectiveLogged) {
+            if (client != null) {
+                if (controller.getOnStage().equals(client.getNickname())) {
+                    client.startTurn();
+                    startTurnTimer();
+                } else {
+                    client.onWait();
                 }
+            }
+        }
     }
 
-
-    //Metodo usato nel caso di rientro di una persona nel game, va a controllare il nick faccia parte dei crashati
+    /**
+     * Checks if the nick of the player that is trying to reconnect corresponds to one of the nicks in the game.
+     *
+     * @param onStage The nickname of the player.
+     * @return True if there is a correspondence, false otherwise.
+     */
     private boolean playingCrashedPlayer(String onStage) {
         for (int i = 0; i < dudesCrashed.length; i++) {
             if (onStage.equals(dudesCrashed[i])) {
@@ -443,7 +511,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     }
 
     //Nel caso in cui sia rimasto un solo client si andrà ad attivare un timer per aspettare le riconnessioni
-    private void checkTimeoutGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    private void checkTimeoutGame() throws RemoteException {
         if (realLength(effectiveLogged) == 1) {
             startTimer();
             notifyWaitingForReconnection();
@@ -511,7 +579,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
             }
         }
     }
-    //Quando non ci sono abbastanza giocatori
+
+    /**
+     *
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     private void notifyNoMorePlayers() throws RemoteException {
         for(ClientRMIInterface client : effectiveLogged){
             if(client!=null) {
@@ -520,6 +593,12 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
         }
 
     }
+
+    /**
+     * Notifies the last client a possible ending of the game.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     //Notifica all'ultimo rimasto un'eventuale fine partita
     private void notifyWaitingForReconnection() throws RemoteException {
         for(ClientRMIInterface client : effectiveLogged){

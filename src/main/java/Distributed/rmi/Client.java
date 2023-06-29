@@ -18,11 +18,21 @@ import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
 import java.rmi.server.UnicastRemoteObject;
 
+/**
+ * Class that represents a client that interacts with a remote server using RMI (Remote Method Invocation).
+ */
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
     private String nickname;
     private final GameInterface view = new GameInterface();
     private final ServerRMIInterface connectedTo;
 
+    /**
+     * Constructor for the Client class.
+     *
+     * @param server
+     * @throws RemoteException
+     * @throws SameNicknameException
+     */
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
         connectedTo = server;
@@ -111,7 +121,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         connectedTo.updateServerChoices(this, number);
     }
 
-    //When the server has a new update, it is sent and displayed by the client.
+    /**
+     * Sends to the user the first game view containing the personal goal, the common goals and the initial dashboard.
+     *
+     * @param modelView The starting game view.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void updateClientFirst(GameView modelView) {
         view.displayCommonGoal(modelView);
@@ -120,7 +135,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     }
 
-    //Manda al giocaente la situazione attuale e la propria personal shelf
+    /**
+     * Sends to the user that is playing the game view containing the dashboard, the personal shelf and a reduced description of the common goals and the personal goal.
+     *
+     * @param modelView The complete game view.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void updateClientPlaying(GameView modelView) {
         view.displayPersonalShelf(modelView.getShelf());
@@ -130,90 +150,162 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         view.commonGoalReminder(modelView.getCommonGoal2());
     }
 
-    //Manda a tutti i client la nuova board
+    /**
+     * Sends to the user that is not playing the game view containing the dashboard.
+     *
+     * @param model The reduced game view.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void updateClientRound(GameView model) throws RemoteException {
         view.displayDashboard(model.getTable());
     }
 
-
-
-    //Remote method: passing the nickname to the server.
+    /**
+     * Retrieves the nickname insert by the user that logged in.
+     *
+     * @return The nickname insert by the user that logged in.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public String getNickname() throws RemoteException {
         return this.nickname;
     }
 
-    //Remote method: used to notify the first client that the number of players is missing
+    /**
+     * Retrieves the number of players in the game insert by the first user to log in.
+     *
+     * @return The number of players in the game.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public int startGame() throws RemoteException {
         return view.numberOfPlayers();
     }
 
-    //Remote method: when a new client registers, those already logged in are notified.
+    /**
+     * Notifies the user that another user logged in.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void newPlayerAdded() throws RemoteException {
         view.arrived();
     }
 
-    //Remote method: to notify the client that they still have to wait for their turn.
+    /**
+     * Notifies the user to wait for his turn.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     public void onWait() throws RemoteException {
         view.onWait();
     }
 
-    //Remote method: begin of turn
+    /**
+     * Starts the thread that manages the turn.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     public void startTurn() throws RemoteException {
         turnThread play = new turnThread(view);
-        //thread non si chiude per la prima volta
-            view.startTurn();
-            play.start();
+        view.startTurn();
+        play.start();
     }
 
-    //Remote method:: end turn
+
     public void endTurn() {
             view.onWait();
     }
 
+    /**
+     * Notifies the user with the winner of the match.
+     *
+     * @param winner The winner of the match.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void winnerInterface(String winner) throws RemoteException {
         view.displayWin(winner);
     }
 
+    /**
+     * Notifies the user that the match finished.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void notifyCompleted() throws RemoteException {
         view.notifyAlmostOver();
 
     }
 
+    /**
+     * Notifies the user that the match started.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void notifyGameStarted() throws RemoteException {
         view.denyAcess();
     }
 
+    /**
+     * Notifies the user that another user crashed.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void errorCrash() throws RemoteException {
         view.playerCrash();
     }
 
+    /**
+     * Ping the user to check if it's still connected.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void ping() throws RemoteException {
     }
 
+    /**
+     * Notifies the user that the game is cancelled.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void subscriptionCancelled() throws RemoteException {
         view.gameCancelled();
     }
 
+    /**
+     * Notifies the user that the game stopped due to the lack of players.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void errorMissingPlayers() throws RemoteException {
         view.waitingForPlayers();
     }
 
+
+    /**
+     * Notifies the user that the game finished due to the lack of players.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void errorEndGameNoMorePlayers() throws RemoteException {
         view.endgame();
     }
 
+    /**
+     * Resumes the user interface from the phase where the last error occurred.
+     *
+     * @param modelView The error game view.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     @Override
     public void updateClientError(GameView modelView) throws RemoteException {
         GameError error = modelView.getGameError();
@@ -231,6 +323,11 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
+    /**
+     * Notifies the user the last error occurred in the game.
+     *
+     * @param error The last error occurred.
+     */
     public void printerErrors(GameError error){
         switch (error){
             case SELECT_ERROR_NOT_CATCHABLE -> view.errorNotCatchable();
