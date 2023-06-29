@@ -10,8 +10,10 @@ import Listeners.viewListeners;
 import MODEL.GameError;
 import MODEL.GameView;
 import VIEW.*;
+import org.json.simple.parser.ParseException;
 
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
@@ -54,11 +56,12 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
             server.register(this);
         } catch (SameNicknameException e) {
             sameNickFound(e.getMessage());
-        } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException e) {
-            throw new RuntimeException(e);
         } catch (RemoteException e) {
             e.printStackTrace();
          System.err.println("Non riesco a chiamare il server ");
+        } catch (NotEnoughSpaceChoiceException | NotCatchableException | NotAdjacentSlotsException | IOException |
+                 ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -103,6 +106,8 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         } catch (RemoteException | SameNicknameException | NotEnoughSpaceChoiceException | NotAdjacentSlotsException |
                  NotCatchableException e) {
             sameNickFound(e.getMessage());
+        } catch (IOException | ParseException e) {
+            throw new RuntimeException(e);
         }
     }
 

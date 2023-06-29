@@ -6,9 +6,11 @@ import Errors.NotEnoughSpaceChoiceException;
 import MODEL.Game;
 import MODEL.PersonalShelf;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 
 import static MODEL.GameError.SPACE_CHOICES_ERROR;
@@ -17,6 +19,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class ControllerInsertTest {
     private Game model = new Game(2);
     private GameController controller = new GameController(model);
+
+    ControllerInsertTest() throws IOException, ParseException {
+    }
 
     @BeforeEach
     void init(){

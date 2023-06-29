@@ -1,14 +1,19 @@
 package CONTROLLER;
 
 import MODEL.*;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.text.View;
+import java.io.IOException;
 
 class ControllerEndGameTest {
     private Game model = new Game(2);
     private GameController controller = new GameController(model);
+
+    ControllerEndGameTest() throws IOException, ParseException {
+    }
 
     @BeforeEach
     void init() {

@@ -3,7 +3,10 @@ package MODEL;
 import MODEL.Color;
 import MODEL.PersonalGoal;
 import MODEL.PersonalShelf;
+import org.json.simple.parser.ParseException;
 import org.testng.annotations.Test;
+
+import java.io.IOException;
 
 import static junit.framework.Assert.assertEquals;
 
@@ -11,14 +14,14 @@ public class PersonalGoalTest{
 
 
     @Test
-     void testMethod0(){
+     void testMethod0() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tShelf = new PersonalShelf();
         assertEquals(0, pgoal.assignPoint(tShelf));
     }
     @Test
-    void testMethod1(){
+    void testMethod1() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
@@ -29,7 +32,7 @@ public class PersonalGoalTest{
         assertEquals(1, pgoal.assignPoint(tshelf));
     }
     @Test
-    void testMethod2(){
+    void testMethod2() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
@@ -42,7 +45,7 @@ public class PersonalGoalTest{
         assertEquals(2, pgoal.assignPoint(tshelf));
     }
     @Test
-    void testMethod3(){
+    void testMethod3() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
@@ -55,7 +58,7 @@ public class PersonalGoalTest{
         assertEquals(4, pgoal.assignPoint(tshelf));
     }
     @Test
-    void testMethod4(){
+    void testMethod4() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
@@ -68,7 +71,7 @@ public class PersonalGoalTest{
         assertEquals(6, pgoal.assignPoint(tshelf));
     }
     @Test
-    void testMethod5(){
+    void testMethod5() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tshelf = new PersonalShelf();
@@ -81,7 +84,7 @@ public class PersonalGoalTest{
         assertEquals(9, pgoal.assignPoint(tshelf));
     }
     @Test
-    void testMethod6(){
+    void testMethod6() throws IOException, ParseException {
         PersonalGoalDeck deck = new PersonalGoalDeck();
         PersonalGoal pgoal = deck.extractionPGoal();
         PersonalShelf tShelf = new PersonalShelf();

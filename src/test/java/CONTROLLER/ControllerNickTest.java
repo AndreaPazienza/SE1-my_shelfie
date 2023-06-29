@@ -2,14 +2,20 @@ package CONTROLLER;
 
 import Errors.SameNicknameException;
 import MODEL.Game;
+import org.json.simple.parser.ParseException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerNickTest {
     private Game model = new Game(2);
     private GameController controller = new GameController(model);
+
+    ControllerNickTest() throws IOException, ParseException {
+    }
 
 
     @Test

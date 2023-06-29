@@ -14,7 +14,9 @@ import MODEL.GameState;
 import MODEL.GameView;
 import VIEW.OrderChoice;
 import VIEW.SlotChoice;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.RMIClientSocketFactory;
 import java.rmi.server.RMIServerSocketFactory;
@@ -49,7 +51,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
 
     //Metodo remoto usato dal client per registrarsi al model
     @Override
-    public void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void register(ClientRMIInterface client) throws IOException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException, ParseException {
 
         System.out.println("Ricevuto un tentativo di connessione");
         //Primo controllo alla prima richiesta di connessione, nel caso in cui sia la prima volta

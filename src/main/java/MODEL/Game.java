@@ -5,7 +5,9 @@ import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
 import Listeners.GameEventListener;
+import org.json.simple.parser.ParseException;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +40,7 @@ public class Game implements GameEventListener {
     }
 
     //Constructor of the game that in turn builds the Dashboard by passing the number of players that will be added later.
-    public Game (int numberOfPlayers) {
+    public Game (int numberOfPlayers) throws IOException, ParseException {
         Nplayers = numberOfPlayers;
         playerInGame = 0;                                   //Giocatore attualmente di turno
         gameOn = false;
