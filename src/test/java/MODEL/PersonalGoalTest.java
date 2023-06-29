@@ -96,4 +96,88 @@ public class PersonalGoalTest{
         }
         assertEquals(12, pgoal.assignPoint(tShelf));
     }
+
+    @Test
+    void assignPointsTest0(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(0, points);
+    }
+
+    @Test
+    void assignPointsTest1(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(1, points);
+    }
+
+    @Test
+    void assignPointsTest2(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        player.getShelf().getSingleSlot(0,2).setColor(Color.BLUE);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(2, points);
+    }
+
+    @Test
+    void assignPointsTest3(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        player.getShelf().getSingleSlot(0,2).setColor(Color.BLUE);
+        player.getShelf().getSingleSlot(1,4).setColor(Color.GREEN);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(4, points);
+    }
+
+    @Test
+    void assignPointsTest4(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        player.getShelf().getSingleSlot(0,2).setColor(Color.BLUE);
+        player.getShelf().getSingleSlot(1,4).setColor(Color.GREEN);
+        player.getShelf().getSingleSlot(2,3).setColor(Color.WHITE);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(6, points);
+    }
+
+    @Test
+    void assignPointsTest5(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        player.getShelf().getSingleSlot(0,2).setColor(Color.BLUE);
+        player.getShelf().getSingleSlot(1,4).setColor(Color.GREEN);
+        player.getShelf().getSingleSlot(2,3).setColor(Color.WHITE);
+        player.getShelf().getSingleSlot(3,1).setColor(Color.YELLOW);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(9, points);
+    }
+
+    @Test
+    void assignPointsTest6(){
+        PersonalGoal pGoal = new PersonalGoal();
+        pGoal.setPGoal1();
+        Player player = new Player("Gabriele");
+        player.getShelf().getSingleSlot(0,0).setColor(Color.PINK);
+        player.getShelf().getSingleSlot(0,2).setColor(Color.BLUE);
+        player.getShelf().getSingleSlot(1,4).setColor(Color.GREEN);
+        player.getShelf().getSingleSlot(2,3).setColor(Color.WHITE);
+        player.getShelf().getSingleSlot(3,1).setColor(Color.YELLOW);
+        player.getShelf().getSingleSlot(5,2).setColor(Color.LBLUE);
+        int points = pGoal.assignPoint(player.getShelf());
+        assertEquals(12, points);
+    }
 }

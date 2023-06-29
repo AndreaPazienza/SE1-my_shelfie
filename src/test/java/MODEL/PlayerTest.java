@@ -148,8 +148,4 @@ class PlayerTest {
         assertEquals(8, player.getScore());
     }
 
-    @Test
-    void testCheckScore(){ //non so se serve: in fondo se sono testati i 3 metodi che lo compongono
-
-    }
 }
