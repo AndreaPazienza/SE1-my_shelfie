@@ -130,7 +130,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
      * Sends to the user the first game view containing the personal goal, the common goals and the initial dashboard.
      *
      * @param modelView The starting game view.
-     * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override
     public void updateClientFirst(GameView modelView) {
@@ -144,7 +143,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
      * Sends to the user that is playing the game view containing the dashboard, the personal shelf and a reduced description of the common goals and the personal goal.
      *
      * @param modelView The complete game view.
-     * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override
     public void updateClientPlaying(GameView modelView) {
@@ -224,9 +222,9 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
     /**
-     * Notifies the user with the winner of the match.
+     * Notifies the user with the ranking and winner of the match.
      *
-     * @param winner The winner of the match.
+     * @param winner The ranking and winner of the match.
      * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override

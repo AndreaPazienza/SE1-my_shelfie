@@ -78,7 +78,7 @@ public class GameInterface implements Runnable, viewListeners {
 
 
     /**
-     * Manages the selection .
+     * Manages the selection phase and the order phase, receiving the number of the slots to select and their coordinates and the order of insertion.
      *
      * @throws RemoteException If a communication error occurs during the remote operation.
      * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
@@ -186,9 +186,9 @@ public class GameInterface implements Runnable, viewListeners {
     }
 
     /**
+     * Asks the player if he wants to reorder the slots selected before the insertion.
      *
-     *
-     * @return
+     * @return True if the player printed 'yes', false if the player printed 'no'.
      */
     private boolean playerOrder() {
         keyboard = new Scanner(System.in);
@@ -214,7 +214,14 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
-    //Insertion of the selected tiles into the shelf.
+    /**
+     * Insertion of the selected tiles into the shelf in the column chosen by the player.
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         keyboard = new Scanner(System.in);
         int column;
@@ -236,7 +243,11 @@ public class GameInterface implements Runnable, viewListeners {
         } while (!ok);
     }
 
-    //Method that checks if the input is actually an int value
+    /**
+     * Checks if the input is actually an integer.
+     *
+     * @return The integer from the standard input.
+     */
     private int getCorrectInt() {
         keyboard = new Scanner(System.in);
         int val = 0;
@@ -265,7 +276,11 @@ public class GameInterface implements Runnable, viewListeners {
         return val;
     }
 
-    //Method that checks if the input is actually a string
+    /**
+     * Method that checks if the input is actually a string not empty.
+     *
+     * @return The string from the standard input.
+     */
     private String getCorrectString() {
         keyboard = new Scanner(System.in);
         String string = "";
@@ -374,38 +389,81 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
+    /**
+     * Notifies the user with the ranking and the winner of the match.
+     *
+     * @param winner The ranking and the winner of the match.
+     */
     public void displayWin(String winner){
         System.out.println("Il gioco è finito!! Il vincitore è: " + winner);
     }
+
+    /**
+     * Prints a message on the standard output to inform that at the end of the lap the game will be over.
+     */
     public void notifyAlmostOver(){
         System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!!");
     }
+
+    /**
+     * Prints a message on the standard output to inform that another player just joined the game.
+     */
     public void arrived() {
         System.out.println("E' entrato un nuovo player");
     }
+
+    /**
+     * Prints a message on the standard output to the player whose turn just started.
+     */
     public void startTurn() {
         System.out.print("-- Inizio del nuovo turno -- \n");
     }
+
+    /**
+     * Prints a message on the standard output to the not playing player.
+     */
     public void onWait() {
         System.out.print("-- Non è il tuo turno --");
     }
+
+    /**
+     * Runs the textual interface.
+     */
     public void run() {
         System.out.print("");
     }
-    //Adding listener
+
+    /**
+     * Adds a listener to the view.
+     *
+     * @param listener The listener to add to the list.
+     */
     @Override
     public void addviewEventListener(viewListeners listener) {
             listeners.add(listener);
     }
 
-    //Notification to all listeners (Clients) of the completed selection.
+    /**
+     * Method that notify to the listeners about the tiles selected by the player.
+     *
+     * @param SC Object that contains the coordinates of the selected tiles.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         for( viewListeners listener : listeners  ) {
             listener.notifySelectedCoordinates(SC);
         }
     }
-    //Notify all listeners (Clients) of the successful notification.
+
+    /**
+     * Notifies Method that notify to the listeners about the order chosen by the player for the insert.
+     *
+     * @param o Object that contains the order of the tiles for the insert.
+     */
     @Override
     public void notifyOrder(OrderChoice o){
         for( viewListeners listener : listeners  ) {
@@ -417,20 +475,47 @@ public class GameInterface implements Runnable, viewListeners {
                 throw new RuntimeException(e);
             }
         }
-        }
-     //Notification to all listeners (clients) of the successful insertion.
+    }
+
+    /**
+     * Notifies to the listeners about the column chosen by the player for the insert.
+     *
+     * @param column The column where the player wants to put the tiles in.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyInsert(column);
         }
     }
+
+    /**
+     * Notifies to the listeners if a player want to try another time to enter the game with a different nickname (he tried before to enter the game with a nickname already taken)
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws SameNicknameException Exception thrown if the nickname chosen by the player.
+     */
     @Override
     public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
     }
+
+    /**
+     * Notifies to the listeners about the number of tiles selected by the player.
+     *
+     * @param number The number of tiles selected by the player.
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
@@ -450,11 +535,11 @@ public class GameInterface implements Runnable, viewListeners {
         }
 
     /**
-     * Asks for the reinsertion of the nickname
+     * Asks for the reinsertion of the nickname.
      *
-     * @param message
-     * @throws SameNicknameException
-     * @throws RemoteException
+     * @param message The text message printed on the standard output.
+     * @throws SameNicknameException If a player choices a nickname already in use.
+     * @throws RemoteException If a communication error occurs during the remote operation.
      */
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
@@ -479,14 +564,26 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.println(" Il gioco è finito! ");
     }
 
+    /**
+     * Prints a message on the standard output that informs that the game is already started so the access is denied
+     */
     public void denyAcess() {
         System.err.println("La partita è già iniziata, troppo tardi :/ ");
     }
 
+    /**
+     * Prints a message on the standard output that informs that a player crashed.
+     */
     public void playerCrash() {System.err.println("E' crashato un player ");}
 
+    /**
+     * Prints a message on the standard output that informs that the game is cancelled due to a pre game crash.
+     */
     public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
 
+    /**
+     * Prints
+     */
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 30s ");}
 
     /**

@@ -17,7 +17,7 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
     }
 
     /**
-     * {@inheritDoc}
+     * Checks if there are enough rows that respect the condition to achieve the common goal.
      *
      * @param current The player whose shelf has to be checked.
      * @param rows The colors of the row's slots.
