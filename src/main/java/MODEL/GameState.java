@@ -5,8 +5,15 @@ package MODEL;
  */
 public enum GameState{
 
-    LOGIN,                          //The players are logging in the game
-    PLAYING,                        //The players are playing
+    /**
+     * The players are logging in the game
+     */
+    LOGIN,
+
+    /**
+     * The players are playing.
+     */
+    PLAYING,
 }
 
 

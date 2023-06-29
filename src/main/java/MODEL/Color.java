@@ -3,17 +3,48 @@ package MODEL;
 import java.util.Random;
 
 /**
- * Enum that represents the color of a slot (it also represents the image of the real slots).
+ * Enum that represents the color of a slot.
  */
 public enum Color {
-    GREEN,              //Color of the cat slot
-    PINK,               //Color of the plant slot
-    BLUE,               //Color of the frame slot
-    LBLUE,              //Color of the trophy slot
-    WHITE,              //Color of the book slot
-    YELLOW,             //Color of the game slot
-    GREY,               //Color of the empty slot
-    BLACK;              //Color of the not playable slot
+
+    /**
+     * Color of the cat slot.
+     */
+    GREEN,
+
+    /**
+     * Color of the plant slot.
+     */
+    PINK,
+
+    /**
+     * Color of the frame slot.
+     */
+    BLUE,
+
+    /**
+     * Color of the trophy slot.
+     */
+    LBLUE,
+
+    /**
+     * Color of the book slot.
+     */
+    WHITE,
+    /**
+     * Color of the game slot.
+     */
+    YELLOW,
+
+    /**
+     * Color of the empty slot.
+     */
+    GREY,
+
+    /**
+     * Color of the not playable slot.
+     */
+    BLACK;
 
     /**
      * Retrieves a random color extracted from the colours that actually represents a slot (grey and black are excluded).
@@ -29,6 +60,13 @@ public enum Color {
 
     }
 
+    /**
+     * Retrieves the color instance of a string.
+     *
+     * @param color The string to convert into a color.
+     * @return The color that the string indicates.
+     * @throws IllegalArgumentException If the input string doesn't indicate a color.
+     */
     public static Color colorToString(String color) throws IllegalArgumentException {
         switch (color) {
             case "GREEN":
