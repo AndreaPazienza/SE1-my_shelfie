@@ -1,10 +1,8 @@
 package VIEW;
 
-import Distributed.rmi.Client;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;
-import VIEW.GameInterface;
 
 import java.rmi.RemoteException;
 

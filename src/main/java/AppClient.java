@@ -1,6 +1,5 @@
 import Distributed.rmi.Client;
 import Distributed.ServerRMIInterface;
-import Distributed.rmi.ServerImpl;
 import Errors.SameNicknameException;
 
 import java.rmi.NotBoundException;

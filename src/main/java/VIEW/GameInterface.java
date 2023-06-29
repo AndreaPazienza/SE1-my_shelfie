@@ -361,7 +361,7 @@ public class GameInterface implements Runnable, viewListeners {
     }
     //Notify all listeners (Clients) of the successful notification.
     @Override
-    public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void notifyOrder(OrderChoice o){
         for( viewListeners listener : listeners  ) {
             try {
                 listener.notifyOrder(o);

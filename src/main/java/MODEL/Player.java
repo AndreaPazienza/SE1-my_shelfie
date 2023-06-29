@@ -5,7 +5,6 @@ public class Player {
     private int orderInTurn;
     private int score;
     private PersonalShelf shelf;
-    private boolean chair;
     private PersonalGoal pgoal;
     public int getOrderInTurn() {
         return orderInTurn;
@@ -19,19 +18,6 @@ public class Player {
     public PersonalShelf getShelf() {
         return shelf;
     }
-    public boolean isChair() {
-        return chair;
-    }
-    public void setNickname(String name) {
-        this.nickname = name;
-    }
-    public void setChair() {
-        if(this.orderInTurn == 1) {     //To set the chair, I check the order in turn.
-            this.chair = true;          // if the player plays first, set it to true.
-        }
-        else this.chair = false;
-    }
-
     public void setOrderInTurn(int order) {
         this.orderInTurn = order;
     }
@@ -95,7 +81,6 @@ public class Player {
         this.shelf = new PersonalShelf();
         this.pgoal = null;
         this.orderInTurn = 0;
-        this.chair = false;
     }
 
 }

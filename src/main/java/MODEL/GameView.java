@@ -66,12 +66,9 @@ public class GameView implements Serializable {
         return pgoal;
     }
 
-    public GameState getState(){return state;}
-
     public GameError getGameError() {
         return gameError;
     }
 
-    public boolean getGameState(){return gameState;}
 
 }

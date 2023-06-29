@@ -1,6 +1,5 @@
 package Distributed;
 
-import Distributed.rmi.Client;
 import Errors.NotAdjacentSlotsException;
 import Errors.NotCatchableException;
 import Errors.NotEnoughSpaceChoiceException;

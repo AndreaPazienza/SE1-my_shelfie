@@ -19,7 +19,6 @@ public interface ClientRMIInterface extends Remote {
     void onWait() throws RemoteException;
     void newPlayerAdded() throws RemoteException;
     void startTurn() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException;
-    void endTurn() throws RemoteException;
     void winnerInterface(String winner) throws RemoteException;
     void notifyCompleted() throws RemoteException;
     void notifyGameStarted() throws RemoteException;

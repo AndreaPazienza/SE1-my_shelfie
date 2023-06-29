@@ -15,15 +15,6 @@ public class Target implements Serializable {
     public Color getTile() {
         return tile;
     }
-    public void setPosX(int x) {
-        this.PosX = x;
-    }
-    public void setPosY(int y) {
-        this.PosY = y;
-    }
-    public void setTile(Color color) {
-        this.tile = color;
-    }
     public Target (Color c, int x, int y){
         this.PosX = x;
         this.PosY = y;

@@ -1,8 +1,6 @@
 package MODEL;
 
 import java.io.Serializable;
-import java.util.Observable;
-
 public class Dashboard implements Serializable {
 
     private Slot[][] inDashboard;
@@ -158,9 +156,6 @@ public class Dashboard implements Serializable {
         return numberOfAdjacencies;
     }
 
-    public Slot[][] getInDashboard() {
-        return inDashboard;
-    }
 
     public Slot getSingleSlot(int x, int y){
         return inDashboard[x][y];

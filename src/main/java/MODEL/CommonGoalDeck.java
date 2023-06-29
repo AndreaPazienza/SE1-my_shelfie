@@ -1,12 +1,9 @@
 package MODEL;
 
 import java.util.ArrayList;
-import java.util.Observable;
 import java.util.Random;
 
 public class CommonGoalDeck{
-
-    private CommonGoalAbs goal;
     private static final ArrayList<CommonGoalAbs> deck = new ArrayList<>();
 
     public CommonGoalDeck(int players){

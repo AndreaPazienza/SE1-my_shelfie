@@ -49,12 +49,4 @@ public enum Color {
             return false;
         }
     }
-
-    public boolean notEquals(Object obj) {
-        if (obj != this) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

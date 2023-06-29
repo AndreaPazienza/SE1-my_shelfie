@@ -16,7 +16,6 @@ public class CGDecreaseTiles extends CommonGoalAbs {
         if (!playerAchived[playing]) {
             int i = 1, j = 0;
             Color nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
-            ;
             boolean checker = true;
             if (!nextDiagonal.equals(Color.GREY)) {
                 do {

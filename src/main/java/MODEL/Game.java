@@ -67,14 +67,6 @@ public class Game implements GameEventListener {
         return -1;
     }
 
-    public int getPlayerPosition(String name){
-        for (Player playing : player) {
-            if (playing.getNickname().equals(name))
-                return playing.getOrderInTurn()-1;
-        }
-        return -1;
-    }
-
     //Insertion of the player in the player's array and increment of Nplayers.
     public void signPlayer(String nick) {
         Player player = new Player(nick);
@@ -95,13 +87,6 @@ public class Game implements GameEventListener {
         return player[playerInGame];
     }
 
-    public Player previousOnStage(){
-        if(playerInGame == 0){
-            return player[Nplayers-1];
-        } else {
-            return player[playerInGame - 1];
-        }
-    }
 
     public void startGame() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         state = GameState.PLAYING;
@@ -215,9 +200,6 @@ public class Game implements GameEventListener {
         return playerInGame;
     }
 
-    public boolean isFirstPlayerFinished() {
-        return firstPlayerFinished;
-    }
 
     public PersonalGoalDeck getDeck() {
         return deck;
@@ -290,11 +272,6 @@ public class Game implements GameEventListener {
         for(GameEventListener listener: listeners){
             listener.notifyLastError();
         }
-    }
-
-
-    public void forcedGameOver() {
-        this.setGameOn(false);
     }
 
     public void undoTurn(Slot[] selectedSlots, Target[] coordinatesSaver) throws NotEnoughSpaceChoiceException, RemoteException {

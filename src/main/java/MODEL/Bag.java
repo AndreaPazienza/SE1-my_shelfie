@@ -1,7 +1,5 @@
 package MODEL;
 import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Observable;
 import java.util.Random;
 
 public class Bag{
@@ -65,10 +63,6 @@ public class Bag{
         Slot returningSlot = inBag.get(randomIndex);
         inBag.remove(randomIndex);
         return returningSlot;
-    }
-
-    public int getBagSize(){
-        return this.inBag.size();
     }
 
 

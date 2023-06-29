@@ -13,12 +13,6 @@ public class OrderChoice implements Serializable{
         this.s = s;
         this.t = t;
     }
-    public OrderChoice(){
-        this.p=1;
-        this.s=1;
-        this.t=1;
-    }
-
     public int getP() {
         return p;
     }

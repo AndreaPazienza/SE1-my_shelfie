@@ -18,9 +18,6 @@ public abstract class CommonGoalAbs implements Serializable {
            playerAchived[i]=false;
        }
     }
-    public CommonGoalAbs getGoal(){
-        return  goal;
-    }
     public void setMaxPoint(int maxPoint) {
         this.maxPoint = maxPoint;
     }
