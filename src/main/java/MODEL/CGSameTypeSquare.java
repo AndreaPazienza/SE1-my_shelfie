@@ -1,14 +1,26 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Two groups each containing 4 tiles of the same type in a 2x2 square. The tiles of one square can be different from those of the other square.
 
+/**
+ * Class that represents the common goal card achievable inserting two groups each containing four tiles of the same type in a 2x2 square.
+ */
 public class CGSameTypeSquare extends CommonGoalAbs {
 
+    /**
+     * Constructor for CGSameTypeSquare class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGSameTypeSquare(int players) {
         super(players);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
         if (!commonGoalAchived()) {
@@ -26,10 +38,12 @@ public class CGSameTypeSquare extends CommonGoalAbs {
                             if (player.getShelf().getSingleSlot(i + k, j + w).getColor().equals(Color.GREY) || (visited[i + k][j + w] && (k != 0 || w != 0))) {
                                 valid = false;
                             } else {
+                                //Building the 2x2 square sub-matrix
                                 submatrix[k][w] = player.getShelf().getSingleSlot(i + k, j + w).getColor();
                             }
                         }
                     }
+                    //Checking the colors of the sub-matrix
                     if (valid && submatrix[0][0].equals(submatrix[0][1]) && submatrix[0][0].equals(submatrix[1][0]) && submatrix[0][0].equals(submatrix[1][1])) {
                         squareCounter++;
                         visited[i + 1][j] = true;
@@ -38,12 +52,16 @@ public class CGSameTypeSquare extends CommonGoalAbs {
                     }
                 }
             }
+            //If the squares are equals or more than 2 the player receives the points
             if (squareCounter >= 2) {
                 givePoints(player);
             }
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Due gruppi separati di 4 tessere dello stesso tipo che formano un quadrato 2x2. Le tessere dei due gruppi devono essere dello stesso tipo");
@@ -79,6 +97,11 @@ public class CGSameTypeSquare extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni due quadrati composti da 4 tessere uguali. ";

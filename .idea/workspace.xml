@@ -4,13 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Complete GUI">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc package View (parte 1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/AppServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/AppServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/ClientRMIInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Listeners/viewListeners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGDecreaseTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGEightTilesSameType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesDiagonal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFiveTilesX.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourCorners.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourGroupsFourTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGFourLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnColumn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGOnLines.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSameTypeSquare.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGSixGroupsTwoTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGThreeColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoColumnsSixTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/CGTwoLinesFiveTiles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalShelf.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/VIEW/GameInterface.java" afterDir="false" />
     </list>
-    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
+    <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="Changes by alessiotagab" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,7 +121,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.AppClient">
+  <component name="RunManager" selected="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment">
     <configuration name="AppClient" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="AppClient" />
       <module name="MyShelfie_RPPT" />
@@ -118,7 +136,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MyShelfie_RPPT" />
       <extension name="coverage">
         <pattern>
@@ -127,8 +145,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="MODEL" />
-      <option name="MAIN_CLASS_NAME" value="MODEL.CGTwoLinesFiveTilesTest" />
-      <option name="METHOD_NAME" value="checkTwoRowsNotDiffColorsLeftRight" />
+      <option name="MAIN_CLASS_NAME" value="MODEL.CGFiveTilesDiagonalTest" />
+      <option name="METHOD_NAME" value="multipleRoundCorrectAssignment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -182,17 +200,17 @@
     <list>
       <item itemvalue="Application.AppClient" />
       <item itemvalue="Application.AppServer" />
+      <item itemvalue="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" />
       <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
-      <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
       <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CGFiveTilesDiagonalTest.multipleRoundCorrectAssignment" />
         <item itemvalue="Application.AppClient" />
         <item itemvalue="Application.AppServer" />
         <item itemvalue="JUnit.CheckSpaceChoicesTest.CountInsert2" />
         <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkWithGrey" />
-        <item itemvalue="JUnit.CGTwoLinesFiveTilesTest.checkTwoRowsNotDiffColorsLeftRight" />
       </list>
     </recent_temporary>
   </component>
@@ -227,6 +245,8 @@
       <workItem from="1683121119830" duration="3280000" />
       <workItem from="1683360953317" duration="8550000" />
       <workItem from="1684237275565" duration="3226000" />
+      <workItem from="1688022519164" duration="3843000" />
+      <workItem from="1688030527503" duration="6265000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -438,7 +458,28 @@
       <option name="project" value="LOCAL" />
       <updated>1687871927484</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Commenti JavaDoc package Distributed (interfacce e thread)">
+      <created>1688002385383</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1688002385383</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Commenti JavaDoc package Model (parte 1)">
+      <created>1688006660292</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1688006660292</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Commenti JavaDoc package View (parte 1)">
+      <created>1688031007935</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1688031007935</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -471,9 +512,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Update Dashboard.java, Player.java&#10;(aggiunta metodo getSingleSlot)" />
-    <MESSAGE value="Aggiornamento indici costruttore" />
-    <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
     <MESSAGE value="Correzione refill in Dashboard e testing completo di Refill" />
@@ -496,35 +534,26 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri" />
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
-    <option name="LAST_COMMIT_MESSAGE" value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
+    <MESSAGE value="Commenti JavaDoc package Distributed (interfacce e thread)" />
+    <MESSAGE value="Commenti JavaDoc package Model (parte 1)" />
+    <MESSAGE value="Commenti JavaDoc package View (parte 1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc package View (parte 1)" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
-          <line>192</line>
-          <properties class="Distributed.rmi.ServerImpl" method="readyToStart">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
         <PinnedItemInfo parentTag="Player" memberName="shelf" />
+        <PinnedItemInfo parentTag="PersonalShelf" memberName="shelf" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$All_in_MyShelfie_RPPT.ic" NAME="All in MyShelfie_RPPT Coverage Results" MODIFIED="1687955399441" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$ControllerEndGameTest.ic" NAME="ControllerEndGameTest Coverage Results" MODIFIED="1685351470048" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>CONTROLLER.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppServer.ic" NAME="AppServer Coverage Results" MODIFIED="1685351411697" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$AppClient.ic" NAME="AppClient Coverage Results" MODIFIED="1685351420148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/ing_sw_2023_ronchieri_proverbio_tagab_pazienza$CGFiveTilesXTest_checkMultiPlayersX.ic" NAME="CGFiveTilesXTest.checkMultiPlayersX Coverage Results" MODIFIED="1680443373816" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

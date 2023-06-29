@@ -1,10 +1,25 @@
 package MODEL;
 
+/**
+ * Class that represents a generic common goal card that requires a particular rows configuration to be achieved.
+ */
 public abstract class CGOnLines extends CommonGoalAbs{
 
+    /**
+     * Constructor for CGOnLines class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGOnLines(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
+    @Override
     public void control(Player player) {
 
         if (!commonGoalAchived()) {
@@ -38,6 +53,14 @@ public abstract class CGOnLines extends CommonGoalAbs{
         }
     }
 
+    /**
+     * Checks if there are enough rows that respect the condition to achieve the common goal.
+     *
+     * @param player The player whose shelf has to be checked.
+     * @param rows The colors of the row's slots.
+     * @param alreadyFound The number of rows already found that respect the condition.
+     * @return True if there are enough rows that respect the condition, false otherwise.
+     */
     protected abstract boolean controlRows(Player player, Color[] rows, int alreadyFound);
 
 }

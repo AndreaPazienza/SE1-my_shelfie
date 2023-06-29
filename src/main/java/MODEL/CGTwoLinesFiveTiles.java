@@ -1,13 +1,30 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Two lines each formed by 5 different types of tiles. One line can show the same or a different combination of the other line.
 
+/**
+ * Class that represents the common goal card achievable filling two lines each formed by 5 different colors of tiles.
+ */
 public class CGTwoLinesFiveTiles extends CGOnLines {
+
+    /**
+     * Constructor for CGTwoLinesFiveTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGTwoLinesFiveTiles(int players){
         super(players);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param current The player whose shelf has to be checked.
+     * @param rows The colors of the row's slots.
+     * @param found The number of rows already found that respect the condition.
+     * @return
+     */
+    @Override
     public boolean controlRows(Player current, Color[] rows, int found) {
 
         if (found > 2) {
@@ -27,8 +44,12 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
                 }
             }
         }
-        return true;}
+        return true;
+    }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Due righe formate ciascuna da 5 diversi tipi di tessere.");
@@ -67,6 +88,11 @@ public class CGTwoLinesFiveTiles extends CGOnLines {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Devi fare due linee composte da tutte tessere diverse ";

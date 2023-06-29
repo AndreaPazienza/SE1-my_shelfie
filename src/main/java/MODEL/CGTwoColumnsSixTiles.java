@@ -1,13 +1,31 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Two columns each formed by 6 different types of tiles.
+
+/**
+ * Class that represents the common goal card achievable filling two columns each formed by 6 different colors of tiles.
+ */
 
 public class CGTwoColumnsSixTiles extends CGOnColumn {
 
+    /**
+     * Constructor for CGTwoColumnSixTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGTwoColumnsSixTiles(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param current The player whose shelf has to be checked.
+     * @param column The colors of the column's slots.
+     * @param found The number of column already found that respect the condition.
+     * @return
+     */
+    @Override
     public boolean controlColumn(Player current, Color[] column, int found) {
 
         if (found >= 2 ) {
@@ -25,6 +43,9 @@ public class CGTwoColumnsSixTiles extends CGOnColumn {
         }
         return true;}
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Due colonne formate ciascuna da 6 diversi tipi di tessere.");
@@ -64,6 +85,11 @@ public class CGTwoColumnsSixTiles extends CGOnColumn {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Devi creare due colonne formate tutte da tessere diverse ";

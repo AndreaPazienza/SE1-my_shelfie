@@ -72,7 +72,15 @@ public class PersonalShelf implements Serializable {
         return shelf[x][y];
     }
 
-    public int checkAdjacentSlot(boolean[][] visited, int x, int y){ //counts the effective adjacencies
+    /**
+     * Retrieves the number of slot, from the slots adjacent, whose color matches with the input slot.
+     *
+     * @param visited The boolean mask of slots already visited.
+     * @param x The row index of the slot to count the adjacency of.
+     * @param y The column index of the slot to count the adjacency of.
+     * @return The number of slots with the same color of the input slot.
+     */
+    public int checkAdjacentSlot(boolean[][] visited, int x, int y){
         visited[x][y] = true; //Mark on the tile that has been visited
         int count = 1;
         Color color = this.shelf[x][y].getColor(); //Save the color of the tile to check

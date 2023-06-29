@@ -1,15 +1,30 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Three columns each formed by 6 tiles
-//of maximum three different types. One column can show the same or a different combination of another column
 
-
+/**
+ * Class that represents the common goal card achievable filling three columns each formed by 6 tiles of maximum three different colors.
+ */
 public class CGThreeColumnsSixTiles extends CGOnColumn {
 
+    /**
+     * Constructor for CGThreeColumnSixTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGThreeColumnsSixTiles(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     * @param column The color
+     * @param found The number of column found with the same color.
+     * @return
+     */
+    @Override
     public boolean controlColumn(Player player, Color[] column, int found) {
 
 
@@ -38,6 +53,9 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
 
         return true;}
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Tre colonne formate ciascuna da 6 tessere di uno, due o tre tipi differenti. Colonne diverse possono avere combinazioni diverse di tipi di tessere.");
@@ -85,6 +103,11 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni due colonne da 6 tessere in cui, in ognuna, si presentano al più 3 colori. ";

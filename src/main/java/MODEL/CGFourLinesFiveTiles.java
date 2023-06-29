@@ -1,13 +1,32 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
+
 //Four lines each formed by 5 tiles of maximum three different types. One line can show the same or a different combination of another line.
 
+/**
+ * Class that represents the common goal card achievable filling our lines each formed by 5 tiles of maximum three different colors.
+ */
 public class CGFourLinesFiveTiles extends CGOnLines {
 
+    /**
+     * Constructor for CGFourLinesFiveTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGFourLinesFiveTiles(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param current The player whose shelf has to be checked.
+     * @param rows The colors of the row's slots.
+     * @param found The number of rows already found that respect the condition.
+     * @return
+     */
+    @Override
     public boolean controlRows(Player current, Color[] rows, int found) {
 
         //potrebbe presenatare un bug, siccome devo avere 4 righe con al più tre tipi
@@ -39,6 +58,10 @@ public class CGFourLinesFiveTiles extends CGOnLines {
             return true;
         }
     }
+
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("righe formate ciascuna da 5 tessere di uno, due o tre tipi differenti. Righe diverse possono avere combinazioni diverse di tipi di tessere.");
@@ -89,6 +112,11 @@ public class CGFourLinesFiveTiles extends CGOnLines {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni quattro righe da 5 tessere in cui, in ognuna, si presentano al più 3 colori.";
