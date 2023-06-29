@@ -9,7 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Game Tests">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="UML detailed">
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_82.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
@@ -17,11 +17,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_36.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_webjars_jquery_3_6_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_fxml.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_fxml.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/GameController.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/MODEL.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/Network.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/VIEW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverables/UML/UMLModel.drawio.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverables/UML/firstModelUML.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverables/UML/UML_controller.png" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverables/UML/detailed/UML_controller.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverables/UML/UML_model.png" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverables/UML/detailed/UML_model.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverables/UML/UML_network.png" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverables/UML/detailed/UML_network.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Deliverables/UML/UML_view.png" beforeDir="false" afterPath="$PROJECT_DIR$/Deliverables/UML/detailed/UML_view.png" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -117,9 +117,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Deliverables/UML" />
+      <recent name="$PROJECT_DIR$/Deliverables/UML/detailed" />
+      <recent name="$PROJECT_DIR$/Deliverables" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/Deliverables" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Errors" />
@@ -527,7 +529,21 @@
       <option name="project" value="LOCAL" />
       <updated>1688065550753</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="UML total">
+      <created>1688069530659</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1688069530659</updated>
+    </task>
+    <task id="LOCAL-00040" summary="UML detailed">
+      <created>1688069610466</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1688069610466</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,8 +598,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update GameController.java&#10;(update endgame, beginGame, gamePlaying, turnManagement)" />
-    <MESSAGE value="update GameController.java&#10;(aggiunta metodo displayDash, displayPShelf)" />
     <MESSAGE value="update GameController.java, update Game.java&#10;(update turnManagement, aggiunta attributo firstPlayerFinish a game)" />
     <MESSAGE value="Creazioni classi SlotChoice e OrderChoice, modifica metodo playerMoveSelection" />
     <MESSAGE value="Implementazione della View come runnable" />
@@ -607,7 +621,9 @@
     <MESSAGE value="Sistemati dei test" />
     <MESSAGE value="GameView Tested" />
     <MESSAGE value="Game Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Game Tests" />
+    <MESSAGE value="UML total" />
+    <MESSAGE value="UML detailed" />
+    <option name="LAST_COMMIT_MESSAGE" value="UML detailed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
