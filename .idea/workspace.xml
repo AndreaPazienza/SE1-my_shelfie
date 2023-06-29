@@ -12,7 +12,127 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Commenti JavaDoc Client">
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="JavaDoc">
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/App.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/AppClient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/AppServer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/CONTROLLER/GameController.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/CONTROLLER/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/CONTROLLER/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/ClientRMIInterface.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/ServerRMIInterface.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/crashPreGame.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/rmi/Client.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/rmi/ServerImpl.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/rmi/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Distributed/rmi/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/NotAdjacentSlotsException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/NotCatchableException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/NotEnoughSpaceChoiceException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/SameNicknameException.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Errors/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Listeners/GameEventListener.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Listeners/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Listeners/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/Listeners/viewListeners.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Bag.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGDecreaseTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGEightTilesSameType.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGFiveTilesDiagonal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGFiveTilesX.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGFourCorners.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGFourGroupsFourTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGFourLinesFiveTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGOnColumn.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGOnLines.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGSameTypeSquare.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGSixGroupsTwoTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGThreeColumnsSixTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGTwoColumnsSixTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CGTwoLinesFiveTiles.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Color.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CommonGoalAbs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/CommonGoalDeck.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Dashboard.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Game.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/GameError.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/GameState.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/GameView.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/PersonalGoal.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/PersonalGoalDeck.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/PersonalShelf.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Player.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Slot.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Target.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/Type.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/MODEL/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/ColorPrint.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/GameInterface.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/Image.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/OrderChoice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/SlotChoice.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/insertThread.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/VIEW/turnThread.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/allclasses-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/allpackages-index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/constant-values.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/copy.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/element-list" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/help-doc.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-10.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-11.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-12.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-13.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-14.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-15.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-16.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-17.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-18.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-19.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-20.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-21.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-3.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-4.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-5.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-6.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-7.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-8.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index-files/index-9.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/jquery-ui.overrides.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/legal/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/legal/jquery.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/legal/jqueryUI.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/member-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/module-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/overview-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/overview-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/package-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/package-summary.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/package-tree.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/resources/glass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/resources/x.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/script-dir/jquery-3.6.0.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/script-dir/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/script-dir/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/script.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/search-page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/serialized-form.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/stylesheet.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/tag-search-index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Deliverables/JavaDoc/type-search-index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_10_0_M1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_10_0_M1.xml" beforeDir="false" />
@@ -39,7 +159,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/AppServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/AppServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/CONTROLLER/GameController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CONTROLLER/GameController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ClientRMIInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/ServerRMIInterface.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/crashPreGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Distributed/rmi/Client.class" afterDir="false" />
@@ -167,7 +286,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/CommonGoalDeck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Dashboard.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameError.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameError.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameState.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/GameView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/PersonalGoal.class" afterDir="false" />
@@ -176,7 +294,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Slot.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Target.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MODEL/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MODEL/Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/NotPlayingScreen.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/NumberOfPlayersScreen.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/PlayingScreen.fxml" beforeDir="false" />
@@ -319,11 +436,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\4ndre\IdeaProjects\ing-sw-2023-ronchieri-proverbio-tagab-pazienza\Deliverables\JavaDoc" />
       <recent name="$PROJECT_DIR$/Deliverables/UML/detailed" />
       <recent name="$PROJECT_DIR$/Deliverables/UML" />
       <recent name="$PROJECT_DIR$/Deliverables" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Errors" />
@@ -759,7 +876,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688079003200</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Commenti JavaDoc Client e ServerImpl">
+      <created>1688079359579</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1688079359579</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -814,7 +938,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Metodo DisplayPersonalGoal e test" />
     <MESSAGE value="Aggiornamento del Display" />
     <MESSAGE value="Aggiornamento common goal" />
     <MESSAGE value="Patch nullPointExcept. &amp; aggiornamento invio shelf &amp; Board" />
@@ -837,9 +960,10 @@
     <MESSAGE value="UML total" />
     <MESSAGE value="UML detailed" />
     <MESSAGE value="UML added" />
-    <MESSAGE value="Commenti JavaDoc Client e ServerImpl" />
     <MESSAGE value="Commenti JavaDoc Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commenti JavaDoc Client" />
+    <MESSAGE value="Commenti JavaDoc Client e ServerImpl" />
+    <MESSAGE value="JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
