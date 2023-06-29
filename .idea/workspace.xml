@@ -33,6 +33,11 @@
     <option name="BRANCH" value="origin/main" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="BugFix" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="SOFT" />
   </component>
@@ -508,7 +513,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/Distributed/rmi/ServerImpl.java</url>
           <line>192</line>
-          <properties class="Distributed.rmi.ServerImpl">
+          <properties class="Distributed.rmi.ServerImpl" method="readyToStart">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
