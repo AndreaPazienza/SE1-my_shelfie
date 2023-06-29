@@ -21,7 +21,7 @@ public class PersonalGoalDeck {
 
         {
             try {
-                reader = new FileReader("src/main/java/File/PersonalGoals.json");
+                reader = new FileReader("PersonalGoals.json");
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
             }

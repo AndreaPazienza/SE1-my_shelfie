@@ -9,11 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Beta v1.10.4: aggiunta dipendenze e modifica del pom per la creazione del .jar finale.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/softeng.gc38-client-jar-with-dependencies.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Deliverables/softeng.gc38-server-jar-with-dependencies.jar" beforeDir="false" />
+    <list default="true" id="10ae2c53-d6f8-4263-9b08-81791664a8ab" name="Changes" comment="Beta v1.10.6: cambio destinazione jar">
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/File/PersonalGoals.json" beforeDir="false" afterPath="$PROJECT_DIR$/PersonalGoals.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MODEL/PersonalGoalDeck.java" afterDir="false" />
     </list>
     <list id="8eca82e0-fccc-4e3a-a7c3-50dfbc2a8e3f" name="Changes by alessiotagab" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,6 +107,7 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Deliverables" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -232,7 +232,7 @@
       <workItem from="1687980605799" duration="45000" />
       <workItem from="1687980760286" duration="2961000" />
       <workItem from="1688041536745" duration="513000" />
-      <workItem from="1688042072610" duration="314000" />
+      <workItem from="1688042072610" duration="800000" />
     </task>
     <task id="LOCAL-00001" summary="Classe slot">
       <created>1679345408010</created>
@@ -451,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687983128082</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Beta v1.10.6: cambio destinazione jar">
+      <created>1688042423994</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1688042423994</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,7 +508,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Aggiornamento indici costruttore" />
     <MESSAGE value="Correzione numero dei tipi" />
     <MESSAGE value="Correzione errori deicostruttori di Dashboard e Bag&#10;Creazione classi di test e test dei costruttori di Bag e Dashboard" />
     <MESSAGE value="Agginta metodo getInBag nella classe Bag e test del costruttore e di getSingleSlot" />
@@ -526,7 +532,8 @@
     <MESSAGE value="Fixaggio dei bug in inserimento dei parametri (versione corretta)" />
     <MESSAGE value="Beta v1.06: aggiornamento del file POM, creazioen della cartella per la consegna &amp; nuovo start della partita distribuito." />
     <MESSAGE value="Beta v1.10.4: aggiunta dipendenze e modifica del pom per la creazione del .jar finale." />
-    <option name="LAST_COMMIT_MESSAGE" value="Beta v1.10.4: aggiunta dipendenze e modifica del pom per la creazione del .jar finale." />
+    <MESSAGE value="Beta v1.10.6: cambio destinazione jar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Beta v1.10.6: cambio destinazione jar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
