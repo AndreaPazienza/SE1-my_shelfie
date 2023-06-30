@@ -351,6 +351,7 @@ public class ServerImpl extends UnicastRemoteObject implements ServerRMIInterfac
     @Override
     public void notifyGameFinished() throws RemoteException {
         winnerInterface(controller.endGame());
+        System.exit(-1);
     }
 
     /**
