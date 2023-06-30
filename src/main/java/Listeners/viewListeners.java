@@ -9,7 +9,9 @@ import VIEW.SlotChoice;
 
 import java.rmi.RemoteException;
 
-
+/**
+ * The interface that represents a listener of the events occurred in the view.
+ */
 public interface viewListeners {
 
     /**
@@ -64,7 +66,6 @@ public interface viewListeners {
      * Method that notify to the listeners about the number of tiles selected by the player.
      *
      * @param number The number of tiles selected by the player.
-     *
      * @throws RemoteException Exception thrown if there are problems with the client-server connection.
      * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
      * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.

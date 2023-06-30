@@ -22,14 +22,15 @@ public interface ServerRMIInterface extends Remote {
      * Executes the registration of the client to the game.
      *
      * @param client The client to register.
-     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws IOException If an error occurred during the IO operation.
+     * @throws ParseException If an error occurred during the reading af a json file.
      * @throws SameNicknameException If the client choices a nickname already in use.
      * @throws RemoteException If a communication error occurs during the remote operation.
      * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
      * @throws NotCatchableException If the user selects one (or more) not catchable slots.
      * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
      */
-    void register(ClientRMIInterface client) throws RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException;
+    void register(ClientRMIInterface client) throws IOException, ParseException, RemoteException, SameNicknameException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException, ParseException;
 
     /**
      * Updates the server with the slots selected by the input client.

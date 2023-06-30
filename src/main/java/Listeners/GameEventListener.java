@@ -7,7 +7,7 @@ import MODEL.GameView;
 import java.rmi.RemoteException;
 
 /**
- * The interface that re
+ * The interface that represents a listener of the events occurred in the model.
  */
 public interface GameEventListener {
 

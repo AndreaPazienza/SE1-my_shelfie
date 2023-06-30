@@ -24,16 +24,28 @@ import java.rmi.server.UnicastRemoteObject;
  * Class that represents a client that interacts with a remote server using RMI (Remote Method Invocation).
  */
 public class Client extends UnicastRemoteObject implements viewListeners, ClientRMIInterface, Serializable {
+
+    /**
+     * The nickname of the connected user.
+     */
     private String nickname;
+
+    /**
+     * The user's interface.
+     */
     private final GameInterface view = new GameInterface();
+
+    /**
+     * The server to which the client is connected.
+     */
     private final ServerRMIInterface connectedTo;
 
     /**
      * Constructor for the Client class.
      *
-     * @param server
-     * @throws RemoteException
-     * @throws SameNicknameException
+     * @param server The server to connect the client to.
+     * @throws RemoteException If there is a remote communication error.
+     * @throws SameNicknameException  If a duplicate nickname is specified.
      */
     public Client(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         super();
@@ -44,6 +56,14 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
 
     }
 
+    /**
+     * Constructor for the Client class with a specified port.
+     *
+     * @param server The server to connect the client to.
+     * @param port The port for the client connection.
+     * @throws RemoteException If there is a remote communication error.
+     * @throws SameNicknameException  If a duplicate nickname is specified.
+     */
     public Client(ServerRMIInterface server, int port) throws RemoteException, SameNicknameException {
         super(port);
         nickname = view.firstRun();
@@ -51,7 +71,16 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         initialize(server);
         connectedTo = server;
     }
-
+    /**
+    * Constructor for the Client class with a specified port and connection factories.
+    *
+    * @param server The server to connect the client to.
+    * @param port The port for the client connection.
+    * @param csf The RMIClientSocketFactory object for the client connection.
+    * @param ssf The RMIServerSocketFactory object for the client connection.
+    * @throws RemoteException If there is a remote communication error.
+    * @throws SameNicknameException  If a duplicate nickname is specified.
+    */
     public Client(ServerRMIInterface server, int port, RMIClientSocketFactory csf, RMIServerSocketFactory ssf) throws RemoteException, SameNicknameException {
         super(port, csf, ssf);
         nickname = view.firstRun();
@@ -61,6 +90,13 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
     }
 
 
+    /**
+     * Registers the client to the server.
+     *
+     * @param server The server to register the client to.
+     * @throws RemoteException If there is a remote communication error.
+     * @throws SameNicknameException  If a duplicate nickname is specified.
+     */
     public void initialize(ServerRMIInterface server) throws RemoteException, SameNicknameException {
         try {
             server.register(this);
@@ -75,39 +111,83 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
+    /**
+     * Sends an error message to the user interface to
+     *
+     * @param errorMessage The error message sent to the user interface.
+     * @throws RemoteException If there is a remote communication error.
+     * @throws SameNicknameException  If a duplicate nickname is specified.
+     */
     public void sameNickFound(String errorMessage) throws SameNicknameException, RemoteException {
         view.errorNick(errorMessage);
     }
 
-
+    /**
+     * Runs the client.
+     */
     public void run() {
         view.run();
     }
 
+    /**
+     * Confirms the bond with the server.
+     *
+     * @param listener The listener to add to the list.
+     */
     @Override
     public void addviewEventListener(viewListeners listener) {
         System.out.println("\t Connessione Client/Server stabilita \n");
     }
 
 
-    //Observer: when coordinates are taken from the view
+    /**
+     * Notifies the server the slots selected by the user.
+     *
+     * @param SC Object that contains the coordinates of the selected tiles.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotCatchableException, NotAdjacentSlotsException, NotEnoughSpaceChoiceException {
         connectedTo.updateServerSelection(this, SC);
     }
 
-    //Observer: when the sorting is chosen from the view
+    /**
+     * Notifies the server the order chosen by the player for the insert.
+     *
+     * @param o Object that contains the order of the tiles for the insert.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyOrder(OrderChoice o) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerReorder(this, o);
     }
 
-    //Observer: when the insertion column is chosen from the view
+    /**
+     * Notifies the server the column where the user want to insert the selected slots.
+     *
+     * @param column The column where the player wants to put the tiles in.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerInsert(this, column);
     }
 
+    /**
+     * Tries to reconnect the user after a first wrong connection due to an already chosen nickname.
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws SameNicknameException Exception thrown if the nickname chosen by the player.
+     */
     @Override
     public void notifyOneMoreTime() throws SameNicknameException, RemoteException {
         nickname = view.firstRun();
@@ -121,6 +201,15 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         }
     }
 
+    /**
+     * Notifies the server the number of slots selected by the user.
+     *
+     * @param number The number of tiles selected by the player.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         connectedTo.updateServerChoices(this, number);
@@ -130,7 +219,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
      * Sends to the user the first game view containing the personal goal, the common goals and the initial dashboard.
      *
      * @param modelView The starting game view.
-     * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override
     public void updateClientFirst(GameView modelView) {
@@ -144,7 +232,6 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
      * Sends to the user that is playing the game view containing the dashboard, the personal shelf and a reduced description of the common goals and the personal goal.
      *
      * @param modelView The complete game view.
-     * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override
     public void updateClientPlaying(GameView modelView) {
@@ -218,15 +305,10 @@ public class Client extends UnicastRemoteObject implements viewListeners, Client
         play.start();
     }
 
-
-    public void endTurn() {
-            view.onWait();
-    }
-
     /**
-     * Notifies the user with the winner of the match.
+     * Notifies the user with the ranking and winner of the match.
      *
-     * @param winner The winner of the match.
+     * @param winner The ranking and winner of the match.
      * @throws RemoteException If a communication error occurs during the remote operation.
      */
     @Override

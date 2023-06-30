@@ -111,6 +111,8 @@ public class Game implements GameEventListener {
      * Constructor for game class.
      *
      * @param numberOfPlayers The number of the players that are joining the match.
+     * @throws IOException If an error occurred during the IO operation.
+     * @throws ParseException If an error occurred during the reading af a json file.
      */
     public Game (int numberOfPlayers) throws IOException, ParseException {
         Nplayers = numberOfPlayers;
@@ -150,6 +152,8 @@ public class Game implements GameEventListener {
 
     /**
      * Inserts the player in the next available spot of the set of players and increment the number of players.
+     *
+     * @param nick The nickname of the player to enroll.
      */
     public void signPlayer(String nick) {
         Player player = new Player(nick);
@@ -237,7 +241,9 @@ public class Game implements GameEventListener {
 
 
     /**
-     * Rearrange the set of player according to the scores and the order in turn of each player.
+     * Retrieves the winner and rearranges the set of player according to the scores and the order in turn of each player.
+     *
+     * @return The winner of the match.
      */
     public Player finalScore() {
 

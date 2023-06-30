@@ -29,7 +29,6 @@ public abstract class CommonGoalAbs implements Serializable {
 
     /**
      * Checks if a player's shelf comply with the requirements of the common goal card.
-     * The method is overridden to allow each class that extends this to check following its specific conditions.
      *
      * @param player The player whose shelf has to be checked.
      */
@@ -37,7 +36,6 @@ public abstract class CommonGoalAbs implements Serializable {
 
     /**
      * Shows the textual representation of the common goal card.
-     * The method is overridden to allow each class that extends this to show its particular textual representation.
      */
     public abstract void show();
 

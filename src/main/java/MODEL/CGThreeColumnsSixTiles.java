@@ -17,7 +17,7 @@ public class CGThreeColumnsSixTiles extends CGOnColumn {
     }
 
     /**
-     * {@inheritDoc}
+     * Checks if there are enough columns that respect the condition to achieve the common goal.
      *
      * @param player The player whose shelf has to be checked.
      * @param column The color

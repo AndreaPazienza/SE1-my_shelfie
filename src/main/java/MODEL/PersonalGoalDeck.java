@@ -19,6 +19,12 @@ public class PersonalGoalDeck {
      */
     private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
 
+    /**
+     * Constructor for PersonalGoalDeck class.
+     *
+     * @throws IOException If an error occurred during the IO operation.
+     * @throws ParseException If an error occurred during the reading af a json file.
+     */
     public PersonalGoalDeck() throws IOException, ParseException {
         // file JSON read
         //FileReader reader;
