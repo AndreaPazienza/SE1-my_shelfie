@@ -9,10 +9,22 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Class that represents the deck that contains the personal goal cards.
+ */
 public class PersonalGoalDeck {
 
+    /**
+     * The list of personal goal still in the deck.
+     */
     private ArrayList <PersonalGoal> personalGoalDeck = new ArrayList<>();
 
+    /**
+     * Constructor for PersonalGoalDeck class.
+     *
+     * @throws IOException If an error occurred during the IO operation.
+     * @throws ParseException If an error occurred during the reading af a json file.
+     */
     public PersonalGoalDeck() throws IOException, ParseException {
         // file JSON read
         //FileReader reader;
@@ -59,6 +71,11 @@ public class PersonalGoalDeck {
     }
 
 
+    /**
+     * Retrieves a randomly chosen personal goal from the deck.
+     *
+     * @return The extracted personal goal.
+     */
     public PersonalGoal extractionPGoal(){
 
         int randomIndex = new Random().nextInt(personalGoalDeck.size());
@@ -67,6 +84,11 @@ public class PersonalGoalDeck {
         return returningPersonal;
     }
 
+    /**
+     * Retrieves the list of personal goal still in the deck.
+     *
+     * @return The list of personal goal still in the deck.
+     */
     public ArrayList<PersonalGoal> getPersonalGoalDeck() {
         return personalGoalDeck;
     }

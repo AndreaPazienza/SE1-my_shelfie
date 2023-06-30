@@ -10,12 +10,26 @@ import Listeners.viewListeners;
 import MODEL.*;
 import MODEL.Color;
 
+/**
+ * Class that represents the textual user interface.
+ */
 public class GameInterface implements Runnable, viewListeners {
 
+    /**
+     * The list of viewListener that take the notifies from the view.
+     */
     private final List<viewListeners> listeners = new ArrayList<>();
+
+    /**
+     * The standard input.
+     */
     public Scanner keyboard;
 
-    //inserimento nickname per la prima volta
+    /**
+     * Retrieves the nickname insert by the player.
+     *
+     * @return The nickname insert by the user from the standard input.
+     */
     public String firstRun() {
     String nick = null;
     do{
@@ -29,7 +43,11 @@ public class GameInterface implements Runnable, viewListeners {
     return nick;
     }
 
-    //insert of the players number
+    /**
+     * Retrieves the number of players that are playing insert by the first player.
+     *
+     * @return The number of players insert by the user from standard input.
+     */
     public int numberOfPlayers() {
         int number = 0;
 
@@ -45,13 +63,28 @@ public class GameInterface implements Runnable, viewListeners {
         return number;
     }
 
+    /**
+     * Starts the two main phases of the turn.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     public void playing() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
             playerMoveSelection();
             playerInsert();
     }
 
 
-    //Selection of the cards from dashboard
+    /**
+     * Manages the selection phase and the order phase, receiving the number of the slots to select and their coordinates and the order of insertion.
+     *
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     * @throws NotAdjacentSlotsException If the user selects not adjacent slots.
+     * @throws NotCatchableException If the user selects one (or more) not catchable slots.
+     * @throws NotEnoughSpaceChoiceException If the user wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
+     */
     private void playerMoveSelection() throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
 
         int nChoices = 0;
@@ -60,8 +93,6 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("Inserire il numero di tessere da selezionare: ");
         do {
             nChoices = getCorrectInt();
-            //Manda notifica che viene controllata per vedere se esistono colonne che possono accettare questo numero di
-            //tessere selezionate dall'utente.
             notifyChoices(nChoices);
             if (nChoices < 1)
                 System.out.print("Scegliere almeno una tessera: ");
@@ -80,7 +111,7 @@ public class GameInterface implements Runnable, viewListeners {
 
             System.out.println("Inserire le coordinate della tessera da prendere");
             do {
-                //Insertion of the single tile and insertion into the tiles array.//Inserimento della tessera songola e inserimento nell'array di tessere
+                //Insertion of the single tile and insertion into the tiles array
                 alreadySelected = false;
                 do {
                     System.out.print("X: ");
@@ -107,7 +138,7 @@ public class GameInterface implements Runnable, viewListeners {
         if (nChoices != 1) {
             if (playerOrder()) {
                 if (nChoices == 2) {
-                    //Creating an OrderChoice with conventionally chosen parameters.
+                    //Creating an OrderChoice with conventionally chosen parameters
                     OrderChoice order = new OrderChoice(1, 1, 1);
                     notifyOrder(order);
                 }
@@ -154,7 +185,11 @@ public class GameInterface implements Runnable, viewListeners {
         }
     }
 
-    //Richiesta di ordinamento
+    /**
+     * Asks the player if he wants to reorder the slots selected before the insertion.
+     *
+     * @return True if the player printed 'yes', false if the player printed 'no'.
+     */
     private boolean playerOrder() {
         keyboard = new Scanner(System.in);
         boolean reorder = false;
@@ -179,7 +214,14 @@ public class GameInterface implements Runnable, viewListeners {
         return reorder;
     }
 
-    //Insertion of the selected tiles into the shelf.
+    /**
+     * Insertion of the selected tiles into the shelf in the column chosen by the player.
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     public void playerInsert() throws NotEnoughSpaceChoiceException, RemoteException, NotAdjacentSlotsException, NotCatchableException {
         keyboard = new Scanner(System.in);
         int column;
@@ -201,7 +243,11 @@ public class GameInterface implements Runnable, viewListeners {
         } while (!ok);
     }
 
-    //Method that checks if the input is actually an int value
+    /**
+     * Checks if the input is actually an integer.
+     *
+     * @return The integer from the standard input.
+     */
     private int getCorrectInt() {
         keyboard = new Scanner(System.in);
         int val = 0;
@@ -230,7 +276,11 @@ public class GameInterface implements Runnable, viewListeners {
         return val;
     }
 
-    //Method that checks if the input is actually a string
+    /**
+     * Method that checks if the input is actually a string not empty.
+     *
+     * @return The string from the standard input.
+     */
     private String getCorrectString() {
         keyboard = new Scanner(System.in);
         String string = "";
@@ -252,8 +302,11 @@ public class GameInterface implements Runnable, viewListeners {
         return string;
     }
 
-
-    //Printing the dashboard on screen.
+    /**
+     * Prints the dashboard on screen.
+     *
+     * @param board The dashboard to print.
+     */
     public void displayDashboard(Dashboard board) {
         System.out.print("\t");
         for (int k = 0; k < Dashboard.getSide(); k++) {
@@ -274,7 +327,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
-    //Printing the personal shelf on screen.
+    /**
+     * Prints the user's personal shelf on screen.
+     *
+     * @param shelf The personal shelf to print.
+     */
     public void displayPersonalShelf(PersonalShelf shelf) {
         System.out.print("\n\t");
         for (int k = 0; k < PersonalShelf.N_COLUMN; k++) {
@@ -295,7 +352,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
-    //Printing the Personal Goal on screen.
+    /**
+     * Prints the user's personal goal on screen.
+     *
+     * @param pGoal The personal goal to print.
+     */
     public void displayPersonalGoal(PersonalGoal pGoal) {
 
         boolean[][] isTarget = new boolean[PersonalShelf.N_ROWS][PersonalShelf.N_COLUMN];
@@ -328,40 +389,83 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("=======================================================================================================================================================\n");
     }
 
+    /**
+     * Notifies the user with the ranking and the winner of the match.
+     *
+     * @param winner The ranking and the winner of the match.
+     */
     public void displayWin(String winner){
         System.out.println("Il gioco è finito!! Il vincitore è: " + winner);
     }
+
+    /**
+     * Prints a message on the standard output to inform that at the end of the lap the game will be over.
+     */
     public void notifyAlmostOver(){
         System.out.println("Alla fine del giro il gioco terminerà, affrettatevi!!");
     }
+
+    /**
+     * Prints a message on the standard output to inform that another player just joined the game.
+     */
     public void arrived() {
         System.out.println("E' entrato un nuovo player");
     }
+
+    /**
+     * Prints a message on the standard output to the player whose turn just started.
+     */
     public void startTurn() {
         System.out.print("-- Inizio del nuovo turno -- \n");
     }
+
+    /**
+     * Prints a message on the standard output to the not playing player.
+     */
     public void onWait() {
         System.out.print("-- Non è il tuo turno --");
     }
+
+    /**
+     * Runs the textual interface.
+     */
     public void run() {
         System.out.print("");
     }
-    //Adding listener
+
+    /**
+     * Adds a listener to the view.
+     *
+     * @param listener The listener to add to the list.
+     */
     @Override
     public void addviewEventListener(viewListeners listener) {
             listeners.add(listener);
     }
 
-    //Notification to all listeners (Clients) of the completed selection.
+    /**
+     * Method that notify to the listeners about the tiles selected by the player.
+     *
+     * @param SC Object that contains the coordinates of the selected tiles.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifySelectedCoordinates(SlotChoice[] SC) throws RemoteException, NotAdjacentSlotsException, NotCatchableException, NotEnoughSpaceChoiceException {
         for( viewListeners listener : listeners  ) {
             listener.notifySelectedCoordinates(SC);
         }
     }
-    //Notify all listeners (Clients) of the successful notification.
+
+    /**
+     * Notifies Method that notify to the listeners about the order chosen by the player for the insert.
+     *
+     * @param o Object that contains the order of the tiles for the insert.
+     */
     @Override
-    public void notifyOrder(OrderChoice o) throws NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+    public void notifyOrder(OrderChoice o){
         for( viewListeners listener : listeners  ) {
             try {
                 listener.notifyOrder(o);
@@ -371,32 +475,72 @@ public class GameInterface implements Runnable, viewListeners {
                 throw new RuntimeException(e);
             }
         }
-        }
-     //Notification to all listeners (clients) of the successful insertion.
+    }
+
+    /**
+     * Notifies to the listeners about the column chosen by the player for the insert.
+     *
+     * @param column The column where the player wants to put the tiles in.
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyInsert(int column) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyInsert(column);
         }
     }
+
+    /**
+     * Notifies to the listeners if a player want to try another time to enter the game with a different nickname (he tried before to enter the game with a nickname already taken)
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws SameNicknameException Exception thrown if the nickname chosen by the player.
+     */
     @Override
     public void notifyOneMoreTime() throws RemoteException, SameNicknameException {
         for( viewListeners listener : listeners  ) {
             listener.notifyOneMoreTime();
         }
     }
+
+    /**
+     * Notifies to the listeners about the number of tiles selected by the player.
+     *
+     * @param number The number of tiles selected by the player.
+     *
+     * @throws RemoteException Exception thrown if there are problems with the client-server connection.
+     * @throws NotCatchableException Exception thrown if the tiles selected by the player are not catchable.
+     * @throws NotAdjacentSlotsException Exception thrown if the tiles selected by the player are not nearby.
+     * @throws NotEnoughSpaceChoiceException Exception thrown if there is not enough space to insert all the selected tiles.
+     */
     @Override
     public void notifyChoices(int number) throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
         for( viewListeners listener : listeners  ) {
             listener.notifyChoices(number);
         }
     }
+
+    /**
+     * Prints the two common goals on screen.
+     *
+     * @param gameView The game view to obtain the common goals.
+     */
     public void displayCommonGoal(GameView gameView){
             System.out.println("I common goal che sono stati estratti in questa partita sono: ");
             gameView.getCommonGoal1().show();
             gameView.getCommonGoal2().show();
         }
 
+    /**
+     * Asks for the reinsertion of the nickname.
+     *
+     * @param message The text message printed on the standard output.
+     * @throws SameNicknameException If a player choices a nickname already in use.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     public void errorNick(String message) throws SameNicknameException, RemoteException {
            System.out.println(message);
            System.out.println("\n Vuoi provare ad entrare nella partita con un nuovo nickname? ");
@@ -416,40 +560,75 @@ public class GameInterface implements Runnable, viewListeners {
             }
     }
 
+    /**
+     * Prints a message on the standard output that informs that the game is finished.
+     */
     public void endgame(){
         System.out.println(" Il gioco è finito! ");
     }
 
+    /**
+     * Prints a message on the standard output that informs that the game is already started so the access is denied.
+     */
     public void denyAcess() {
         System.err.println("La partita è già iniziata, troppo tardi :/ ");
     }
 
+    /**
+     * Prints a message on the standard output that informs that a player crashed.
+     */
     public void playerCrash() {System.err.println("E' crashato un player ");}
 
+    /**
+     * Prints a message on the standard output that informs that the game is cancelled due to a pre game crash.
+     */
     public void gameCancelled() {System.err.println("E' crashato un player in pregame, chiusura della partita, scusate! ");}
 
+    /**
+     * Prints
+     */
     public void waitingForPlayers() {System.out.println("Non ci sono abbastanza giocatori per continuare, attesa riconnessione o fine partita in 30s ");}
 
+    /**
+     * Prints an error for the selection of a single slot not catchable.
+     */
     public void errorNotCatchable() {
         System.out.println("La tessera selezionata non è prendibile! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error for the selection of a slot not catchable in a multiple choice.
+     */
     public void errorOneNotCatchable() {
         System.out.println("Una delle tessere selezionate non è prendibile! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error for the selection of not adjacent tiles.
+     */
     public void errorNotAdjacent() {
         System.out.println("Le tessere selezionate non sono adiacenti! Ripetere la selezione!");
     }
 
+    /**
+     * Prints an error message for the number of choices from the dashboard.
+     */
     public void errorSpaceChoicesError() {
         System.out.println("Non c'è abbastanza spazio nella shelf per così tante tessere!");
     }
 
+    /**
+     * Prints an error message for the insert.
+     */
     public void errorInsert() {
         System.out.println("La colonna selezionata non ha abbastanza spazio per tutte le tessere! Scegline un'altra!");
     }
 
+    /**
+     * Prints a reduced personal goal on screen.
+     *
+     * @param pgoal The personal goal to print.
+     */
     public void displayPersonalGoal2(PersonalGoal pgoal) {
         System.out.println("Il tuo Personal Goal è il seguente, non dimenticarlo!");
         for(int i=0; i < pgoal.getGoal().length; i++){
@@ -459,6 +638,11 @@ public class GameInterface implements Runnable, viewListeners {
         System.out.print("\n");
     }
 
+    /**
+     * Prints a textual description of the input common goal on screen.
+     *
+     * @param CG The common goal to describe.
+     */
     public void commonGoalReminder(CommonGoalAbs CG) {
         System.out.println("Common Goal attivo: " + CG.description());
     }

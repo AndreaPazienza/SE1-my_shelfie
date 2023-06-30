@@ -1,14 +1,26 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Five tiles of the same type forming an X.
 
-
+/**
+ * Class that represents the common goal card achievable inserting five tiles of the same color forming an X.
+ */
 public class CGFiveTilesX extends CommonGoalAbs {
+
+    /**
+     * Constructor for CGFiveTilesX class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGFiveTilesX(int players) {
         super(players);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
 
@@ -21,16 +33,17 @@ public class CGFiveTilesX extends CommonGoalAbs {
                 for (int j = 0; j < PersonalShelf.N_COLUMN - 2 && done; j++) {
                     for (int k = 0; k < 3; k++) {
                         for (int w = 0; w < 3; w++) {
+                            //Building the sub-matrix of color
                             submatrix[k][w] = player.getShelf().getSingleSlot(i + k, j + w).getColor();
                         }
                     }
-                    //Trova la X
+                    //Finding the cells of the sub-matrix that compose the X
                     Color beginMatrix = submatrix[0][0];
                     Color centralMatrix = submatrix[1][1];
                     Color topRightMatrix = submatrix[0][2];
                     Color bottomLeftMatrix = submatrix[2][0];
                     Color bottomRightMatrix = submatrix[2][2];
-
+                    //If the color of the X match the player receives the points
                     if (beginMatrix.equals(centralMatrix) && beginMatrix.equals(topRightMatrix) && beginMatrix.equals(bottomRightMatrix) &&
                             beginMatrix.equals(bottomLeftMatrix) && !beginMatrix.equals(Color.GREY)) {
                         givePoints(player);
@@ -41,6 +54,9 @@ public class CGFiveTilesX extends CommonGoalAbs {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Cinque tessere dello stesso tipo che formano una X");
@@ -73,6 +89,11 @@ public class CGFiveTilesX extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni 5 tessere dello stesso tipo in modo che formino una X. ";

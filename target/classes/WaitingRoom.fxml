@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<TitledPane fx:id="WaitingRoom" animated="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" text="IN ATTESA CHE ARRIVINO TUTTI I GIOCATORI" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VIEW.GraphicInterface">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: Lavender;">
+         <children>
+            <ImageView fitHeight="860.0" fitWidth="1316.0" layoutX="-2.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@GraphicResources/Publisher material/Display_5.jpg" />
+               </image>
+            </ImageView>
+            <SplitPane fx:id="Rulebook1Block" layoutX="-1.0" layoutY="-2.0" prefHeight="619.0" prefWidth="618.0">
+               <items>
+                  <ImageView fx:id="Rulebook1" fitHeight="649.0" fitWidth="674.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@GraphicResources/Publisher material/FlussoGioco.png" />
+                     </image>
+                  </ImageView>
+               </items>
+            </SplitPane>
+            <SplitPane fx:id="Rulebook2Block" layoutX="639.0" layoutY="-3.0" prefHeight="270.0" prefWidth="605.0">
+               <items>
+                  <ImageView fx:id="Rulebook2" fitHeight="413.0" fitWidth="686.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@GraphicResources/Publisher material/FinePartita.png" />
+                     </image></ImageView>
+               </items>
+            </SplitPane>
+            <ProgressBar fx:id="enrolledbar" layoutX="438.0" layoutY="701.0" prefHeight="37.0" prefWidth="423.0" progress="0.0" style="-fx-background-color: orange;" />
+            <Text fx:id="BarText" layoutX="335.0" layoutY="682.0" smooth="false" stroke="#e5d139" strokeType="OUTSIDE" text="IN ATTESA CHE ARRIVINO TUTTI I GIOCATORI" textAlignment="CENTER" wrappingWidth="672.4958665659256">
+               <font>
+                  <Font name="Noteworthy Light" size="33.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="waitingTextArea" editable="false" layoutX="644.0" layoutY="413.0" prefHeight="141.0" prefWidth="374.0">
+               <effect>
+                  <ColorInput />
+               </effect>
+            </TextArea>
+         </children></AnchorPane>
+  </content>
+</TitledPane>

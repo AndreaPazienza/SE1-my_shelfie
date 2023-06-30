@@ -2,18 +2,19 @@ package VIEW;
 
 import MODEL.Color;
 
-public enum Image {
+/**
+ * Class that represents the image on a tile.
+ */
+public class Image {
 
-    CAT,
-    PLANT,
-    FRAME,
-    TROPHY,
-    BOOK,
-    GAME;
-
-    //Conversion from the color to the image on the card
-    public static String colorToImage(Color c) {
-        switch (c) {
+    /**
+     * Retrieves the image on the tile with the input color.
+     *
+     * @param color The input color.
+     * @return The image on the input color tile.
+     */
+    public static String colorToImage(Color color) {
+        switch (color) {
             case GREEN -> {
                 return "  CAT  ";
             }

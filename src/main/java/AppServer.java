@@ -8,9 +8,17 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.Scanner;
 
+/**
+ *  Class that represents the main class for a server application using RMI communication.
+ */
 public class AppServer {
 
-
+    /**
+     * The entry point of the communication.
+     *
+     * @param args The arguments from command line.
+     * @throws RemoteException If a communication error occurs during the remote operation.
+     */
     public static void main(String[] args) throws RemoteException{
 
         System.out.print("Inserire l'indirizzo ip del server: ");

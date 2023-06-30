@@ -2,21 +2,32 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-//Five columns of increasing or decreasing height.
-// Starting from the first column on the left or on the right, each next column must be made of exactly one more tile.
-// Tiles can be of any type.
+/**
+ * Class that represents the common goal card achievable filling five columns of increasing or decreasing height with tiles of any color.
+ */
 public class CGDecreaseTiles extends CommonGoalAbs {
 
+    /**
+     * Constructor for CGDecreaseTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGDecreaseTiles(int players){
         super(players);
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
+    @Override
     public void control(Player player) {
 
         if (!playerAchived[playing]) {
+            //Checking the main diagonal
             int i = 1, j = 0;
             Color nextDiagonal = player.getShelf().getSingleSlot(i, j).getColor();
-            ;
             boolean checker = true;
             if (!nextDiagonal.equals(Color.GREY)) {
                 do {
@@ -31,6 +42,7 @@ public class CGDecreaseTiles extends CommonGoalAbs {
             } else checker = false;
 
             if (!checker) {
+                //Checking the secondary diagonal
                 checker = true;
                 i = 5;
                 j = 0;
@@ -47,11 +59,14 @@ public class CGDecreaseTiles extends CommonGoalAbs {
                     } while (checker && i > 1);
                 } else checker = false;
             }
-
+            //If the check is passed the player receives the points
             if (checker) givePoints(player);
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Cinque colonne di altezza crescente o decrescente: a partire dalla prima colonna a sinistra o a destra, ogni colonna successiva deve essere formata da una tessera in più. Le tessere possono essere di qualsiasi tipo.");
@@ -91,6 +106,11 @@ public class CGDecreaseTiles extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni una scala nella tua Shelf, partendo da altezza 5 e finendo nella 1. ";

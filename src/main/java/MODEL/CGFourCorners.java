@@ -2,14 +2,26 @@ package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
 
-//Four tiles of the same type in the four corners of the bookshelf.
-
-
+/**
+ * Class that represents the common goal card achievable inserting four tiles of the same color in the four corners of the bookshelf.
+ */
 public class CGFourCorners extends CommonGoalAbs {
 
+    /**
+     * Constructor for CGFourCorners class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGFourCorners(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
+    @Override
     public void control(Player player) {
 
         if(!playerAchived[playing]) {
@@ -21,10 +33,14 @@ public class CGFourCorners extends CommonGoalAbs {
           Color bottomLeft = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS - 1, 0).getColor();
           Color topRight = player.getShelf().getSingleSlot(0, PersonalShelf.N_COLUMN - 1).getColor();
           Color bottomRight = player.getShelf().getSingleSlot(PersonalShelf.N_ROWS - 1, PersonalShelf.N_COLUMN - 1).getColor();
+          //If the colors of the four corners match the player receives the points
           if (topLeft.equals(bottomLeft) && topLeft.equals(bottomRight) && topLeft.equals(topRight)) { givePoints(player);}
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Quattro tessere dello stesso tipo ai quattro angoli della shelf");
@@ -56,6 +72,11 @@ public class CGFourCorners extends CommonGoalAbs {
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni tessere dello stesso tipo negli angoli della tua Shelf! ";

@@ -1,17 +1,26 @@
 package MODEL;
 import VIEW.ColorPrint;
 import VIEW.Image;
-//Six groups each containing at least
-//2 tiles of the same type (not necessarily in the depicted shape).
-//The tiles of one group can be different from those of another group.
 
-
-
+/**
+ * Class that represents the common goal card achievable inserting six groups each containing at least two tiles of the same color.
+ */
 public class CGSixGroupsTwoTiles extends CommonGoalAbs{
 
+    /**
+     * Constructor for CGSixGroupsTwoTiles class.
+     *
+     * @param players The number of players in the match.
+     */
     public CGSixGroupsTwoTiles(int players){
         super(players);
     }
+
+    /**
+     * {@inheritDoc}
+     *
+     * @param player The player whose shelf has to be checked.
+     */
     @Override
     public void control(Player player) {
 
@@ -24,10 +33,12 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
                 if (!visited[i][j]) {
                     Color checkingColor = player.getShelf().getSingleSlot(i, j).getColor();
                     if (!checkingColor.Equals(Color.GREY)) {
+                        //Checking the upper slot
                         if (i + 1 < PersonalShelf.N_ROWS && player.getShelf().getSingleSlot(i + 1, j).getColor().equals(checkingColor)) {
                             count++;
                             visited[i + 1][j] = true;
                         }
+                        //Checking the right slot
                         if (j + 1 < PersonalShelf.N_COLUMN && player.getShelf().getSingleSlot(i, j + 1).getColor().equals(checkingColor)) {
                             count++;
                             visited[i][j + 1] = true;
@@ -37,11 +48,15 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
                 visited[i][j]=true;
             }
         }
+        //If the groups are equal or more than 6 the player receives the points
        if(count >= 6){
            givePoints(player);
        }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void show() {
         System.out.println("Sei gruppi separati formati ciascuno da due tessere adiacenti dello stesso tipo (non necessariamente come mostrato in figura). Le tessere di un gruppo possono essere diverse da quelle di un altro gruppo.");
@@ -81,6 +96,11 @@ public class CGSixGroupsTwoTiles extends CommonGoalAbs{
         System.out.print("\n");
     }
 
+    /**
+     * {@inheritDoc}
+     *
+     * @return The textual description of the common goal.
+     */
     @Override
     public String description() {
         return "Ottieni sei gruppi separati composti da due tessere adiacenti ";

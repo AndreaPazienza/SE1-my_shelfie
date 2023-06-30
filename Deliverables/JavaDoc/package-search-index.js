@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"CONTROLLER"},{"l":"Distributed"},{"l":"Distributed.rmi"},{"l":"Errors"},{"l":"Listeners"},{"l":"MODEL"},{"l":"VIEW"}];updateSearchResults();

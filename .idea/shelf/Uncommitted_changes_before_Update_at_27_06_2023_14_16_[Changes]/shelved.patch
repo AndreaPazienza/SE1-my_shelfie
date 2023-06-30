@@ -1,0 +1,313 @@
+Index: src/main/java/MODEL/Player.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package MODEL;\r\n\r\npublic class Player {\r\n    public String nickname;\r\n    private int orderInTurn;\r\n    private int score;\r\n    private PersonalShelf shelf;\r\n    private boolean chair;\r\n\r\n    private PersonalGoal pgoal;\r\n\r\n    public int getOrderInTurn() {\r\n        return orderInTurn;\r\n    }\r\n\r\n    public int getScore() {\r\n        return score;\r\n    }\r\n\r\n    public String getNickname() {\r\n        return nickname;\r\n    }\r\n\r\n    public PersonalShelf getShelf() {\r\n        return shelf;\r\n    }\r\n\r\n    public boolean isChair() {\r\n        return chair;\r\n    }\r\n\r\n    public void setNickname(String name) {\r\n        this.nickname = name;\r\n    }\r\n\r\n    public void setChair() {\r\n        if(this.orderInTurn == 1) {     //To set the chair, I check the order in turn.\r\n            this.chair = true;          // if the player plays first, set it to true.\r\n        }\r\n        else this.chair = false;\r\n    }\r\n\r\n    public void setOrderInTurn(int order) {\r\n        this.orderInTurn = order;\r\n    }\r\n\r\n    public void setScore(int points) {\r\n        this.score = points;\r\n    }\r\n\r\n    public void setPgoal(PersonalGoal pgoal) {\r\n        this.pgoal = pgoal;\r\n    }\r\n\r\n    public void setShelf(PersonalShelf shelf) {\r\n        this.shelf = shelf;\r\n    }\r\n\r\n    public Slot selectCard (Dashboard dashboard, int x, int y) {\r\n        Slot selectedCard = new Slot(dashboard.getSingleSlot(x,y).getColor());\r\n        selectedCard.setType(dashboard.getSingleSlot(x,y).getType());\r\n        dashboard.getSingleSlot(x,y).setGrey();\r\n        dashboard.getSingleSlot(x,y).setCatchable(false);\r\n        return selectedCard;\r\n    }\r\n\r\n    public void orderCards(Slot[] selectedCards, int p, int s, int t) { //p is the position in the starting array of the first tile in the reordered array, s is the second, t the third\r\n        Slot[] tmp = new Slot[3];\r\n        tmp[0] = selectedCards[p-1];\r\n        tmp[1] = selectedCards[s-1];\r\n        tmp[2] = selectedCards[t-1];\r\n        for(int i = 0; i < 3; i++){\r\n            selectedCards[i] = tmp[i];\r\n        }\r\n    }\r\n\r\n    public void orderCards(Slot[] selectedCards){ //method that sorts if I have chosen only two tiles\r\n        Slot tmp = selectedCards[1];\r\n        selectedCards[1] = selectedCards[0];\r\n        selectedCards[0] = tmp;\r\n    }\r\n\r\n    public void sumPoints(int p){\r\n        int points = this.getScore()+p;\r\n        this.setScore(points);\r\n    }\r\n\r\n    public void checkScore(){\r\n        int pgoalPoints = pgoal.assignPoint(shelf);\r\n        int sgoalsPoints = this.getScore(); //the sharedgoals points are already included in the score (give points method)\r\n        int nearbyPoints = this.shelf.calculatePoints();\r\n        int points = pgoalPoints+sgoalsPoints+nearbyPoints; //idea: calculate the 3 individual scores and add them together.\r\n        this.setScore(points);\r\n    }\r\n\r\n    public PersonalGoal getPgoal() {\r\n        return pgoal;\r\n    }\r\n\r\n    public Player(String nick){\r\n        this.nickname = nick;\r\n        this.score = 0;\r\n        this.shelf = new PersonalShelf();\r\n        this.pgoal = null;\r\n        this.orderInTurn = 0;\r\n        this.chair = false;\r\n    }\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/MODEL/Player.java b/src/main/java/MODEL/Player.java
+--- a/src/main/java/MODEL/Player.java	(revision c690c8dbf1ad452d7221165427e842225bf5d40c)
++++ b/src/main/java/MODEL/Player.java	(date 1687801323553)
+@@ -1,6 +1,9 @@
+ package MODEL;
+ 
+-public class Player {
++import java.io.Serializable;
++
++public class Player implements Serializable {
++
+     public String nickname;
+     private int orderInTurn;
+     private int score;
+@@ -25,6 +28,7 @@
+         return shelf;
+     }
+ 
++    /*
+     public boolean isChair() {
+         return chair;
+     }
+@@ -39,7 +43,7 @@
+         }
+         else this.chair = false;
+     }
+-
++    */
+     public void setOrderInTurn(int order) {
+         this.orderInTurn = order;
+     }
+@@ -80,8 +84,8 @@
+         selectedCards[0] = tmp;
+     }
+ 
+-    public void sumPoints(int p){
+-        int points = this.getScore()+p;
++    public void sumPoints(int pointsToAdd){
++        int points = this.getScore()+pointsToAdd;
+         this.setScore(points);
+     }
+ 
+Index: src/main/java/CONTROLLER/GameController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package CONTROLLER;\r\n\r\nimport Errors.NotAdjacentSlotsException;\r\nimport Errors.NotCatchableException;\r\nimport Errors.NotEnoughSpaceChoiceException;\r\nimport MODEL.*;\r\nimport VIEW.OrderChoice;\r\nimport VIEW.SlotChoice;\r\n\r\nimport java.rmi.RemoteException;\r\n\r\n\r\npublic class GameController{\r\n    private final Game game;\r\n    private Slot[] selectedSlots;\r\n\r\n    public GameController(Game game){\r\n        this.game=game;\r\n    }\r\n\r\n\r\n    public void startGame () throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {\r\n            game.setGameOn(true);\r\n            game.startGame();\r\n    }\r\n\r\n    public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {\r\n        game.nextPlayerInGame();\r\n    }\r\n\r\n    public String getOnStage(){\r\n        return game.playerOnStage().getNickname();\r\n    }\r\n\r\n    //controllo se il nickname è stato già preso\r\n    public boolean checkNick(String name){\r\n        for(int i = 0; i < game.getPlayerInGame(); i++){\r\n            if(game.getPlayer()[i].nickname.equals(name)){\r\n                return false; //genera un eccezione SAMENICK\r\n            }\r\n        }\r\n        return true;\r\n    }\r\n\r\n    //method which controls if a tile can be caught\r\n    public boolean checkCoordinates(int x, int y){\r\n        return game.getTable().getSingleSlot(x,y).isCatchable();\r\n    }\r\n\r\n    //method which controls if two tiles are nearby\r\n    public boolean checkAdjacent(int x, int y, int x1, int y1){\r\n        if((x == x1 && (y == y1 + 1 || y == y1-1)) || (y == y1 && (x == x1+1 || x == x1-1))){\r\n            return true;\r\n        }\r\n        return false;\r\n    }\r\n\r\n    public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException, RemoteException {\r\n        selectedSlots = new Slot[selectedCards.length];\r\n        switch (selectedCards.length){\r\n            case 1 -> {\r\n                int x = selectedCards[0].getX();\r\n                int y = selectedCards[0].getY();\r\n                if(checkCoordinates(x, y)){\r\n                    selectedSlots[0]=game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y);\r\n                } else {\r\n                    game.setLastError(GameError.SELECT_ERROR_NOT_CATCHABLE);\r\n                    throw new NotCatchableException(\"La tessera selezionata non può essere presa!\");\r\n                }\r\n            }\r\n            case 2 -> {\r\n                int x = selectedCards[0].getX();\r\n                int y = selectedCards[0].getY();\r\n                int x1 = selectedCards[1].getX();\r\n                int y1 = selectedCards[1].getY();\r\n                if(checkCoordinates(x,y) && checkCoordinates(x1,y1)){\r\n\r\n                    if(checkAdjacent(x, y, x1, y1)){\r\n                        selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));\r\n                        selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));\r\n                    } else {\r\n                        game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);\r\n                        throw new NotAdjacentSlotsException(\"Le tessere selezionate non sono adiacenti!\");\r\n                    }\r\n                } else {\r\n                    game.setLastError(GameError.SELECT_ERROR_ONE_NOT_CATCHABLE);\r\n                    throw new NotCatchableException(\"Una delle tessere selezionate non può essere presa!\");\r\n                }\r\n            }\r\n            case 3 -> {\r\n                int x = selectedCards[0].getX();\r\n                int y = selectedCards[0].getY();\r\n                int x1 = selectedCards[1].getX();\r\n                int y1 =  selectedCards[1].getY();\r\n                int x2 = selectedCards[2].getX();\r\n                int y2 =  selectedCards[2].getY();\r\n                if(checkCoordinates(x,y) && checkCoordinates(x1, y1) && checkCoordinates(x2, y2)){\r\n                    /*this if is used to control the fact that the tiles are adjacent and that they form a straight line;\r\n                    the first term of the expression is true if the first pair of coordinates (x,y) is adjacent to at least one between (x1,y1) and (x2,y2)\r\n                    the second term tell us, combined with the first one, if the three tiles are nearby.\r\n                    the last one is used to accept only group of tiles that form a straight line*/\r\n                    if((checkAdjacent(x,y,x1,y1) || checkAdjacent(x,y,x2,y2)) && checkAdjacent(x1,y1,x2,y2) && ((x == x1 && x1 == x2) || (y == y1 && y1 == y2))){\r\n                        selectedSlots[0]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x, y));\r\n                        selectedSlots[1]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x1, y1));\r\n                        selectedSlots[2]=(game.getPlayer()[game.getPlayerInGame()].selectCard(game.getTable(), x2, y2));\r\n                    } else {\r\n                        game.setLastError(GameError.SELECT_ERROR_NOT_ADJACENT);\r\n                        throw new NotAdjacentSlotsException(\"Le tessere selezionate non sono adiacenti!\");\r\n                    }\r\n                } else {\r\n                    game.setLastError(GameError.SELECT_ERROR_ONE_NOT_CATCHABLE);\r\n                    throw new NotCatchableException(\"Una delle tessere selezionate non può essere presa!\");\r\n                }\r\n            }\r\n        }\r\n    }\r\n\r\n    public void checkOrder(OrderChoice o){\r\n        if(o.getT() == 1 && o.getP() == 1 && o.getS() == 1){\r\n            game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots);\r\n        } else {\r\n            game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots, o.getP(), o.getS(), o.getT());\r\n        }\r\n    }\r\n    public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {\r\n        int countSpaces = 0;\r\n        for(int i = 0; i < PersonalShelf.N_ROWS; i++){\r\n            if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i, column).getColor().Equals(Color.GREY)){\r\n                countSpaces++;\r\n            }\r\n        }\r\n\r\n        if(countSpaces >= selectedSlots.length) {\r\n            game.getPlayer()[game.getPlayerInGame()].getShelf().insert(selectedSlots, column);\r\n        } else {\r\n            game.setLastError(GameError.INSERT_ERROR);\r\n            System.err.println(\"Mando eccezione di non abbstanza spazio \");\r\n            throw new NotEnoughSpaceChoiceException(\"La colonna scelta non può contenere così tante tessere!\");\r\n        }\r\n    }\r\n\r\n    public void completeShelf() {\r\n       game.getPlayer()[game.getPlayerInGame()].sumPoints(1);\r\n    }\r\n\r\n    public String endGame(){\r\n\r\n        Player winner;\r\n        for(int i = 0; i < game.getPlayer().length; i++){\r\n            game.getPlayer()[i].checkScore();\r\n        }\r\n        game.finalScore();\r\n        StringBuilder endGameString = new StringBuilder();\r\n        game.setGameOn(false);\r\n\r\n        for(int i=0; i < game.getNplayers(); i++){\r\n            endGameString.append(\"\\n\").append(game.getPlayer()[i].getNickname()).append(\" ha totalizzato: \").append(game.getPlayer()[i].getScore()).append(\" punti \");\r\n        }\r\n        //endGameString.append(\"\\n Il vincitore è: \").append(winner.getNickname()).append(\" Congratulazioni!\");\r\n\r\n        return endGameString.toString();\r\n    }\r\n\r\n    //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.\r\n    public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {\r\n        System.out.println(\"Aggioramento del turno in corso.. \\n\");\r\n        game.updateTurn();\r\n    }\r\n\r\n    //Problemi in questa funzione quando crasha un player con 3 giocatori\r\n    public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {\r\n\r\n        int rows = PersonalShelf.N_ROWS;\r\n        int column = PersonalShelf.N_COLUMN;\r\n        int freeDashboardSpace1 = 0;\r\n        int freeDashboardSpace2 = 0;\r\n        int freeColumnSpace = 0;\r\n        boolean spaceDashboard = false;\r\n        boolean spaceShelf = false;\r\n\r\n        //Checking the dashboard row by row\r\n        for (int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {\r\n            int counter = 0;\r\n            for(int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {\r\n                if (counter == 0) {\r\n                    if (game.getTable().getSingleSlot(i,j).isCatchable())\r\n                        counter ++;\r\n                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i,j-1).isCatchable())\r\n                    counter ++;\r\n\r\n                if (!game.getTable().getSingleSlot(i,j).isCatchable())\r\n                    counter = 0;\r\n\r\n                if (counter >= freeDashboardSpace1)\r\n                    freeDashboardSpace1 = counter;\r\n                if (freeDashboardSpace1 >= number)\r\n                    spaceDashboard = true;\r\n            }\r\n        }\r\n\r\n        //Checking the dashboard column by column\r\n        for (int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {\r\n            int counter = 0;\r\n            for(int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {\r\n                if (counter == 0) {\r\n                    if (game.getTable().getSingleSlot(i,j).isCatchable())\r\n                        counter ++;\r\n                } else if (game.getTable().getSingleSlot(i,j).isCatchable() && game.getTable().getSingleSlot(i-1,j).isCatchable())\r\n                    counter ++;\r\n\r\n                if (!game.getTable().getSingleSlot(i,j).isCatchable())\r\n                    counter = 0;\r\n\r\n                if (counter >= freeDashboardSpace1)\r\n                    freeDashboardSpace2 = counter;\r\n                if (freeDashboardSpace2 >= number)\r\n                    spaceDashboard = true;\r\n            }\r\n        }\r\n\r\n        //Checking the shelf\r\n        for (int j=0; j < column && !spaceShelf ; j++){\r\n            for(int i=0; i < rows && !spaceShelf ; i++){\r\n                if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){\r\n                    freeColumnSpace++;\r\n                }\r\n                if(freeColumnSpace>=number){\r\n                    System.out.println(\"Colonna libera trovata \");\r\n                    spaceShelf = true;\r\n                }\r\n            }\r\n            freeColumnSpace = 0;\r\n        }\r\n\r\n        if (spaceDashboard && spaceShelf)\r\n            return;\r\n\r\n\r\n        //Entra comunque in questo IF, non va bene\r\n        System.err.println(\"Nessuna posizione libera trovata \");\r\n        game.setLastError(GameError.SPACE_CHOICES_ERROR);\r\n        throw new NotEnoughSpaceChoiceException(\"Non c'è abbastanza spazio per prendere il numero desiderato \");\r\n    }\r\n\r\n    public void switchGameState(){\r\n        game.setGameOn(!game.isGameOn());\r\n    }\r\n\r\n\r\n    public Slot[] getSelectedSlots() {\r\n        return selectedSlots;\r\n    }\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/CONTROLLER/GameController.java b/src/main/java/CONTROLLER/GameController.java
+--- a/src/main/java/CONTROLLER/GameController.java	(revision c690c8dbf1ad452d7221165427e842225bf5d40c)
++++ b/src/main/java/CONTROLLER/GameController.java	(date 1687861174517)
+@@ -4,16 +4,31 @@
+ import Errors.NotCatchableException;
+ import Errors.NotEnoughSpaceChoiceException;
+ import MODEL.*;
+-import VIEW.OrderChoice;
+ import VIEW.SlotChoice;
+-
++import VIEW.OrderChoice;
+ import java.rmi.RemoteException;
+ 
+-
++/**
++ * Class that represents the controller of the game, it checks the input from the user interface and modifies the model of te game.
++ */
+ public class GameController{
++
++    /**
++     * The model of the game associated to the controller.
++     */
+     private final Game game;
++
++    /**
++     * The slots selected by the player in the current turn.
++     */
+     private Slot[] selectedSlots;
+ 
++
++    /**
++     * Constructor for Controller class.
++     *
++     * @param game The model of the game associated to the controller.
++     */
+     public GameController(Game game){
+         this.game=game;
+     }
+@@ -24,30 +39,61 @@
+             game.startGame();
+     }
+ 
++    /**
++     * Skips the turn of the player who should be playing.
++     *
++     * @throws RemoteException If an error occurs while executing the remote operation.
++     * @throws NotEnoughSpaceChoiceException
++     * @throws NotAdjacentSlotsException
++     * @throws NotCatchableException
++     */
+     public void skipTurn() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+         game.nextPlayerInGame();
+     }
+ 
++    /**
++     * Retrieves the nickname of the current player.
++     *
++     * @return The nickname of the current player.
++     */
+     public String getOnStage(){
+         return game.playerOnStage().getNickname();
+     }
+ 
+-    //controllo se il nickname è stato già preso
++    /**
++     * Checks if the nickname chosen by a player is already in the enrolled nickname list.
++     *
++     * @param name The nickname to check.
++     * @return True if the nickname is already picked, False otherwise.
++     */
+     public boolean checkNick(String name){
+         for(int i = 0; i < game.getPlayerInGame(); i++){
+             if(game.getPlayer()[i].nickname.equals(name)){
+-                return false; //genera un eccezione SAMENICK
++                return false;
+             }
+         }
+         return true;
+     }
+ 
+-    //method which controls if a tile can be caught
++    /**
++     * Checks if the slot corresponding to the input coordinates is catchable.
++     *
++     * @param x The index of the dashboard's slot's row to check.
++     * @param y The index of the dashboard's slot's column to check.
++     * @return True if the slot is catchable, False otherwise.
++     */
+     public boolean checkCoordinates(int x, int y){
+         return game.getTable().getSingleSlot(x,y).isCatchable();
+     }
+ 
+-    //method which controls if two tiles are nearby
++    /**
++     * Checks if two slot corresponding to the input coordinates are nearby.
++     *
++     * @param x The index of the first dashboard's slot's row to check.
++     * @param y The index of the first dashboard's slot's column to check.
++     * @param x1 The index of the second dashboard's slot's row to check.
++     * @param y1 The index of the second dashboard's slot's column to check.
++     */
+     public boolean checkAdjacent(int x, int y, int x1, int y1){
+         if((x == x1 && (y == y1 + 1 || y == y1-1)) || (y == y1 && (x == x1+1 || x == x1-1))){
+             return true;
+@@ -55,6 +101,14 @@
+         return false;
+     }
+ 
++    /**
++     * Checks if the selection of the player is correct according to the rules, then proceeds to the selection in the model of the game.
++     *
++     * @param selectedCards The slots selected by the player in the current turn.
++     * @throws NotCatchableException
++     * @throws NotAdjacentSlotsException
++     * @throws RemoteException If an error occurs while executing the remote operation.
++     */
+     public void checkSelect(SlotChoice[] selectedCards) throws NotCatchableException, NotAdjacentSlotsException, RemoteException {
+         selectedSlots = new Slot[selectedCards.length];
+         switch (selectedCards.length){
+@@ -115,6 +169,12 @@
+         }
+     }
+ 
++
++    /**
++     *
++     *
++     * @param o
++     */
+     public void checkOrder(OrderChoice o){
+         if(o.getT() == 1 && o.getP() == 1 && o.getS() == 1){
+             game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots);
+@@ -122,6 +182,14 @@
+             game.getPlayer()[game.getPlayerInGame()].orderCards(selectedSlots, o.getP(), o.getS(), o.getT());
+         }
+     }
++
++    /**
++     * Checks if the column chosen by the player has enough free slots to perform the insertion.
++     *
++     * @param column The shelf's column index chosen by the player.
++     * @throws NotEnoughSpaceChoiceException If a player wants to insert in a column
++     * @throws RemoteException If an error occurs while executing the remote operation.
++     */
+     public void checkInsert(int column) throws NotEnoughSpaceChoiceException, RemoteException {
+         int countSpaces = 0;
+         for(int i = 0; i < PersonalShelf.N_ROWS; i++){
+@@ -139,35 +207,35 @@
+         }
+     }
+ 
++    /**
++     * Adds an extra point to the first player who completed his personal shelf.
++     */
+     public void completeShelf() {
+        game.getPlayer()[game.getPlayerInGame()].sumPoints(1);
+     }
+ 
+-    public String endGame(){
+-
+-        Player winner;
+-        for(int i = 0; i < game.getPlayer().length; i++){
+-            game.getPlayer()[i].checkScore();
+-        }
+-        game.finalScore();
+-        StringBuilder endGameString = new StringBuilder();
+-        game.setGameOn(false);
+-
+-        for(int i=0; i < game.getNplayers(); i++){
+-            endGameString.append("\n").append(game.getPlayer()[i].getNickname()).append(" ha totalizzato: ").append(game.getPlayer()[i].getScore()).append(" punti ");
+-        }
+-        //endGameString.append("\n Il vincitore è: ").append(winner.getNickname()).append(" Congratulazioni!");
+-
+-        return endGameString.toString();
+-    }
+-
+-    //Si occupa dell'effettivo cambio turno nel gioco del modello scegliendo il nuovo gicatore.
++    /**
++     * Updates the turn in the game.
++     *
++     * @throws RemoteException If an error occurs while executing the remote operation.
++     * @throws NotEnoughSpaceChoiceException If a player wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
++     * @throws NotAdjacentSlotsException
++     * @throws NotCatchableException
++     */
+     public void turnUpdate() throws RemoteException, NotEnoughSpaceChoiceException, NotAdjacentSlotsException, NotCatchableException {
+         System.out.println("Aggioramento del turno in corso.. \n");
+         game.updateTurn();
+     }
+ 
+     //Problemi in questa funzione quando crasha un player con 3 giocatori
++
++    /**
++     * Checks if the number of slots to select insert to the player can actually be selected according to the catchable slots positioning in the dashboard and the available spaces in the shelf.
++     *
++     * @param number The number of slots the player would like to select.
++     * @throws NotEnoughSpaceChoiceException If a player wants to select too much slots (according to the space in his shelf and the slot's configuration on the dashboard).
++     * @throws RemoteException If an error occurs while executing the remote operation.
++     */
+     public void checkSpaceChoices(int number) throws NotEnoughSpaceChoiceException, RemoteException {
+ 
+         int rows = PersonalShelf.N_ROWS;
+@@ -178,7 +246,7 @@
+         boolean spaceDashboard = false;
+         boolean spaceShelf = false;
+ 
+-        //Checking the dashboard row by row
++        //Checking the dashboard row by row to find the max number of catchable slots on the same line
+         for (int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
+             int counter = 0;
+             for(int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
+@@ -198,7 +266,7 @@
+             }
+         }
+ 
+-        //Checking the dashboard column by column
++        //Checking the dashboard column by column to find the max number of catchable slots on the same line
+         for (int j = 0; j < Dashboard.getSide() && !spaceDashboard; j ++) {
+             int counter = 0;
+             for(int i = 0; i < Dashboard.getSide() && !spaceDashboard; i ++) {
+@@ -218,7 +286,7 @@
+             }
+         }
+ 
+-        //Checking the shelf
++        //Checking the shelf column by column to find the max empty slots in a single column
+         for (int j=0; j < column && !spaceShelf ; j++){
+             for(int i=0; i < rows && !spaceShelf ; i++){
+                 if(game.getPlayer()[game.getPlayerInGame()].getShelf().getSingleSlot(i,j).getColor().Equals(Color.GREY)){
+@@ -232,6 +300,7 @@
+             freeColumnSpace = 0;
+         }
+ 
++
+         if (spaceDashboard && spaceShelf)
+             return;
+ 
+@@ -242,11 +311,18 @@
+         throw new NotEnoughSpaceChoiceException("Non c'è abbastanza spazio per prendere il numero desiderato ");
+     }
+ 
++    /**
++     * Switches the current state of the game.
++     */
+     public void switchGameState(){
+         game.setGameOn(!game.isGameOn());
+     }
+ 
+-
++    /**
++     * Retrieves the slots selected by the player in the current turn.
++     *
++     * @return The slots selected by the player in the current turn.
++     */
+     public Slot[] getSelectedSlots() {
+         return selectedSlots;
+     }

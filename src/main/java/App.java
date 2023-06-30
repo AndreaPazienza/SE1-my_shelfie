@@ -11,26 +11,31 @@ import java.rmi.registry.Registry;
 import java.util.Scanner;
 
 /**
- * Hello world!
- *
+ *  Class that represents the main class for a client-server application using RMI communication.
  */
 public class App 
 {
-    public static void main( String[] args ) throws RemoteException, SameNicknameException, NotBoundException {
+    /**
+     * The entry point of the communication.
+     *
+     * @param args The arguments from command line.
+     * @throws RemoteException If an error occurs during the remote connection.
+     * @throws SameNicknameException If a player choices a nickname already in use.
+     * @throws NotBoundException If an attempt is made to lookup or unbind in the registry a name that has no associated binding.
+     */
+    public static void main(String[] args) throws RemoteException, SameNicknameException, NotBoundException {
 
         String answer;
         Scanner keyboard = new Scanner(System.in);
         do{
          System.out.print("Vuoi essere client o server? ");
-         answer= keyboard.nextLine();
+         answer = keyboard.nextLine();
         }while(!answer.equals("client") && !answer.equals("server"));
 
         if(answer.equals("client")){
-            //Manca controllo del input
             System.out.println("Inserire l'indirizzo ip del server a cui vuoi connetterti: ");
             keyboard = new Scanner(System.in);
             String IP = keyboard.nextLine();
-            //Si usa next Line o next Int?
             Registry registry = LocateRegistry.getRegistry(IP,1068);
             ServerRMIInterface server = (ServerRMIInterface) registry.lookup("server");
             Client client = new Client(server);
