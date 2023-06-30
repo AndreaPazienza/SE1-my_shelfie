@@ -1,5 +1,5 @@
-# MyShelfie: Ronchieri, Proverbio, Tagab, Pazienza
-#
+# MyShelfie: GC38 Ronchieri, Proverbio, Tagab, Pazienza
+    
 # Implementation: 
    - Complete Rules
    - TUI
@@ -7,11 +7,11 @@
    - Advanced Functionality: Resilience to disconnections
 
 # How to run the application:
-    To be able to play the game you must have ANSI standard 
-    enabled on your computer in order to be able to see colors in the TUI
+    To be able to play the game you must have: ANSI standard 
+    enabled on your computer (in order to be able to see colors in the TUI
     otherwise it is going to print a string with numbers and other char, this will
-    allow you to play by using shelf's position & slot's names.
-    This will ruin game experince!
+    allow you to play anyway by using slot's names. This will ruin game experince!)
+    & at least Java 19 since it's been compiled with that version.
 
     We made two different JAR files, one for the server and
     the other one for the client.
@@ -23,7 +23,7 @@
     that you want to run and then type:
     java -jar +MyShelfieServer.jar 
 
-    (you can switch Sever.jar to Client.jar)
+    (On Command Line you can switch between Sever.jar to Client.jar)
 
     If you decide to run server app you need to insert your
     IP address (one where you will be reachable), server will run by default on port 1068.
@@ -37,8 +37,10 @@
     - While On game: by a 30s ping to find any RemoteException
     - At every end turn 
     - While in PreGame: a client crash will be notified only when a new client is going to 
-        try to sing to the lobby 
+        try to sing to the lobby,
 
     In order to avoid a lock, it MUST need to get subscribed only one First player! 
         Since this version is not allowing multiple istance game.
+
+    
 
