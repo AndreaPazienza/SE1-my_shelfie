@@ -395,7 +395,7 @@ public class GameInterface implements Runnable, viewListeners {
      * @param winner The ranking and the winner of the match.
      */
     public void displayWin(String winner){
-        System.out.println("Il gioco è finito!! Il vincitore è: " + winner);
+        System.out.println("\nIl gioco è finito!!" + winner);
     }
 
     /**
@@ -423,7 +423,7 @@ public class GameInterface implements Runnable, viewListeners {
      * Prints a message on the standard output to the not playing player.
      */
     public void onWait() {
-        System.out.print("-- Non è il tuo turno --");
+        System.out.println("-- Non è il tuo turno --");
     }
 
     /**
