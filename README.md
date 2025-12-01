@@ -35,6 +35,10 @@ To fully enjoy the TUI, the terminal should support ANSI escape codes; otherwise
 ## Documentation
 
 - [Game Rules](Deliverables/Rulebook.pdf)
+- [JavaDoc API documentation](Deliverables/JavaDoc)
+- [Sequence diagrams](Deliverables/SequenceDiagrams)
+- [UML class diagram](Deliverables/UML)
+- [Test coverage report image](Deliverables/Test Coverage.png)
 
 ---
 
