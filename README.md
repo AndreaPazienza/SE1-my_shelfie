@@ -1,4 +1,4 @@
-# MyShelfie Final Project
+# Software Engineering Final Project
 
 This repository contains the final project for the Software Engineering course at Politecnico di Milano. The project implements a networked digital version of the MyShelfie board game in Java, featuring a text-based user interface (TUI) and Java RMI for client–server communication.
 
@@ -34,7 +34,7 @@ To fully enjoy the TUI, the terminal should support ANSI escape codes; otherwise
 
 ## Documentation
 
-- [Game Rules](Deliverables/GameRules.pdf)
+- [Game Rules](Deliverables/Rulebook.pdf)
 
 ---
 
