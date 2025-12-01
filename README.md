@@ -12,11 +12,30 @@ The goal of this project was to develop a distributed implementation of the MySh
 
 ## Project Structure
 
-- `Deliverables/`: Contains the project documentation and game-related material.
-  - `GameRules.pdf`: Official game rules used as reference for the implementation.
-  - Other project deliverables (e.g., reports or design documents), if present.
+## Project Structure
 
-Additional source code and resource directories will be documented once the repository structure is finalized.
+- `MyShelfie/src/main/java/`: Contains the main Java source code.
+  - `CONTROLLER/`: Contains controller classes that manage game logic and coordinate interactions between model and view.
+  - `Distributed/`: Contains classes related to the distributed architecture and Java RMI communication.
+  - `Errors/`: Contains custom error and exception handling classes.
+  - `Listeners/`: Contains listener interfaces and classes used for event handling.
+  - `MODEL/`: Contains the core game domain model (board, tiles, players, shelves, etc.).
+  - `VIEW/`: Contains the TUI components responsible for rendering the game state in the terminal.
+  - `App.java`: Entry point for running the application.
+  - `AppClient.java`: Entry point for starting the client application.
+  - `AppServer.java`: Entry point for starting the server application.
+- `MyShelfie/src/main/resources/`: Contains additional resources used by the application.
+  - `personal_goals.json`: Configuration file defining the personal goal cards used in the game.
+- `MyShelfie/src/test/java/`: Contains test classes for validating the behavior of the application.
+- `Deliverables/`: Contains the project documentation and game-related material.
+  - `Rulebook.pdf`: Official game rules used as reference for the implementation.
+  - `JavaDoc/`: Generated Javadoc API documentation for the project.
+  - `SequenceDiagrams/`: Sequence diagrams describing interactions between system components.
+  - `UML/`: UML diagrams illustrating the system architecture and design.
+  - `TestCoverage.png`: Image showing the test coverage results for the codebase.
+  - `MyShelfieClient.jar`: Executable JAR for the game client.
+  - `MyShelfieServer.jar`: Executable JAR for the game server.
+
 
 ---
 
