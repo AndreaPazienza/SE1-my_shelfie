@@ -12,14 +12,12 @@ The goal of this project was to develop a distributed implementation of the MySh
 
 ## Project Structure
 
-## Project Structure
-
 - `MyShelfie/src/main/java/`: Contains the main Java source code.
   - `CONTROLLER/`: Contains controller classes that manage game logic and coordinate interactions between model and view.
   - `Distributed/`: Contains classes related to the distributed architecture and Java RMI communication.
   - `Errors/`: Contains custom error and exception handling classes.
   - `Listeners/`: Contains listener interfaces and classes used for event handling.
-  - `MODEL/`: Contains the core game domain model (board, tiles, players, shelves, etc.).
+  - `MODEL/`: Contains the core game domain model.
   - `VIEW/`: Contains the TUI components responsible for rendering the game state in the terminal.
   - `App.java`: Entry point for running the application.
   - `AppClient.java`: Entry point for starting the client application.
@@ -27,6 +25,9 @@ The goal of this project was to develop a distributed implementation of the MySh
 - `MyShelfie/src/main/resources/`: Contains additional resources used by the application.
   - `personal_goals.json`: Configuration file defining the personal goal cards used in the game.
 - `MyShelfie/src/test/java/`: Contains test classes for validating the behavior of the application.
+  - `CONTROLLER/`: Tests for controller classes.
+  - `MODEL/`: Tests for the game domain model.
+  - `VIEW/`: Tests for the TUI components.
 - `Deliverables/`: Contains the project documentation and game-related material.
   - `Rulebook.pdf`: Official game rules used as reference for the implementation.
   - `JavaDoc/`: Generated Javadoc API documentation for the project.
@@ -35,7 +36,6 @@ The goal of this project was to develop a distributed implementation of the MySh
   - `TestCoverage.png`: Image showing the test coverage results for the codebase.
   - `MyShelfieClient.jar`: Executable JAR for the game client.
   - `MyShelfieServer.jar`: Executable JAR for the game server.
-
 
 ---
 
