@@ -1,46 +1,58 @@
-# MyShelfie: GC38 Ronchieri, Proverbio, Tagab, Pazienza
-    
-# Implementation: 
-   - Complete Rules
-   - TUI
-   - RMI
-   - Advanced Functionality: Resilience to disconnections
+# MyShelfie Final Project
 
-# How to run the application:
-    To be able to play the game you must have: ANSI standard 
-    enabled on your computer (in order to be able to see colors in the TUI
-    otherwise it is going to print a string with numbers and other char, this will
-    allow you to play anyway by using slot's names. This will ruin game experince!)
-    & at least Java 19 since it's been compiled with that version.
+This repository contains the final project for the Software Engineering course at Politecnico di Milano. The project implements a networked digital version of the MyShelfie board game in Java, featuring a text-based user interface (TUI) and Java RMI for client–server communication.
 
-    We made two different JAR files, one for the server and
-    the other one for the client.
+---
 
-    To launch them you need to use your machine's command line
-    and type:
-    java -jar +absolute path/MyShelfieClient.jar 
-    You can also reach the directory where is saved the JAR file 
-    that you want to run and then type:
-    java -jar +MyShelfieServer.jar 
+## Overview
 
-    (On Command Line you can switch between Sever.jar to Client.jar)
+The goal of this project was to develop a distributed implementation of the MyShelfie board game, focusing on correct game rules, turn management, and resilience to client disconnections. The application runs in the terminal using ANSI colors to render the TUI, allowing players to interact with the game board and their personal shelves.
 
-    If you decide to run server app you need to insert your
-    IP address (one where you will be reachable), server will run by default on port 1068.
+---
 
-    If you decide to run client app you need to insert server's IP
-    address that you want to get connected to.
+## Project Structure
 
-# Disclaimer 
-    Crash will be detected in several ways: 
+- `Deliverables/`: Contains the project documentation and game-related material.
+  - `GameRules.pdf`: Official game rules used as reference for the implementation.
+  - Other project deliverables (e.g., reports or design documents), if present.
 
-    - While On game: by a 30s ping to find any RemoteException
-    - At every end turn 
-    - While in PreGame: a client crash will be notified only when a new client is going to 
-        try to sing to the lobby,
+Additional source code and resource directories will be documented once the repository structure is finalized.
 
-    In order to avoid a lock, it MUST need to get subscribed only one First player! 
-        Since this version is not allowing multiple istance game.
+---
 
-    
+## How to Run the Project
+
+The application is distributed as two separate JAR files: one for the server and one for the client.
+
+1. Open a terminal on the machine that will act as the server.
+2. Run the server JAR: java -jar MyShelfieServer.jar. When prompted, enter the IP address where the server will be reachable. The server runs by default on port 1068.
+3. On each client machine, open a terminal and run: java -jar MyShelfieClient.jar. When prompted, enter the server IP address to connect to the game.
+
+To fully enjoy the TUI, the terminal should support ANSI escape codes; otherwise, the interface will fall back to plain text with slot names.
+
+---
+
+## Documentation
+
+- [Game Rules](Deliverables/GameRules.pdf)
+
+---
+
+## Technologies
+
+- Java
+- Text-based User Interface (TUI) with ANSI colors
+- Java RMI
+
+---
+
+## License
+
+This project is released under the MIT License.
+
+---
+
+## Notes
+
+This project was developed as part of the final assignment for the Software Engineering course at Politecnico di Milano. The code and documentation are provided for educational purposes and to demonstrate the implementation of a networked board game with a TUI and RMI-based architecture.
 
