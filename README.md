@@ -1,6 +1,6 @@
-# Software Engineering Final Project
+# Software Engineering 1 Final Project
 
-This repository contains the final project for the Software Engineering course at Politecnico di Milano. The project implements a networked digital version of the MyShelfie board game in Java, featuring a text-based user interface (TUI) and Java RMI for client–server communication.
+This repository contains the final project for the Software Engineering 1 course at Politecnico di Milano. The project implements a networked digital version of the MyShelfie board game in Java, featuring a text-based user interface (TUI) and Java RMI for client–server communication.
 
 ---
 
