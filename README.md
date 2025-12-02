@@ -83,4 +83,4 @@ This project was developed as part of the final assignment for the Software Engi
 
 ## Acknowledgements
 
-This repository was forked from the original project developed in collaboration with Rubin Ronchieri Byrd, [Gabriele Proverbio](https://github.com/GabrieleProverbio) and Alessio Tagab.
+This repository was forked from the original project developed in collaboration with [Rubin Ronchieri Byrd](https://github.com/RubV18), [Gabriele Proverbio](https://github.com/GabrieleProverbio) and [Alessio Tagab](https://github.com/alessiotagab).
