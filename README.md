@@ -79,3 +79,6 @@ This project is released under the MIT License.
 
 This project was developed as part of the final assignment for the Software Engineering course at Politecnico di Milano. The code and documentation are provided for educational purposes and to demonstrate the implementation of a networked board game with a TUI and RMI-based architecture.
 
+## Acknowledgements
+
+This repository was forked from the original project developed in collaboration with [Rubin Ronchieri Byrd](https://github.com/RubV18), Gabriele Proverbio(https://github.com/GabrieleProverbio) and [Alessio Tagab](https://github.com/alessiotagab).
