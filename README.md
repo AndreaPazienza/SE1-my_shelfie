@@ -44,8 +44,10 @@ The goal of this project was to develop a distributed implementation of the MySh
 The application is distributed as two separate JAR files: one for the server and one for the client.
 
 1. Open a terminal on the machine that will act as the server.
-2. Run the server JAR: java -jar MyShelfieServer.jar. When prompted, enter the IP address where the server will be reachable. The server runs by default on port 1068.
-3. On each client machine, open a terminal and run: java -jar MyShelfieClient.jar. When prompted, enter the server IP address to connect to the game.
+2. Run the server JAR: java -jar MyShelfieServer.jar
+3. Enter the IP address where the server will be reachable on port 1068.
+4. On each client machine, open a terminal and run: java -jar MyShelfieClient.jar.
+5. Enter the server IP address to connect to the game.
 
 To fully enjoy the TUI, the terminal should support ANSI escape codes; otherwise, the interface will fall back to plain text with slot names.
 
